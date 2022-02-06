@@ -30,7 +30,7 @@ function Career() {
                         <ul className={"ml-4 list-disc"}>
                             <li className={"text-gray-400"}>Arbeit an einer REST API in PHP</li>
                             <li className={"text-gray-400"}>Einrichten einer PHP-Testumgebung mithilfe von Docker (<a className={"my-link"} href="https://de.wikipedia.org/wiki/LAMP_(Softwarepaket)" target="_blank" rel="noreferrer" hover-info="LAMP (Wikipedia)">LAMP Stack</a>)</li>
-                            <li className={"text-gray-400"}>Aufsetzen von PC's für Kunden (Hardware und Software)</li>
+                            <li className={"text-gray-400"}>Aufsetzen von PC&apos;s für Kunden (Hardware und Software)</li>
                             <li className={"text-gray-400"}>Lagerarbeiten</li>
                         </ul>
                     )}
@@ -44,7 +44,7 @@ function Career() {
                     bg="images/geberit-bg_blurred.jpg"
                     info={(
                         <ul className={"ml-4 list-disc"}>
-                            <li className={"text-gray-400"}>Mitarbeit an der Umstellung der PC's der Mitarbeiter auf Windows 10</li>
+                            <li className={"text-gray-400"}>Mitarbeit an der Umstellung der PC&apos;s der Mitarbeiter auf Windows 10</li>
                             <li className={"text-gray-400"}>Einführung in die <a className={"my-link"} href="https://de.wikipedia.org/wiki/Active_Directory" target="_blank" rel="noreferrer" hover-info="Active Directory (Wikipedia)">Active Directory</a> Organisationseinheiten des Unternehmens</li>
                         </ul>
                     )}
