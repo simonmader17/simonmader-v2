@@ -11,7 +11,7 @@ function Contact({ name, link, logo }) {
 
 function Footer() {
     return (
-        <div className="bg-hero-brick-wall bg-fixed bg-headerFooter text-white p-8 flex items-center justify-center">
+        <div className="bg-hero-brick-wall md:bg-fixed bg-headerFooter text-white p-8 flex items-center justify-center">
             <div className="flex-shrink-0">
                 <img className="h-24 w-24 object-cover lg:h-48 lg:w-48 shadow-md rounded-full m-4" src="images/ich_3_stylized_cropped.png" alt="Ich" />
             </div>
