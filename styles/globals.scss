@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'SfPixelate';
+  src: url('/fonts/SfPixelate-wBgw.ttf');
+}
+
+@font-face {
+  font-family: "Graph 35";
+  src: url("/fonts/Graph-35-pix.ttf");
+}
+
+body {
+  @apply scrollbar scrollbar-thumb-blended;
+
+  ::selection {
+    @apply text-white bg-red-400;
+  }
+}
+
+.my-link {
+  @apply relative;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::after {
+    @apply h-[1px] w-full bg-[rgb(156,_163,_175)] block absolute left-0 bottom-0 scale-x-100 origin-left transition-transform duration-[250ms] ease-in-out;
+    content: '';
+  }
+
+  &:hover::after {
+    @apply scale-x-0 origin-right;
+  }
+
+  &[hover-info]::before {
+    @apply bg-black bg-opacity-50 block absolute p-[1em] text-white rounded-xl text-[.8em] left-0 bottom-0 whitespace-nowrap;
+    content: attr(hover-info);
+
+    transform: scale(0);
+    transition:
+      transform ease-out 150ms,
+      bottom ease-out 150ms;
+  }
+
+  &[hover-info]:hover::before {
+    @apply bg-black bg-opacity-50;
+
+    transform: scale(1);
+    bottom: 100%;
+  }
+}
+
+// @layer components {
+.about {
+  @apply m-4 relative z-10 min-h-[30vh];
+
+  @screen md {
+    @apply flex justify-center relative bg-black bg-opacity-50 rounded-xl;
+  }
+
+  &-content {
+    @apply p-6;
+
+    @media (max-width: 768px) {
+      @apply bg-black bg-opacity-50 rounded-xl;
+    }
+
+    @screen md {
+      @apply w-3/5;
+    }
+  }
+
+  &-bg {
+    @apply bg-center bg-cover;
+
+    @media (max-width: 768px) {
+      @apply bg-[url('/images/ich_2_cropped_blurred.png')] absolute left-0 top-0 h-full w-full z-[-1];
+
+      clip-path: inset(0% round 0.75rem);
+    }
+
+    @screen md {
+      @apply bg-[url('/images/ich_2_cropped.png')] h-auto w-2/5 rounded-r-xl rounded-l-none;
+
+      clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+      shape-outside: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+}
+
+.my-qualification {
+  @apply relative;
+
+  &[hover-info]::after {
+    @apply bg-black bg-opacity-50 font-SfPixelate block absolute p-[1em] text-white rounded-xl text-[.8rem] text-center whitespace-nowrap;
+    content: attr(hover-info);
+
+    bottom: 0;
+    left: 50%;
+    transform: scale(0);
+    transition:
+      transform ease-out 150ms,
+      bottom ease-out 150ms;
+  }
+
+  &[hover-info]:hover::after {
+    @apply bg-black bg-opacity-50;
+
+    transform: scale(1);
+    transform: translateX(-50%);
+    bottom: 100%;
+  }
+}
+
+.bg-blurred {
+  @apply absolute h-full w-full z-[-1] rounded-xl bg-cover bg-fixed;
+
+  &-fg {
+    @apply absolute h-full w-full z-[-1] rounded-xl bg-black bg-opacity-70;
+  }
+}
+// }
