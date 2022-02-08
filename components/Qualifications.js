@@ -3,7 +3,7 @@ function Qualification({ name, logo, link, title, text }) {
         <div className="m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6 shadow-md">
             <div className="flex-shrink-0">
                 <a
-                    className={"my-qualification icon- text-5xl" + logo}
+                    className={`my-qualification text-5xl icon-${logo}`}
                     href={link}
                     target="_blank"
                     rel="noreferrer"
@@ -24,7 +24,7 @@ function Others({ qualifications }) {
     for (const qual of qualifications) {
         items.push(
             <a
-                className={"my-qualification icon- m-4 text-6xl" + qual.logo}
+                className={`my-qualification m-4 text-6xl icon-${qual.logo}`}
                 href={qual.link}
                 target="_blank"
                 rel="noreferrer"
