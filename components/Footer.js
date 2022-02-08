@@ -2,7 +2,7 @@ function Contact({ name, link, logo }) {
     return (
         <p>
             <a href={link} target="_blank" rel="noreferrer">
-                <span className={"icon- m-1" + logo + "-white"} />
+                <span className={`m-1 icon-${logo}-white`} />
                 {name}
             </a>
         </p>
