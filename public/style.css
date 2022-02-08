@@ -1,100 +1,101 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ibcglk');
-  src:  url('fonts/icomoon.eot?ibcglk#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?ibcglk') format('truetype'),
-    url('fonts/icomoon.woff?ibcglk') format('woff'),
-    url('fonts/icomoon.svg?ibcglk#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+    font-family: "icomoon";
+    src: url("fonts/icomoon.eot?ibcglk");
+    src: url("fonts/icomoon.eot?ibcglk#iefix") format("embedded-opentype"),
+        url("fonts/icomoon.ttf?ibcglk") format("truetype"),
+        url("fonts/icomoon.woff?ibcglk") format("woff"),
+        url("fonts/icomoon.svg?ibcglk#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-linkedin-white:before {
-  content: "\e90e";
+    content: "\e90e";
 }
 .icon-gmail-white:before {
-  content: "\e90f";
+    content: "\e90f";
 }
 .icon-android:before {
-  content: "\e900";
-  color: #3ddc84;
+    content: "\e900";
+    color: #3ddc84;
 }
 .icon-css3:before {
-  content: "\e901";
-  color: #1572b6;
+    content: "\e901";
+    color: #1572b6;
 }
 .icon-git:before {
-  content: "\e902";
-  color: #f05032;
+    content: "\e902";
+    color: #f05032;
 }
 .icon-html5:before {
-  content: "\e903";
-  color: #e34f26;
+    content: "\e903";
+    color: #e34f26;
 }
 .icon-java:before {
-  content: "\e904";
-  color: #007396;
+    content: "\e904";
+    color: #007396;
 }
 .icon-javascript:before {
-  content: "\e905";
-  color: #f7df1e;
+    content: "\e905";
+    color: #f7df1e;
 }
 .icon-latex:before {
-  content: "\e906";
-  color: #008080;
+    content: "\e906";
+    color: #008080;
 }
 .icon-linux:before {
-  content: "\e907";
-  color: #fcc624;
+    content: "\e907";
+    color: #fcc624;
 }
 .icon-microsoftoffice:before {
-  content: "\e908";
-  color: #e74025;
+    content: "\e908";
+    color: #e74025;
 }
 .icon-python:before {
-  content: "\e909";
-  color: #3776ab;
+    content: "\e909";
+    color: #3776ab;
 }
 .icon-spring:before {
-  content: "\e90a";
-  color: #6db33f;
+    content: "\e90a";
+    color: #6db33f;
 }
 .icon-gmail:before {
-  content: "\e90b";
-  color: #d14836;
+    content: "\e90b";
+    color: #d14836;
 }
 .icon-linkedin:before {
-  content: "\e90c";
-  color: #0077b5;
+    content: "\e90c";
+    color: #0077b5;
 }
 .icon-react:before {
-  content: "\e90d";
-  color: #61dafb;
+    content: "\e90d";
+    color: #61dafb;
 }
 .icon-apache:before {
-  content: "\e910";
-  color: #d22128;
+    content: "\e910";
+    color: #d22128;
 }
 .icon-php:before {
-  content: "\e911";
-  color: #777bb4;
+    content: "\e911";
+    color: #777bb4;
 }
 .icon-database:before {
-  content: "\e964";
+    content: "\e964";
 }

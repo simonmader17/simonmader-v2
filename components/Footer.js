@@ -2,18 +2,22 @@ function Contact({ name, link, logo }) {
     return (
         <p>
             <a href={link} target="_blank" rel="noreferrer">
-                <span className={"m-1 icon-" + logo + "-white"} />
+                <span className={"icon- m-1" + logo + "-white"} />
                 {name}
             </a>
         </p>
-    )
+    );
 }
 
 function Footer() {
     return (
-        <div className="bg-hero-brick-wall bg-headerFooter text-white p-8 flex items-center justify-center">
+        <div className="bg-hero-brick-wall bg-headerFooter flex items-center justify-center p-8 text-white">
             <div className="flex-shrink-0">
-                <img className="h-24 w-24 object-cover lg:h-48 lg:w-48 shadow-md rounded-full m-4" src="images/ich_3_stylized_cropped.png" alt="Ich" />
+                <img
+                    className="m-4 h-24 w-24 rounded-full object-cover shadow-md lg:h-48 lg:w-48"
+                    src="images/ich_3_stylized_cropped.png"
+                    alt="Ich"
+                />
             </div>
             <div className="text-left text-xs lg:text-base">
                 <p>Simon Mader</p>
@@ -29,7 +33,7 @@ function Footer() {
                 />
             </div>
         </div>
-    )
+    );
 }
 
 export default Footer;

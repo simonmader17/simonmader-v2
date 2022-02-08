@@ -9,50 +9,46 @@ import Others from "../components/Others";
 import Qualifications from "../components/Qualifications";
 
 export default function Home() {
-  return (
-    <div>
-      <Head>
-        <title>Simon Mader</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="preload"
-          href="/fonts/SfPixelate-wBgw.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Graph-35-pix.ttf"
-          as="font"
-          crossOrigin=""
-        />
-      </Head>
-      
-      <div className="text-center font-SfPixelate text-white">
+    return (
+        <div>
+            <Head>
+                <title>Simon Mader</title>
+                <link rel="icon" href="/favicon.ico" />
+                <link
+                    rel="preload"
+                    href="/fonts/SfPixelate-wBgw.ttf"
+                    as="font"
+                    crossOrigin=""
+                />
+                <link
+                    rel="preload"
+                    href="/fonts/Graph-35-pix.ttf"
+                    as="font"
+                    crossOrigin=""
+                />
+            </Head>
 
-        <Header />
+            <div className="font-SfPixelate text-center text-white">
+                <Header />
 
-        <div className="p-4 bg-hero-brick-wall-purple bg-body text-left">
+                <div className="bg-hero-brick-wall-purple bg-body p-4 text-left">
+                    <div className="container mx-auto">
+                        <About />
 
-          <div className="container mx-auto">
-            <About />
+                        <Qualifications />
 
-            <Qualifications />
+                        <Certificates />
 
-            <Certificates />
+                        <Education />
 
-            <Education />
+                        <Career />
 
-            <Career />
+                        <Others />
+                    </div>
+                </div>
 
-            <Others />
-          </div>
-
+                <Footer />
+            </div>
         </div>
-
-        <Footer />
-        
-      </div>
-    </div>
-  )
+    );
 }

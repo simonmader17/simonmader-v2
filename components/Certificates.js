@@ -4,29 +4,59 @@ moment.locale("de");
 
 function Certificate({ name, company, companyUrl, logo, from, to, id, url }) {
     return (
-        <div className="p-6 max-w-full m-4 bg-black bg-opacity-50 rounded-xl shadow-md flex items-center space-x-4">
+        <div className="m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6 shadow-md">
             <div className="flex-shrink-0">
-                <a href={companyUrl} target="_blank" rel="noreferrer" title={company}>
+                <a
+                    href={companyUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={company}
+                >
                     <img className="h-12" src={logo} alt={logo} />
                 </a>
             </div>
             <div>
                 <div className={"text-xl"}>{name}</div>
                 <p className={"text-gray-400"}>{company}</p>
-                <p className={"text-gray-400"}>{from ? 'Ausgestellt: ' + moment(from).format('MMMM YYYY') : 'Kein Ausstellungsdatum'}</p>
-                <p className={"text-gray-400"}>{to ? 'Gültig bis: ' + moment(to).format('MMMM YYYY') : 'Kein Ablaufdatum'}</p>
-                <p className={"text-gray-400"}>{id ? 'Zertifikats-ID: ' + id : ''}</p>
-                <p className={"text-gray-400"}>{url ? <a className={"my-link"} href={url} target="_blank" rel="noreferrer">Nachweis anzeigen</a> : ''}</p>
+                <p className={"text-gray-400"}>
+                    {from
+                        ? "Ausgestellt: " + moment(from).format("MMMM YYYY")
+                        : "Kein Ausstellungsdatum"}
+                </p>
+                <p className={"text-gray-400"}>
+                    {to
+                        ? "Gültig bis: " + moment(to).format("MMMM YYYY")
+                        : "Kein Ablaufdatum"}
+                </p>
+                <p className={"text-gray-400"}>
+                    {id ? "Zertifikats-ID: " + id : ""}
+                </p>
+                <p className={"text-gray-400"}>
+                    {url ? (
+                        <a
+                            className={"my-link"}
+                            href={url}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Nachweis anzeigen
+                        </a>
+                    ) : (
+                        ""
+                    )}
+                </p>
             </div>
         </div>
-    )
+    );
 }
 
 function Certificates() {
     return (
         <div>
-            <h2 id="certificates" className="text-2xl font-bold m-4 pt-4">Zertifikate</h2>
-            <div className="grid lg:grid-cols-2 sm:grid-cols-1">
+            <h2 id="certificates" className="m-4 pt-4 text-2xl font-bold">
+                Zertifikate
+            </h2>
+            <div className="grid sm:grid-cols-1 lg:grid-cols-2">
                 <Certificate
                     name="Oracle Certified Professional: Java SE 11 Developer"
                     company="Oracle"
@@ -56,7 +86,7 @@ function Certificates() {
                 />
             </div>
         </div>
-    )
+    );
 }
 
 export default Certificates;
