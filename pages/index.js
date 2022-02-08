@@ -32,7 +32,7 @@ export default function Home() {
 
         <Header />
 
-        <div className="p-4 bg-hero-brick-wall-purple md:bg-fixed bg-body text-left">
+        <div className="p-4 bg-hero-brick-wall-purple bg-body text-left">
 
           <div className="container mx-auto">
             <About />

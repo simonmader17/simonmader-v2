@@ -14,7 +14,7 @@ function Header() {
     }, [chevronDownIconOpacity])
 
     return (
-        <div className="bg-hero-brick-wall md:bg-fixed bg-headerFooter min-h-screen w-screen flex flex-col items-center justify-center">
+        <div className="bg-hero-brick-wall bg-headerFooter min-h-screen w-screen flex flex-col items-center justify-center">
             <div className="sticky top-0">
                 <img className="mx-auto relative h-20" src="/images/pepejam3.gif" />
                 <p className="text-4xl pl-1 mb-4 mt-0 font-Graph35">Simon.</p>
