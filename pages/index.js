@@ -39,9 +39,9 @@ export default function Home() {
 
             <Certificates />
 
-            <Education />
-
             <Career />
+
+            <Education />
 
             <Others />
           </div>

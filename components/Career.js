@@ -34,6 +34,32 @@ function Career() {
       </h2>
       <div className="grid grid-cols-1">
         <Job
+          position="Zivildienst"
+          firma="ASBÖ St. Pölten"
+          zeitraum="September 2021 &mdash; Mai 2022"
+          ort="St. Pölten, Niederösterreich, Österreich"
+          bg="images/asboe-bg_blurred.jpg"
+          info={
+            <ul className="ml-4 list-disc">
+              <li className="text-gray-400">
+                Ausbildung zum Rettungssanitäter
+              </li>
+              <li className="text-gray-400">
+                Betreuung von Patienten während des Rettungs- und
+                Krankentransportes
+              </li>
+              <li className="text-gray-400">
+                Erledigung organisatorischer Aufgaben innerhalb der
+                Rettungsstelle
+              </li>
+              <li className="text-gray-400">
+                Unterstützung der beruflichen und freiwilligen Mitarbeiter in
+                verschiedenen Belangen
+              </li>
+            </ul>
+          }
+        />
+        <Job
           position="Praktikant"
           firma="BSO EDV- und Betriebsberatung GmbH"
           zeitraum="Juli 2020"
@@ -41,14 +67,12 @@ function Career() {
           // bg={bso_bg}
           bg="images/bso-bg_retouched_blurred.png"
           info={
-            <ul className={"ml-4 list-disc"}>
-              <li className={"text-gray-400"}>
-                Arbeit an einer REST API in PHP
-              </li>
-              <li className={"text-gray-400"}>
+            <ul className="ml-4 list-disc">
+              <li className="text-gray-400">Arbeit an einer REST API in PHP</li>
+              <li className="text-gray-400">
                 Einrichten einer PHP-Testumgebung mithilfe von Docker (
                 <a
-                  className={"my-link"}
+                  className="my-link"
                   href="https://de.wikipedia.org/wiki/LAMP_(Softwarepaket)"
                   target="_blank"
                   rel="noreferrer"
@@ -58,10 +82,10 @@ function Career() {
                 </a>
                 )
               </li>
-              <li className={"text-gray-400"}>
+              <li className="text-gray-400">
                 Aufsetzen von PC&apos;s für Kunden (Hardware und Software)
               </li>
-              <li className={"text-gray-400"}>Lagerarbeiten</li>
+              <li className="text-gray-400">Lagerarbeiten</li>
             </ul>
           }
         />
@@ -73,15 +97,15 @@ function Career() {
           // bg={geberit_bg}
           bg="images/geberit-bg_blurred.jpg"
           info={
-            <ul className={"ml-4 list-disc"}>
-              <li className={"text-gray-400"}>
+            <ul className="ml-4 list-disc">
+              <li className="text-gray-400">
                 Mitarbeit an der Umstellung der PC&apos;s der Mitarbeiter auf
                 Windows 10
               </li>
-              <li className={"text-gray-400"}>
+              <li className="text-gray-400">
                 Einführung in die{" "}
                 <a
-                  className={"my-link"}
+                  className="my-link"
                   href="https://de.wikipedia.org/wiki/Active_Directory"
                   target="_blank"
                   rel="noreferrer"
@@ -102,8 +126,8 @@ function Career() {
           // bg={gemeinde_bg}
           bg="images/gemeinde-bg_blurred.jpeg"
           info={
-            <ul className={"ml-4 list-disc"}>
-              <li className={"text-gray-400"}>
+            <ul className="ml-4 list-disc">
+              <li className="text-gray-400">
                 Mitarbeit in der Gemeinde: Rasenmähen, Sträucher schneiden, usw.
               </li>
             </ul>
