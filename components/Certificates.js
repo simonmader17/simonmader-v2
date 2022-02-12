@@ -49,7 +49,7 @@ function Certificates() {
       <h2 id="certificates" className="m-4 pt-4 text-2xl font-bold">
         Zertifikate
       </h2>
-      <div className="grid sm:grid-cols-1 lg:grid-cols-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
         <Certificate
           name="Oracle Certified Professional: Java SE 11 Developer"
           company="Oracle"

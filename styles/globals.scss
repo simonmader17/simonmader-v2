@@ -28,7 +28,7 @@ body {
   }
 
   &::after {
-    @apply absolute left-0 bottom-0 block h-[1px] w-full origin-left scale-x-100 bg-[rgb(156,_163,_175)] transition-transform duration-[250ms] ease-in-out;
+    @apply absolute left-0 bottom-0 block h-px w-full origin-left scale-x-100 bg-gray-400 transition-transform duration-300 ease-in-out;
     content: "";
   }
 
@@ -57,7 +57,7 @@ body {
   @apply relative z-10 m-4;
 
   @screen md {
-    @apply relative flex justify-center rounded-xl bg-black bg-opacity-50 min-h-[30vh];
+    @apply relative flex min-h-[30vh] justify-center rounded-xl bg-black bg-opacity-50;
   }
 
   &-content {
@@ -76,7 +76,7 @@ body {
     @apply bg-cover bg-center;
 
     @media (max-width: 768px) {
-      @apply absolute left-0 top-0 z-[-1] h-full w-full bg-[url('/images/ich_2_cropped_blurred.png')];
+      @apply absolute left-0 top-0 -z-10 h-full w-full bg-[url('/images/ich_2_cropped_blurred.png')];
 
       clip-path: inset(0% round 0.75rem);
     }
@@ -113,10 +113,10 @@ body {
 }
 
 .bg-blurred {
-  @apply absolute z-[-1] h-full w-full rounded-xl bg-center md:bg-top bg-cover;
+  @apply absolute -z-10 h-full w-full rounded-xl bg-cover bg-center md:bg-top;
 
   &-fg {
-    @apply absolute z-[-1] h-full w-full rounded-xl bg-black bg-opacity-70;
+    @apply absolute -z-10 h-full w-full rounded-xl bg-black bg-opacity-70;
   }
 }
 // }

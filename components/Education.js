@@ -39,18 +39,18 @@ function Education() {
           // bg={htl_bg}
           bg="images/htl-bg_blurred.jpeg"
           info={
-            <ul className={"ml-4 list-disc"}>
-              <li className={"text-gray-400"}>
+            <ul className="ml-4 list-disc">
+              <li className="text-gray-400">
                 Mit ausgezeichnetem Erfolg abgeschlossen
               </li>
-              <li className={"text-gray-400"}>
+              <li className="text-gray-400">
                 Abschluss der Reife- und Diplomprüfung mit ausgezeichnetem
                 Erfolg
               </li>
-              <li className={"text-gray-400"}>
+              <li className="text-gray-400">
                 Diplomarbeitsthema: Freitextanalyse mithilfe von{" "}
                 <a
-                  className={"my-link"}
+                  className="my-link"
                   href="https://en.wikipedia.org/wiki/Natural_language_processing"
                   target="_blank"
                   rel="noreferrer"
