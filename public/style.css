@@ -1,10 +1,10 @@
 @font-face {
   font-family: "icomoon";
-  src: url("fonts/icomoon.eot?ibcglk");
-  src: url("fonts/icomoon.eot?ibcglk#iefix") format("embedded-opentype"),
-    url("fonts/icomoon.ttf?ibcglk") format("truetype"),
-    url("fonts/icomoon.woff?ibcglk") format("woff"),
-    url("fonts/icomoon.svg?ibcglk#icomoon") format("svg");
+  src: url("fonts/icomoon.eot?8e8064");
+  src: url("fonts/icomoon.eot?8e8064#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?8e8064") format("truetype"),
+    url("fonts/icomoon.woff?8e8064") format("woff"),
+    url("fonts/icomoon.svg?8e8064#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -31,6 +31,9 @@
 }
 .icon-gmail-white:before {
   content: "\e90f";
+}
+.icon-github-white:before {
+  content: "\eab0";
 }
 .icon-android:before {
   content: "\e900";

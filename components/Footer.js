@@ -31,6 +31,11 @@ function Footer() {
           link="https://www.linkedin.com/in/simonmader/"
           logo="linkedin"
         />
+        <Contact
+          name="simonmader17"
+          link="https://github.com/simonmader17"
+          logo="github"
+        />
       </div>
     </div>
   );
