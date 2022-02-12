@@ -1,14 +1,14 @@
 import { useState } from "react";
-// import Expand from "react-expand-animated";
+import Expand from "react-expand-animated";
 
 function School({ name, zweig, zeitraum, bg, info }) {
-    // const [showInfo, setShowInfo] = useState(false);
+    const [showInfo, setShowInfo] = useState(false);
 
     return (
         <div
             className="relative z-10 m-4 shadow-md"
-            // onMouseEnter={() => setShowInfo(true)}
-            // onMouseLeave={() => setShowInfo(false)}
+            onMouseEnter={() => setShowInfo(true)}
+            onMouseLeave={() => setShowInfo(false)}
         >
             <div
                 className="bg-blurred"
@@ -19,9 +19,9 @@ function School({ name, zweig, zeitraum, bg, info }) {
                 <p className="text-xl text-red-400">{name}</p>
                 <p>{zweig}</p>
                 <p>{zeitraum}</p>
-                {/* {showInfo && <Expand open={showInfo}> */}
-                {info}
-                {/* </Expand>} */}
+                {info && <Expand open={showInfo}>
+                    {info}
+                </Expand>}
             </div>
         </div>
     );

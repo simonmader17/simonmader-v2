@@ -1,6 +1,15 @@
+import { useState } from "react";
+import Expand from "react-expand-animated";
+
 function Job({ position, firma, zeitraum, ort, bg, info }) {
+    const [showInfo, setShowInfo] = useState(false);
+
     return (
-        <div className="relative z-10 m-4 shadow-md">
+        <div
+            className="relative z-10 m-4 shadow-md"
+            onMouseEnter={() => setShowInfo(true)}
+            onMouseLeave={() => setShowInfo(false)}
+        >
             <div
                 className="bg-blurred"
                 style={{ backgroundImage: `url(${bg})` }}
@@ -11,7 +20,9 @@ function Job({ position, firma, zeitraum, ort, bg, info }) {
                 <p className="text-xl text-red-400">{firma ? firma : ""}</p>
                 <p>{zeitraum}</p>
                 <p>{ort}</p>
-                {info}
+                {info && <Expand open={showInfo}>
+                    {info}    
+                </Expand>}
             </div>
         </div>
     );

@@ -7,7 +7,7 @@ function Header() {
     useEffect(() => {
         const onScroll = () => {
             setChevronDownIconOpacity((100 - window.scrollY) / 100);
-            console.log((100 - window.scrollY) / 100);
+            // console.log((100 - window.scrollY) / 100);
         };
 
         window.addEventListener("scroll", onScroll);
