@@ -5,6 +5,7 @@ import Certificates from "../components/Certificates";
 import Education from "../components/Education";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import Others from "../components/Others";
 import Qualifications from "../components/Qualifications";
 
@@ -29,6 +30,8 @@ export default function Home() {
       </Head>
 
       <div className="font-SfPixelate text-center text-white">
+        <Navbar />
+
         <Header />
 
         <div className="bg-hero-brick-wall-purple bg-body p-4 text-left">
