@@ -54,10 +54,10 @@ body {
 
 // @layer components {
 .about {
-  @apply relative z-10 m-4 min-h-[30vh];
+  @apply relative z-10 m-4;
 
   @screen md {
-    @apply relative flex justify-center rounded-xl bg-black bg-opacity-50;
+    @apply relative flex justify-center rounded-xl bg-black bg-opacity-50 min-h-[30vh];
   }
 
   &-content {
