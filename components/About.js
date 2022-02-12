@@ -9,7 +9,7 @@ function About() {
           <p className={"text-xl text-red-400 md:text-3xl"}>
             Hi! Ich bin Simon.
           </p>
-          <p className={"text-justify md:text-xl"}>
+          <p className={"md:text-justify md:text-xl"}>
             Ich habe mit dem Schuljahr 2020/21 die HTL St. Pölten (Informatik)
             mit ausgezeichnetem Erfolg abgeschlossen. Der Fokus in der Schule
             lag auf Java Spring Development, Algorithmik und Datenbankdesign.
@@ -17,7 +17,7 @@ function About() {
             Vorgängen mithilfe von Python und der Entwicklung von Webapps
             mithilfe von JavaScript Frameworks wie React.
           </p>
-          <p className={"text-justify md:text-xl"}>
+          <p className={"md:text-justify md:text-xl"}>
             In meiner Freizeit mache ich gerne Kraftsport, beschäftige ich mich
             viel mit dem Thema Ernährung und schaue gerne Filme und Serien.
           </p>
