@@ -63,7 +63,7 @@ body {
   &-content {
     @apply p-6;
 
-    @media (max-width: 768px) {
+    @screen ltmd {
       @apply rounded-xl bg-black bg-opacity-50;
     }
 
@@ -75,7 +75,7 @@ body {
   &-bg {
     @apply bg-cover bg-center;
 
-    @media (max-width: 768px) {
+    @screen ltmd {
       @apply absolute left-0 top-0 -z-10 h-full w-full bg-[url('/images/ich_2_cropped_blurred.png')];
 
       clip-path: inset(0% round 0.75rem);

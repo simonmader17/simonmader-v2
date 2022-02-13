@@ -17,6 +17,9 @@ module.exports = {
         SfPixelate: "SfPixelate",
         Graph35: "Graph\\ 35",
       },
+      screens: {
+        ltmd: { max: "767px" },
+      },
     },
   },
   plugins: [
