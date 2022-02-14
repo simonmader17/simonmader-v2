@@ -1,5 +1,6 @@
 import moment from "moment";
 import "moment/locale/de";
+import Image from "next/image";
 moment.locale("de");
 
 interface CertificateInterface {
@@ -27,7 +28,14 @@ function Certificate({
     <div className="m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6 shadow-md">
       <div className="flex-shrink-0">
         <a href={companyUrl} target="_blank" rel="noreferrer" title={company}>
-          <img className="h-12" src={logo} alt={logo} />
+          <div className="relative h-12 w-12">
+            <Image
+              src={"/" + logo}
+              alt={logo}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
         </a>
       </div>
       <div>
