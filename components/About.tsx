@@ -1,7 +1,7 @@
 import moment from "moment";
 
 function About() {
-  const calculateAge = () => {
+  const calculateAge = (): number => {
     const birthday = moment(new Date("2002-02-17"));
     const today = moment();
     return today.diff(birthday, "years");

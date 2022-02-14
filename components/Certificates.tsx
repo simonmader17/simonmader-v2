@@ -2,7 +2,27 @@ import moment from "moment";
 import "moment/locale/de";
 moment.locale("de");
 
-function Certificate({ name, company, companyUrl, logo, from, to, id, url }) {
+interface CertificateInterface {
+  name: string;
+  company: string;
+  companyUrl: string;
+  logo: string;
+  from: Date;
+  to?: Date;
+  id?: string;
+  url?: string;
+}
+
+function Certificate({
+  name,
+  company,
+  companyUrl,
+  logo,
+  from,
+  to,
+  id,
+  url,
+}: CertificateInterface) {
   return (
     <div className="m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6 shadow-md">
       <div className="flex-shrink-0">

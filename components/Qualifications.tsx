@@ -1,4 +1,18 @@
-function Qualification({ name, logo, link, title, text }) {
+interface QualificationInterface {
+  name: string;
+  logo: string;
+  link: string;
+  title: string;
+  text?: JSX.Element;
+}
+
+function Qualification({
+  name,
+  logo,
+  link,
+  title,
+  text,
+}: QualificationInterface) {
   return (
     <div className="m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6 shadow-md">
       <div className="flex-shrink-0">
@@ -18,7 +32,17 @@ function Qualification({ name, logo, link, title, text }) {
   );
 }
 
-function Others({ qualifications }) {
+interface OtherQualificationInterface {
+  logo: string;
+  link: string;
+  title: string;
+}
+
+interface OthersInterface {
+  qualifications: OtherQualificationInterface[];
+}
+
+function Others({ qualifications }: OthersInterface) {
   const items = [];
 
   for (const qual of qualifications) {

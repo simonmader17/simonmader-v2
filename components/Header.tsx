@@ -5,7 +5,7 @@ function Header() {
   const [chevronDownIconOpacity, setChevronDownIconOpacity] = useState(1);
 
   useEffect(() => {
-    const onScroll = () => {
+    const onScroll = (): void => {
       setChevronDownIconOpacity((100 - window.scrollY) / 100);
       // console.log((100 - window.scrollY) / 100);
     };

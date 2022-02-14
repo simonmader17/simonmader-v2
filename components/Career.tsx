@@ -1,7 +1,16 @@
 import { useState } from "react";
 import Expand from "react-expand-animated";
 
-function Job({ position, firma, zeitraum, ort, bg, info }) {
+interface JobInterface {
+  position: string;
+  firma: string;
+  zeitraum: string;
+  ort: string;
+  bg: string;
+  info?: JSX.Element;
+}
+
+function Job({ position, firma, zeitraum, ort, bg, info }: JobInterface) {
   const [showInfo, setShowInfo] = useState(false);
 
   return (

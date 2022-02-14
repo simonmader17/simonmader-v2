@@ -1,7 +1,15 @@
 import { useState } from "react";
 import Expand from "react-expand-animated";
 
-function School({ name, zweig, zeitraum, bg, info }) {
+interface SchoolInterface {
+  name: string;
+  zweig: string;
+  zeitraum: string;
+  bg: string;
+  info?: JSX.Element;
+}
+
+function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
   const [showInfo, setShowInfo] = useState(false);
 
   return (

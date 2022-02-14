@@ -1,4 +1,10 @@
-function Contact({ name, link, logo }) {
+interface ContactInterface {
+  name: string;
+  link: string;
+  logo: string;
+}
+
+function Contact({ name, link, logo }: ContactInterface) {
   return (
     <p>
       <a href={link} target="_blank" rel="noreferrer">
