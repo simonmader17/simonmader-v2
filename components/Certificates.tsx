@@ -3,11 +3,15 @@ import "moment/locale/de";
 import Image from "next/image";
 moment.locale("de");
 
+import oracle_logo from "../public/images/oracle.png";
+import cambridge_logo from "../public/images/cambridge_assessment_english.png";
+import lpi_logo from "../public/images/linux_professional_institute.png";
+
 interface CertificateInterface {
   name: string;
   company: string;
   companyUrl: string;
-  logo: string;
+  logo: StaticImageData;
   from: Date;
   to?: Date;
   id?: string;
@@ -30,10 +34,11 @@ function Certificate({
         <a href={companyUrl} target="_blank" rel="noreferrer" title={company}>
           <div className="relative h-12 w-12">
             <Image
-              src={"/" + logo}
-              alt={logo}
+              src={logo}
+              alt={company}
               layout="fill"
               objectFit="cover"
+              placeholder="blur"
             />
           </div>
         </a>
@@ -82,8 +87,8 @@ function Certificates() {
           name="Oracle Certified Professional: Java SE 11 Developer"
           company="Oracle"
           companyUrl="https://www.oracle.com/index.html"
-          // logo={oracle_logo}
-          logo="images/oracle.png"
+          logo={oracle_logo}
+          // logo="images/oracle.png"
           from={new Date("2021-04-23")}
           url="https://catalog-education.oracle.com/pls/certview/sharebadge?id=80D20A440FC6CCD06D30C39AC2A8312B1B9C1191594C24EEFC901450044827F2"
         />
@@ -91,8 +96,8 @@ function Certificates() {
           name="Cambridge English Level 1 Certificate in ESOL International (Business Vantage)"
           company="Cambridge Assessment English"
           companyUrl="https://www.cambridgeenglish.org/"
-          // logo={cambridge_logo}
-          logo="images/cambridge_assessment_english.png"
+          logo={cambridge_logo}
+          // logo="images/cambridge_assessment_english.png"
           from={new Date("2019-06")}
           id="A9686056"
         />
@@ -100,8 +105,8 @@ function Certificates() {
           name="LE-1: Linux Essentials"
           company="Linux Professional Institute"
           companyUrl="https://www.lpi.org/"
-          // logo={lpi_logo}
-          logo="images/linux_professional_institute.png"
+          logo={lpi_logo}
+          // logo="images/linux_professional_institute.png"
           from={new Date("2019-06")}
           url="http://lpi.org/v/LPI000429624/yj5w3k2jay"
         />
