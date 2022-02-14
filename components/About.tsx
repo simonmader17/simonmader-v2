@@ -1,4 +1,7 @@
 import moment from "moment";
+import Image from "next/image";
+
+import about_bg from "../public/images/personal_images/ich.png";
 
 function About() {
   const calculateAge = (): number => {
@@ -35,7 +38,17 @@ function About() {
             viel mit dem Thema Ernährung und schaue gerne Filme und Serien.
           </p>
         </div>
-        <div className="about-bg"></div>
+        <div className="about-bg">
+          <Image
+            src={about_bg}
+            alt="ich"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            placeholder="blur"
+            className="rounded-r-xl"
+          />
+        </div>
       </div>
     </div>
   );

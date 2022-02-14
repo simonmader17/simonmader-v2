@@ -1,12 +1,18 @@
+import Image from "next/image";
 import { useState } from "react";
 import Expand from "react-expand-animated";
+
+import asboe_bg from "../public/images/background_images/asboe.jpg";
+import bso_bg from "../public/images/background_images/bso.png";
+import geberit_bg from "../public/images/background_images/geberit.jpg";
+import gemeinde_bg from "../public/images/background_images/gemeinde.jpeg";
 
 interface JobInterface {
   position: string;
   firma: string;
   zeitraum: string;
   ort: string;
-  bg: string;
+  bg: StaticImageData;
   info?: JSX.Element;
 }
 
@@ -19,12 +25,17 @@ function Job({ position, firma, zeitraum, ort, bg, info }: JobInterface) {
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <div
-        className="bg-blurred"
-        style={{ backgroundImage: `url(${bg})` }}
-      ></div>
-      <div className="bg-blurred-fg"></div>
-      <div className="p-6">
+      <div className="bg-blurred">
+        <Image
+          src={bg}
+          alt={firma}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="top"
+          placeholder="blur"
+        />
+      </div>
+      <div className="rounded-xl bg-black bg-opacity-70 p-6">
         <p className="text-gray-400">{position}</p>
         <p className="text-xl text-red-400">{firma ? firma : ""}</p>
         <p>{zeitraum}</p>
@@ -47,7 +58,7 @@ function Career() {
           firma="ASBÖ St. Pölten"
           zeitraum="September 2021 &mdash; Mai 2022"
           ort="St. Pölten, Niederösterreich, Österreich"
-          bg="images/asboe-bg_blurred.jpg"
+          bg={asboe_bg}
           info={
             <ul className="ml-4 list-disc">
               <li className="text-gray-400">
@@ -73,8 +84,7 @@ function Career() {
           firma="BSO EDV- und Betriebsberatung GmbH"
           zeitraum="Juli 2020"
           ort="St. Pölten, Niederösterreich, Österreich"
-          // bg={bso_bg}
-          bg="images/bso-bg_retouched_blurred.png"
+          bg={bso_bg}
           info={
             <ul className="ml-4 list-disc">
               <li className="text-gray-400">Arbeit an einer REST API in PHP</li>
@@ -103,8 +113,7 @@ function Career() {
           firma="Geberit Österreich"
           zeitraum="Juli 2018"
           ort="Pottenbrunn, Niederösterreich, Österreich"
-          // bg={geberit_bg}
-          bg="images/geberit-bg_blurred.jpg"
+          bg={geberit_bg}
           info={
             <ul className="ml-4 list-disc">
               <li className="text-gray-400">
@@ -132,8 +141,7 @@ function Career() {
           firma="Gemeindeamt Kasten bei Böheimkirchen"
           zeitraum="17. Juli &mdash; 13. Aug. 2017"
           ort="Kasten bei Böheimkirchen, Niederösterreich, Österreich"
-          // bg={gemeinde_bg}
-          bg="images/gemeinde-bg_blurred.jpeg"
+          bg={gemeinde_bg}
           info={
             <ul className="ml-4 list-disc">
               <li className="text-gray-400">

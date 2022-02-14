@@ -52,7 +52,6 @@ body {
   }
 }
 
-// @layer components {
 .about {
   @apply relative z-10 m-4;
 
@@ -76,13 +75,13 @@ body {
     @apply bg-cover bg-center;
 
     @screen ltmd {
-      @apply absolute left-0 top-0 -z-10 h-full w-full bg-[url('/images/ich_2_cropped_blurred.png')];
+      @apply absolute left-0 top-0 -z-10 h-full w-full blur-sm;
 
       clip-path: inset(0% round 0.75rem);
     }
 
     @screen md {
-      @apply h-auto w-2/5 rounded-r-xl rounded-l-none bg-[url('/images/ich_2_cropped.png')];
+      @apply relative h-auto w-2/5;
 
       clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
       shape-outside: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -113,10 +112,7 @@ body {
 }
 
 .bg-blurred {
-  @apply absolute -z-10 h-full w-full rounded-xl bg-cover bg-center md:bg-top;
+  @apply absolute -z-10 h-full w-full blur-sm;
 
-  &-fg {
-    @apply absolute -z-10 h-full w-full rounded-xl bg-black bg-opacity-70;
-  }
+  clip-path: inset(0% round 0.75rem);
 }
-// }

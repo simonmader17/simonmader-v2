@@ -1,11 +1,15 @@
 import { useState } from "react";
 import Expand from "react-expand-animated";
 
+import htl_bg from "../public/images/background_images/htl.jpeg";
+import borg_bg from "../public/images/background_images/borg.jpg";
+import Image from "next/image";
+
 interface SchoolInterface {
   name: string;
   zweig: string;
   zeitraum: string;
-  bg: string;
+  bg: StaticImageData;
   info?: JSX.Element;
 }
 
@@ -18,12 +22,17 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <div
-        className="bg-blurred"
-        style={{ backgroundImage: `url(${bg})` }}
-      ></div>
-      <div className="bg-blurred-fg"></div>
-      <div className="p-6">
+      <div className="bg-blurred">
+        <Image
+          src={bg}
+          alt={name}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="top"
+          placeholder="blur"
+        />
+      </div>
+      <div className="rounded-xl bg-black bg-opacity-70 p-6">
         <p className="text-xl text-red-400">{name}</p>
         <p>{zweig}</p>
         <p>{zeitraum}</p>
@@ -44,8 +53,7 @@ function Education() {
           name="HTL St. Pölten"
           zweig="Abteilung Informatik"
           zeitraum="2016&mdash;2021"
-          // bg={htl_bg}
-          bg="images/htl-bg_blurred.jpeg"
+          bg={htl_bg}
           info={
             <ul className="ml-4 list-disc">
               <li className="text-gray-400">
@@ -74,8 +82,7 @@ function Education() {
           name="BRG St. Pölten"
           zweig="Musikalischer Zweig"
           zeitraum="2012&mdash;2016"
-          // bg={borg_bg}
-          bg="images/borg-bg_blurred.jpg"
+          bg={borg_bg}
         />
       </div>
     </div>

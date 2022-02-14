@@ -1,3 +1,7 @@
+import Image from "next/image";
+
+import contact_img from "../public/images/personal_images/ich_2.jpeg";
+
 interface ContactInterface {
   name: string;
   link: string;
@@ -19,11 +23,17 @@ function Footer() {
   return (
     <div className="bg-hero-brick-wall bg-headerFooter flex items-center justify-center p-8 text-white">
       <div className="flex-shrink-0">
-        <img
-          className="m-4 h-24 w-24 rounded-full object-cover shadow-md lg:h-48 lg:w-48"
-          src="images/ich_3_stylized_cropped.png"
-          alt="Ich"
-        />
+        <div className="relative m-4 h-24 w-24 lg:h-48 lg:w-48">
+          <Image
+            src={contact_img}
+            alt="Contact image"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            placeholder="blur"
+            className="rounded-full shadow-md"
+          />
+        </div>
       </div>
       <div className="text-left text-xs lg:text-base">
         <p>Simon Mader</p>

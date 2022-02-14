@@ -156,7 +156,7 @@ function Qualifications() {
           {
             logo: "react",
             link: "https://reactjs.org/",
-            title: "React"
+            title: "React",
           },
           {
             logo: "html5",
@@ -171,7 +171,7 @@ function Qualifications() {
           {
             logo: "javascript",
             link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-            title: "JavaScript"
+            title: "JavaScript",
           },
           {
             logo: "microsoftoffice",
