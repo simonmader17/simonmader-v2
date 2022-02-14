@@ -1,19 +1,18 @@
 @font-face {
-  font-family: "icomoon";
-  src: url("fonts/icomoon.eot?8e8064");
-  src: url("fonts/icomoon.eot?8e8064#iefix") format("embedded-opentype"),
-    url("fonts/icomoon.ttf?8e8064") format("truetype"),
-    url("fonts/icomoon.woff?8e8064") format("woff"),
-    url("fonts/icomoon.svg?8e8064#icomoon") format("svg");
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?ier6uw');
+  src:  url('fonts/icomoon.eot?ier6uw#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?ier6uw') format('truetype'),
+    url('fonts/icomoon.woff?ier6uw') format('woff'),
+    url('fonts/icomoon.svg?ier6uw#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
+  font-family: 'icomoon' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -26,14 +25,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-next-dot-js:before {
+  content: "\e913";
+}
+.icon-typescript:before {
+  content: "\e912";
+  color: #007acc;
+}
 .icon-linkedin-white:before {
   content: "\e90e";
 }
 .icon-gmail-white:before {
   content: "\e90f";
-}
-.icon-github-white:before {
-  content: "\eab0";
 }
 .icon-android:before {
   content: "\e900";
@@ -101,4 +104,7 @@
 }
 .icon-database:before {
   content: "\e964";
+}
+.icon-github-white:before {
+  content: "\eab0";
 }

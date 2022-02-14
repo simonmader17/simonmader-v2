@@ -72,16 +72,16 @@ function Qualifications() {
       </h2>
       <div className="grid sm:grid-cols-1 lg:grid-cols-3">
         <Qualification
+          name="TypeScript"
+          logo="typescript"
+          link="https://www.typescriptlang.org/"
+          title="TypeScript"
+        />
+        <Qualification
           name="Java"
           logo="java"
           link="https://www.java.com/de/"
           title="Java"
-        />
-        <Qualification
-          name="JavaScript"
-          logo="javascript"
-          link="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          title="JavaScript"
         />
         <Qualification
           name="Python"
@@ -89,17 +89,23 @@ function Qualifications() {
           link="https://www.python.org/"
           title="Python"
         />
+        {/* <Qualification
+          name="React"
+          logo="react"
+          link="https://reactjs.org/"
+          title="React"
+        /> */}
+        <Qualification
+          name="Next.js"
+          logo="next-dot-js"
+          link="https://nextjs.org/"
+          title="Next.js"
+        />
         <Qualification
           name="Spring Framework"
           logo="spring"
           link="https://spring.io/"
           title="Spring"
-        />
-        <Qualification
-          name="React"
-          logo="react"
-          link="https://reactjs.org/"
-          title="React"
         />
         <Qualification
           name="Relationale Datenbanken"
@@ -137,15 +143,20 @@ function Qualifications() {
             link: "https://httpd.apache.org/",
             title: "Apache HTTP Server",
           },
-          {
-            logo: "php",
-            link: "https://www.php.net/",
-            title: "PHP",
-          },
+          // {
+          //   logo: "php",
+          //   link: "https://www.php.net/",
+          //   title: "PHP",
+          // },
           {
             logo: "latex",
             link: "https://www.latex-project.org/",
             title: "LaTeX",
+          },
+          {
+            logo: "react",
+            link: "https://reactjs.org/",
+            title: "React"
           },
           {
             logo: "html5",
@@ -156,6 +167,11 @@ function Qualifications() {
             logo: "css3",
             link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
             title: "CSS",
+          },
+          {
+            logo: "javascript",
+            link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+            title: "JavaScript"
           },
           {
             logo: "microsoftoffice",
