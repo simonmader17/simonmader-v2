@@ -30,7 +30,7 @@ function Header() {
             priority
           />
         </div>
-        <p className="font-Graph35 mb-4 mt-0 pl-1 text-4xl">Simon.</p>
+        <h1 className="font-Graph35 mb-4 mt-0 pl-1 text-4xl">Simon.</h1>
       </div>
       <ChevronDownIcon
         className="fixed bottom-0 w-12 animate-bounce text-green-500 transition duration-500 ease-out"
