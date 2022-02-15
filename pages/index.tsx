@@ -10,7 +10,7 @@ import Qualifications from "../components/Qualifications";
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Head>
         <title>Simon Mader</title>
         <link rel="icon" href="/favicon.ico" />
