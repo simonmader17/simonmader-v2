@@ -75,9 +75,11 @@ body {
     @apply bg-cover bg-center;
 
     @screen ltmd {
-      @apply absolute left-0 top-0 -z-10 h-full w-full blur-sm;
+      @apply absolute left-0 top-0 -z-10 m-[-8px] blur-sm;
 
-      clip-path: inset(0% round 0.75rem);
+      height: calc(100% + 16px);
+      width: calc(100% + 16px);
+      clip-path: inset(8px round 0.75rem);
     }
 
     @screen md {
@@ -112,7 +114,9 @@ body {
 }
 
 .bg-blurred {
-  @apply absolute -z-10 h-full w-full blur-sm;
+  @apply absolute -z-10 m-[-8px] blur-sm;
 
-  clip-path: inset(0% round 0.75rem);
+  height: calc(100% + 16px);
+  width: calc(100% + 16px);
+  clip-path: inset(8px round 0.75rem);
 }
