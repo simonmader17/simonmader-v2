@@ -14,7 +14,7 @@ function Qualification({
   text,
 }: QualificationInterface) {
   return (
-    <div className="m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6 shadow-md">
+    <div className="drop-shadow-3xl m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6">
       <div className="flex-shrink-0">
         <a
           className={`my-qualification text-5xl icon-${logo}`}
@@ -58,7 +58,7 @@ function Others({ qualifications }: OthersInterface) {
   }
 
   return (
-    <div className="m-4 flex max-w-full flex-wrap items-center justify-around rounded-xl bg-black bg-opacity-50 p-6 shadow-md lg:justify-between">
+    <div className="drop-shadow-3xl m-4 flex max-w-full flex-wrap items-center justify-around rounded-xl bg-black bg-opacity-50 p-6 lg:justify-between">
       {items}
     </div>
   );

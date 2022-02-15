@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       <Head>
-        <title>Simon Mader</title>
+        <title>Simon Mader's Webpage</title>
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="preload"

@@ -18,7 +18,7 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
 
   return (
     <div
-      className="relative z-10 m-4 shadow-md"
+      className="drop-shadow-3xl relative z-10 m-4"
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >

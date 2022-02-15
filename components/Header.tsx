@@ -18,7 +18,7 @@ function Header() {
 
   return (
     <div className="bg-hero-brick-wall bg-headerFooter flex min-h-screen w-screen flex-col items-center justify-center">
-      <div className="sticky top-0">
+      <div className="drop-shadow-3xl sticky top-0">
         <div className="relative h-20">
           <Image
             src={pepe}

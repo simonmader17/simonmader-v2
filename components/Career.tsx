@@ -21,7 +21,7 @@ function Job({ position, firma, zeitraum, ort, bg, info }: JobInterface) {
 
   return (
     <div
-      className="relative z-10 m-4 shadow-md"
+      className="drop-shadow-3xl relative z-10 m-4"
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >

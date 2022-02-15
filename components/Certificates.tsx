@@ -29,7 +29,7 @@ function Certificate({
   url,
 }: CertificateInterface) {
   return (
-    <div className="m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6 shadow-md">
+    <div className="drop-shadow-3xl m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6">
       <div className="flex-shrink-0">
         <a href={companyUrl} target="_blank" rel="noreferrer" title={company}>
           <div className="relative h-12 w-12">
