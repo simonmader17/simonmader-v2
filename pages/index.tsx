@@ -26,6 +26,11 @@ export default function Home() {
           as="font"
           crossOrigin=""
         />
+        <meta
+          name="description"
+          content="This is the personal webpage of Simon Mader."
+        />
+        
       </Head>
 
       <div className="font-SfPixelate text-center text-white">

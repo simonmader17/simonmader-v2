@@ -26,7 +26,7 @@ function Qualification({
       </div>
       <div>
         <div className="text-xl font-medium text-white">{name}</div>
-        <p className="text-m text-gray-400">{text ? text : ""}</p>
+        {text && <span className="text-m text-gray-400">{text}</span>}
       </div>
     </div>
   );
@@ -53,6 +53,7 @@ function Others({ qualifications }: OthersInterface) {
         target="_blank"
         rel="noreferrer"
         hover-info={qual.title}
+        key={qual.title}
       ></a>
     );
   }
@@ -114,9 +115,9 @@ function Qualifications() {
           title="Relationale Datenbanken"
           text={
             <ul className={"ml-4 list-disc"}>
-              <li>Microsoft SQL Server</li>
-              <li>PostgreSQL</li>
-              <li>Oracle Database</li>
+              <li key="Microsoft-SQL-Server">Microsoft SQL Server</li>
+              <li key="PostgreSQL">PostgreSQL</li>
+              <li key="OracleDB">Oracle Database</li>
             </ul>
           }
         />
