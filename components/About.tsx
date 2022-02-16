@@ -5,9 +5,7 @@ import about_bg from "../public/images/personal_images/ich.png";
 
 function About() {
   const calculateAge = (): number => {
-    const birthday = moment(new Date("2002-02-17"));
-    const today = moment();
-    return today.diff(birthday, "years");
+    return moment().diff("2002-02-17", "years");
   };
 
   return (
