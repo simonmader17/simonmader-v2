@@ -4,6 +4,9 @@ import Expand from "react-expand-animated";
 import htl_bg from "../public/images/background_images/htl.jpeg";
 import borg_bg from "../public/images/background_images/borg.jpg";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import de from "../locales/de";
+import en from "../locales/en";
 
 interface SchoolInterface {
   name: string;
@@ -43,45 +46,32 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
 }
 
 function Education() {
+  const { locale } = useRouter();
+  const l = locale == "de" ? de.education : en.education;
+
   return (
     <div>
       <h2 id="education" className="m-4 pt-4 text-2xl font-bold">
-        Schullaufbahn
+        {l.heading}
       </h2>
       <div className="grid grid-cols-1">
         <School
           name="HTL St. Pölten"
-          zweig="Abteilung Informatik"
-          zeitraum="2016&mdash;2021"
+          zweig={l.htl.zweig}
+          zeitraum="2016 &ndash; 2021"
           bg={htl_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">
-                Mit ausgezeichnetem Erfolg abgeschlossen
-              </li>
-              <li className="text-gray-400">
-                Abschluss der Reife- und Diplomprüfung mit ausgezeichnetem
-                Erfolg
-              </li>
-              <li className="text-gray-400">
-                Diplomarbeitsthema: Freitextanalyse mithilfe von{" "}
-                <a
-                  className="my-link"
-                  href="https://en.wikipedia.org/wiki/Natural_language_processing"
-                  target="_blank"
-                  rel="noreferrer"
-                  hover-info="NLP (Wikipedia)"
-                >
-                  Natural Language Processing
-                </a>
-              </li>
+              <li className="text-gray-400">{l.htl.info.li1}</li>
+              <li className="text-gray-400">{l.htl.info.li2}</li>
+              <li className="text-gray-400">{l.htl.info.li3}</li>
             </ul>
           }
         />
         <School
           name="BRG St. Pölten"
-          zweig="Musikalischer Zweig"
-          zeitraum="2012&mdash;2016"
+          zweig={l.borg.zweig}
+          zeitraum="2012 &ndash; 2016"
           bg={borg_bg}
         />
       </div>

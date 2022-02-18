@@ -1,11 +1,13 @@
 import moment from "moment";
 import "moment/locale/de";
 import Image from "next/image";
-moment.locale("de");
 
 import oracle_logo from "../public/images/logos/oracle.png";
 import cambridge_logo from "../public/images/logos/cambridge_assessment_english.png";
 import lpi_logo from "../public/images/logos/linux_professional_institute.png";
+import { useRouter } from "next/router";
+import de from "../locales/de";
+import en from "../locales/en";
 
 interface CertificateInterface {
   name: string;
@@ -28,6 +30,10 @@ function Certificate({
   id,
   url,
 }: CertificateInterface) {
+  const { locale } = useRouter();
+  const l = locale == "de" ? de.certificates : en.certificates;
+  moment.locale(locale);
+
   return (
     <div className="drop-shadow-3xl m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6">
       <div className="flex-shrink-0">
@@ -47,40 +53,37 @@ function Certificate({
         <div className={"text-xl"}>{name}</div>
         <p className={"text-gray-400"}>{company}</p>
         <p className={"text-gray-400"}>
-          {from
-            ? "Ausgestellt: " + moment(from).format("MMMM YYYY")
-            : "Kein Ausstellungsdatum"}
+          {from ? l.from + ": " + moment(from).format("MMMM YYYY") : l.no_from}
         </p>
         <p className={"text-gray-400"}>
-          {to
-            ? "Gültig bis: " + moment(to).format("MMMM YYYY")
-            : "Kein Ablaufdatum"}
+          {to ? l.to + ": " + moment(to).format("MMMM YYYY") : l.no_to}
         </p>
-        <p className={"text-gray-400"}>{id ? "Zertifikats-ID: " + id : ""}</p>
-        <p className={"text-gray-400"}>
-          {url ? (
+        {id && <p className={"text-gray-400"}>{l.id + ": " + id}</p>}
+        {url && (
+          <p className={"text-gray-400"}>
             <a
               className={"my-link"}
               href={url}
               target="_blank"
               rel="noreferrer"
             >
-              Nachweis anzeigen
+              {l.proof}
             </a>
-          ) : (
-            ""
-          )}
-        </p>
+          </p>
+        )}
       </div>
     </div>
   );
 }
 
 function Certificates() {
+  const { locale } = useRouter();
+  const l = locale == "de" ? de.certificates : en.certificates;
+
   return (
     <div>
       <h2 id="certificates" className="m-4 pt-4 text-2xl font-bold">
-        Zertifikate
+        {l.heading}
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <Certificate

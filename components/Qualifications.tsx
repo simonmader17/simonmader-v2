@@ -1,3 +1,7 @@
+import { useRouter } from "next/router";
+import de from "../locales/de";
+import en from "../locales/en";
+
 interface QualificationInterface {
   name: string;
   logo: string;
@@ -66,10 +70,13 @@ function Others({ qualifications }: OthersInterface) {
 }
 
 function Qualifications() {
+  const { locale } = useRouter();
+  const l = locale == "de" ? de.qualifications : en.qualifications;
+
   return (
     <div>
       <h2 id="qualifications" className="m-4 pt-4 text-2xl font-bold">
-        Kenntnisse
+        {l.heading}
       </h2>
       <div className="grid sm:grid-cols-1 lg:grid-cols-3">
         <Qualification
@@ -109,10 +116,10 @@ function Qualifications() {
           title="Spring"
         />
         <Qualification
-          name="Relationale Datenbanken"
+          name={l.databases}
           logo="database"
           link="https://de.wikipedia.org/wiki/Relationale_Datenbank"
-          title="Relationale Datenbanken"
+          title={l.databases}
           text={
             <ul className={"ml-4 list-disc"}>
               <li key="Microsoft-SQL-Server">Microsoft SQL Server</li>

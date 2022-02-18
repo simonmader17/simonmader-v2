@@ -1,3 +1,7 @@
+import { useRouter } from "next/router";
+import de from "../locales/de";
+import en from "../locales/en";
+
 interface OtherInterface {
   untertitel?: string;
   titel: string;
@@ -15,41 +19,32 @@ function Other({ untertitel, titel, content }: OtherInterface) {
 }
 
 function Others() {
+  const { locale } = useRouter();
+  const l = locale == "de" ? de.others : en.others;
+
   return (
     <div>
       <h2 id="others" className="m-4 pt-4 text-2xl font-bold">
-        Sonstiges
+        {l.heading}
       </h2>
       <div className="grid grid-cols-1">
         <Other
-          untertitel="Wettbewerb"
-          titel="Catalysts Coding Contest"
+          untertitel={l.ccc.untertitel}
+          titel={l.ccc.titel}
           content={
             <ul className={"ml-4 list-disc"}>
-              <li>
-                Platz 4 von 93 beim 32<sup>nd</sup> School Coding Contest im
-                November 2019 in Wien
-              </li>
-              <li>
-                Platz 12 von 149 beim 32<sup>nd</sup> Classic Coding Contest im
-                November 2019 in Wien
-              </li>
-              <li>
-                Platz 15 von 121 beim 30<sup>th</sup> School Coding Contest im
-                März 2019 in Wien
-              </li>
-              <li>
-                Platz 21 von 149 beim 30<sup>th</sup> Classic Coding Contest im
-                März 2019 in Wien
-              </li>
+              <li>{l.ccc.content.li1}</li>
+              <li>{l.ccc.content.li2}</li>
+              <li>{l.ccc.content.li3}</li>
+              <li>{l.ccc.content.li4}</li>
             </ul>
           }
         />
         <Other
-          titel="Führerscheine"
+          titel={l.licenses.titel}
           content={
             <ul className={"ml-4 list-disc"}>
-              <li>B</li>
+              <li>{l.licenses.content.li1}</li>
             </ul>
           }
         />
