@@ -1,0 +1,42 @@
+{
+  "heading": "Berufserfahrung",
+  "asboe": {
+    "position": "Zivildienst",
+    "firma": "ASBÖ St. Pölten",
+    "ort": "St. Pölten, Niederösterreich, Österreich",
+    "info": {
+      "li1": "Ausbildung zum Rettungssanitäter",
+      "li2": "Betreuung von Patienten während des Rettungs- und Krankentransportes",
+      "li3": "Erledigung organisatorischer Aufgaben innerhalb der Rettungsstelle",
+      "li4": "Unterstützung der beruflichen und freiwilligen Mitarbeiter in verschiedenen Belangen"
+    }
+  },
+  "bso": {
+    "position": "Praktikum",
+    "firma": "BSO EDV- und Betriebsberatung GmbH",
+    "ort": "St. Pölten, Niederösterreich, Österreich",
+    "info": {
+      "li1": "Arbeit an einer REST API in PHP",
+      "li2": "Einrichten einer PHP-Testumgebung mithilfe von Docker (<0>LAMP Stack</0>)",
+      "li3": "Aufsetzen von PC's für Kunden (Hardware und Software)",
+      "li4": "Lagerarbeiten"
+    }
+  },
+  "geberit": {
+    "position": "Praktikum",
+    "firma": "Geberit Österreich",
+    "ort": "Pottenbrunn, Niederösterreich, Österreich",
+    "info": {
+      "li1": "Mitarbeit an der Umstellung der PC's der Mitarbeiter auf Windows 10",
+      "li2": "Einführung in die <0>Active Directory</0> Organisationseinheiten des Unternehmens"
+    }
+  },
+  "gemeinde": {
+    "position": "Praktikum",
+    "firma": "Gemeindeamt Kasten bei Böheimkirchen",
+    "ort": "Kasten bei Böheimkirchen, Niederösterreich, Österreich",
+    "info": {
+      "li1": "Mitarbeit in der Gemeinde: Rasenmähen, Sträucher schneiden, usw."
+    }
+  }
+}

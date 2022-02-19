@@ -6,8 +6,7 @@ import oracle_logo from "../public/images/logos/oracle.png";
 import cambridge_logo from "../public/images/logos/cambridge_assessment_english.png";
 import lpi_logo from "../public/images/logos/linux_professional_institute.png";
 import { useRouter } from "next/router";
-import de from "../locales/de";
-import en from "../locales/en";
+import useTranslation from "next-translate/useTranslation";
 
 interface CertificateInterface {
   name: string;
@@ -30,9 +29,9 @@ function Certificate({
   id,
   url,
 }: CertificateInterface) {
-  const { locale } = useRouter();
-  const l = locale == "de" ? de.certificates : en.certificates;
-  moment.locale(locale);
+  const { t } = useTranslation("certificates");
+
+  moment.locale(useRouter().locale);
 
   return (
     <div className="drop-shadow-3xl m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6">
@@ -53,12 +52,14 @@ function Certificate({
         <div className={"text-xl"}>{name}</div>
         <p className={"text-gray-400"}>{company}</p>
         <p className={"text-gray-400"}>
-          {from ? l.from + ": " + moment(from).format("MMMM YYYY") : l.no_from}
+          {from
+            ? t("from") + ": " + moment(from).format("MMMM YYYY")
+            : t("no_from")}
         </p>
         <p className={"text-gray-400"}>
-          {to ? l.to + ": " + moment(to).format("MMMM YYYY") : l.no_to}
+          {to ? t("to") + ": " + moment(to).format("MMMM YYYY") : t("no_to")}
         </p>
-        {id && <p className={"text-gray-400"}>{l.id + ": " + id}</p>}
+        {id && <p className={"text-gray-400"}>{t("id") + ": " + id}</p>}
         {url && (
           <p className={"text-gray-400"}>
             <a
@@ -67,7 +68,7 @@ function Certificate({
               target="_blank"
               rel="noreferrer"
             >
-              {l.proof}
+              {t("proof")}
             </a>
           </p>
         )}
@@ -77,13 +78,12 @@ function Certificate({
 }
 
 function Certificates() {
-  const { locale } = useRouter();
-  const l = locale == "de" ? de.certificates : en.certificates;
+  const { t } = useTranslation("certificates");
 
   return (
     <div>
       <h2 id="certificates" className="m-4 pt-4 text-2xl font-bold">
-        {l.heading}
+        {t("heading")}
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <Certificate

@@ -1,0 +1,9 @@
+{
+  "heading": "Certificates",
+  "from": "Issued",
+  "no_from": "No issue date",
+  "to": "Valid until",
+  "no_to": "No expiration date",
+  "proof": "Show verification",
+  "id": "Certificate ID"
+}

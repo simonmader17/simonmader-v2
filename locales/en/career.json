@@ -1,0 +1,42 @@
+{
+  "heading": "Work experience",
+  "asboe": {
+    "position": "<0>Zivildienst</0>",
+    "firma": "ASBÖ St. Pölten",
+    "ort": "St. Pölten, Lower Austria, Austria",
+    "info": {
+      "li1": "Paramedic training",
+      "li2": "Care of patients during rescue and ambulance transport",
+      "li3": "Carrying out organizational tasks within the rescue center",
+      "li4": "Support of professional and volunteer staff in various matters"
+    }
+  },
+  "bso": {
+    "position": "Internship",
+    "firma": "BSO EDV- und Betriebsberatung GmbH",
+    "ort": "St. Pölten, Lower Austria, Austria",
+    "info": {
+      "li1": "Development of a REST API in PHP",
+      "li2": "Setting up a PHP test environment using Docker (<0>LAMP Stack</0>)",
+      "li3": "Setting up PCs for customers (hardware and software)",
+      "li4": "Warehouse work"
+    }
+  },
+  "geberit": {
+    "position": "Internship",
+    "firma": "Geberit Österreich",
+    "ort": "Pottenbrunn, Lower Austria, Austria",
+    "info": {
+      "li1": "Assistance with the upgrade of the employees' PCs to Windows 10",
+      "li2": "Introduction to the <0>Active Directory</0> organizational units of the company"
+    }
+  },
+  "gemeinde": {
+    "position": "Internship",
+    "firma": "Municipal Office Kasten bei Böheimkirchen",
+    "ort": "Kasten bei Böheimkirchen, Lower Austria, Austria",
+    "info": {
+      "li1": "Helping out in the community: mowing lawns, trimming shrubs, etc."
+    }
+  }
+}

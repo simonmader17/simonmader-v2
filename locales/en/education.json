@@ -1,0 +1,14 @@
+{
+  "heading": "Education",
+  "htl": {
+    "zweig": "Computer science department",
+    "info": {
+      "li1": "Graduated with excellent grades",
+      "li2": "Completion of the matriculation and diploma examinations with excellent results",
+      "li3": "Diploma thesis: Free text analysis using <0>Natural Language Processing</0>"
+    }
+  },
+  "borg": {
+    "zweig": "Emphasis on music"
+  }
+}

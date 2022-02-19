@@ -1,0 +1,9 @@
+{
+  "heading": "Zertifikate",
+  "from": "Ausgestellt",
+  "no_from": "Kein Ausstellungsdatum",
+  "to": "Gültig bis",
+  "no_to": "Kein Ablaufdatum",
+  "proof": "Nachweis anzeigen",
+  "id": "Zertifikats-ID"
+}

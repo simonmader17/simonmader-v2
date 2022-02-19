@@ -4,9 +4,8 @@ import Expand from "react-expand-animated";
 import htl_bg from "../public/images/background_images/htl.jpeg";
 import borg_bg from "../public/images/background_images/borg.jpg";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import de from "../locales/de";
-import en from "../locales/en";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 
 interface SchoolInterface {
   name: string;
@@ -46,31 +45,43 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
 }
 
 function Education() {
-  const { locale } = useRouter();
-  const l = locale == "de" ? de.education : en.education;
+  const { t } = useTranslation("education");
 
   return (
     <div>
       <h2 id="education" className="m-4 pt-4 text-2xl font-bold">
-        {l.heading}
+        {t("heading")}
       </h2>
       <div className="grid grid-cols-1">
         <School
           name="HTL St. Pölten"
-          zweig={l.htl.zweig}
+          zweig={t("htl.zweig")}
           zeitraum="2016 &ndash; 2021"
           bg={htl_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">{l.htl.info.li1}</li>
-              <li className="text-gray-400">{l.htl.info.li2}</li>
-              <li className="text-gray-400">{l.htl.info.li3}</li>
+              <li className="text-gray-400">{t("htl.info.li1")}</li>
+              <li className="text-gray-400">{t("htl.info.li2")}</li>
+              <li className="text-gray-400">
+                <Trans
+                  i18nKey="education:htl.info.li3"
+                  components={[
+                    <a
+                      className="my-link"
+                      href="https://en.wikipedia.org/wiki/Natural_language_processing"
+                      target="_blank"
+                      rel="noreferrer"
+                      hover-info="NLP (Wikipedia)"
+                    />,
+                  ]}
+                />
+              </li>
             </ul>
           }
         />
         <School
           name="BRG St. Pölten"
-          zweig={l.borg.zweig}
+          zweig={t("borg.zweig")}
           zeitraum="2012 &ndash; 2016"
           bg={borg_bg}
         />

@@ -1,0 +1,7 @@
+{
+  "heading": "Über mich",
+  "p1": "Hi! Ich bin Simon.",
+  "p2": "Ich bin {{age}} Jahre alt und habe mit dem Schuljahr 2020/21 die HTL St. Pölten (Informatik) mit ausgezeichnetem Erfolg abgeschlossen. Der Fokus in der Schule lag auf Java Spring Development, Algorithmik und Datenbankdesign. Privat beschäftige ich mich gerne mit der Automatisierung von Vorgängen mithilfe von Python und der Entwicklung von Webapps mithilfe von JavaScript Frameworks wie React.",
+  "p3": "Zurzeit leiste ich meinen Zivildienst beim Samariterbund in St. Pölten.",
+  "p4": "In meiner Freizeit mache ich gerne Kraftsport, beschäftige ich mich viel mit dem Thema Ernährung und schaue gerne Filme und Serien."
+}

@@ -1,0 +1,7 @@
+{
+  "heading": "About me",
+  "p1": "Hi! My name is Simon.",
+  "p2": "I am {{age}} years old and graduated from the HTL St. Pölten (Computer Science) with excellent results in the school year 2020/21. The focus in school was on Java Spring Development, Algorithmics and Database Design. Privately, I enjoy automating processes using Python and developing web apps using JavaScript frameworks like React.",
+  "p3": "At the moment I am doing my civilian service at the Samariterbund in St. Pölten.",
+  "p4": "In my free time I like to do weight training, I deal a lot with the topic of nutrition and I like to watch movies and series."
+}

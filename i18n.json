@@ -1,0 +1,14 @@
+{
+  "locales": ["de", "en"],
+  "defaultLocale": "de",
+  "pages": {
+    "*": [
+      "about",
+      "qualifications",
+      "certificates",
+      "career",
+      "education",
+      "others"
+    ]
+  }
+}
