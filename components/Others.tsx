@@ -34,25 +34,25 @@ function Others() {
               <li>
                 <Trans
                   i18nKey="others:ccc.content.li1"
-                  components={[<sup />]}
+                  components={[<sup key="ccc.content.li1.key" />]}
                 />
               </li>
               <li>
                 <Trans
                   i18nKey="others:ccc.content.li2"
-                  components={[<sup />]}
+                  components={[<sup key="ccc.content.li2.key" />]}
                 />
               </li>
               <li>
                 <Trans
                   i18nKey="others:ccc.content.li3"
-                  components={[<sup />]}
+                  components={[<sup key="ccc.content.li3.key" />]}
                 />
               </li>
               <li>
                 <Trans
                   i18nKey="others:ccc.content.li4"
-                  components={[<sup />]}
+                  components={[<sup key="ccc.content.li4.key" />]}
                 />
               </li>
             </ul>

@@ -71,6 +71,7 @@ function Education() {
                       href="https://en.wikipedia.org/wiki/Natural_language_processing"
                       target="_blank"
                       rel="noreferrer"
+                      key="htl.info.li3.key"
                       hover-info="NLP (Wikipedia)"
                     />,
                   ]}

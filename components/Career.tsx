@@ -83,6 +83,7 @@ function Career() {
                   href="https://en.wikipedia.org/wiki/Zivildienst"
                   target="_blank"
                   rel="noreferrer"
+                  key="asboe.position.key"
                 />,
               ]}
             />
@@ -119,6 +120,7 @@ function Career() {
                       href="https://de.wikipedia.org/wiki/LAMP_(Softwarepaket)"
                       target="_blank"
                       rel="noreferrer"
+                      key="bso.info.li2.key"
                       hover-info="LAMP (Wikipedia)"
                     />,
                   ]}
@@ -147,6 +149,7 @@ function Career() {
                       href="https://de.wikipedia.org/wiki/Active_Directory"
                       target="_blank"
                       rel="noreferrer"
+                      key="geberit.info.li2.key"
                       hover-info="Active Directory (Wikipedia)"
                     />,
                   ]}
