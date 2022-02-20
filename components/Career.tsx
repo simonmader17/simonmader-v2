@@ -161,8 +161,8 @@ function Career() {
         <Job
           position={t("gemeinde.position")}
           firma={t("gemeinde.firma")}
-          from={moment("2017-08-13")}
-          to={moment("2017-07-17")}
+          from={moment("2017-07-17")}
+          to={moment("2017-08-13")}
           ort={t("gemeinde.ort")}
           bg={gemeinde_bg}
           info={
