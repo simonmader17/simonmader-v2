@@ -1,16 +1,26 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import About from "../components/About";
 import Career from "../components/Career";
 import Certificates from "../components/Certificates";
+import ChromeNotification from "../components/ChromeNotification";
 import Education from "../components/Education";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Others from "../components/Others";
 import Qualifications from "../components/Qualifications";
 
+declare const InstallTrigger: any;
+
 export default function Home() {
+  // Firefox detection
+  const [isFirefox, setIsFirefox] = useState(false);
+  useEffect(() => {
+    setIsFirefox(typeof InstallTrigger !== "undefined");
+  }, []);
+
   return (
-    <div className="">
+    <div>
       <Head>
         <title>Simon Mader&apos;s Webpage</title>
         <link rel="icon" href="/favicon.ico" />
@@ -30,10 +40,11 @@ export default function Home() {
           name="description"
           content="This is the personal webpage of Simon Mader."
         />
-        
       </Head>
 
       <div className="font-SfPixelate text-center text-white">
+        {isFirefox && <ChromeNotification />}
+
         <Header />
 
         <div className="bg-hero-brick-wall-purple bg-body p-4 text-left">
