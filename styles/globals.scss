@@ -12,12 +12,24 @@
   src: url("/fonts/Graph-35-pix.ttf");
 }
 
-body {
-  @apply scrollbar scrollbar-thumb-blended;
+::-webkit-scrollbar {
+  @apply w-auto;
 
-  ::selection {
-    @apply bg-red-400 text-white;
+  &-track {
+    @apply bg-transparent;
   }
+
+  &-thumb {
+    @apply bg-blended hover:bg-bodyBright rounded-full;
+  }
+}
+
+::selection {
+  @apply bg-red-400 text-white;
+}
+
+body {
+  overflow: overlay;
 }
 
 .my-link {

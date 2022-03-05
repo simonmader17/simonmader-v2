@@ -38,6 +38,5 @@ module.exports = {
         default: 0.4,
       },
     }),
-    require("tailwind-scrollbar"),
   ],
 };
