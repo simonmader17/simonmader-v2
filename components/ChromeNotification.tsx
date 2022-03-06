@@ -9,7 +9,7 @@ function ChromeNotification() {
   return (
     <div
       id="chrome-notification"
-      className="fixed top-4 right-4 z-50 flex w-80 items-center rounded-xl bg-black bg-opacity-50 p-2"
+      className="drop-shadow-3xl fixed top-4 right-4 z-50 flex w-80 items-center rounded-xl bg-black bg-opacity-50 p-2"
     >
       <div className="relative m-4 h-12 w-12 flex-shrink-0">
         <Image
@@ -20,9 +20,9 @@ function ChromeNotification() {
           objectPosition="center"
         />
       </div>
-      <p className="text-left">For a better experience use Chrome!</p>
+      <p className="text-left">For a better experience use Chrome :)</p>
       <button
-        className="self-start rounded-full p-2 hover:bg-white hover:bg-opacity-10"
+        className="self-start rounded-full p-2 transition-colors hover:bg-white hover:bg-opacity-10"
         onClick={() => hide("#chrome-notification")}
       >
         <svg
