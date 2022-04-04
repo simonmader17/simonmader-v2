@@ -7,6 +7,7 @@ import ChromeNotification from "../components/ChromeNotification";
 import Education from "../components/Education";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import Others from "../components/Others";
 import Qualifications from "../components/Qualifications";
 
@@ -44,6 +45,8 @@ export default function Home() {
 
       <div className="font-SfPixelate text-center text-white">
         {isFirefox && <ChromeNotification />}
+
+        <Navbar />
 
         <Header />
 
