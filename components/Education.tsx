@@ -34,11 +34,18 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
           placeholder="blur"
         />
       </div>
-      <div className="rounded-xl bg-black bg-opacity-70 p-6">
+      <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
         <p className="text-xl text-red-400">{name}</p>
         <p>{zweig}</p>
         <p>{zeitraum}</p>
-        {info && <Expand open={showInfo}>{info}</Expand>}
+        {info && (
+          <>
+            <div className="2xl:hidden">
+              <Expand open={showInfo}>{info}</Expand>
+            </div>
+            <div className="lt2xl:hidden">{info}</div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -52,7 +59,7 @@ function Education() {
       <h2 id="education" className="m-4 pt-4 text-2xl font-bold">
         {t("heading")}
       </h2>
-      <div className="grid grid-cols-1">
+      <div className="grid grid-cols-1 2xl:grid-cols-2">
         <School
           name="HTL St. Pölten"
           zweig={t("htl.zweig")}
@@ -85,6 +92,11 @@ function Education() {
           zweig={t("borg.zweig")}
           zeitraum="2012 &ndash; 2016"
           bg={borg_bg}
+          info={
+            <ul className="ml-4 list-disc">
+              <li className="text-gray-400">{t("borg.info.li1")}</li>
+            </ul>
+          }
         />
       </div>
     </div>

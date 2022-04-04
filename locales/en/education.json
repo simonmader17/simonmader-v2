@@ -9,6 +9,9 @@
     }
   },
   "borg": {
-    "zweig": "Emphasis on music"
+    "zweig": "Emphasis on music",
+    "info": {
+      "li1": "Participation in the school choir"
+    }
   }
 }

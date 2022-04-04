@@ -19,6 +19,8 @@ module.exports = {
       },
       screens: {
         ltmd: { max: "767px" },
+        ltlg: { max: "1023px" },
+        lt2xl: { max: "1535px" },
       },
       dropShadow: {
         "3xl": "0 25px 25px rgba(0, 0, 0, .3)",

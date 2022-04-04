@@ -47,7 +47,7 @@ function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
           placeholder="blur"
         />
       </div>
-      <div className="rounded-xl bg-black bg-opacity-70 p-6">
+      <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
         <p className="text-gray-400">{position}</p>
         <p className="text-xl text-red-400">{firma ? firma : ""}</p>
         {to ? (
@@ -58,7 +58,14 @@ function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
           <p>{fromFormat}</p>
         )}
         <p>{ort}</p>
-        {info && <Expand open={showInfo}>{info}</Expand>}
+        {info && (
+          <>
+            <div className="2xl:hidden">
+              <Expand open={showInfo}>{info}</Expand>
+            </div>
+            <div className="lt2xl:hidden">{info}</div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -72,7 +79,7 @@ function Career() {
       <h2 id="career" className="m-4 pt-4 text-2xl font-bold">
         {t("heading")}
       </h2>
-      <div className="grid grid-cols-1">
+      <div className="grid grid-cols-1 2xl:grid-cols-2">
         <Job
           position={
             <Trans

@@ -9,6 +9,9 @@
     }
   },
   "borg": {
-    "zweig": "Musikalischer Zweig"
+    "zweig": "Musikalischer Zweig",
+    "info": {
+      "li1": "Beteiligung am Schulchor"
+    }
   }
 }
