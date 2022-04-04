@@ -20,7 +20,7 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
 
   return (
     <div
-      className="drop-shadow-3xl relative z-10 m-4"
+      className="drop-shadow-pixel relative z-10 m-4"
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
