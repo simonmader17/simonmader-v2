@@ -24,7 +24,7 @@ function Footer() {
   return (
     <div className="bg-hero-brick-wall bg-headerFooter flex items-center justify-center p-8 text-white">
       <div className="flex-shrink-0">
-        <div className="drop-shadow-3xl relative m-4 h-24 w-24 lg:h-48 lg:w-48">
+        <div className="drop-shadow-pixel relative m-4 h-24 w-24 lg:h-48 lg:w-48">
           <Image
             src={contact_img}
             alt="Contact image"

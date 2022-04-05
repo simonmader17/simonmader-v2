@@ -16,12 +16,12 @@ function About() {
       <h2 id="about">{t("heading")}</h2>
       <div className="about">
         <div className="about-content">
-          <p className={"text-xl text-red-400 md:text-3xl"}>{t("p1")}</p>
-          <p className={"md:text-justify md:text-xl"}>
+          <p className="text-xl text-red-400 md:text-2xl">{t("p1")}</p>
+          <p className="ltmd:text-sm md:text-justify">
             {t("p2", { age: calculateAge() })}
           </p>
-          <p className="md:text-justify md:text-xl">{t("p3")}</p>
-          <p className={"md:text-justify md:text-xl"}>{t("p4")}</p>
+          <p className="ltmd:text-sm md:text-justify">{t("p3")}</p>
+          <p className="ltmd:text-sm md:text-justify">{t("p4")}</p>
         </div>
         <div className="about-bg">
           <Image
