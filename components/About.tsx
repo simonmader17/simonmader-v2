@@ -12,10 +12,8 @@ function About() {
   const { t } = useTranslation("about");
 
   return (
-    <div>
-      <h2 id="about" className="m-4 pt-4 text-2xl font-bold">
-        {t("heading")}
-      </h2>
+    <>
+      <h2 id="about">{t("heading")}</h2>
       <div className="about">
         <div className="about-content">
           <p className={"text-xl text-red-400 md:text-3xl"}>{t("p1")}</p>
@@ -37,7 +35,7 @@ function About() {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -21,10 +21,8 @@ function Others() {
   const { t } = useTranslation("others");
 
   return (
-    <div>
-      <h2 id="others" className="m-4 pt-4 text-2xl font-bold">
-        {t("heading")}
-      </h2>
+    <>
+      <h2 id="others">{t("heading")}</h2>
       <div className="grid grid-cols-1">
         <Other
           untertitel={t("ccc.untertitel")}
@@ -67,7 +65,7 @@ function Others() {
           }
         />
       </div>
-    </div>
+    </>
   );
 }
 

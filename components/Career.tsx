@@ -75,10 +75,8 @@ function Career() {
   const { t } = useTranslation("career");
 
   return (
-    <div>
-      <h2 id="career" className="m-4 pt-4 text-2xl font-bold">
-        {t("heading")}
-      </h2>
+    <>
+      <h2 id="career">{t("heading")}</h2>
       <div className="grid grid-cols-1 2xl:grid-cols-2">
         <Job
           position={
@@ -179,7 +177,7 @@ function Career() {
           }
         />
       </div>
-    </div>
+    </>
   );
 }
 

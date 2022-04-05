@@ -55,10 +55,8 @@ function Education() {
   const { t } = useTranslation("education");
 
   return (
-    <div>
-      <h2 id="education" className="m-4 pt-4 text-2xl font-bold">
-        {t("heading")}
-      </h2>
+    <>
+      <h2 id="education">{t("heading")}</h2>
       <div className="grid grid-cols-1 2xl:grid-cols-2">
         <School
           name="HTL St. Pölten"
@@ -99,7 +97,7 @@ function Education() {
           }
         />
       </div>
-    </div>
+    </>
   );
 }
 

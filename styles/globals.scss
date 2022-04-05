@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h2 {
+    @apply m-4 pt-4 text-2xl font-bold;
+  }
+}
+
 @font-face {
   font-family: "SfPixelate";
   src: url("/fonts/SfPixelate-wBgw.ttf");

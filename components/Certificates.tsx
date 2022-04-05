@@ -81,10 +81,8 @@ function Certificates() {
   const { t } = useTranslation("certificates");
 
   return (
-    <div>
-      <h2 id="certificates" className="m-4 pt-4 text-2xl font-bold">
-        {t("heading")}
-      </h2>
+    <>
+      <h2 id="certificates">{t("heading")}</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <Certificate
           name="Oracle Certified Professional: Java SE 11 Developer"
@@ -111,7 +109,7 @@ function Certificates() {
           url="http://lpi.org/v/LPI000429624/yj5w3k2jay"
         />
       </div>
-    </div>
+    </>
   );
 }
 

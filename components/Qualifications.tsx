@@ -71,10 +71,8 @@ function Qualifications() {
   const { t } = useTranslation("qualifications");
 
   return (
-    <div>
-      <h2 id="qualifications" className="m-4 pt-4 text-2xl font-bold">
-        {t("heading")}
-      </h2>
+    <>
+      <h2 id="qualifications">{t("heading")}</h2>
       <div className="grid sm:grid-cols-1 lg:grid-cols-3">
         <Qualification
           name="TypeScript"
@@ -185,7 +183,7 @@ function Qualifications() {
           },
         ]}
       />
-    </div>
+    </>
   );
 }
 
