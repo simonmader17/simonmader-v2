@@ -4,6 +4,7 @@
   "pages": {
     "*": [
       "about",
+      "projects",
       "qualifications",
       "certificates",
       "career",

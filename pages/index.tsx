@@ -8,6 +8,7 @@ import Education from "../components/Education";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Others from "../components/Others";
+import Projects from "../components/Projects";
 import Qualifications from "../components/Qualifications";
 
 declare const InstallTrigger: any;
@@ -20,7 +21,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <>
       <Head>
         <title>Simon Mader&apos;s Webpage</title>
         <link rel="icon" href="/favicon.ico" />
@@ -42,29 +43,27 @@ export default function Home() {
         />
       </Head>
 
-      <div className="font-SfPixelate text-center text-white">
-        {isFirefox && <ChromeNotification />}
+      {isFirefox && <ChromeNotification />}
 
-        <Header />
+      <Header />
 
-        <div className="bg-hero-brick-wall-purple bg-body p-4 text-left">
-          <div className="container mx-auto">
-            <About />
+      <div className="bg-hero-brick-wall-purple bg-body p-4 text-left">
+        <div className="container mx-auto">
+          <About />
 
-            <Qualifications />
+          <Projects />
 
-            <Certificates />
+          <Qualifications />
 
-            <Career />
+          <Certificates />
 
-            <Education />
+          <Career />
 
-            <Others />
-          </div>
+          <Education />
+
+          <Others />
         </div>
-
-        <Footer />
       </div>
-    </div>
+    </>
   );
 }

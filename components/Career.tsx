@@ -48,19 +48,19 @@ function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
         />
       </div>
       <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
-        <p className="text-gray-400">{position}</p>
-        <p className="text-xl text-red-400">{firma ? firma : ""}</p>
+        <p className="ltmd:text-sm text-gray-400">{position}</p>
+        <p className="text-lg text-red-400 md:text-xl">{firma}</p>
         {to ? (
-          <p>
+          <p className="ltmd:text-sm">
             {fromFormat} &ndash; {toFormat}
           </p>
         ) : (
-          <p>{fromFormat}</p>
+          <p className="ltmd:text-sm">{fromFormat}</p>
         )}
-        <p>{ort}</p>
+        <p className="ltmd:text-sm">{ort}</p>
         {info && (
           <>
-            <div className="2xl:hidden">
+            <div className="ltmd:text-sm 2xl:hidden">
               <Expand open={showInfo}>{info}</Expand>
             </div>
             <div className="lt2xl:hidden">{info}</div>

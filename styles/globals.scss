@@ -4,7 +4,12 @@
 
 @layer base {
   h2 {
-    @apply m-4 pt-4 text-2xl font-bold;
+    @apply m-4 pt-4 text-xl font-bold md:text-2xl;
+
+    &::before {
+      content: ">";
+      margin-right: 0.5em;
+    }
   }
 }
 
@@ -71,7 +76,7 @@ body {
 }
 
 .about {
-  @apply drop-shadow-3xl relative z-10 m-4;
+  @apply drop-shadow-pixel relative z-10 m-4;
 
   @screen md {
     @apply relative flex min-h-[30vh] justify-center rounded-xl bg-black bg-opacity-50;

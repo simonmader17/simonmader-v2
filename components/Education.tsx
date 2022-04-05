@@ -35,12 +35,12 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
         />
       </div>
       <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
-        <p className="text-xl text-red-400">{name}</p>
-        <p>{zweig}</p>
-        <p>{zeitraum}</p>
+        <p className="text-lg text-red-400 md:text-xl">{name}</p>
+        <p className="ltmd:text-sm">{zweig}</p>
+        <p className="ltmd:text-sm">{zeitraum}</p>
         {info && (
           <>
-            <div className="2xl:hidden">
+            <div className="ltmd:text-sm 2xl:hidden">
               <Expand open={showInfo}>{info}</Expand>
             </div>
             <div className="lt2xl:hidden">{info}</div>
