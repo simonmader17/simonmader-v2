@@ -1,0 +1,15 @@
+{
+  "heading": "Projekte",
+  "personal-website": {
+    "title": "Persönliche Website",
+    "text": {}
+  },
+  "diploma-thesis": {
+    "title": "Diplomarbeit",
+    "text": {
+      "p1": "Es soll eine Anwendung entwickelt werden, die mit Hilfe von künstlicher Intelligenz, Vorhersagen über die Entwicklung des DAX versteht, und auswertet. Das Ziel der Anwendung ist, eine Schätzung, aufgrund vorheriger Prognosen, zu liefern, welche Börsennewsseite am ehesten die Entwicklung des DAX vorhersagt.",
+      "p2": "Mit einem Crawler werden täglich Inhalte und Texte von Webseiten, welche Prognosen zur Entwicklung des DAX veröffentlichen, ausgelesen. Der Freitext wird anschließend mit NLP (= Natural Language Processing) formatiert und aufbereitet, sodass eine AI (= Artificial Intelligence, künstliche Intelligenz) diesen vorbereiteten Text verarbeiten und verstehen kann.",
+      "p3": "Die Ergebnisse der AI, und die tatsächlichen DAX-Kurs Ergebnisse werden in einer Datenbank abgespeichert und anschließend miteinander verglichen. In einer GUI (= Graphical User Interface) wird dieser Vergleich dargestellt, und in Tabellenform wird angezeigt, welche Quelle in einem ausgewählten Zeitraum (7 Tage, 30 Tage, 90 Tage, ...) die besten Prognosen geliefert hat."
+    }
+  }
+}

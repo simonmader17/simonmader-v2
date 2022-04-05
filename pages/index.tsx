@@ -8,6 +8,7 @@ import Education from "../components/Education";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Others from "../components/Others";
+import Projects from "../components/Projects";
 import Qualifications from "../components/Qualifications";
 
 declare const InstallTrigger: any;
@@ -50,6 +51,8 @@ export default function Home() {
         <div className="bg-hero-brick-wall-purple bg-body p-4 text-left">
           <div className="container mx-auto">
             <About />
+
+            <Projects />
 
             <Qualifications />
 
