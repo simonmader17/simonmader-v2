@@ -99,7 +99,7 @@ function Projects() {
           links={[
             {
               text: t("diploma-thesis.links.link1"),
-              link: "/diploma-thesis",
+              link: "/diploma-thesis.pdf",
             },
           ]}
         />
