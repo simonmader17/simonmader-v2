@@ -47,7 +47,7 @@ export default function Home() {
 
       <Header />
 
-      <div className="bg-hero-brick-wall-purple bg-body p-4 text-left">
+      <div className="p-4 text-left">
         <div className="container mx-auto">
           <About />
 
