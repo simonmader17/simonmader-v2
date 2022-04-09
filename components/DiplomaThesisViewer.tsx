@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
+import Skeleton from "react-loading-skeleton";
 
 const DiplomaThesisViewer = () => {
   const [numPages, setNumPages] = useState(null);
@@ -33,11 +34,13 @@ const DiplomaThesisViewer = () => {
       >
         <Document
           file="diploma-thesis.pdf"
+          loading={<Skeleton />}
           onLoadSuccess={onDocumentLoadSuccess}
           className="drop-shadow-pixel"
         >
           <Page
             pageNumber={pageNumber}
+            loading={<Skeleton />}
             renderAnnotationLayer={false}
             height={
               pageDimensions.width >= pageDimensions.height
@@ -49,7 +52,6 @@ const DiplomaThesisViewer = () => {
                 ? pageDimensions.width * 0.9
                 : null
             }
-            loading={<div>test</div>}
           />
         </Document>
         <div
@@ -59,7 +61,9 @@ const DiplomaThesisViewer = () => {
           }}
         >
           <button
-            onClick={() => setPageNumber(pageNumber - 1)}
+            onClick={() => {
+              if (pageNumber > 1) setPageNumber(pageNumber - 1);
+            }}
             className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full text-3xl"
           >
             {"<"}
@@ -68,7 +72,9 @@ const DiplomaThesisViewer = () => {
             {pageNumber} / {numPages}
           </span>
           <button
-            onClick={() => setPageNumber(pageNumber + 1)}
+            onClick={() => {
+              if (pageNumber < numPages) setPageNumber(pageNumber + 1);
+            }}
             className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full text-3xl"
           >
             {">"}
@@ -76,8 +82,14 @@ const DiplomaThesisViewer = () => {
         </div>
       </div>
       <div>
-        <input type="checkbox" id="my-chapters" name="my-chapters" className="m-2" />
+        <input
+          type="checkbox"
+          id="my-chapters"
+          name="my-chapters"
+          className="m-2"
+        />
         <label htmlFor="my-chapters">Show only my chapters</label>
+        <Skeleton />
       </div>
     </div>
   );

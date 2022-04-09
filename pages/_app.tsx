@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import "../styles/styles.scss";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function MyApp({ Component, pageProps }) {
   return (
