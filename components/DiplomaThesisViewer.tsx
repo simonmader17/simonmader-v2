@@ -15,18 +15,27 @@ const DiplomaThesisViewer = () => {
   });
 
   useEffect(() => {
-    setPageDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  }, [window.innerWidth, window.innerHeight]);
+    const handleResize = () => {
+      setPageDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
 
-  console.log(pageDimensions);
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
     setDocumentLoading(false);
   };
+
+  const portrait = pageDimensions.height > (pageDimensions.width * 297) / 210;
+  const landscape = pageDimensions.width >= (pageDimensions.height * 210) / 297;
 
   return (
     <div className="ltmd:flex-col flex min-h-screen select-none items-center justify-center gap-8">
@@ -34,12 +43,12 @@ const DiplomaThesisViewer = () => {
         className="relative z-10"
         style={{
           width: `${
-            pageDimensions.height > pageDimensions.width
+            portrait
               ? pageDimensions.width * 0.9
               : (pageDimensions.height * 0.9 * 210) / 297
           }px`,
           height: `${
-            pageDimensions.width >= pageDimensions.height
+            landscape
               ? pageDimensions.height * 0.9
               : (pageDimensions.width * 0.9 * 297) / 210
           }px`,
@@ -58,16 +67,8 @@ const DiplomaThesisViewer = () => {
             loading={() => setPageLoading(true)}
             onLoadSuccess={() => setPageLoading(false)}
             renderAnnotationLayer={false}
-            width={
-              pageDimensions.height > pageDimensions.width
-                ? pageDimensions.width * 0.9
-                : null
-            }
-            height={
-              pageDimensions.width >= pageDimensions.height
-                ? pageDimensions.height * 0.9
-                : null
-            }
+            width={portrait ? pageDimensions.width * 0.9 : null}
+            height={landscape ? pageDimensions.height * 0.9 : null}
           />
         </Document>
         {(documentLoading || pageLoading) && (
