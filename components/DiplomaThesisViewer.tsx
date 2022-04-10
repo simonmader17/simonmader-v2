@@ -13,6 +13,31 @@ const DiplomaThesisViewer = () => {
     width: 0,
     height: 0,
   });
+  const [pages, setPages] = useState([]);
+
+  const range = (start: number, end: number): ReadonlyArray<number> => {
+    end += 1; // include end
+    return [...Array(end - start).keys()].map((i) => i + start);
+  };
+
+  const handleMyChaptersCheckBox = (e) => {
+    var newPages: number[];
+    if (e.target.checked) {
+      newPages = [
+        1,
+        2,
+        4,
+        8,
+        ...range(11, 25),
+        ...range(146, 206),
+        ...range(267, numPages),
+      ];
+    } else {
+      newPages = [...range(1, numPages)];
+    }
+    setPages(newPages);
+    setPageNumber(newPages[0]);
+  };
 
   const router = useRouter();
 
@@ -33,11 +58,15 @@ const DiplomaThesisViewer = () => {
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
+    setPages([...range(1, numPages)]);
     setDocumentLoading(false);
   };
 
   const portrait = pageDimensions.height > (pageDimensions.width * 297) / 210;
   const landscape = pageDimensions.width >= (pageDimensions.height * 210) / 297;
+
+  console.log(pages[0]);
+  console.log(pages[pages.length - 1]);
 
   return (
     <div className="ltmd:flex-col ltmd:justify-start relative flex min-h-screen select-none items-center justify-center gap-8">
@@ -84,38 +113,52 @@ const DiplomaThesisViewer = () => {
         {(documentLoading || pageLoading) && (
           <Skeleton className="drop-shadow-pixel opacity-70" height="100%" />
         )}
-        <div
-          className="absolute bottom-10 left-1/2 flex -translate-x-1/2 space-x-4 transition-opacity"
-          style={{
-            opacity: showToolbar ? "1" : "0",
-          }}
-        >
-          <button
-            onClick={() => {
-              if (pageNumber > 1) setPageNumber(pageNumber - 1);
+        {!documentLoading && (
+          <div
+            className="absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 space-x-4 transition-opacity"
+            style={{
+              opacity: showToolbar ? "1" : "0",
             }}
-            className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xl h-12 w-12 rounded-full text-3xl"
           >
-            {"<"}
-          </button>
-          <span className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] items-center justify-center whitespace-nowrap rounded-full px-4">
-            {numPages ? (
-              <>
-                {pageNumber} / {numPages}
-              </>
-            ) : (
-              <>...</>
-            )}
-          </span>
-          <button
-            onClick={() => {
-              if (pageNumber < numPages) setPageNumber(pageNumber + 1);
-            }}
-            className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xl h-12 w-12 rounded-full text-3xl"
-          >
-            {">"}
-          </button>
-        </div>
+            <button
+              onClick={() => {
+                if (pageNumber > pages[0]) {
+                  var newPageNumber = pageNumber;
+                  do {
+                    newPageNumber -= 1;
+                  } while (!pages.includes(newPageNumber));
+                  setPageNumber(newPageNumber);
+                }
+              }}
+              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xl h-12 w-12 rounded-full text-3xl"
+            >
+              {"<"}
+            </button>
+            <span className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] items-center justify-center whitespace-nowrap rounded-full px-4">
+              {numPages ? (
+                <>
+                  {pages.indexOf(pageNumber) + 1} / {pages.length}
+                </>
+              ) : (
+                <>...</>
+              )}
+            </span>
+            <button
+              onClick={() => {
+                if (pageNumber < pages[pages.length - 1]) {
+                  var newPageNumber = pageNumber;
+                  do {
+                    newPageNumber += 1;
+                  } while (!pages.includes(newPageNumber));
+                  setPageNumber(newPageNumber);
+                }
+              }}
+              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xl h-12 w-12 rounded-full text-3xl"
+            >
+              {">"}
+            </button>
+          </div>
+        )}
       </div>
       <div className="md:mt-[5vh] md:self-start">
         <fieldset>
@@ -124,6 +167,7 @@ const DiplomaThesisViewer = () => {
             id="my-chapters"
             name="my-chapters"
             className="m-2"
+            onChange={(e) => handleMyChaptersCheckBox(e)}
           />
           <label htmlFor="my-chapters">Show only my chapters</label>
         </fieldset>
