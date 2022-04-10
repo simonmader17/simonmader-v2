@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 import Skeleton from "react-loading-skeleton";
+import { useRouter } from "next/router";
 
 const DiplomaThesisViewer = () => {
   const [numPages, setNumPages] = useState(null);
@@ -8,11 +9,12 @@ const DiplomaThesisViewer = () => {
   const [showToolbar, setShowToolbar] = useState(true);
   const [documentLoading, setDocumentLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(false);
-
   const [pageDimensions, setPageDimensions] = useState({
     width: 0,
     height: 0,
   });
+
+  const router = useRouter();
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,7 +40,15 @@ const DiplomaThesisViewer = () => {
   const landscape = pageDimensions.width >= (pageDimensions.height * 210) / 297;
 
   return (
-    <div className="ltmd:flex-col flex min-h-screen select-none items-center justify-center gap-8">
+    <div className="ltmd:flex-col ltmd:justify-start relative flex min-h-screen select-none items-center justify-center gap-8">
+      <div className="ltmd:self-start m-4 md:absolute md:top-0 md:left-0">
+        <button
+          className="drop-shadow-pixel bg-body bg-hero-brick-wall-purple relative z-20 h-12 w-12 rounded-full border-2 border-black"
+          onClick={() => router.push("/")}
+        >
+          {"<"}
+        </button>
+      </div>
       <div
         className="relative z-10"
         style={{
@@ -60,7 +70,7 @@ const DiplomaThesisViewer = () => {
           file="diploma-thesis.pdf"
           loading={() => setDocumentLoading(true)}
           onLoadSuccess={onDocumentLoadSuccess}
-          className="drop-shadow-pixel"
+          className="drop-shadow-pixel select-text"
         >
           <Page
             pageNumber={pageNumber}
@@ -107,15 +117,17 @@ const DiplomaThesisViewer = () => {
           </button>
         </div>
       </div>
-      {/* <div>
-        <input
-          type="checkbox"
-          id="my-chapters"
-          name="my-chapters"
-          className="m-2"
-        />
-        <label htmlFor="my-chapters">Show only my chapters</label>
-      </div> */}
+      <div className="md:mt-[5vh] md:self-start">
+        <fieldset>
+          <input
+            type="checkbox"
+            id="my-chapters"
+            name="my-chapters"
+            className="m-2"
+          />
+          <label htmlFor="my-chapters">Show only my chapters</label>
+        </fieldset>
+      </div>
     </div>
   );
 };
