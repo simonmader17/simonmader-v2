@@ -70,9 +70,9 @@ const DiplomaThesisViewer = () => {
 
   return (
     <div className="ltmd:flex-col ltmd:justify-start relative flex min-h-screen select-none items-center justify-center gap-8">
-      <div className="ltmd:self-start m-4 md:absolute md:top-0 md:left-0">
+      <div className="ltmd:self-start group m-4 md:fixed md:top-0 md:left-0 md:z-20">
         <button
-          className="drop-shadow-pixel bg-body bg-hero-brick-wall-purple relative z-20 h-12 w-12 rounded-full border-2 border-black"
+          className="drop-shadow-pixel-sm group-hover:drop-shadow-pixel bg-body bg-hero-brick-wall-purple h-12 w-12 rounded-full border-2 border-black transition-[filter]"
           onClick={() => router.push("/")}
         >
           {"<"}
@@ -169,7 +169,7 @@ const DiplomaThesisViewer = () => {
             className="m-2"
             onChange={(e) => handleMyChaptersCheckBox(e)}
           />
-          <label htmlFor="my-chapters">Show only my chapters</label>
+          <label htmlFor="my-chapters">Only chapters i wrote</label>
         </fieldset>
       </div>
     </div>

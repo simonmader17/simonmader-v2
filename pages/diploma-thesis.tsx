@@ -10,7 +10,7 @@ const diploma_thesis = () => {
   return (
     <>
       <Head>
-        <title>Simon Mader's Diploma Thesis</title>
+        <title>Simon Mader&apos;s Diploma Thesis</title>
       </Head>
 
       <DiplomaThesisViewer />
