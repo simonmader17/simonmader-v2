@@ -5,10 +5,7 @@ import { SkeletonTheme } from "react-loading-skeleton";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SkeletonTheme
-      baseColor="#070707"
-      highlightColor="#000"
-    >
+    <SkeletonTheme baseColor="#0c0c0c" highlightColor="#000">
       <div className="font-SfPixelate bg-hero-brick-wall-purple bg-body flex min-h-screen flex-col text-center text-white">
         <Component {...pageProps} />
 

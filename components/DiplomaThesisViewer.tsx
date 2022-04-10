@@ -72,7 +72,7 @@ const DiplomaThesisViewer = () => {
           />
         </Document>
         {(documentLoading || pageLoading) && (
-          <Skeleton className="drop-shadow-pixel" height="100%" />
+          <Skeleton className="drop-shadow-pixel opacity-70" height="100%" />
         )}
         <div
           className="absolute bottom-10 left-1/2 flex -translate-x-1/2 space-x-4 transition-opacity"
