@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useEffect, useState } from "react";
 import About from "../components/About";
 import Career from "../components/Career";
@@ -22,27 +21,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Simon Mader&apos;s Webpage</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="preload"
-          href="/fonts/SfPixelate-wBgw.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Graph-35-pix.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <meta
-          name="description"
-          content="This is the personal webpage of Simon Mader."
-        />
-      </Head>
-
       {isFirefox && <ChromeNotification />}
 
       <Header />
