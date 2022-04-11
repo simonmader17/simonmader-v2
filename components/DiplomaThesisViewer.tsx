@@ -7,6 +7,7 @@ const DiplomaThesisViewer = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [showToolbar, setShowToolbar] = useState(true);
+  const [focusToolbar, setFocusToolbar] = useState(false);
   const [documentLoading, setDocumentLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(false);
   const [pageDimensions, setPageDimensions] = useState({
@@ -65,14 +66,11 @@ const DiplomaThesisViewer = () => {
   const portrait = pageDimensions.height > (pageDimensions.width * 297) / 210;
   const landscape = pageDimensions.width >= (pageDimensions.height * 210) / 297;
 
-  console.log(pages[0]);
-  console.log(pages[pages.length - 1]);
-
   return (
     <div className="ltmd:flex-col ltmd:justify-start relative flex min-h-screen select-none items-center justify-center gap-8">
       <div className="ltmd:self-start group m-4 md:fixed md:top-0 md:left-0 md:z-20">
         <button
-          className="drop-shadow-pixel-sm group-hover:drop-shadow-pixel bg-body bg-hero-brick-wall-purple h-12 w-12 rounded-full border-2 border-black transition-[filter]"
+          className="drop-shadow-pixel-sm group-hover:drop-shadow-pixel bg-body bg-hero-brick-wall-purple h-12 w-12 rounded-full border-2 border-black text-xl transition-[filter] md:text-3xl"
           onClick={() => router.push("/")}
         >
           {"<"}
@@ -93,7 +91,9 @@ const DiplomaThesisViewer = () => {
           }px`,
         }}
         onMouseEnter={() => setShowToolbar(true)}
-        onMouseLeave={() => setShowToolbar(false)}
+        onMouseLeave={() => {
+          if (!focusToolbar) setShowToolbar(false);
+        }}
       >
         <Document
           file="diploma-thesis.pdf"
@@ -105,6 +105,7 @@ const DiplomaThesisViewer = () => {
             pageNumber={pageNumber}
             loading={() => setPageLoading(true)}
             onLoadSuccess={() => setPageLoading(false)}
+            onLoadError={() => setPageNumber(1)}
             renderAnnotationLayer={false}
             width={portrait ? pageDimensions.width * 0.9 : null}
             height={landscape ? pageDimensions.height * 0.9 : null}
@@ -130,14 +131,48 @@ const DiplomaThesisViewer = () => {
                   setPageNumber(newPageNumber);
                 }
               }}
-              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xl h-12 w-12 rounded-full text-3xl"
+              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full text-xl md:text-3xl"
             >
               {"<"}
             </button>
             <span className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] items-center justify-center whitespace-nowrap rounded-full px-4">
               {numPages ? (
                 <>
-                  {pages.indexOf(pageNumber) + 1} / {pages.length}
+                  {/* {pages.indexOf(pageNumber) + 1} / {pages.length} */}
+                  <input
+                    type="text"
+                    id="pageNumber"
+                    name="pageNumber"
+                    className="bg-transparent text-right"
+                    style={{
+                      width: `${
+                        pageNumber.toString().length < 10
+                          ? pageNumber.toString().length
+                          : pageNumber.toString().length - 0.5
+                      }em`,
+                    }}
+                    value={pages.indexOf(pageNumber) + 1}
+                    onFocus={() => setFocusToolbar(true)}
+                    onBlur={() => setFocusToolbar(false)}
+                    onChange={(e) => {
+                      const { value } = e.target;
+                      if (value.toString().length == 0 || value == "0") {
+                        setPageNumber(0);
+                      } else if (
+                        !isNaN(+value) &&
+                        +value >= 1 &&
+                        +value <= pages.length
+                      ) {
+                        setPageNumber(pages[+value - 1]);
+                      } else {
+                        alert("Gültige Seitenzahl eingeben");
+                      }
+                    }}
+                  />
+                  <label htmlFor="pageNumber">
+                    <span className="mx-2">/</span>
+                    {pages.length}
+                  </label>
                 </>
               ) : (
                 <>...</>
@@ -153,7 +188,7 @@ const DiplomaThesisViewer = () => {
                   setPageNumber(newPageNumber);
                 }
               }}
-              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xl h-12 w-12 rounded-full text-3xl"
+              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full text-xl md:text-3xl"
             >
               {">"}
             </button>
