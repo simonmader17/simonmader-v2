@@ -67,8 +67,8 @@ const DiplomaThesisViewer = () => {
   const landscape = pageDimensions.width >= (pageDimensions.height * 210) / 297;
 
   return (
-    <div className="ltmd:flex-col ltmd:justify-start relative flex min-h-screen select-none items-center justify-center gap-8 my-20">
-      <div className="ltmd:self-start group m-4 fixed top-0 left-0 z-20">
+    <div className="ltmd:flex-col ltmd:justify-start ltmd:my-20 relative flex select-none items-center justify-center gap-8 md:min-h-screen">
+      <div className="ltmd:self-start group fixed top-0 left-0 z-20 m-4">
         <button
           className="drop-shadow-pixel-sm group-hover:drop-shadow-pixel bg-body bg-hero-brick-wall-purple h-12 w-12 rounded-full border-2 border-black text-xl transition-[filter] md:text-3xl"
           onClick={() => router.push("/")}
@@ -131,11 +131,11 @@ const DiplomaThesisViewer = () => {
                   setPageNumber(newPageNumber);
                 }
               }}
-              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full text-xl md:text-3xl"
+              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
             >
               {"<"}
             </button>
-            <span className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] items-center justify-center whitespace-nowrap rounded-full px-4">
+            <span className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] items-center justify-center whitespace-nowrap rounded-full border-2 border-black px-4">
               {numPages ? (
                 <>
                   {/* {pages.indexOf(pageNumber) + 1} / {pages.length} */}
@@ -188,7 +188,7 @@ const DiplomaThesisViewer = () => {
                   setPageNumber(newPageNumber);
                 }
               }}
-              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full text-xl md:text-3xl"
+              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
             >
               {">"}
             </button>
@@ -201,10 +201,19 @@ const DiplomaThesisViewer = () => {
             type="checkbox"
             id="my-chapters"
             name="my-chapters"
-            className="m-2"
+            className="m-2 hover:cursor-pointer"
             onChange={(e) => handleMyChaptersCheckBox(e)}
+            onMouseEnter={() => setShowToolbar(true)}
+            onMouseLeave={() => setShowToolbar(false)}
           />
-          <label htmlFor="my-chapters">Only chapters i wrote</label>
+          <label
+            htmlFor="my-chapters"
+            className="hover:cursor-pointer"
+            onMouseEnter={() => setShowToolbar(true)}
+            onMouseLeave={() => setShowToolbar(false)}
+          >
+            Only chapters i wrote
+          </label>
         </fieldset>
       </div>
     </div>
