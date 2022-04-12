@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 import Skeleton from "react-loading-skeleton";
 import { useRouter } from "next/router";
+import Checkbox from "./Checkbox/Checkbox";
 
 const DiplomaThesisViewer = () => {
   const [numPages, setNumPages] = useState(null);
@@ -196,25 +197,13 @@ const DiplomaThesisViewer = () => {
         )}
       </div>
       <div className="md:mt-[5vh] md:self-start">
-        <fieldset>
-          <input
-            type="checkbox"
-            id="my-chapters"
-            name="my-chapters"
-            className="m-2 hover:cursor-pointer"
-            onChange={(e) => handleMyChaptersCheckBox(e)}
-            onMouseEnter={() => setShowToolbar(true)}
-            onMouseLeave={() => setShowToolbar(false)}
-          />
-          <label
-            htmlFor="my-chapters"
-            className="hover:cursor-pointer"
-            onMouseEnter={() => setShowToolbar(true)}
-            onMouseLeave={() => setShowToolbar(false)}
-          >
-            Only chapters i wrote
-          </label>
-        </fieldset>
+        <Checkbox
+          id="chapters"
+          label="Only chapters I wrote"
+          onChange={(e) => handleMyChaptersCheckBox(e)}
+          onMouseEnter={() => setShowToolbar(true)}
+          onMouseLeave={() => setShowToolbar(false)}
+        />
       </div>
     </div>
   );
