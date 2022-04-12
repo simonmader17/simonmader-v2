@@ -67,8 +67,8 @@ const DiplomaThesisViewer = () => {
   const landscape = pageDimensions.width >= (pageDimensions.height * 210) / 297;
 
   return (
-    <div className="ltmd:flex-col ltmd:justify-start relative flex min-h-screen select-none items-center justify-center gap-8">
-      <div className="ltmd:self-start group m-4 md:fixed md:top-0 md:left-0 md:z-20">
+    <div className="ltmd:flex-col ltmd:justify-start relative flex min-h-screen select-none items-center justify-center gap-8 my-20">
+      <div className="ltmd:self-start group m-4 fixed top-0 left-0 z-20">
         <button
           className="drop-shadow-pixel-sm group-hover:drop-shadow-pixel bg-body bg-hero-brick-wall-purple h-12 w-12 rounded-full border-2 border-black text-xl transition-[filter] md:text-3xl"
           onClick={() => router.push("/")}
