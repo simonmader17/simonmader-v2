@@ -59,3 +59,11 @@
     transform: scale(1);
   }
 }
+
+.checkbox[type="checkbox"]:disabled + .checkbox-label {
+  @apply text-gray-400;
+
+  &::before {
+    content: "";
+  }
+}

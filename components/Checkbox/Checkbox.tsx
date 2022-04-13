@@ -8,6 +8,7 @@ interface ICheckbox {
   onChange?: ChangeEventHandler<HTMLInputElement>;
   onMouseEnter?: MouseEventHandler<HTMLInputElement | HTMLLabelElement>;
   onMouseLeave?: MouseEventHandler<HTMLInputElement | HTMLLabelElement>;
+  disabled?: boolean;
 }
 
 const Checkbox = ({
@@ -16,6 +17,7 @@ const Checkbox = ({
   onChange,
   onMouseEnter,
   onMouseLeave,
+  disabled,
 }: ICheckbox) => {
   return (
     <fieldset className={styles["checkbox-container"]}>
@@ -27,6 +29,7 @@ const Checkbox = ({
         onChange={onChange}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        disabled={disabled}
       />
       <label
         className={styles["checkbox-label"]}

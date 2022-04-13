@@ -203,6 +203,7 @@ const DiplomaThesisViewer = () => {
           onChange={(e) => handleMyChaptersCheckBox(e)}
           onMouseEnter={() => setShowToolbar(true)}
           onMouseLeave={() => setShowToolbar(false)}
+          disabled={documentLoading}
         />
       </div>
     </div>
