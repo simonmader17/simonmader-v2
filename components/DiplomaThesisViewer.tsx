@@ -163,12 +163,11 @@ const DiplomaThesisViewer = () => {
             <span className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] items-center justify-center whitespace-nowrap rounded-full border-2 border-black px-4">
               {numPages ? (
                 <>
-                  {/* {pages.indexOf(pageNumber) + 1} / {pages.length} */}
                   <input
                     type="text"
                     id="pageNumber"
                     name="pageNumber"
-                    className="bg-transparent pr-1 text-right"
+                    className="cursor-pointer bg-transparent pr-1 text-right"
                     style={{
                       width: `${
                         gotoPage.length < 2 ? 1.5 : gotoPage.length + 0.5
@@ -203,7 +202,7 @@ const DiplomaThesisViewer = () => {
                       }
                     }}
                   />
-                  <label htmlFor="pageNumber">
+                  <label htmlFor="pageNumber" className="cursor-pointer">
                     <span className="mx-2">/</span>
                     {pages.length}
                   </label>
