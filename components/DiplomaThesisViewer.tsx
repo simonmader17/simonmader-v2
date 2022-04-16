@@ -11,11 +11,19 @@ const DiplomaThesisViewer = () => {
   const [focusToolbar, setFocusToolbar] = useState(false);
   const [documentLoading, setDocumentLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(false);
+  const [noData, setNoData] = useState(false);
   const [pageDimensions, setPageDimensions] = useState({
     width: 0,
     height: 0,
   });
   const [pages, setPages] = useState([]);
+  const [gotoPage, setGotoPage] = useState("1");
+
+  useEffect(() => {
+    if (!pageLoading) setNoData(false);
+  }, [pageLoading]);
+
+  console.log(gotoPage.length);
 
   const range = (start: number, end: number): ReadonlyArray<number> => {
     end += 1; // include end
@@ -39,6 +47,7 @@ const DiplomaThesisViewer = () => {
     }
     setPages(newPages);
     setPageNumber(newPages[0]);
+    setGotoPage((pages.indexOf(newPages[0]) + 1).toString());
   };
 
   const router = useRouter();
@@ -107,13 +116,24 @@ const DiplomaThesisViewer = () => {
             loading={() => setPageLoading(true)}
             onLoadSuccess={() => setPageLoading(false)}
             onLoadError={() => setPageNumber(1)}
+            noData={() => setNoData(true)}
             renderAnnotationLayer={false}
             width={portrait ? pageDimensions.width * 0.9 : null}
             height={landscape ? pageDimensions.height * 0.9 : null}
           />
         </Document>
+        {noData && (
+          <>
+            <Skeleton className="opacity-70" height="100%" />
+            <span className="absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
+              Page doesn&apos;t exist
+            </span>
+          </>
+        )}
         {(documentLoading || pageLoading) && (
-          <Skeleton className="drop-shadow-pixel opacity-70" height="100%" />
+          <>
+            <Skeleton className="opacity-70" height="100%" />
+          </>
         )}
         {!documentLoading && (
           <div
@@ -124,12 +144,16 @@ const DiplomaThesisViewer = () => {
           >
             <button
               onClick={() => {
-                if (pageNumber > pages[0]) {
+                if (pageNumber == 0) {
+                  setPageNumber(pages[0]);
+                  setGotoPage("1");
+                } else if (pageNumber > pages[0]) {
                   var newPageNumber = pageNumber;
                   do {
                     newPageNumber -= 1;
                   } while (!pages.includes(newPageNumber));
                   setPageNumber(newPageNumber);
+                  setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
                 }
               }}
               className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
@@ -144,29 +168,38 @@ const DiplomaThesisViewer = () => {
                     type="text"
                     id="pageNumber"
                     name="pageNumber"
-                    className="bg-transparent text-right"
+                    className="bg-transparent pr-1 text-right"
                     style={{
                       width: `${
-                        pageNumber.toString().length < 10
-                          ? pageNumber.toString().length
-                          : pageNumber.toString().length - 0.5
-                      }em`,
+                        gotoPage.length < 2 ? 1.5 : gotoPage.length + 0.5
+                      }ch`,
                     }}
-                    value={pages.indexOf(pageNumber) + 1}
+                    value={gotoPage}
                     onFocus={() => setFocusToolbar(true)}
-                    onBlur={() => setFocusToolbar(false)}
+                    onKeyDown={(e) => {
+                      if (e.key == "Enter")
+                        (e.target as HTMLInputElement).blur();
+                    }}
+                    onBlur={() => {
+                      setFocusToolbar(false);
+                      if (pageNumber > 0)
+                        setGotoPage((pages.indexOf(pageNumber) + 1).toString());
+                    }}
                     onChange={(e) => {
                       const { value } = e.target;
-                      if (value.toString().length == 0 || value == "0") {
-                        setPageNumber(0);
+                      if (value.trim().length == 0 || value == "0") {
+                        setPageNumber(1);
+                        setGotoPage(value);
                       } else if (
                         !isNaN(+value) &&
                         +value >= 1 &&
                         +value <= pages.length
                       ) {
                         setPageNumber(pages[+value - 1]);
+                        setGotoPage(value);
                       } else {
-                        alert("Gültige Seitenzahl eingeben");
+                        setPageNumber(0);
+                        setGotoPage(value);
                       }
                     }}
                   />
@@ -181,12 +214,16 @@ const DiplomaThesisViewer = () => {
             </span>
             <button
               onClick={() => {
-                if (pageNumber < pages[pages.length - 1]) {
+                if (pageNumber == 0) {
+                  setPageNumber(pages[0]);
+                  setGotoPage("1");
+                } else if (pageNumber < pages[pages.length - 1]) {
                   var newPageNumber = pageNumber;
                   do {
                     newPageNumber += 1;
                   } while (!pages.includes(newPageNumber));
                   setPageNumber(newPageNumber);
+                  setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
                 }
               }}
               className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
