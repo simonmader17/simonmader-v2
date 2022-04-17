@@ -3,6 +3,7 @@ import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 import Skeleton from "react-loading-skeleton";
 import { useRouter } from "next/router";
 import Checkbox from "./Checkbox/Checkbox";
+import { ContentEditable } from "../pages/test";
 
 const DiplomaThesisViewer = () => {
   const [numPages, setNumPages] = useState(null);
@@ -60,7 +61,7 @@ const DiplomaThesisViewer = () => {
       });
     };
 
-    window.addEventListener("resize", handleResize);
+    // window.addEventListener("resize", handleResize);
 
     handleResize();
 
@@ -160,56 +161,58 @@ const DiplomaThesisViewer = () => {
             >
               {"<"}
             </button>
-            <span className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] items-center justify-center whitespace-nowrap rounded-full border-2 border-black px-4">
-              {numPages ? (
-                <>
-                  <input
-                    type="text"
-                    id="pageNumber"
-                    name="pageNumber"
-                    className="cursor-pointer bg-transparent pr-1 text-right"
-                    style={{
-                      width: `${
-                        gotoPage.length < 2 ? 1.5 : gotoPage.length + 0.5
-                      }ch`,
-                    }}
-                    value={gotoPage}
-                    onFocus={() => setFocusToolbar(true)}
-                    onKeyDown={(e) => {
-                      if (e.key == "Enter")
-                        (e.target as HTMLInputElement).blur();
-                    }}
-                    onBlur={() => {
-                      setFocusToolbar(false);
-                      if (pageNumber > 0)
-                        setGotoPage((pages.indexOf(pageNumber) + 1).toString());
-                    }}
-                    onChange={(e) => {
-                      const { value } = e.target;
-                      if (value.trim().length == 0 || value == "0") {
-                        setPageNumber(1);
-                        setGotoPage(value);
-                      } else if (
-                        !isNaN(+value) &&
-                        +value >= 1 &&
-                        +value <= pages.length
-                      ) {
-                        setPageNumber(pages[+value - 1]);
-                        setGotoPage(value);
-                      } else {
-                        setPageNumber(0);
-                        setGotoPage(value);
-                      }
-                    }}
-                  />
-                  <label htmlFor="pageNumber" className="cursor-pointer">
-                    <span className="mx-2">/</span>
-                    {pages.length}
-                  </label>
-                </>
-              ) : (
-                <>...</>
-              )}
+            <span
+              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs relative z-20 flex min-h-[3rem] cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-2 border-black px-4"
+              onClick={(e) => {
+                const inputElem = document.querySelector(
+                  "#pageNumber"
+                ) as HTMLSpanElement;
+                inputElem.blur();
+                inputElem.focus();
+              }}
+            >
+              <ContentEditable
+                // type="text"
+                id="pageNumber"
+                // name="pageNumber"
+                className="min-w-[2ch] cursor-pointer bg-transparent pr-1 text-right"
+                // style={{
+                //   width: `${
+                //     gotoPage.length < 2 ? 1.5 : gotoPage.length + 0.5
+                //   }ch`,
+                // }}
+                value={gotoPage}
+                onFocus={() => setFocusToolbar(true)}
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") (e.target as HTMLInputElement).blur();
+                }}
+                onBlur={() => {
+                  setFocusToolbar(false);
+                  if (pageNumber > 0)
+                    setGotoPage((pages.indexOf(pageNumber) + 1).toString());
+                }}
+                onChange={(value) => {
+                  // const value = (e.target as HTMLSpanElement).innerText;
+                  if (value.trim().length == 0 || value == "0") {
+                    setPageNumber(1);
+                    setGotoPage(value);
+                  } else if (
+                    !isNaN(+value) &&
+                    +value >= 1 &&
+                    +value <= pages.length
+                  ) {
+                    setPageNumber(pages[+value - 1]);
+                    setGotoPage(value);
+                  } else {
+                    setPageNumber(0);
+                    setGotoPage(value);
+                  }
+                }}
+              />
+              <label htmlFor="pageNumber" className="cursor-pointer">
+                <span className="mx-2">/</span>
+                {pages.length}
+              </label>
             </span>
             <button
               onClick={() => {
