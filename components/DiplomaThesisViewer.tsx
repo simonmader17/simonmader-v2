@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 import Skeleton from "react-loading-skeleton";
 import { useRouter } from "next/router";
@@ -20,6 +20,13 @@ const DiplomaThesisViewer = () => {
   const [pages, setPages] = useState([]);
   const [gotoPage, setGotoPage] = useState("1");
   const [gotoPageTextWidth, setGotoPageTextWidth] = useState(0);
+  const gotoPageInputEl = useRef(null);
+
+  useEffect(() => {
+    setGotoPageTextWidth(
+      getTextWidth(gotoPage, getCanvasFontSize(gotoPageInputEl.current))
+    );
+  }, [gotoPage]);
 
   useEffect(() => {
     if (!pageLoading) setNoData(false);
@@ -160,17 +167,26 @@ const DiplomaThesisViewer = () => {
             >
               {"<"}
             </button>
-            <span className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] items-center justify-center whitespace-nowrap rounded-full border-2 border-black px-4">
+            <span
+              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-2 border-black px-4"
+              onClick={() => gotoPageInputEl.current.focus()}
+            >
               <input
                 type="text"
                 id="pageNumber"
+                ref={gotoPageInputEl}
                 name="pageNumber"
                 className="cursor-pointer bg-transparent pr-1 text-right"
                 style={{
                   width: `calc(${gotoPageTextWidth}px + .5em)`,
                 }}
                 value={gotoPage}
-                onFocus={() => setFocusToolbar(true)}
+                onFocus={(e) => {
+                  setFocusToolbar(true);
+                  const prev = e.target.value;
+                  e.target.value = "";
+                  e.target.value = prev;
+                }}
                 onKeyDown={(e) => {
                   if (e.key == "Enter") (e.target as HTMLInputElement).blur();
                 }}
@@ -181,9 +197,6 @@ const DiplomaThesisViewer = () => {
                 }}
                 onChange={(e) => {
                   const { value } = e.target;
-                  setGotoPageTextWidth(
-                    getTextWidth(value, getCanvasFontSize(e.target))
-                  );
                   if (value.trim().length == 0 || value == "0") {
                     setPageNumber(1);
                     setGotoPage(value);
@@ -199,6 +212,7 @@ const DiplomaThesisViewer = () => {
                     setGotoPage(value);
                   }
                 }}
+                autoComplete="off"
               />
               <label htmlFor="pageNumber" className="cursor-pointer">
                 <span className="mx-2">/</span>
