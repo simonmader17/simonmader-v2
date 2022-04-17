@@ -4,6 +4,7 @@ import Skeleton from "react-loading-skeleton";
 import { useRouter } from "next/router";
 import Checkbox from "./Checkbox/Checkbox";
 import { getCanvasFontSize, getTextWidth } from "../lib/text-width";
+import useTranslation from "next-translate/useTranslation";
 
 const DiplomaThesisViewer = () => {
   const [numPages, setNumPages] = useState(null);
@@ -83,6 +84,8 @@ const DiplomaThesisViewer = () => {
   const portrait = pageDimensions.height > (pageDimensions.width * 297) / 210;
   const landscape = pageDimensions.width >= (pageDimensions.height * 210) / 297;
 
+  const { t } = useTranslation("diploma-thesis");
+
   return (
     <div className="ltmd:flex-col ltmd:justify-start ltmd:my-20 relative flex select-none items-center justify-center gap-8 md:min-h-screen">
       <div className="ltmd:self-start group fixed top-0 left-0 z-20 m-4">
@@ -133,7 +136,7 @@ const DiplomaThesisViewer = () => {
           <>
             <Skeleton className="opacity-70" height="100%" />
             <span className="absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
-              Page doesn&apos;t exist
+              {t("no_data")}
             </span>
           </>
         )}
@@ -242,8 +245,8 @@ const DiplomaThesisViewer = () => {
       </div>
       <div className="md:mt-[5vh] md:self-start">
         <Checkbox
-          id="chapters"
-          label="Only chapters I wrote"
+          id="my-chapters"
+          label={t("my_chapters")}
           onChange={(e) => handleMyChaptersCheckBox(e)}
           onMouseEnter={() => setShowToolbar(true)}
           onMouseLeave={() => setShowToolbar(false)}

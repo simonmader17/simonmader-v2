@@ -2,7 +2,7 @@
   "locales": ["de", "en"],
   "defaultLocale": "de",
   "pages": {
-    "*": [
+    "/": [
       "about",
       "projects",
       "qualifications",
@@ -10,6 +10,7 @@
       "career",
       "education",
       "others"
-    ]
+    ],
+    "/diploma-thesis": ["diploma-thesis"]
   }
 }
