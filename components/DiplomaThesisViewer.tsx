@@ -3,6 +3,7 @@ import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 import Skeleton from "react-loading-skeleton";
 import { useRouter } from "next/router";
 import Checkbox from "./Checkbox/Checkbox";
+import { getCanvasFontSize, getTextWidth } from "../lib/text-width";
 
 const DiplomaThesisViewer = () => {
   const [numPages, setNumPages] = useState(null);
@@ -18,6 +19,7 @@ const DiplomaThesisViewer = () => {
   });
   const [pages, setPages] = useState([]);
   const [gotoPage, setGotoPage] = useState("1");
+  const [gotoPageTextWidth, setGotoPageTextWidth] = useState(0);
 
   useEffect(() => {
     if (!pageLoading) setNoData(false);
@@ -165,9 +167,7 @@ const DiplomaThesisViewer = () => {
                 name="pageNumber"
                 className="cursor-pointer bg-transparent pr-1 text-right"
                 style={{
-                  width: `${
-                    gotoPage.length < 2 ? 1.5 : gotoPage.length + 0.5
-                  }ch`,
+                  width: `calc(${gotoPageTextWidth}px + .5em)`,
                 }}
                 value={gotoPage}
                 onFocus={() => setFocusToolbar(true)}
@@ -181,6 +181,9 @@ const DiplomaThesisViewer = () => {
                 }}
                 onChange={(e) => {
                   const { value } = e.target;
+                  setGotoPageTextWidth(
+                    getTextWidth(value, getCanvasFontSize(e.target))
+                  );
                   if (value.trim().length == 0 || value == "0") {
                     setPageNumber(1);
                     setGotoPage(value);
