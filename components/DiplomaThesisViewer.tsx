@@ -18,10 +18,17 @@ const DiplomaThesisViewer = () => {
     width: 0,
     height: 0,
   });
+  const [portrait, setPortrait] = useState(true);
+  const [landscape, setLandscape] = useState(false);
   const [pages, setPages] = useState([]);
   const [gotoPage, setGotoPage] = useState("1");
   const [gotoPageTextWidth, setGotoPageTextWidth] = useState(0);
   const gotoPageInputEl = useRef(null);
+
+  useEffect(() => {
+    setPortrait(pageDimensions.height > (pageDimensions.width * 297) / 210);
+    setLandscape(pageDimensions.width >= (pageDimensions.height * 210) / 297);
+  }, [pageDimensions]);
 
   useEffect(() => {
     setGotoPageTextWidth(
@@ -80,9 +87,6 @@ const DiplomaThesisViewer = () => {
     setPages([...range(1, numPages)]);
     setDocumentLoading(false);
   };
-
-  const portrait = pageDimensions.height > (pageDimensions.width * 297) / 210;
-  const landscape = pageDimensions.width >= (pageDimensions.height * 210) / 297;
 
   const { t } = useTranslation("diploma-thesis");
 

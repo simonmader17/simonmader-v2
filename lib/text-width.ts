@@ -1,5 +1,4 @@
 const getTextWidth = (text, font) => {
-  console.log(text, font);
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
   context.font = font;
