@@ -272,9 +272,9 @@ const DiplomaThesisViewer = () => {
           </div>
         )}
       </div>
-      <div className="ltmd:w-full flex h-full flex-col gap-8 md:w-[30rem]">
+      <div className="ltmd:w-full flex h-full flex-col gap-2 md:w-[30rem]">
         <Checkbox
-          className="ltmd:mx-auto"
+          className="ltmd:mx-auto mb-6"
           id="my-chapters"
           label={t("my_chapters")}
           onChange={(e) => handleMyChaptersCheckBox(e)}
@@ -284,7 +284,6 @@ const DiplomaThesisViewer = () => {
         />
         {outline ? (
           <TableOfContents
-            className="h-full overflow-scroll"
             outline={outline}
             pages={pages}
             onItemClick={(newPageNumber) => {
