@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import Container from "../components/Container";
 
 const DiplomaThesisViewer = dynamic(
   import("../components/DiplomaThesisViewer"),
@@ -13,7 +14,9 @@ const diploma_thesis = () => {
         <title>Simon Mader&apos;s Diploma Thesis</title>
       </Head>
 
-      <DiplomaThesisViewer />
+      <Container>
+        <DiplomaThesisViewer />
+      </Container>
     </>
   );
 };

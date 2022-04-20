@@ -3,6 +3,7 @@ import About from "../components/About";
 import Career from "../components/Career";
 import Certificates from "../components/Certificates";
 import ChromeNotification from "../components/ChromeNotification";
+import Container from "../components/Container";
 import Education from "../components/Education";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -25,23 +26,21 @@ export default function Home() {
 
       <Header />
 
-      <div className="p-4 text-left">
-        <div className="container mx-auto">
-          <About />
+      <Container>
+        <About />
 
-          <Projects />
+        <Projects />
 
-          <Qualifications />
+        <Qualifications />
 
-          <Certificates />
+        <Certificates />
 
-          <Career />
+        <Career />
 
-          <Education />
+        <Education />
 
-          <Others />
-        </div>
-      </div>
+        <Others />
+      </Container>
     </>
   );
 }

@@ -3,6 +3,7 @@ import styles from "./Checkbox.module.scss";
 import { ChangeEventHandler, MouseEventHandler } from "react";
 
 interface ICheckbox {
+  className?: string;
   id: string;
   label: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
@@ -12,6 +13,7 @@ interface ICheckbox {
 }
 
 const Checkbox = ({
+  className,
   id,
   label,
   onChange,
@@ -20,7 +22,7 @@ const Checkbox = ({
   disabled,
 }: ICheckbox) => {
   return (
-    <fieldset className={styles["checkbox-container"]}>
+    <fieldset className={[styles["checkbox-container"], className].join(" ")}>
       <input
         type="checkbox"
         className={styles["checkbox"]}

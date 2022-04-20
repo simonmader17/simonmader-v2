@@ -9,7 +9,7 @@ function Custom404() {
         404 &mdash; That page doesn&apos;t exist
       </h1>
       <div className="relative m-8 h-16 w-16">
-        <Image src={pogo} alt="PogO" layout="fill" />
+        <Image src={pogo} alt="PogO" layout="fill" placeholder="blur" />
       </div>
     </div>
   );

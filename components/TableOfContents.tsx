@@ -13,7 +13,7 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
       {outline.map((pair) => (
         <p
           key={pair.title}
-          className="flex cursor-pointer justify-between gap-8 p-1 transition-colors hover:bg-gray-400 hover:bg-opacity-20"
+          className="ltmd:text-sm flex cursor-pointer justify-between gap-8 rounded-xl p-2 transition-colors hover:bg-gray-400 hover:bg-opacity-20"
           onClick={() => {
             onItemClick(pair.pageNumber);
             window.scrollTo({ top: 0, behavior: "smooth" });
