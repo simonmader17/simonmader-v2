@@ -91,8 +91,8 @@ const DiplomaThesisViewer = () => {
   const { t } = useTranslation("diploma-thesis");
 
   return (
-    <div className="ltmd:flex-col ltmd:justify-start ltmd:my-20 relative flex select-none items-center justify-center gap-8 md:min-h-screen">
-      <div className="ltmd:self-start group fixed top-0 left-0 z-20 m-4">
+    <div className="ltmd:flex-col ltmd:my-20 ltmd:items-center relative flex select-none gap-8 md:my-[5vh] md:min-h-[90vh] md:justify-center">
+      <div className="group fixed top-0 left-0 z-20 m-4">
         <button
           className="drop-shadow-pixel-sm group-hover:drop-shadow-pixel bg-body bg-hero-brick-wall-purple h-12 w-12 rounded-full border-2 border-black text-xl transition-[filter] md:text-3xl"
           onClick={() => router.push("/")}
@@ -247,7 +247,7 @@ const DiplomaThesisViewer = () => {
           </div>
         )}
       </div>
-      <div className="md:mt-[5vh] md:self-start">
+      <div className="">
         <Checkbox
           id="my-chapters"
           label={t("my_chapters")}
