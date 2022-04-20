@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Checkbox from "./Checkbox/Checkbox";
 import { getCanvasFontSize, getTextWidth } from "../lib/text-width";
 import useTranslation from "next-translate/useTranslation";
+import { DESTRUCTION } from "dns";
 
 const DiplomaThesisViewer = () => {
   const [numPages, setNumPages] = useState(null);
@@ -91,7 +92,7 @@ const DiplomaThesisViewer = () => {
   const { t } = useTranslation("diploma-thesis");
 
   return (
-    <div className="ltmd:flex-col ltmd:my-20 ltmd:items-center relative flex select-none gap-8 md:my-[5vh] md:min-h-[90vh] md:justify-center">
+    <div className="ltmd:flex-col ltmd:my-20 ltmd:items-center relative flex select-none gap-8 md:my-[5vh] md:h-[90vh] md:justify-center">
       <div className="group fixed top-0 left-0 z-20 m-4">
         <button
           className="drop-shadow-pixel-sm group-hover:drop-shadow-pixel bg-body bg-hero-brick-wall-purple h-12 w-12 rounded-full border-2 border-black text-xl transition-[filter] md:text-3xl"
@@ -247,7 +248,7 @@ const DiplomaThesisViewer = () => {
           </div>
         )}
       </div>
-      <div className="">
+      <div className="flex h-full max-w-[90vw] flex-col gap-8 text-left">
         <Checkbox
           id="my-chapters"
           label={t("my_chapters")}
