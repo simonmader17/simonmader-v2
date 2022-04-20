@@ -284,6 +284,7 @@ const DiplomaThesisViewer = () => {
         />
         {outline ? (
           <TableOfContents
+            className="h-full overflow-scroll"
             outline={outline}
             pages={pages}
             onItemClick={(newPageNumber) => {

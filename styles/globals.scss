@@ -33,6 +33,10 @@
   &-thumb {
     @apply bg-blended hover:bg-bodyBright rounded-full;
   }
+
+  &-corner {
+    @apply bg-transparent;
+  }
 }
 
 ::selection {
