@@ -6,8 +6,11 @@ import Checkbox from "./Checkbox/Checkbox";
 import { getCanvasFontSize, getTextWidth } from "../lib/text-width";
 import useTranslation from "next-translate/useTranslation";
 import { DESTRUCTION } from "dns";
+import TableOfContents from "./TableOfContents";
 
 const DiplomaThesisViewer = () => {
+  const [pdf, setPdf] = useState(null);
+  const [outline, setOutline] = useState(null);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [showToolbar, setShowToolbar] = useState(true);
@@ -25,6 +28,25 @@ const DiplomaThesisViewer = () => {
   const [gotoPage, setGotoPage] = useState("1");
   const [gotoPageTextWidth, setGotoPageTextWidth] = useState(0);
   const gotoPageInputEl = useRef(null);
+
+  useEffect(() => {
+    if (pdf) {
+      const getPairs = async () => {
+        const pairs = [];
+        await pdf.getOutline().then(async (outline) => {
+          for (var i = 0; i < outline.length; i++) {
+            await pdf.getDestination(outline[i].dest).then(async (dest) => {
+              await pdf.getPageIndex(dest[0]).then(async (id) => {
+                pairs.push({ title: outline[i].title, pageNumber: +id + 1 });
+              });
+            });
+          }
+        });
+        setOutline(pairs);
+      };
+      getPairs();
+    }
+  }, [pdf]);
 
   useEffect(() => {
     setPortrait(pageDimensions.height > (pageDimensions.width * 297) / 210);
@@ -83,7 +105,9 @@ const DiplomaThesisViewer = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
+  const onDocumentLoadSuccess = (pdf) => {
+    const { numPages } = pdf;
+    setPdf(pdf);
     setNumPages(numPages);
     setPages([...range(1, numPages)]);
     setDocumentLoading(false);
@@ -248,7 +272,7 @@ const DiplomaThesisViewer = () => {
           </div>
         )}
       </div>
-      <div className="flex h-full max-w-[90vw] flex-col gap-8 text-left">
+      <div className="ltmd:max-w-[90vw] flex h-full w-[30rem] flex-col gap-8 text-left">
         <Checkbox
           id="my-chapters"
           label={t("my_chapters")}
@@ -257,6 +281,22 @@ const DiplomaThesisViewer = () => {
           onMouseLeave={() => setShowToolbar(false)}
           disabled={documentLoading}
         />
+        {outline ? (
+          <TableOfContents
+            outline={outline}
+            pages={pages}
+            onItemClick={(newPageNumber) => {
+              setPageNumber(newPageNumber);
+              setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
+            }}
+            onMouseEnter={() => setShowToolbar(true)}
+            onMouseLeave={() => setShowToolbar(false)}
+          />
+        ) : (
+          <p className="p-1 text-lg">
+            <Skeleton count={20} />
+          </p>
+        )}
       </div>
     </div>
   );
