@@ -128,12 +128,12 @@ const DiplomaThesisViewer = () => {
       <div
         className="relative z-10"
         style={{
-          width: `${
+          minWidth: `${
             portrait
               ? pageDimensions.width * 0.9
               : (pageDimensions.height * 0.9 * 210) / 297
           }px`,
-          height: `${
+          minHeight: `${
             landscape
               ? pageDimensions.height * 0.9
               : (pageDimensions.width * 0.9 * 297) / 210

@@ -1,16 +1,21 @@
 import useMouse from "@react-hook/mouse-position";
 import useTranslation from "next-translate/useTranslation";
 import { useEffect, useRef } from "react";
+import createRipple from "../lib/ripple";
 
 const TableOfContentsItem = ({ className, children, ...props }) => {
-  const ref = useRef(null);
-  const mouse = useMouse(ref);
+  const pRef = useRef(null);
+  const mouse = useMouse(pRef);
 
   return (
     <p
-      ref={ref}
+      ref={pRef}
       className={[className, "relative overflow-hidden"].join(" ")}
       {...props}
+      onClick={(e) => {
+        props.onClick();
+        createRipple(e);
+      }}
     >
       {children}
       <span
@@ -38,7 +43,7 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
         {outline.map((pair) => (
           <TableOfContentsItem
             key={pair.title}
-            className="ltmd:text-sm flex cursor-pointer justify-between gap-8 rounded-xl p-2 transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
+            className="ltmd:text-sm flex cursor-pointer justify-between gap-8 rounded-xl p-2 ease-out hover:bg-gray-400 hover:bg-opacity-20"
             onClick={() => {
               onItemClick(pair.pageNumber);
               window.scrollTo({ top: 0, behavior: "smooth" });
