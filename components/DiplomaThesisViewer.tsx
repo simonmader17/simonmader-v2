@@ -133,7 +133,7 @@ const DiplomaThesisViewer = () => {
               ? pageDimensions.width * 0.9
               : (pageDimensions.height * 0.9 * 210) / 297
           }px`,
-          minHeight: `${
+          height: `${
             landscape
               ? pageDimensions.height * 0.9
               : (pageDimensions.width * 0.9 * 297) / 210
