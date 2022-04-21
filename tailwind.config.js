@@ -28,6 +28,17 @@ module.exports = {
         pixel: ".5rem .5rem 0 rgba(0, 0, 0, .5)",
         "pixel-sm": ".25rem .25rem 0 rgba(0, 0, 0, .5)",
       },
+      keyframes: {
+        "fade-in": {
+          "0%, 50%": {
+            transform: "translateY(5em)",
+            opacity: 0,
+          },
+        },
+      },
+      animation: {
+        "fade-in": "fade-in 1s linear",
+      },
     },
   },
   plugins: [
