@@ -1,7 +1,7 @@
 import useMouse from "@react-hook/mouse-position";
 import useTranslation from "next-translate/useTranslation";
-import { useEffect, useRef } from "react";
-import createRipple from "../lib/ripple";
+import { useRef } from "react";
+import { createRipple } from "../lib/ripple";
 
 const TableOfContentsItem = ({ className, children, ...props }) => {
   const pRef = useRef(null);
@@ -12,12 +12,10 @@ const TableOfContentsItem = ({ className, children, ...props }) => {
       ref={pRef}
       className={[className, "relative overflow-hidden"].join(" ")}
       {...props}
-      onClick={(e) => {
-        props.onClick();
+      onPointerDown={(e) => {
         createRipple(e);
       }}
     >
-      {children}
       <span
         className="absolute h-[200%] w-full -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity hover:opacity-20"
         style={{
@@ -27,6 +25,7 @@ const TableOfContentsItem = ({ className, children, ...props }) => {
           left: `calc(${mouse.x}px)`,
         }}
       />
+      {children}
     </p>
   );
 };
