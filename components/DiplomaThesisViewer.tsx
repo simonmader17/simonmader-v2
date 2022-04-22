@@ -48,6 +48,26 @@ const DiplomaThesisViewer = () => {
     }
   }, [pdf]);
 
+  const setNewActiveChapter = (newPageNumber) => {
+    for (var i = 0; i < outline.length; i++) {
+      if (
+        newPageNumber >= outline[i].pageNumber &&
+        (i == outline.length - 1 || newPageNumber < outline[i + 1].pageNumber)
+      ) {
+        outline[i].active = true;
+        // return;
+      } else {
+        outline[i].active = false;
+      }
+    }
+  };
+
+  const resetActiveChapter = () => {
+    for (var i = 0; i < outline.length; i++) {
+      outline[i].active = false;
+    }
+  };
+
   useEffect(() => {
     setPortrait(pageDimensions.height > (pageDimensions.width * 297) / 210);
     setLandscape(pageDimensions.width >= (pageDimensions.height * 210) / 297);
@@ -186,6 +206,7 @@ const DiplomaThesisViewer = () => {
                 if (pageNumber == 0) {
                   setPageNumber(pages[0]);
                   setGotoPage("1");
+                  resetActiveChapter();
                 } else if (pageNumber > pages[0]) {
                   var newPageNumber = pageNumber;
                   do {
@@ -193,6 +214,7 @@ const DiplomaThesisViewer = () => {
                   } while (!pages.includes(newPageNumber));
                   setPageNumber(newPageNumber);
                   setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
+                  setNewActiveChapter(newPageNumber);
                 }
               }}
               className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
@@ -232,6 +254,7 @@ const DiplomaThesisViewer = () => {
                   if (value.trim().length == 0 || value == "0") {
                     setPageNumber(1);
                     setGotoPage(value);
+                    resetActiveChapter();
                   } else if (
                     !isNaN(+value) &&
                     +value >= 1 &&
@@ -239,9 +262,11 @@ const DiplomaThesisViewer = () => {
                   ) {
                     setPageNumber(pages[+value - 1]);
                     setGotoPage(value);
+                    setNewActiveChapter(pages[+value - 1]);
                   } else {
                     setPageNumber(0);
                     setGotoPage(value);
+                    resetActiveChapter();
                   }
                 }}
                 autoComplete="off"
@@ -256,6 +281,7 @@ const DiplomaThesisViewer = () => {
                 if (pageNumber == 0) {
                   setPageNumber(pages[0]);
                   setGotoPage("1");
+                  resetActiveChapter();
                 } else if (pageNumber < pages[pages.length - 1]) {
                   var newPageNumber = pageNumber;
                   do {
@@ -263,6 +289,7 @@ const DiplomaThesisViewer = () => {
                   } while (!pages.includes(newPageNumber));
                   setPageNumber(newPageNumber);
                   setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
+                  setNewActiveChapter(newPageNumber);
                 }
               }}
               className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
@@ -289,6 +316,7 @@ const DiplomaThesisViewer = () => {
             onItemClick={(newPageNumber) => {
               setPageNumber(newPageNumber);
               setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
+              setNewActiveChapter(newPageNumber);
             }}
             onMouseEnter={() => setShowToolbar(true)}
             onMouseLeave={() => setShowToolbar(false)}

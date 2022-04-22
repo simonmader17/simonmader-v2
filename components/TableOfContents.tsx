@@ -42,10 +42,13 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
         {outline.map((pair) => (
           <TableOfContentsItem
             key={pair.title}
-            className="ltmd:text-sm flex cursor-pointer justify-between gap-8 rounded-xl p-2 ease-out hover:bg-gray-400 hover:bg-opacity-20"
+            className="ltmd:text-sm flex cursor-pointer justify-between gap-8 rounded-xl p-2 transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
             onClick={() => {
               onItemClick(pair.pageNumber);
               window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            style={{
+              color: pair.active ? "rgb(248 113 113)" : "white",
             }}
           >
             <span>{pair.title}</span>
