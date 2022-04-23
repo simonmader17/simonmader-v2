@@ -37,7 +37,28 @@ const DiplomaThesisViewer = () => {
           for (var i = 0; i < outline.length; i++) {
             await pdf.getDestination(outline[i].dest).then(async (dest) => {
               await pdf.getPageIndex(dest[0]).then(async (id) => {
-                pairs.push({ title: outline[i].title, pageNumber: +id + 1 });
+                var items = [];
+                if (outline[i].items.length > 0) {
+                  for (var j = 0; j < outline[i].items.length; j++) {
+                    await pdf
+                      .getDestination(outline[i].items[j].dest)
+                      .then(async (itemDest) => {
+                        await pdf
+                          .getPageIndex(itemDest[0])
+                          .then(async (itemId) => {
+                            items.push({
+                              title: outline[i].items[j].title,
+                              pageNumber: +itemId + 1,
+                            });
+                          });
+                      });
+                  }
+                }
+                pairs.push({
+                  title: outline[i].title,
+                  pageNumber: +id + 1,
+                  items: items,
+                });
               });
             });
           }
@@ -49,12 +70,28 @@ const DiplomaThesisViewer = () => {
   }, [pdf]);
 
   const setNewActiveChapter = (newPageNumber) => {
+    resetActiveChapter();
     for (var i = 0; i < outline.length; i++) {
       if (
         newPageNumber >= outline[i].pageNumber &&
         (i == outline.length - 1 || newPageNumber < outline[i + 1].pageNumber)
       ) {
         outline[i].active = true;
+        for (var j = 0; j < outline[i].items.length; j++) {
+          if (
+            newPageNumber >= outline[i].items[j].pageNumber &&
+            (j == outline[i].items.length - 1 ||
+              newPageNumber < outline[i].items[j + 1].pageNumber ||
+              (newPageNumber == outline[i].items[j].pageNumber &&
+                newPageNumber == outline[i].items[j + 1].pageNumber))
+          ) {
+            outline[i].items[j].active = true;
+            return;
+          } else {
+            outline[i].items[j].active = false;
+          }
+        }
+
         // return;
       } else {
         outline[i].active = false;
@@ -65,6 +102,9 @@ const DiplomaThesisViewer = () => {
   const resetActiveChapter = () => {
     for (var i = 0; i < outline.length; i++) {
       outline[i].active = false;
+      for (var j = 0; j < outline[i].items.length; j++) {
+        outline[i].items[j].active = false;
+      }
     }
   };
 
@@ -106,6 +146,7 @@ const DiplomaThesisViewer = () => {
     setPages(newPages);
     setPageNumber(newPages[0]);
     setGotoPage((pages.indexOf(newPages[0]) + 1).toString());
+    resetActiveChapter();
   };
 
   const router = useRouter();

@@ -3,14 +3,18 @@ import useTranslation from "next-translate/useTranslation";
 import { useRef } from "react";
 import { createRipple } from "../lib/ripple";
 
-const TableOfContentsItem = ({ className, children, ...props }) => {
+const TableOfContentsItem = ({ sub, children, ...props }) => {
   const pRef = useRef(null);
   const mouse = useMouse(pRef);
 
   return (
     <p
       ref={pRef}
-      className={[className, "relative overflow-hidden"].join(" ")}
+      className={
+        sub
+          ? "ltmd:text-xs relative flex cursor-pointer justify-between gap-8 overflow-hidden rounded-xl p-2 pl-8 text-sm transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
+          : "ltmd:text-sm relative flex cursor-pointer justify-between gap-8 overflow-hidden rounded-xl p-2 transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
+      }
       {...props}
       onPointerDown={(e) => {
         createRipple(e);
@@ -40,20 +44,38 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
       <p className="select-text text-lg text-red-400 md:text-xl">{t("toc")}</p>
       <div className="h-full overflow-scroll" {...props}>
         {outline.map((pair) => (
-          <TableOfContentsItem
-            key={pair.title}
-            className="ltmd:text-sm flex cursor-pointer justify-between gap-8 rounded-xl p-2 transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
-            onClick={() => {
-              onItemClick(pair.pageNumber);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            style={{
-              color: pair.active ? "rgb(248 113 113)" : "white",
-            }}
-          >
-            <span>{pair.title}</span>
-            <span>{pages.indexOf(pair.pageNumber) + 1}</span>
-          </TableOfContentsItem>
+          <>
+            <TableOfContentsItem
+              key={pair.title}
+              onClick={() => {
+                onItemClick(pair.pageNumber);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              style={{
+                color: pair.active ? "rgb(248 113 113)" : "white",
+              }}
+            >
+              <span>{pair.title}</span>
+              <span>{pages.indexOf(pair.pageNumber) + 1}</span>
+            </TableOfContentsItem>
+            {pair.active &&
+              pair.items.map((item) => (
+                <TableOfContentsItem
+                  sub
+                  key={item.title}
+                  onClick={() => {
+                    onItemClick(item.pageNumber);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  style={{
+                    color: item.active ? "rgb(248 113 113)" : "white",
+                  }}
+                >
+                  <span>{item.title}</span>
+                  <span>{pages.indexOf(item.pageNumber) + 1}</span>
+                </TableOfContentsItem>
+              ))}
+          </>
         ))}
       </div>
     </>
