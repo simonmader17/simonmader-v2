@@ -3,7 +3,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useRef } from "react";
 import { createRipple } from "../lib/ripple";
 
-const TableOfContentsItem = ({ sub, children, ...props }) => {
+const TableOfContentsItem = ({ sub = false, children, ...props }) => {
   const pRef = useRef(null);
   const mouse = useMouse(pRef);
 
