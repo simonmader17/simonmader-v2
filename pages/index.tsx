@@ -7,6 +7,7 @@ import Container from "../components/Container";
 import Education from "../components/Education";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import LayoutTransition from "../components/LayoutTransition";
 import Others from "../components/Others";
 import Projects from "../components/Projects";
 import Qualifications from "../components/Qualifications";
@@ -26,21 +27,23 @@ export default function Home() {
 
       <Header />
 
-      <Container>
-        <About />
+      <LayoutTransition>
+        <Container>
+          <About />
 
-        <Projects />
+          <Projects />
 
-        <Qualifications />
+          <Qualifications />
 
-        <Certificates />
+          <Certificates />
 
-        <Career />
+          <Career />
 
-        <Education />
+          <Education />
 
-        <Others />
-      </Container>
+          <Others />
+        </Container>
+      </LayoutTransition>
     </>
   );
 }

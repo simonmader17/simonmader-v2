@@ -3,8 +3,11 @@ import "../styles/styles.scss";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import Head from "next/head";
+import { AnimatePresence } from "framer-motion";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
+  const url = `https://simonmader.at${router.route}`;
+
   return (
     <SkeletonTheme baseColor="#0c0c0c" highlightColor="#000">
       <Head>
@@ -29,7 +32,12 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <div className="font-SfPixelate bg-hero-brick-wall-purple bg-body flex min-h-screen flex-col text-center text-white">
-        <Component {...pageProps} />
+        <AnimatePresence
+          exitBeforeEnter
+          onExitComplete={() => window.scrollTo({ top: 0 })}
+        >
+          <Component {...pageProps} key={url} />
+        </AnimatePresence>
 
         <div className="mt-auto">
           <Footer />

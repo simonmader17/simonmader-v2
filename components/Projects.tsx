@@ -44,7 +44,7 @@ function Project({ title, zeitraum, bg, text, tags, links }: ProjectInterface) {
           <p className="ltmd:text-sm mt-1 font-bold italic tracking-wider text-gray-400">
             {links
               .map((l) => (
-                <Link key={l.link} href={l.link} passHref>
+                <Link key={l.link} href={l.link} passHref scroll={false}>
                   {l.link.startsWith("/") ? (
                     <a className="my-link">{l.text}</a>
                   ) : (
