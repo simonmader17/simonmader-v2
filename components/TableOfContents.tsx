@@ -12,7 +12,7 @@ const TableOfContentsItem = ({ sub, children, ...props }) => {
       ref={pRef}
       className={
         sub
-          ? "ltmd:text-xs relative flex cursor-pointer justify-between gap-8 overflow-hidden rounded-xl p-2 pl-8 text-sm transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
+          ? "ltmd:text-xs relative ml-6 flex cursor-pointer justify-between gap-8 overflow-hidden rounded-xl p-2 text-sm transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
           : "ltmd:text-sm relative flex cursor-pointer justify-between gap-8 overflow-hidden rounded-xl p-2 transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
       }
       {...props}

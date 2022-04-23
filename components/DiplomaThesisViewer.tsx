@@ -72,7 +72,7 @@ const DiplomaThesisViewer = () => {
   const setNewActiveChapter = (newPageNumber) => {
     resetActiveChapter();
     for (var i = outline.length - 1; i >= 0; i--) {
-      console.log(newPageNumber, outline[i].pageNumber);
+      if (!pages.includes(outline[i].pageNumber)) continue;
       if (
         newPageNumber >= outline[i].pageNumber &&
         (i == 0 || outline[i].pageNumber > outline[i - 1].pageNumber)
@@ -80,6 +80,7 @@ const DiplomaThesisViewer = () => {
         outline[i].active = true;
 
         for (var j = outline[i].items.length - 1; j >= 0; j--) {
+          if (!pages.includes(outline[i].items[j].pageNumber)) continue;
           if (
             newPageNumber >= outline[i].items[j].pageNumber &&
             (j == 0 ||
