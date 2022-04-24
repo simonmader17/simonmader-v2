@@ -14,7 +14,7 @@ function About() {
   return (
     <>
       <h2 id="about">{t("heading")}</h2>
-      <div className="drop-shadow-pixel relative z-10 m-4 md:min-h-[25rem] md:rounded-xl md:bg-black md:bg-opacity-50 overflow-hidden">
+      <div className="drop-shadow-pixel relative z-10 m-4 overflow-hidden md:min-h-[25rem] md:rounded-xl md:bg-black md:bg-opacity-50">
         <div className="ltmd:absolute ltmd:left-0 ltmd:top-0 ltmd:-z-10 ltmd:m-[-8px] ltmd:blur-sm ltmd:h-[calc(100%+16px)] ltmd:w-[calc(100%+16px)] ltmd:[clip-path:inset(8px_round_0.75rem)] bg-cover bg-center md:relative md:float-right md:ml-6 md:min-h-[25rem] md:w-1/2 md:[clip-path:polygon(0%_0%,100%_0%,100%_100%,1rem_calc(100%-1rem))] md:[shape-outside:polygon(0%_0%,100%_0%,100%_100%,1em_calc(100%-1em))]">
           <Image
             src={about_bg}
