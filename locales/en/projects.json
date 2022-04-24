@@ -9,7 +9,7 @@
     }
   },
   "diploma-thesis": {
-    "title": "Diploma Thesis: AI Interpretation of Stock Market News",
+    "title": "Diploma Thesis: AI Interpretation of Stock Market News ✍️",
     "text": {
       "p1": "My diploma thesis deals with the topics of artificial intelligence and Natural Language Processing. The goal of the thesis was to develop an application that uses Natural Language Processing to anylize stock market news about the DAX and to provide an estimate, based on previous forecasts, which stock market news site best predicts the development of the DAX.",
       "p2": "This project was realized in a team of 4. My task was to train a Natural Language Processing model that was able to evaluate stock market news about the DAX."

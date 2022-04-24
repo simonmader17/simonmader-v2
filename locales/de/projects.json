@@ -9,7 +9,7 @@
     }
   },
   "diploma-thesis": {
-    "title": "Diplomarbeit: AI Interpretation von Börsennews",
+    "title": "Diplomarbeit: AI Interpretation von Börsennews ✍️",
     "text": {
       "p1": "Meine Diplomarbeit beschäftigt sich mit dem Themen der künstlichen Intelligenz und des Natural Language Processings. Ziel der Diplomarbeit war es, eine Anwendung zu entwickeln, die mithilfe von Natural Language Processing, Börsennews über den DAX anylisiert und eine Schätzung, aufgrund vorheriger Prognosen, zu liefern, welche Börsennewsseite am besten die Entwicklung des DAX vorhersagt.",
       "p2": "Dieses Projekt wurde in einem Team von 4 Personen umgesetzt, wobei meine Aufgabe es war, ein Natural Language Processing Modell zu trainieren, das dazu in der Lage war, Börsennews über den DAX zu bewerten."

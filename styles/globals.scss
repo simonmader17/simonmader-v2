@@ -79,45 +79,6 @@ body {
   }
 }
 
-.about {
-  @apply drop-shadow-pixel relative z-10 m-4;
-
-  @screen md {
-    @apply relative flex min-h-[30vh] justify-center rounded-xl bg-black bg-opacity-50;
-  }
-
-  &-content {
-    @apply p-6;
-
-    @screen ltmd {
-      @apply rounded-xl bg-black bg-opacity-50;
-    }
-
-    @screen md {
-      @apply w-3/5;
-    }
-  }
-
-  &-bg {
-    @apply bg-cover bg-center;
-
-    @screen ltmd {
-      @apply absolute left-0 top-0 -z-10 m-[-8px] blur-sm;
-
-      height: calc(100% + 16px);
-      width: calc(100% + 16px);
-      clip-path: inset(8px round 0.75rem);
-    }
-
-    @screen md {
-      @apply relative h-auto w-2/5;
-
-      clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-      shape-outside: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-    }
-  }
-}
-
 .my-qualification {
   @apply relative;
 
