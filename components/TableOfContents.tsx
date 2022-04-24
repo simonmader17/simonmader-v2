@@ -42,7 +42,7 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
   return (
     <>
       <p className="select-text text-lg text-red-400 md:text-xl">{t("toc")}</p>
-      <div className="h-full overflow-scroll" {...props}>
+      <div className="max-h-full overflow-scroll" {...props}>
         {outline.map((pair) => (
           <>
             <TableOfContentsItem

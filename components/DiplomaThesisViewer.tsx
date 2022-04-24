@@ -361,9 +361,14 @@ const DiplomaThesisViewer = () => {
             onMouseLeave={() => setShowToolbar(false)}
           />
         ) : (
-          <p className="p-1 text-lg">
-            <Skeleton count={20} />
-          </p>
+          <>
+            <Skeleton className="text-lg opacity-70 md:text-xl" />
+            <Skeleton
+              count={14}
+              height={"2em"}
+              className="ltmd:text-sm my-2 opacity-70"
+            />
+          </>
         )}
       </div>
     </div>
