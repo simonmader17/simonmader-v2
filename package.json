@@ -21,6 +21,7 @@
     "react-expand-animated": "^1.0.2",
     "react-loading-skeleton": "^3.0.3",
     "react-pdf": "^5.7.2",
+    "react-scroll-parallax": "^3.0.6",
     "sass": "^1.49.7",
     "tailwind-heropatterns": "^0.0.8"
   },
