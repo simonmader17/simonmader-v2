@@ -17,7 +17,7 @@ function Header() {
   }, [chevronDownIconOpacity]);
 
   return (
-    <div className="bg-hero-brick-wall bg-headerFooter flex min-h-screen flex-col items-center justify-center">
+    <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex min-h-screen flex-col items-center justify-center">
       <div className="animate-fade-in sticky top-4 flex flex-col items-center">
         <div
           className="drop-shadow-pixel relative z-10 mb-4 h-64 w-44 cursor-pointer select-none overflow-hidden border-8 border-black md:mb-8 md:h-96 md:w-64"

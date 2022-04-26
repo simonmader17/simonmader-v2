@@ -22,7 +22,7 @@ function Contact({ title, name, link, logo }: ContactInterface) {
 
 function Footer() {
   return (
-    <div className="bg-hero-brick-wall bg-headerFooter flex items-center justify-center p-8 text-white">
+    <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex items-center justify-center p-8 text-white">
       <div className="flex-shrink-0">
         <div className="drop-shadow-pixel relative m-4 h-24 w-24 lg:h-48 lg:w-48">
           <Image
