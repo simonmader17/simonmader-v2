@@ -70,40 +70,51 @@ const DiplomaThesisViewer = () => {
   }, [pdf]);
 
   const setNewActiveChapter = (newPageNumber) => {
-    resetActiveChapter();
-    for (var i = outline.length - 1; i >= 0; i--) {
-      if (!pages.includes(outline[i].pageNumber)) continue;
-      if (
-        newPageNumber >= outline[i].pageNumber &&
-        (i == 0 || outline[i].pageNumber > outline[i - 1].pageNumber)
-      ) {
-        outline[i].active = true;
+    const newOutline = [...outline];
 
-        for (var j = outline[i].items.length - 1; j >= 0; j--) {
-          if (!pages.includes(outline[i].items[j].pageNumber)) continue;
+    // reset active chapter
+    for (var i = 0; i < newOutline.length; i++) {
+      const o = { ...newOutline[i] };
+      o.active = false;
+      for (var j = 0; j < o.items.length; j++) {
+        o.items[j].active = false;
+      }
+      newOutline[i] = o;
+    }
+
+    if (newPageNumber == 0) {
+      setOutline(newOutline);
+      return;
+    }
+
+    for (var i = newOutline.length - 1; i >= 0; i--) {
+      const o = { ...newOutline[i] };
+      if (!pages.includes(o.pageNumber)) continue;
+      if (
+        newPageNumber >= o.pageNumber &&
+        (i == 0 || o.pageNumber > newOutline[i - 1].pageNumber)
+      ) {
+        o.active = true;
+
+        for (var j = o.items.length - 1; j >= 0; j--) {
+          if (!pages.includes(o.items[j].pageNumber)) continue;
           if (
-            newPageNumber >= outline[i].items[j].pageNumber &&
-            (j == 0 ||
-              outline[i].items[j].pageNumber >
-                outline[i].items[j - 1].pageNumber)
+            newPageNumber >= o.items[j].pageNumber &&
+            (j == 0 || o.items[j].pageNumber > o.items[j - 1].pageNumber)
           ) {
-            outline[i].items[j].active = true;
+            o.items[j].active = true;
             break;
           }
         }
-
+        newOutline[i] = o;
         break;
       }
     }
+    setOutline(newOutline);
   };
 
   const resetActiveChapter = () => {
-    for (var i = 0; i < outline.length; i++) {
-      outline[i].active = false;
-      for (var j = 0; j < outline[i].items.length; j++) {
-        outline[i].items[j].active = false;
-      }
-    }
+    setNewActiveChapter(0);
   };
 
   useEffect(() => {
