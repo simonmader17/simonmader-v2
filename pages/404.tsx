@@ -4,7 +4,7 @@ import pogo from "../public/images/PogO.png";
 
 function Custom404() {
   return (
-    <div className="bg-hero-brick-wall-purple bg-body flex h-screen flex-col items-center justify-center md:flex-row">
+    <div className="ltmd:bg-hero-brick-wall-purple ltmd:bg-body flex h-screen flex-col items-center justify-center md:flex-row">
       <h1 className="font-Graph35 text-center text-2xl text-white">
         404 &mdash; That page doesn&apos;t exist
       </h1>

@@ -5,6 +5,7 @@ import { SkeletonTheme } from "react-loading-skeleton";
 import Head from "next/head";
 import { ParallaxProvider, useParallax } from "react-scroll-parallax";
 import ParallaxBackground from "../components/ParallaxBackground";
+import BackButton from "../components/BackButton";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -32,6 +33,8 @@ function MyApp({ Component, pageProps }) {
         </Head>
 
         <div className="font-SfPixelate ltmd:bg-hero-brick-wall-purple ltmd:bg-body relative flex min-h-screen flex-col overflow-hidden text-center text-white">
+          <BackButton />
+
           <Component {...pageProps} />
 
           <ParallaxBackground className="ltmd:hidden" />
