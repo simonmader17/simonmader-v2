@@ -11,18 +11,10 @@ import Others from "../components/Others";
 import Projects from "../components/Projects";
 import Qualifications from "../components/Qualifications";
 
-declare const InstallTrigger: any;
-
 export default function Home() {
-  // Firefox detection
-  const [isFirefox, setIsFirefox] = useState(false);
-  useEffect(() => {
-    setIsFirefox(typeof InstallTrigger !== "undefined");
-  }, []);
-
   return (
     <>
-      {isFirefox && <ChromeNotification />}
+      <ChromeNotification />
 
       <Header />
 
