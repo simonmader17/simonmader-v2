@@ -2,6 +2,7 @@ import useMouse from "@react-hook/mouse-position";
 import useTranslation from "next-translate/useTranslation";
 import { useRef } from "react";
 import { createRipple } from "../lib/ripple";
+import Expand from "react-expand-animated";
 
 const TableOfContentsItem = ({ sub = false, children, ...props }) => {
   const pRef = useRef(null);
@@ -58,8 +59,8 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
               <span>{pair.title}</span>
               <span>{pages.indexOf(pair.pageNumber) + 1}</span>
             </TableOfContentsItem>
-            {pair.active &&
-              pair.items.map((item) => (
+            <Expand open={pair.active}>
+              {pair.items.map((item) => (
                 <TableOfContentsItem
                   sub
                   key={item.title}
@@ -75,6 +76,7 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
                   <span>{pages.indexOf(item.pageNumber) + 1}</span>
                 </TableOfContentsItem>
               ))}
+            </Expand>
           </>
         ))}
       </div>
