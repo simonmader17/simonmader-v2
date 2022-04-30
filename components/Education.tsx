@@ -24,28 +24,30 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <div className="bg-blurred">
-        <Image
-          src={bg}
-          alt={name}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="top"
-          placeholder="blur"
-        />
-      </div>
-      <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
-        <p className="text-lg text-red-400 md:text-xl">{name}</p>
-        <p className="ltmd:text-sm">{zweig}</p>
-        <p className="ltmd:text-sm">{zeitraum}</p>
-        {info && (
-          <>
-            <div className="ltmd:text-sm 2xl:hidden">
-              <Expand open={showInfo}>{info}</Expand>
-            </div>
-            <div className="lt2xl:hidden">{info}</div>
-          </>
-        )}
+      <div className="clip-rounded-pixel">
+        <div className="bg-blurred">
+          <Image
+            src={bg}
+            alt={name}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="top"
+            placeholder="blur"
+          />
+        </div>
+        <div className="h-full bg-black bg-opacity-70 p-6">
+          <p className="text-lg text-red-400 md:text-xl">{name}</p>
+          <p className="ltmd:text-sm">{zweig}</p>
+          <p className="ltmd:text-sm">{zeitraum}</p>
+          {info && (
+            <>
+              <div className="ltmd:text-sm 2xl:hidden">
+                <Expand open={showInfo}>{info}</Expand>
+              </div>
+              <div className="lt2xl:hidden">{info}</div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

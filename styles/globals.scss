@@ -13,6 +13,53 @@
   }
 }
 
+@layer utilities {
+  .clip-rounded-pixel {
+    clip-path: polygon(
+      0px 20px,
+      4px 20px,
+      4px 12px,
+      8px 12px,
+      8px 8px,
+      12px 8px,
+      12px 4px,
+      16px 4px,
+      20px 4px,
+      20px 0px,
+      calc(100% - 20px) 0px,
+      calc(100% - 20px) 4px,
+      calc(100% - 12px) 4px,
+      calc(100% - 12px) 8px,
+      calc(100% - 8px) 8px,
+      calc(100% - 8px) 12px,
+      calc(100% - 4px) 12px,
+      calc(100% - 4px) 16px,
+      calc(100% - 4px) 20px,
+      100% 20px,
+      100% calc(100% - 20px),
+      calc(100% - 4px) calc(100% - 20px),
+      calc(100% - 4px) calc(100% - 12px),
+      calc(100% - 8px) calc(100% - 12px),
+      calc(100% - 8px) calc(100% - 8px),
+      calc(100% - 12px) calc(100% - 8px),
+      calc(100% - 12px) calc(100% - 4px),
+      calc(100% - 16px) calc(100% - 4px),
+      calc(100% - 20px) calc(100% - 4px),
+      calc(100% - 20px) 100%,
+      20px 100%,
+      20px calc(100% - 4px),
+      12px calc(100% - 4px),
+      12px calc(100% - 8px),
+      8px calc(100% - 8px),
+      8px calc(100% - 12px),
+      4px calc(100% - 12px),
+      4px calc(100% - 16px),
+      4px calc(100% - 20px),
+      0px calc(100% - 20px)
+    );
+  }
+}
+
 @font-face {
   font-family: "SfPixelate";
   src: url("/fonts/SfPixelate-wBgw.ttf");
@@ -102,11 +149,11 @@ body {
 }
 
 .bg-blurred {
-  @apply absolute -z-10 m-[-8px] blur-sm;
+  @apply absolute inset-0 -z-10 blur-sm;
 
   height: calc(100% + 16px);
   width: calc(100% + 16px);
-  clip-path: inset(8px round 0.75rem);
+  margin: -8px;
 }
 
 span.ripple {

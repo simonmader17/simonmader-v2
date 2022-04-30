@@ -37,35 +37,37 @@ function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <div className="bg-blurred">
-        <Image
-          src={bg}
-          alt={firma}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="top"
-          placeholder="blur"
-        />
-      </div>
-      <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
-        <p className="ltmd:text-sm text-gray-400">{position}</p>
-        <p className="text-lg text-red-400 md:text-xl">{firma}</p>
-        {to ? (
-          <p className="ltmd:text-sm">
-            {fromFormat} &ndash; {toFormat}
-          </p>
-        ) : (
-          <p className="ltmd:text-sm">{fromFormat}</p>
-        )}
-        <p className="ltmd:text-sm">{ort}</p>
-        {info && (
-          <>
-            <div className="ltmd:text-sm 2xl:hidden">
-              <Expand open={showInfo}>{info}</Expand>
-            </div>
-            <div className="lt2xl:hidden">{info}</div>
-          </>
-        )}
+      <div className="clip-rounded-pixel">
+        <div className="bg-blurred">
+          <Image
+            src={bg}
+            alt={firma}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="top"
+            placeholder="blur"
+          />
+        </div>
+        <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
+          <p className="ltmd:text-sm text-gray-400">{position}</p>
+          <p className="text-lg text-red-400 md:text-xl">{firma}</p>
+          {to ? (
+            <p className="ltmd:text-sm">
+              {fromFormat} &ndash; {toFormat}
+            </p>
+          ) : (
+            <p className="ltmd:text-sm">{fromFormat}</p>
+          )}
+          <p className="ltmd:text-sm">{ort}</p>
+          {info && (
+            <>
+              <div className="ltmd:text-sm 2xl:hidden">
+                <Expand open={showInfo}>{info}</Expand>
+              </div>
+              <div className="lt2xl:hidden">{info}</div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -207,12 +207,13 @@ const DiplomaThesisViewer = () => {
         }}
       >
         <Document
+          className="drop-shadow-pixel select-text"
           file="diploma-thesis.pdf"
           loading={() => setDocumentLoading(true)}
           onLoadSuccess={onDocumentLoadSuccess}
-          className="drop-shadow-pixel select-text"
         >
           <Page
+            className="clip-rounded-pixel"
             pageNumber={pageNumber}
             loading={() => setPageLoading(true)}
             onLoadSuccess={() => setPageLoading(false)}
