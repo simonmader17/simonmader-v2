@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import chrome_icon from "../public/images/Google_Chrome_icon_(September_2014).svg";
 
 declare const InstallTrigger: any;
@@ -10,15 +10,13 @@ function ChromeNotification() {
     setIsFirefox(typeof InstallTrigger !== "undefined");
   }, []);
 
-  const hide = (id: string): void => {
-    document.querySelector(id).classList.add("hidden");
-  };
+  const ref = useRef();
 
   return (
     <>
       {isFirefox && (
         <div
-          id="chrome-notification"
+          ref={ref}
           className="drop-shadow-3xl fixed top-4 right-4 z-50 flex w-80 items-center rounded-xl bg-black bg-opacity-50 p-2"
         >
           <div className="relative m-4 h-12 w-12 flex-shrink-0">
@@ -33,7 +31,7 @@ function ChromeNotification() {
           <p className="text-left">For a better experience use Chrome :)</p>
           <button
             className="self-start rounded-full p-2 transition-colors hover:bg-white hover:bg-opacity-10"
-            onClick={() => hide("#chrome-notification")}
+            onClick={() => (ref.current as HTMLDivElement).remove()}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
