@@ -34,7 +34,8 @@ function Certificate({
   moment.locale(useRouter().locale);
 
   return (
-    <div className="drop-shadow-3xl m-4 flex max-w-full items-center space-x-4 rounded-xl bg-black bg-opacity-50 p-6">
+    <div className="drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6">
+      <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-black bg-opacity-50" />
       <div className="flex-shrink-0">
         <a href={companyUrl} target="_blank" rel="noreferrer" title={company}>
           <div className="relative h-12 w-12">
