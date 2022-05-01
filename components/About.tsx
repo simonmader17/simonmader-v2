@@ -18,7 +18,9 @@ function About() {
       <div className="drop-shadow-pixel">
         <div className="clip-rounded-pixel m-4 grid grid-cols-1 md:grid-cols-2 md:bg-black md:bg-opacity-50">
           <div className="ltmd:bg-black ltmd:bg-opacity-50 flex flex-col gap-2 p-6">
-            <p className="text-xl text-red-400 md:text-2xl">{t("p1")}</p>
+            <p className="text-xl font-bold text-red-400 md:text-2xl">
+              {t("p1")}
+            </p>
             <p className="ltmd:text-sm md:text-justify">
               {t("p2", { age: calculateAge() })}
             </p>

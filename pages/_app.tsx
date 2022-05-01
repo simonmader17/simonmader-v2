@@ -3,7 +3,7 @@ import "../styles/styles.scss";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import Head from "next/head";
-import { ParallaxProvider, useParallax } from "react-scroll-parallax";
+import { ParallaxProvider } from "react-scroll-parallax";
 import ParallaxBackground from "../components/ParallaxBackground";
 import BackButton from "../components/BackButton";
 

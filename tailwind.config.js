@@ -15,7 +15,7 @@ module.exports = {
       },
       fontFamily: {
         SfPixelate: "SfPixelate",
-        Graph35: "Graph\\ 35",
+        PressStart2P: "Press\\ Start\\ 2P",
       },
       screens: {
         ltmd: { max: "767px" },

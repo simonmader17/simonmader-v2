@@ -4,7 +4,7 @@
 
 @layer base {
   h2 {
-    @apply m-4 pt-4 text-xl font-bold md:text-2xl;
+    @apply font-PressStart2P drop-shadow-pixel-sm m-4 pt-4 text-lg md:text-xl;
 
     &::before {
       content: ">";
@@ -66,8 +66,8 @@
 }
 
 @font-face {
-  font-family: "Graph 35";
-  src: url("/fonts/Graph-35-pix.ttf");
+  font-family: "Press Start 2P";
+  src: url("/fonts/PressStart2P-Regular.ttf");
 }
 
 ::-webkit-scrollbar {
