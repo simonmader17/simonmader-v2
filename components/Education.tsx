@@ -24,7 +24,7 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <div className="clip-rounded-pixel">
+      <div className="clip-rounded-pixel h-full">
         <div className="bg-blurred">
           <Image
             src={bg}

@@ -37,7 +37,7 @@ function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <div className="clip-rounded-pixel">
+      <div className="clip-rounded-pixel h-full">
         <div className="bg-blurred">
           <Image
             src={bg}

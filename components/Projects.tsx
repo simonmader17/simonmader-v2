@@ -19,7 +19,7 @@ interface ProjectInterface {
 function Project({ title, zeitraum, bg, text, tags, links }: ProjectInterface) {
   return (
     <div className="drop-shadow-pixel relative z-10 m-4">
-      <div className="clip-rounded-pixel">
+      <div className="clip-rounded-pixel h-full">
         <div className="bg-blurred">
           <Image
             src={bg}
