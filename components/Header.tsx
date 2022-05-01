@@ -19,20 +19,22 @@ function Header() {
   return (
     <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex min-h-screen flex-col items-center justify-center">
       <div className="animate-fade-in sticky top-4 flex flex-col items-center">
-        <div
-          className="drop-shadow-pixel relative z-10 mb-4 h-64 w-44 cursor-pointer select-none overflow-hidden border-4 border-black md:mb-8 md:h-96 md:w-64 md:border-8"
-          onPointerDown={(e) => createRipple(e)}
-        >
-          <Image
-            src={ich}
-            alt="ich"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            placeholder="blur"
-            priority
-            className="relative -z-10"
-          />
+        <div className="drop-shadow-pixel">
+          <div
+            className="clip-rounded-pixel relative z-10 mb-4 h-64 w-44 cursor-pointer select-none overflow-hidden md:mb-8 md:h-96 md:w-64"
+            onPointerDown={(e) => createRipple(e)}
+          >
+            <Image
+              src={ich}
+              alt="ich"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              placeholder="blur"
+              priority
+              className="relative -z-10"
+            />
+          </div>
         </div>
         <h1 className="drop-shadow-pixel-sm md:drop-shadow-pixel font-PressStart2P mb-2 mt-0 pl-1 text-2xl md:mb-4 md:text-4xl">
           Simon Mader
