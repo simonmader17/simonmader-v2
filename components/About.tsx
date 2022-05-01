@@ -3,6 +3,7 @@ import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 
 import about_bg from "../public/images/personal_images/ich.png";
+import Grain from "./Grain/Grain";
 
 function About() {
   const calculateAge = (): number => {
@@ -33,6 +34,7 @@ function About() {
               objectPosition="center"
               placeholder="blur"
             />
+            <Grain className="ltmd:hidden" />
           </div>
         </div>
       </div>
