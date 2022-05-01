@@ -15,8 +15,16 @@ function About() {
     <>
       <h2 id="about">{t("heading")}</h2>
       <div className="drop-shadow-pixel">
-        <div className="clip-rounded-pixel relative z-10 m-4 overflow-hidden md:min-h-[25rem] md:bg-black md:bg-opacity-50">
-          <div className="ltmd:absolute ltmd:left-0 ltmd:top-0 ltmd:-z-10 ltmd:-m-[8px] ltmd:blur-sm ltmd:h-[calc(100%+16px)] ltmd:w-[calc(100%+16px)] bg-cover bg-center md:relative md:float-right md:ml-6 md:min-h-[25rem] md:w-1/2 md:[clip-path:polygon(0%_0%,100%_0%,100%_100%,1rem_calc(100%-1rem))] md:[shape-outside:polygon(0%_0%,100%_0%,100%_100%,1em_calc(100%-1em))]">
+        <div className="clip-rounded-pixel m-4 grid grid-cols-1 md:grid-cols-2 md:bg-black md:bg-opacity-50">
+          <div className="ltmd:bg-black ltmd:bg-opacity-50 flex flex-col gap-2 p-6">
+            <p className="text-xl text-red-400 md:text-2xl">{t("p1")}</p>
+            <p className="ltmd:text-sm md:text-justify">
+              {t("p2", { age: calculateAge() })}
+            </p>
+            <p className="ltmd:text-sm md:text-justify">{t("p3")}</p>
+            <p className="ltmd:text-sm md:text-justify">{t("p4")}</p>
+          </div>
+          <div className="clip-rounded-pixel ltmd:absolute ltmd:inset-0 ltmd:-z-10 ltmd:blur-sm ltmd:w-[calc(100%+16px)] ltmd:h-[calc(100%+16px)] ltmd:-m-[8px] relative md:min-h-[25rem]">
             <Image
               src={about_bg}
               alt="ich"
@@ -25,14 +33,6 @@ function About() {
               objectPosition="center"
               placeholder="blur"
             />
-          </div>
-          <div className="ltmd:bg-black ltmd:bg-opacity-50 p-6">
-            <p className="text-xl text-red-400 md:text-2xl">{t("p1")}</p>
-            <p className="ltmd:text-sm md:text-justify">
-              {t("p2", { age: calculateAge() })}
-            </p>
-            <p className="ltmd:text-sm md:text-justify">{t("p3")}</p>
-            <p className="ltmd:text-sm md:text-justify">{t("p4")}</p>
           </div>
         </div>
       </div>
