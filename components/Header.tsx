@@ -14,7 +14,7 @@ function Header() {
     };
 
     window.addEventListener("scroll", onScroll);
-  }, [chevronDownIconOpacity]);
+  }, []);
 
   return (
     <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex min-h-screen flex-col items-center justify-center">
@@ -34,9 +34,35 @@ function Header() {
             className="relative -z-10"
           />
         </div>
-        <h1 className="drop-shadow-pixel-sm md:drop-shadow-pixel font-PressStart2P mb-4 mt-0 pl-1 text-2xl md:text-4xl">
+        <h1 className="drop-shadow-pixel-sm md:drop-shadow-pixel font-PressStart2P mb-2 mt-0 pl-1 text-2xl md:mb-4 md:text-4xl">
           Simon Mader
         </h1>
+        <div className="flex space-x-4">
+          <a
+            href="mailto:mail@simonmader.at"
+            title="E-Mail"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="icon-gmail-white drop-shadow-pixel-sm text-lg" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/simonmader/"
+            title="LinkedIn"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="icon-linkedin-white drop-shadow-pixel-sm text-lg" />
+          </a>
+          <a
+            href="https://github.com/simonmader17"
+            title="GitHub"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="icon-github-white drop-shadow-pixel-sm text-lg" />
+          </a>
+        </div>
       </div>
       <ChevronDownIcon
         className="fixed bottom-0 w-12 animate-bounce text-green-500 transition duration-500 ease-out"
