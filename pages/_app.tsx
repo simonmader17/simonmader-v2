@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
           />
           <link
             rel="preload"
-            href="/fonts/Graph-35-pix.ttf"
+            href="/fonts/PressStart2P-Regular.ttf"
             as="font"
             crossOrigin=""
           />

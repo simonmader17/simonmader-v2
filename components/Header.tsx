@@ -1,7 +1,7 @@
-import { ChevronDownIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createRipple } from "../lib/ripple";
+import PixelatedDownChevron from "./PixelatedDownChevron";
 
 import ich from "../public/images/personal_images/ich.png";
 
@@ -18,7 +18,7 @@ function Header() {
 
   return (
     <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex min-h-screen flex-col items-center justify-center">
-      <div className="animate-fade-in sticky top-4 flex flex-col items-center">
+      <div className="sticky top-4 flex flex-col items-center">
         <div className="drop-shadow-pixel">
           <div
             className="clip-rounded-pixel relative z-10 mb-4 h-64 w-44 cursor-pointer select-none overflow-hidden md:mb-8 md:h-96 md:w-64"
@@ -66,8 +66,8 @@ function Header() {
           </a>
         </div>
       </div>
-      <ChevronDownIcon
-        className="fixed bottom-0 w-12 animate-bounce text-green-500 transition duration-500 ease-out"
+      <PixelatedDownChevron
+        className="drop-shadow-pixel-sm fixed bottom-0 mb-4 animate-bounce transition-opacity duration-500 ease-out"
         style={{ opacity: chevronDownIconOpacity }}
       />
     </div>
