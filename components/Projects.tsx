@@ -1,7 +1,5 @@
 import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
-import { useState } from "react";
-import Expand from "react-expand-animated";
 
 import personal_website_bg from "../public/images/personal_images/ich_2.jpeg";
 import diploma_thesis_bg from "../public/images/background_images/diploma_thesis.jpg";
