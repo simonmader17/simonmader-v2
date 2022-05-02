@@ -1,5 +1,5 @@
 import moment from "moment";
-import useTranslation from "next-translate/useTranslation";
+import useTranslation from "../hooks/next-translate-wrapper";
 import Trans from "next-translate/Trans";
 import Image from "next/image";
 import { useRouter } from "next/router";

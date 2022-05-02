@@ -1,4 +1,4 @@
-import useTranslation from "next-translate/useTranslation";
+import useTranslation from "../hooks/next-translate-wrapper";
 import Image from "next/image";
 import { useState } from "react";
 import Expand from "react-expand-animated";

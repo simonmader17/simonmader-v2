@@ -4,7 +4,7 @@ import Skeleton from "react-loading-skeleton";
 import { useRouter } from "next/router";
 import Checkbox from "./Checkbox/Checkbox";
 import { getCanvasFontSize, getTextWidth } from "../lib/text-width";
-import useTranslation from "next-translate/useTranslation";
+import useTranslation from "../hooks/next-translate-wrapper";
 import { DESTRUCTION } from "dns";
 import TableOfContents from "./TableOfContents";
 

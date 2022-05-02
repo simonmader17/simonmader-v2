@@ -1,5 +1,5 @@
 import Trans from "next-translate/Trans";
-import useTranslation from "next-translate/useTranslation";
+import useTranslation from "../hooks/next-translate-wrapper";
 
 interface OtherInterface {
   untertitel?: string;

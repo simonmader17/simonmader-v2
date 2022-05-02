@@ -1,5 +1,5 @@
 import useMouse from "@react-hook/mouse-position";
-import useTranslation from "next-translate/useTranslation";
+import useTranslation from "../hooks/next-translate-wrapper";
 import { useRef } from "react";
 import { createRipple } from "../lib/ripple";
 
