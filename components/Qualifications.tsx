@@ -16,7 +16,7 @@ function Qualification({
   text,
 }: QualificationInterface) {
   return (
-    <div className="drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6">
+    <div className="md:drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6">
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-black bg-opacity-50" />
       <div className="flex-shrink-0">
         <a
@@ -62,7 +62,7 @@ function Others({ qualifications }: OthersInterface) {
   }
 
   return (
-    <div className="drop-shadow-3xl relative m-4 flex max-w-full flex-wrap items-center justify-around p-6 lg:justify-between">
+    <div className="md:drop-shadow-3xl relative m-4 flex max-w-full flex-wrap items-center justify-around p-6 lg:justify-between">
       {items}
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-black bg-opacity-50" />
     </div>

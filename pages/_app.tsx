@@ -32,12 +32,12 @@ function MyApp({ Component, pageProps }) {
           />
         </Head>
 
-        <div className="font-SfPixelate ltmd:bg-hero-brick-wall-purple ltmd:bg-body relative flex min-h-screen flex-col overflow-hidden text-center text-white">
+        <div className="font-SfPixelate ltmd:bg-hero-brick-wall-purple ltmd:bg-body relative z-0 flex min-h-screen flex-col overflow-hidden text-center text-white">
+          <ParallaxBackground className="ltmd:hidden" />
+
           <BackButton />
 
           <Component {...pageProps} />
-
-          <ParallaxBackground className="ltmd:hidden" />
 
           <div className="mt-auto">
             <Footer />
