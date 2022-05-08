@@ -7,6 +7,7 @@ import ich from "../public/images/personal_images/ich.png";
 
 function Header() {
   const [chevronDownIconOpacity, setChevronDownIconOpacity] = useState(1);
+  const [initialWindowHeight, setInitialWindowHeight] = useState("100vh");
 
   useEffect(() => {
     const onScroll = (): void => {
@@ -14,10 +15,17 @@ function Header() {
     };
 
     window.addEventListener("scroll", onScroll);
+
+    setInitialWindowHeight(`${window.innerHeight}px`);
   }, []);
 
   return (
-    <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex min-h-[calc(100vh-6.5rem)] flex-col items-center justify-center md:min-h-screen">
+    <div
+      className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex flex-col items-center justify-center"
+      style={{
+        minHeight: `${initialWindowHeight}`,
+      }}
+    >
       <div className="sticky top-4 flex flex-col items-center">
         <div className="drop-shadow-pixel">
           <div
