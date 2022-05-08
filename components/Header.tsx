@@ -16,7 +16,9 @@ function Header() {
 
     window.addEventListener("scroll", onScroll);
 
-    setInitialWindowHeight(`${window.innerHeight}px`);
+    setInitialWindowHeight(
+      window.innerWidth >= 768 ? "100vh" : `${window.innerHeight}px`
+    );
   }, []);
 
   return (
