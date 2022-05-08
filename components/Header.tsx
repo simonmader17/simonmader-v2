@@ -17,7 +17,7 @@ function Header() {
   }, []);
 
   return (
-    <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex min-h-screen flex-col items-center justify-center">
+    <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex min-h-[calc(100vh-6.5rem)] flex-col items-center justify-center md:min-h-screen">
       <div className="sticky top-4 flex flex-col items-center">
         <div className="drop-shadow-pixel">
           <div
@@ -46,7 +46,7 @@ function Header() {
             target="_blank"
             rel="noreferrer"
           >
-            <span className="icon-gmail-white drop-shadow-pixel-sm text-lg" />
+            <span className="icon-gmail-white drop-shadow-pixel-sm md:text-lg" />
           </a>
           <a
             href="https://www.linkedin.com/in/simonmader/"
@@ -54,7 +54,7 @@ function Header() {
             target="_blank"
             rel="noreferrer"
           >
-            <span className="icon-linkedin-white drop-shadow-pixel-sm text-lg" />
+            <span className="icon-linkedin-white drop-shadow-pixel-sm md:text-lg" />
           </a>
           <a
             href="https://github.com/simonmader17"
@@ -62,7 +62,7 @@ function Header() {
             target="_blank"
             rel="noreferrer"
           >
-            <span className="icon-github-white drop-shadow-pixel-sm text-lg" />
+            <span className="icon-github-white drop-shadow-pixel-sm md:text-lg" />
           </a>
         </div>
       </div>
