@@ -7,7 +7,8 @@ import ich from "../public/images/personal_images/ich.png";
 
 function Header() {
   const [chevronDownIconOpacity, setChevronDownIconOpacity] = useState(1);
-  const [initialWindowHeight, setInitialWindowHeight] = useState("100vh");
+  const [windowWidth, setWindowWidth] = useState(0);
+  const [headerMinHeight, setHeaderMinHeight] = useState("100vh");
 
   useEffect(() => {
     const onScroll = (): void => {
@@ -16,16 +17,24 @@ function Header() {
 
     window.addEventListener("scroll", onScroll);
 
-    setInitialWindowHeight(
-      window.innerWidth >= 768 ? "100vh" : `${window.innerHeight}px`
-    );
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
   }, []);
+
+  useEffect(() => {
+    setHeaderMinHeight(`${window.innerHeight}px`);
+  }, [windowWidth]);
 
   return (
     <div
       className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex flex-col items-center justify-center"
       style={{
-        minHeight: `${initialWindowHeight}`,
+        minHeight: `${headerMinHeight}`,
       }}
     >
       <div className="sticky top-4 flex flex-col items-center">
