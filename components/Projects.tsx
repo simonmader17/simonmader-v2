@@ -19,14 +19,16 @@ function Project({ title, zeitraum, bg, text, tags, links }: ProjectInterface) {
     <div className="drop-shadow-pixel relative z-10 m-4">
       <div className="clip-rounded-pixel h-full">
         <div className="bg-blurred">
-          <Image
-            src={bg}
-            alt={title}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            placeholder="blur"
-          />
+          <div className="relative h-full">
+            <Image
+              src={bg}
+              alt={title}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              placeholder="blur"
+            />
+          </div>
         </div>
         <div className="h-full bg-black bg-opacity-70 p-6">
           <p className="ltmd:text-sm text-gray-400">{zeitraum}</p>

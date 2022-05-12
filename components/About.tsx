@@ -28,14 +28,16 @@ function About() {
             <p className="ltmd:text-sm md:text-justify">{t("p4")}</p>
           </div>
           <div className="clip-rounded-pixel ltmd:absolute ltmd:inset-0 ltmd:-z-10 ltmd:blur-sm ltmd:w-[calc(100%+16px)] ltmd:h-[calc(100%+16px)] ltmd:-m-[8px] relative md:min-h-[25rem]">
-            <Image
-              src={about_bg}
-              alt="ich"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              placeholder="blur"
-            />
+            <div className="relative h-full">
+              <Image
+                src={about_bg}
+                alt="ich"
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+                placeholder="blur"
+              />
+            </div>
             <Grain className="ltmd:hidden" />
           </div>
         </div>

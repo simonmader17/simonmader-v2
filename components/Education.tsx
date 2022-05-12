@@ -26,14 +26,16 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
     >
       <div className="clip-rounded-pixel h-full">
         <div className="bg-blurred">
-          <Image
-            src={bg}
-            alt={name}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-            placeholder="blur"
-          />
+          <div className="relative h-full">
+            <Image
+              src={bg}
+              alt={name}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="top"
+              placeholder="blur"
+            />
+          </div>
         </div>
         <div className="h-full bg-black bg-opacity-70 p-6">
           <p className="text-lg text-red-400 md:text-xl">{name}</p>

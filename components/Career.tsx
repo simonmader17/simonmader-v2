@@ -39,14 +39,16 @@ function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
     >
       <div className="clip-rounded-pixel h-full">
         <div className="bg-blurred">
-          <Image
-            src={bg}
-            alt={firma}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-            placeholder="blur"
-          />
+          <div className="relative h-full">
+            <Image
+              src={bg}
+              alt={firma}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="top"
+              placeholder="blur"
+            />
+          </div>
         </div>
         <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
           <p className="ltmd:text-sm text-gray-400">{position}</p>
