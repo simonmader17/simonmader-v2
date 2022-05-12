@@ -37,7 +37,7 @@ function Header() {
         minHeight: `${headerMinHeight}`,
       }}
     >
-      <div className="sticky top-4 flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <div className="drop-shadow-pixel">
           <div
             className="clip-rounded-pixel relative z-10 mb-4 h-64 w-44 cursor-pointer select-none overflow-hidden md:mb-8 md:h-96 md:w-64"
@@ -86,7 +86,7 @@ function Header() {
         </div>
       </div>
       <PixelatedDownChevron
-        className="drop-shadow-pixel-sm fixed bottom-0 mb-4 animate-bounce transition-opacity duration-500 ease-out"
+        className="drop-shadow-pixel-sm fixed bottom-0 mb-4 w-12 animate-bounce transition-opacity duration-500 ease-out md:w-14"
         style={{ opacity: chevronDownIconOpacity }}
       />
     </div>

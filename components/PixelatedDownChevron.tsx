@@ -6,14 +6,20 @@ const PixelatedDownChevron = ({
   style?: Object;
 }) => {
   return (
-    <div className={`h-[calc(3rem*4/7)] w-12 ${className}`} style={style}>
-      <span className="absolute left-0 top-0 inline-block h-1/4 w-[calc(100%/7)] bg-red-400" />
-      <span className="absolute left-[calc(100%/7)] top-1/4 inline-block h-1/4 w-[calc(100%/7)] bg-red-400" />
-      <span className="absolute left-[calc(2*100%/7)] top-1/2 inline-block h-1/4 w-[calc(100%/7)] bg-red-400" />
-      <span className="absolute left-[calc(3*100%/7)] top-3/4 inline-block h-1/4 w-[calc(100%/7)] bg-red-400" />
-      <span className="absolute left-[calc(4*100%/7)] top-1/2 inline-block h-1/4 w-[calc(100%/7)] bg-red-400" />
-      <span className="absolute left-[calc(5*100%/7)] top-1/4 inline-block h-1/4 w-[calc(100%/7)] bg-red-400" />
-      <span className="absolute left-[calc(6*100%/7)] top-0 inline-block h-1/4 w-[calc(100%/7)] bg-red-400" />
+    <div className={`text-red-400 ${className}`} style={style}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 28 16"
+      >
+        <rect width="4" height="4" x="0" y="0" />
+        <rect width="4" height="4" x="4" y="4" />
+        <rect width="4" height="4" x="8" y="8" />
+        <rect width="4" height="4" x="12" y="12" />
+        <rect width="4" height="4" x="16" y="8" />
+        <rect width="4" height="4" x="20" y="4" />
+        <rect width="4" height="4" x="24" y="0" />
+      </svg>
     </div>
   );
 };
