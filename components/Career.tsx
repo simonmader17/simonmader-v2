@@ -10,6 +10,7 @@ import asboe_bg from "../public/images/background_images/asboe.jpg";
 import bso_bg from "../public/images/background_images/bso.png";
 import geberit_bg from "../public/images/background_images/geberit.jpg";
 import gemeinde_bg from "../public/images/background_images/gemeinde.jpeg";
+import BlurredBgImage from "./BlurredBgImage";
 
 interface JobInterface {
   position: string | JSX.Element;
@@ -38,18 +39,7 @@ function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
       onMouseLeave={() => setShowInfo(false)}
     >
       <div className="clip-rounded-pixel h-full">
-        <div className="bg-blurred">
-          <div className="relative h-full">
-            <Image
-              src={bg}
-              alt={firma}
-              layout="fill"
-              objectFit="cover"
-              objectPosition="top"
-              placeholder="blur"
-            />
-          </div>
-        </div>
+        <BlurredBgImage src={bg} alt={firma} />
         <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
           <p className="ltmd:text-sm text-gray-400">{position}</p>
           <p className="text-lg text-red-400 md:text-xl">{firma}</p>

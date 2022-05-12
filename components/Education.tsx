@@ -6,6 +6,7 @@ import borg_bg from "../public/images/background_images/borg.jpg";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
+import BlurredBgImage from "./BlurredBgImage";
 
 interface SchoolInterface {
   name: string;
@@ -25,18 +26,7 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
       onMouseLeave={() => setShowInfo(false)}
     >
       <div className="clip-rounded-pixel h-full">
-        <div className="bg-blurred">
-          <div className="relative h-full">
-            <Image
-              src={bg}
-              alt={name}
-              layout="fill"
-              objectFit="cover"
-              objectPosition="top"
-              placeholder="blur"
-            />
-          </div>
-        </div>
+        <BlurredBgImage src={bg} alt={name} />
         <div className="h-full bg-black bg-opacity-70 p-6">
           <p className="text-lg text-red-400 md:text-xl">{name}</p>
           <p className="ltmd:text-sm">{zweig}</p>

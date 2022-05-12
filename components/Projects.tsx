@@ -4,6 +4,7 @@ import Image from "next/image";
 import personal_website_bg from "../public/images/personal_images/ich_2.jpeg";
 import diploma_thesis_bg from "../public/images/background_images/diploma_thesis.jpg";
 import Link from "next/link";
+import BlurredBgImage from "./BlurredBgImage";
 
 interface ProjectInterface {
   title: string;
@@ -18,18 +19,7 @@ function Project({ title, zeitraum, bg, text, tags, links }: ProjectInterface) {
   return (
     <div className="drop-shadow-pixel relative z-10 m-4">
       <div className="clip-rounded-pixel h-full">
-        <div className="bg-blurred">
-          <div className="relative h-full">
-            <Image
-              src={bg}
-              alt={title}
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              placeholder="blur"
-            />
-          </div>
-        </div>
+        <BlurredBgImage src={bg} alt={title} objectPosition="center" />
         <div className="h-full bg-black bg-opacity-70 p-6">
           <p className="ltmd:text-sm text-gray-400">{zeitraum}</p>
           <p className="text-lg text-red-400 md:text-xl">{title}</p>
