@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createRipple } from "../lib/ripple";
-import PixelatedDownChevron from "./PixelatedDownChevron";
 
 import ich from "../public/images/personal_images/ich.png";
 import { Parallax } from "react-scroll-parallax";
+import { PixelatedExternalLink, PixelatedDownChevron } from "./PixelatedIcons";
 
 function Header() {
   const [chevronDownIconOpacity, setChevronDownIconOpacity] = useState(1);
@@ -89,7 +89,7 @@ function Header() {
         </div>
       </Parallax>
       <PixelatedDownChevron
-        className="drop-shadow-pixel-sm fixed bottom-0 mb-4 w-12 animate-bounce transition-opacity duration-500 ease-out md:w-14"
+        className="drop-shadow-pixel-sm fixed bottom-0 mb-4 w-12 animate-bounce text-red-400 transition-opacity duration-500 ease-out md:w-14"
         style={{ opacity: chevronDownIconOpacity }}
       />
     </div>
