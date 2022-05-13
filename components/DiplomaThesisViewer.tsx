@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 import Skeleton from "react-loading-skeleton";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import Checkbox from "./Checkbox/Checkbox";
 import { getCanvasFontSize, getTextWidth } from "../lib/text-width";
 import useTranslation from "next-translate/useTranslation";
-import { DESTRUCTION } from "dns";
 import TableOfContents from "./TableOfContents";
+import { PixelatedExternalLink } from "./PixelatedIcons";
 
 const DiplomaThesisViewer = () => {
   const [pdf, setPdf] = useState(null);
@@ -237,108 +237,119 @@ const DiplomaThesisViewer = () => {
           </>
         )}
         {!documentLoading && (
-          <div
-            className="absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 space-x-4 transition-opacity"
-            style={{
-              opacity: showToolbar ? "1" : "0",
-            }}
-          >
+          // Controls for the pdf
+          <>
             <button
-              onClick={() => {
-                if (pageNumber == 0) {
-                  setPageNumber(pages[0]);
-                  setGotoPage("1");
-                  resetActiveChapter();
-                } else if (pageNumber > pages[0]) {
-                  var newPageNumber = pageNumber;
-                  do {
-                    newPageNumber -= 1;
-                  } while (!pages.includes(newPageNumber));
-                  setPageNumber(newPageNumber);
-                  setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
-                  setNewActiveChapter(newPageNumber);
-                }
-              }}
-              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
+              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm absolute top-10 right-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-black transition-opacity"
+              style={{ opacity: showToolbar ? "1" : "0" }}
+              onClick={() => router.push("/diploma-thesis.pdf")}
+              title="Open in native viewer"
             >
-              {"<"}
+              <PixelatedExternalLink className="h-[1em] text-xl md:text-3xl" />
             </button>
-            <span
-              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-2 border-black px-4"
-              onClick={() => gotoPageInputEl.current.focus()}
+            <div
+              className="absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 space-x-4 transition-opacity"
+              style={{
+                opacity: showToolbar ? "1" : "0",
+              }}
             >
-              <input
-                type="text"
-                id="pageNumber"
-                ref={gotoPageInputEl}
-                name="pageNumber"
-                className="cursor-pointer bg-transparent pr-1 text-right"
-                style={{
-                  width: `calc(${gotoPageTextWidth}px + .5em)`,
-                }}
-                value={gotoPage}
-                onFocus={(e) => {
-                  setFocusToolbar(true);
-                  const prev = e.target.value;
-                  e.target.value = "";
-                  e.target.value = prev;
-                }}
-                onKeyDown={(e) => {
-                  if (e.key == "Enter") (e.target as HTMLInputElement).blur();
-                }}
-                onBlur={() => {
-                  setFocusToolbar(false);
-                  if (pageNumber > 0)
-                    setGotoPage((pages.indexOf(pageNumber) + 1).toString());
-                }}
-                onChange={(e) => {
-                  const { value } = e.target;
-                  if (value.trim().length == 0 || value == "0") {
-                    setPageNumber(1);
-                    setGotoPage(value);
+              <button
+                className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
+                onClick={() => {
+                  if (pageNumber == 0) {
+                    setPageNumber(pages[0]);
+                    setGotoPage("1");
                     resetActiveChapter();
-                  } else if (
-                    !isNaN(+value) &&
-                    +value >= 1 &&
-                    +value <= pages.length
-                  ) {
-                    setPageNumber(pages[+value - 1]);
-                    setGotoPage(value);
-                    setNewActiveChapter(pages[+value - 1]);
-                  } else {
-                    setPageNumber(0);
-                    setGotoPage(value);
-                    resetActiveChapter();
+                  } else if (pageNumber > pages[0]) {
+                    var newPageNumber = pageNumber;
+                    do {
+                      newPageNumber -= 1;
+                    } while (!pages.includes(newPageNumber));
+                    setPageNumber(newPageNumber);
+                    setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
+                    setNewActiveChapter(newPageNumber);
                   }
                 }}
-                autoComplete="off"
-              />
-              <label htmlFor="pageNumber" className="cursor-pointer">
-                <span className="mx-2">/</span>
-                {pages.length}
-              </label>
-            </span>
-            <button
-              onClick={() => {
-                if (pageNumber == 0) {
-                  setPageNumber(pages[0]);
-                  setGotoPage("1");
-                  resetActiveChapter();
-                } else if (pageNumber < pages[pages.length - 1]) {
-                  var newPageNumber = pageNumber;
-                  do {
-                    newPageNumber += 1;
-                  } while (!pages.includes(newPageNumber));
-                  setPageNumber(newPageNumber);
-                  setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
-                  setNewActiveChapter(newPageNumber);
-                }
-              }}
-              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
-            >
-              {">"}
-            </button>
-          </div>
+              >
+                {"<"}
+              </button>
+              <span
+                className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-2 border-black px-4"
+                onClick={() => gotoPageInputEl.current.focus()}
+              >
+                <input
+                  type="text"
+                  id="pageNumber"
+                  ref={gotoPageInputEl}
+                  name="pageNumber"
+                  className="cursor-pointer bg-transparent pr-1 text-right"
+                  style={{
+                    width: `calc(${gotoPageTextWidth}px + .5em)`,
+                  }}
+                  value={gotoPage}
+                  onFocus={(e) => {
+                    setFocusToolbar(true);
+                    const prev = e.target.value;
+                    e.target.value = "";
+                    e.target.value = prev;
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key == "Enter") (e.target as HTMLInputElement).blur();
+                  }}
+                  onBlur={() => {
+                    setFocusToolbar(false);
+                    if (pageNumber > 0)
+                      setGotoPage((pages.indexOf(pageNumber) + 1).toString());
+                  }}
+                  onChange={(e) => {
+                    const { value } = e.target;
+                    if (value.trim().length == 0 || value == "0") {
+                      setPageNumber(1);
+                      setGotoPage(value);
+                      resetActiveChapter();
+                    } else if (
+                      !isNaN(+value) &&
+                      +value >= 1 &&
+                      +value <= pages.length
+                    ) {
+                      setPageNumber(pages[+value - 1]);
+                      setGotoPage(value);
+                      setNewActiveChapter(pages[+value - 1]);
+                    } else {
+                      setPageNumber(0);
+                      setGotoPage(value);
+                      resetActiveChapter();
+                    }
+                  }}
+                  autoComplete="off"
+                />
+                <label htmlFor="pageNumber" className="cursor-pointer">
+                  <span className="mx-2">/</span>
+                  {pages.length}
+                </label>
+              </span>
+              <button
+                className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
+                onClick={() => {
+                  if (pageNumber == 0) {
+                    setPageNumber(pages[0]);
+                    setGotoPage("1");
+                    resetActiveChapter();
+                  } else if (pageNumber < pages[pages.length - 1]) {
+                    var newPageNumber = pageNumber;
+                    do {
+                      newPageNumber += 1;
+                    } while (!pages.includes(newPageNumber));
+                    setPageNumber(newPageNumber);
+                    setGotoPage((pages.indexOf(newPageNumber) + 1).toString());
+                    setNewActiveChapter(newPageNumber);
+                  }
+                }}
+              >
+                {">"}
+              </button>
+            </div>
+          </>
         )}
       </div>
       <div className="ltmd:w-full flex h-full flex-col gap-2 md:w-[30rem]">
