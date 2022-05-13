@@ -38,21 +38,20 @@ const DiplomaThesisViewer = () => {
             await pdf.getDestination(outline[i].dest).then(async (dest) => {
               await pdf.getPageIndex(dest[0]).then(async (id) => {
                 var items = [];
-                if (outline[i].items.length > 0) {
-                  for (var j = 0; j < outline[i].items.length; j++) {
-                    await pdf
-                      .getDestination(outline[i].items[j].dest)
-                      .then(async (itemDest) => {
-                        await pdf
-                          .getPageIndex(itemDest[0])
-                          .then(async (itemId) => {
-                            items.push({
-                              title: outline[i].items[j].title,
-                              pageNumber: +itemId + 1,
-                            });
+                // Create sub chapters object
+                for (var j = 0; j < outline[i].items.length; j++) {
+                  await pdf
+                    .getDestination(outline[i].items[j].dest)
+                    .then(async (itemDest) => {
+                      await pdf
+                        .getPageIndex(itemDest[0])
+                        .then(async (itemId) => {
+                          items.push({
+                            title: outline[i].items[j].title,
+                            pageNumber: +itemId + 1,
                           });
-                      });
-                  }
+                        });
+                    });
                 }
                 pairs.push({
                   title: outline[i].title,
