@@ -89,8 +89,18 @@ function Header() {
         </div>
       </Parallax>
       <PixelatedDownChevron
-        className="drop-shadow-pixel-sm fixed bottom-0 mb-4 w-12 animate-bounce text-red-400 transition-opacity duration-500 ease-out md:w-14"
-        style={{ opacity: chevronDownIconOpacity }}
+        className="drop-shadow-pixel-sm fixed bottom-0 mb-4 w-12 animate-bounce cursor-pointer text-red-400 transition-opacity duration-500 ease-out md:w-14"
+        style={{
+          opacity: chevronDownIconOpacity,
+          pointerEvents: chevronDownIconOpacity > 0 ? "auto" : "none",
+        }}
+        onClick={() =>
+          window.scrollTo({
+            top: (document.querySelector("#about") as HTMLParagraphElement)
+              .offsetTop,
+            behavior: "smooth",
+          })
+        }
       />
     </div>
   );
