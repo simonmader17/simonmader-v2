@@ -35,7 +35,7 @@ function Footer() {
           />
         </div>
       </div>
-      <div className="text-left text-xs lg:text-base">
+      <div className="drop-shadow-pixel-sm text-left text-xs lg:text-base">
         <p>Simon Mader</p>
         <Contact
           title="E-Mail"
