@@ -2,6 +2,7 @@
   "locales": ["de", "en"],
   "defaultLocale": "de",
   "pages": {
+    "*": ["meta"],
     "/": [
       "about",
       "projects",

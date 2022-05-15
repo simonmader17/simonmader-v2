@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }) {
     <ParallaxProvider>
       <SkeletonTheme baseColor="#0c0c0c" highlightColor="#000">
         <Head>
-          <title>Simon Mader&apos;s Webpage</title>
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="preload"
@@ -25,10 +24,6 @@ function MyApp({ Component, pageProps }) {
             href="/fonts/PressStart2P-Regular.ttf"
             as="font"
             crossOrigin=""
-          />
-          <meta
-            name="description"
-            content="This is the personal webpage of Simon Mader."
           />
         </Head>
 
