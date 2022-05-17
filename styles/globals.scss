@@ -45,6 +45,10 @@
   @apply bg-red-400 text-white;
 }
 
+:root {
+  @apply bg-hero-brick-wall-purple bg-body;
+}
+
 body {
   overflow: overlay;
 }
@@ -126,3 +130,95 @@ span.ripple-fade-out {
 .react-pdf__Document {
   line-height: 1;
 }
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-to-right {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-and-fade-to-left {
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-and-fade-to-right {
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-and-fade-from-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-and-fade-from-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+::page-transition-outgoing-image(root) {
+  animation: 500ms ease-out both slide-to-left;
+}
+
+::page-transition-incoming-image(root) {
+  animation: 500ms ease-out both slide-from-right;
+}
+
+.back-transition::page-transition-outgoing-image(root) {
+  animation: 500ms ease-out both slide-to-right;
+}
+
+.back-transition::page-transition-incoming-image(root) {
+  animation: 500ms ease-out both slide-from-left;
+}
+
+@media (min-width: 768px) {
+  ::page-transition-outgoing-image(root) {
+    animation: 200ms ease-out both slide-and-fade-to-left;
+  }
+
+  ::page-transition-incoming-image(root) {
+    animation: 200ms ease-out both slide-and-fade-from-right;
+  }
+
+  .back-transition::page-transition-outgoing-image(root) {
+    animation: 200ms ease-out both slide-and-fade-to-right;
+  }
+
+  .back-transition::page-transition-incoming-image(root) {
+    animation: 200ms ease-out both slide-and-fade-from-left;
+  }
+}
+
+/* .transition-warming-up::page-transition-container(*),
+.transition-warming-up::page-transition-incoming-image(*),
+.transition-warming-up::page-transition-outgoing-image(*) {
+  animation-play-state: paused !important;
+} */
