@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
   <url>
     <loc>https://simonmader.at</loc>
-    <lastmod>2022-05-16</lastmod>
+    <lastmod>2022-05-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://simonmader.at/en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://simonmader.at" />
   </url>
   <url>
     <loc>https://simonmader.at/diploma-thesis</loc>
-    <lastmod>2022-05-16</lastmod>
+    <lastmod>2022-05-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://simonmader.at/en/diploma-thesis" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://simonmader.at/diploma-thesis" />
   </url>
 </urlset>
