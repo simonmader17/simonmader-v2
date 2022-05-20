@@ -45,6 +45,10 @@
   @apply bg-red-400 text-white;
 }
 
+:root {
+  @apply bg-hero-brick-wall-purple bg-body;
+}
+
 body {
   overflow: overlay;
 }
