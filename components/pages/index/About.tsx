@@ -1,7 +1,6 @@
 import moment from "moment";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
-import Grain from "../../Grain/Grain";
 
 import about_bg from "../../../public/images/personal_images/ich.png";
 
@@ -38,7 +37,6 @@ function About() {
                 placeholder="blur"
               />
             </div>
-            <Grain className="ltmd:hidden" />
           </div>
         </div>
       </div>
