@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 import Skeleton from "react-loading-skeleton";
-import { Router, useRouter } from "next/router";
-import Checkbox from "./Checkbox/Checkbox";
-import { getCanvasFontSize, getTextWidth } from "../lib/text-width";
+import { useRouter } from "next/router";
+import Checkbox from "../../Checkbox/Checkbox";
+import { getCanvasFontSize, getTextWidth } from "../../../lib/text-width";
 import useTranslation from "next-translate/useTranslation";
 import TableOfContents from "./TableOfContents";
-import { PixelatedExternalLink } from "./PixelatedIcons";
+import { PixelatedExternalLink } from "../../PixelatedIcons";
 
 const DiplomaThesisViewer = () => {
   const [pdf, setPdf] = useState(null);

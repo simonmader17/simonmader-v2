@@ -1,12 +1,12 @@
 import moment from "moment";
 import "moment/locale/de";
 import Image from "next/image";
-
-import oracle_logo from "../public/images/logos/oracle.png";
-import cambridge_logo from "../public/images/logos/cambridge_assessment_english.png";
-import lpi_logo from "../public/images/logos/linux_professional_institute.png";
 import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
+
+import oracle_logo from "../../../public/images/logos/oracle.png";
+import cambridge_logo from "../../../public/images/logos/cambridge_assessment_english.png";
+import lpi_logo from "../../../public/images/logos/linux_professional_institute.png";
 
 interface CertificateInterface {
   name: string;

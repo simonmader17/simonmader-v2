@@ -1,16 +1,15 @@
 import moment from "moment";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Expand from "react-expand-animated";
+import BlurredBgImage from "../../BlurredBgImage";
 
-import asboe_bg from "../public/images/background_images/asboe.jpg";
-import bso_bg from "../public/images/background_images/bso.png";
-import geberit_bg from "../public/images/background_images/geberit.jpg";
-import gemeinde_bg from "../public/images/background_images/gemeinde.jpeg";
-import BlurredBgImage from "./BlurredBgImage";
+import asboe_bg from "../../../public/images/background_images/asboe.jpg";
+import bso_bg from "../../../public/images/background_images/bso.png";
+import geberit_bg from "../../../public/images/background_images/geberit.jpg";
+import gemeinde_bg from "../../../public/images/background_images/gemeinde.jpeg";
 
 interface JobInterface {
   position: string | JSX.Element;

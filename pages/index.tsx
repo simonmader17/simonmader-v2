@@ -1,17 +1,15 @@
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import About from "../components/About";
-import Career from "../components/Career";
-import Certificates from "../components/Certificates";
-import ChromeNotification from "../components/ChromeNotification";
+import About from "../components/pages/index/About";
+import Career from "../components/pages/index/Career";
+import Certificates from "../components/pages/index/Certificates";
+import ChromeNotification from "../components/pages/index/ChromeNotification";
 import Container from "../components/Container";
-import Education from "../components/Education";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Others from "../components/Others";
-import Projects from "../components/Projects";
-import Qualifications from "../components/Qualifications";
+import Education from "../components/pages/index/Education";
+import Header from "../components/pages/index/Header";
+import Others from "../components/pages/index/Others";
+import Projects from "../components/pages/index/Projects";
+import Qualifications from "../components/pages/index/Qualifications";
 
 export default function Home() {
   const { t } = useTranslation("meta");

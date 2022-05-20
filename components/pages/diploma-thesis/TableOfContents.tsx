@@ -1,7 +1,7 @@
 import useMouse from "@react-hook/mouse-position";
 import useTranslation from "next-translate/useTranslation";
 import { useRef } from "react";
-import { createRipple } from "../lib/ripple";
+import { createRipple } from "../../../lib/ripple";
 import Expand from "react-expand-animated";
 
 const TableOfContentsItem = ({ sub = false, children, ...props }) => {

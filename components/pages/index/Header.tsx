@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { createRipple } from "../lib/ripple";
-
-import ich from "../public/images/personal_images/ich.png";
+import { createRipple } from "../../../lib/ripple";
 import { Parallax } from "react-scroll-parallax";
-import { PixelatedExternalLink, PixelatedDownChevron } from "./PixelatedIcons";
+import { PixelatedDownChevron } from "../../PixelatedIcons";
+
+import ich from "../../../public/images/personal_images/ich.png";
 
 function Header() {
   const [chevronDownIconOpacity, setChevronDownIconOpacity] = useState(1);

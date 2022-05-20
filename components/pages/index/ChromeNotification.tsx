@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import chrome_icon from "../public/images/Google_Chrome_icon_(September_2014).svg";
-import { PixelatedX } from "./PixelatedIcons";
+import { PixelatedX } from "../../PixelatedIcons";
+
+import chrome_icon from "../../../public/images/Google_Chrome_icon_(September_2014).svg";
 
 declare const InstallTrigger: any;
 

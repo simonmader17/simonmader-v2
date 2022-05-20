@@ -4,7 +4,7 @@ import Container from "../components/Container";
 import useTranslation from "next-translate/useTranslation";
 
 const DiplomaThesisViewer = dynamic(
-  import("../components/DiplomaThesisViewer"),
+  import("../components/pages/diploma-thesis/DiplomaThesisViewer"),
   { ssr: false }
 );
 

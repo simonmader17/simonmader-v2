@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import contact_img from "../public/images/personal_images/ich_2.jpeg";
+import contact_img from "../../../public/images/personal_images/ich_2.jpeg";
 
 interface ContactInterface {
   title: string;

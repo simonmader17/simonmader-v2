@@ -1,11 +1,11 @@
-import Footer from "../components/Footer";
+import Footer from "../components/pages/_app/Footer";
 import "../styles/styles.scss";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import Head from "next/head";
 import { ParallaxProvider } from "react-scroll-parallax";
-import ParallaxBackground from "../components/ParallaxBackground";
-import BackButton from "../components/BackButton";
+import ParallaxBackground from "../components/pages/_app/ParallaxBackground";
+import BackButton from "../components/pages/_app/BackButton";
 
 function MyApp({ Component, pageProps }) {
   return (
