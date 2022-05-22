@@ -1,14 +1,9 @@
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import Container from "../components/Container";
 import useTranslation from "next-translate/useTranslation";
+import DiplomaThesis from "../components/pages/diploma-thesis/DiplomaThesis";
 
-const DiplomaThesisViewer = dynamic(
-  import("../components/pages/diploma-thesis/DiplomaThesisViewer"),
-  { ssr: false }
-);
-
-const DiplomaThesis = () => {
+const DiplomaThesisPage = () => {
   const { t } = useTranslation("meta");
 
   return (
@@ -19,10 +14,10 @@ const DiplomaThesis = () => {
       </Head>
 
       <Container>
-        <DiplomaThesisViewer />
+        <DiplomaThesis />
       </Container>
     </>
   );
 };
 
-export default DiplomaThesis;
+export default DiplomaThesisPage;
