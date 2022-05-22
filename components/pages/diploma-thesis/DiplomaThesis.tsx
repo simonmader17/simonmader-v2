@@ -26,8 +26,8 @@ const DiplomaThesis = () => {
     width: 0,
     height: 0,
   });
-  const [portrait, setPortrait] = useState(true);
-  const [landscape, setLandscape] = useState(false);
+  const [portrait, setPortrait] = useState(false);
+  const [landscape, setLandscape] = useState(true);
   const [pages, setPages] = useState([]);
   const [gotoPage, setGotoPage] = useState("1");
   const [gotoPageTextWidth, setGotoPageTextWidth] = useState(0);
@@ -195,16 +195,22 @@ const DiplomaThesis = () => {
       <div
         className="relative z-10"
         style={{
-          minWidth: `${
-            portrait
-              ? pageDimensions.width * 0.9
-              : (pageDimensions.height * 0.9 * 210) / 297
-          }px`,
-          height: `${
-            landscape
-              ? pageDimensions.height * 0.9
-              : (pageDimensions.width * 0.9 * 297) / 210
-          }px`,
+          // minWidth: `${
+          //   portrait
+          //     ? pageDimensions.width * 0.9
+          //     : (pageDimensions.height * 0.9 * 210) / 297
+          // }px`,
+          // height: `${
+          //   landscape
+          //     ? pageDimensions.height * 0.9
+          //     : (pageDimensions.width * 0.9 * 297) / 210
+          // }px`,
+          minWidth: portrait
+            ? "calc(100vw * 0.9)"
+            : "calc((100vh * 0.9 * 210) / 297)",
+          height: landscape
+            ? "calc(100vh * 0.9)"
+            : "calc((100vw * 0.9 * 297) / 210)",
         }}
         onMouseEnter={() => setShowToolbar(true)}
         onMouseLeave={() => {
