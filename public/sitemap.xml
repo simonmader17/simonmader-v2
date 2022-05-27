@@ -9,8 +9,16 @@
   </url>
   <url>
     <loc>https://simonmader.at/diploma-thesis</loc>
-    <lastmod>2022-05-17</lastmod>
+    <lastmod>2022-05-28</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://simonmader.at/en/diploma-thesis" />
     <xhtml:link rel="alternate" hreflang="de" href="https://simonmader.at/diploma-thesis" />
+  </url>
+  <url>
+    <loc>https://simonmader.at/blog</loc>
+    <lastmod>2022-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://simonmader.at/blog/creating-the-material-design-ripple-effect-with-css-and-js</loc>
+    <lastmod>2022-05-28</lastmod>
   </url>
 </urlset>
