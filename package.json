@@ -11,8 +11,10 @@
     "@heroicons/react": "^1.0.5",
     "@react-hook/mouse-position": "^4.1.3",
     "@react-hook/window-scroll": "^1.3.0",
+    "gray-matter": "^4.0.3",
     "moment": "^2.29.1",
     "next": "^12.0.11-canary.15",
+    "next-mdx-remote": "^4.0.3",
     "next-translate": "^1.3.4",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.6",
@@ -22,6 +24,7 @@
     "react-loading-skeleton": "^3.0.3",
     "react-pdf": "^5.7.2",
     "react-scroll-parallax": "^3.0.6",
+    "rehype-highlight": "^5.0.2",
     "sass": "^1.49.7",
     "tailwind-heropatterns": "^0.0.8"
   },
