@@ -52,10 +52,10 @@ function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
           <p className="ltmd:text-sm">{ort}</p>
           {info && (
             <>
-              <div className="ltmd:text-sm 2xl:hidden">
+              <div className="ltmd:text-sm xl:hidden">
                 <Expand open={showInfo}>{info}</Expand>
               </div>
-              <div className="lt2xl:hidden">{info}</div>
+              <div className="ltxl:hidden">{info}</div>
             </>
           )}
         </div>
@@ -70,7 +70,7 @@ function Career() {
   return (
     <>
       <h2 id="career">{t("heading")}</h2>
-      <div className="grid grid-cols-1 2xl:grid-cols-2">
+      <div className="grid grid-cols-1 xl:grid-cols-2">
         <Job
           position={
             <Trans

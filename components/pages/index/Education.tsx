@@ -32,10 +32,10 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
           <p className="ltmd:text-sm">{zeitraum}</p>
           {info && (
             <>
-              <div className="ltmd:text-sm 2xl:hidden">
+              <div className="ltmd:text-sm xl:hidden">
                 <Expand open={showInfo}>{info}</Expand>
               </div>
-              <div className="lt2xl:hidden">{info}</div>
+              <div className="ltxl:hidden">{info}</div>
             </>
           )}
         </div>
@@ -50,7 +50,7 @@ function Education() {
   return (
     <>
       <h2 id="education">{t("heading")}</h2>
-      <div className="grid grid-cols-1 2xl:grid-cols-2">
+      <div className="grid grid-cols-1 xl:grid-cols-2">
         <School
           name="HTL St. Pölten"
           zweig={t("htl.zweig")}

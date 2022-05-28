@@ -63,7 +63,7 @@ function Projects() {
   return (
     <>
       <h2 id="projects">{t("heading")}</h2>
-      <div className="grid grid-cols-1 2xl:grid-cols-2">
+      <div className="grid grid-cols-1 xl:grid-cols-2">
         <Project
           title={t("personal-website.title")}
           zeitraum="2021 &ndash; 2022"
