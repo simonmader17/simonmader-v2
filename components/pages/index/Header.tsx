@@ -47,7 +47,7 @@ function Header() {
             >
               <Image
                 src={ich}
-                alt="ich"
+                alt="Simon Mader"
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"

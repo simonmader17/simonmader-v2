@@ -60,15 +60,21 @@ const Blog = ({ posts }) => {
               onPointerDown={(e) => createRipple(e)}
             >
               <div className="p-6">
-                <p className="text-sm text-gray-400">{post.data.publishedOn}</p>
+                <p className="mb-2 text-sm text-gray-400">
+                  📅 {post.data.publishedOn}
+                </p>
                 <p className="text-red-400 md:text-lg">{post.data.title}</p>
                 <p className="text-sm">{post.data.description}</p>
+                <span className="my-link mt-2 inline-block text-gray-400">
+                  Read more
+                </span>
               </div>
-              <div className="clip-rounded-pixel ltmd:w-full relative -z-10 aspect-video md:h-48">
+              <div className="clip-rounded-pixel ltmd:w-full relative -z-10 aspect-video md:min-h-[12rem]">
                 <Image
                   src={post.thumbnailPath}
                   alt={post.title}
                   layout="fill"
+                  objectFit="cover"
                   placeholder="blur"
                   blurDataURL={post.thumbnailBlurDataURL}
                 />

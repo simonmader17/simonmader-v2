@@ -30,7 +30,7 @@ function About() {
             <div className="relative h-full">
               <Image
                 src={about_bg}
-                alt="ich"
+                alt="Simon Mader"
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"

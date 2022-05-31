@@ -27,7 +27,7 @@ function Footer() {
         <div className="clip-rounded-pixel-24 lg:clip-rounded-pixel-48 relative m-4 h-24 w-24 lg:h-48 lg:w-48">
           <Image
             src={contact_img}
-            alt="Contact image"
+            alt="Simon Mader"
             layout="fill"
             objectFit="cover"
             objectPosition="center"

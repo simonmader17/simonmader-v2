@@ -74,7 +74,7 @@ const Post = ({ post }) => {
 
         <div className="my-5 grid grid-cols-1 gap-2 md:my-10 md:grid-cols-3 md:place-items-center">
           <div className="drop-shadow-pixel-sm my-2 flex items-center gap-2">
-            <div className="relative h-16 w-16">
+            <div className="relative m-2 h-16 w-16">
               <Image
                 src={author}
                 alt="Simon Mader"
