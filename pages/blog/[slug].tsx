@@ -9,6 +9,8 @@ import rehypeHighlight from "rehype-highlight";
 import { getPlaiceholder } from "plaiceholder";
 import Image from "next/image";
 
+import author from "../../public/images/personal_images/ich_2.jpeg";
+
 export async function getStaticPaths() {
   const posts = fs.readdirSync(
     path.join(process.cwd(), "/components/pages/blog/posts")
@@ -66,9 +68,43 @@ const Post = ({ post }) => {
       </Head>
 
       <Container className="ltmd:mt-20">
-        Published on: {data.publishedOn}
-        <h1 className="mt-5 text-center md:mt-10">{data.title}</h1>
-        <div className="drop-shadow-pixel relative mx-auto mb-5 aspect-video w-full py-4 md:mb-10 md:w-2/3">
+        <h1 className="drop-shadow-pixel-sm mt-5 text-center md:mt-10">
+          {data.title}
+        </h1>
+
+        <div className="my-5 grid grid-cols-1 gap-2 md:my-10 md:grid-cols-3 md:place-items-center">
+          <div className="drop-shadow-pixel-sm my-2 flex items-center gap-2">
+            <div className="relative h-16 w-16">
+              <Image
+                src={author}
+                alt="Simon Mader"
+                layout="fill"
+                placeholder="blur"
+                objectFit="cover"
+                objectPosition="center"
+                className="clip-rounded-pixel"
+              />
+            </div>
+            <div>
+              <p className="font-bold">Simon Mader</p>
+              <p>
+                <a
+                  href="https://github.com/simonmader17"
+                  title="GitHub"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="icon-github-white m-1" />
+                  simonmader17
+                </a>
+              </p>
+            </div>
+          </div>
+          <p>📅 Published on: {data.publishedOn}</p>
+          <p>👀 Views: --</p>
+        </div>
+
+        <div className="drop-shadow-pixel relative mx-auto mb-5 aspect-video w-full py-4 md:mb-10">
           <Image
             src={thumbnailPath}
             alt={data.title}
