@@ -8,6 +8,7 @@ import Container from "../../components/Container";
 import rehypeHighlight from "rehype-highlight";
 import { getPlaiceholder } from "plaiceholder";
 import Image from "next/image";
+import RippleDemo from "../../components/pages/blog/posts/creating-the-material-design-ripple-effect-with-css-and-js/RippleDemo";
 
 import author from "../../public/images/personal_images/ich_2.jpeg";
 
@@ -30,9 +31,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const postSource = fs.readFileSync(
+  const postPath = fs.existsSync(
     path.join(process.cwd(), `/components/pages/blog/posts/${slug}.mdx`)
-  );
+  )
+    ? path.join(process.cwd(), `/components/pages/blog/posts/${slug}.mdx`)
+    : path.join(
+        process.cwd(),
+        `/components/pages/blog/posts/${slug}/${slug}.mdx`
+      );
+  console.log(postPath);
+  const postSource = fs.readFileSync(postPath);
   const { content, data } = matter(postSource);
 
   const thumbnailPath = "/images/blog/posts/" + slug + "/" + data.thumbnail;
@@ -117,7 +125,9 @@ const Post = ({ post }) => {
         <p className="mb-5 text-center text-gray-400 md:mb-10">
           {data.description}
         </p>
-        <MDXRemote {...source} />
+        <div id="blog-post-content">
+          <MDXRemote {...source} components={{ RippleDemo }} />
+        </div>
       </Container>
     </>
   );

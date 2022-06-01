@@ -137,3 +137,9 @@ span.ripple-fade-out {
 .hljs {
   @apply font-SfPixelate clip-rounded-pixel my-4 bg-black bg-opacity-50;
 }
+
+#blog-post-content {
+  p {
+    @apply mb-4 text-lg;
+  }
+}
