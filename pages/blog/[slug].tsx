@@ -1,14 +1,14 @@
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
 import Container from "../../components/Container";
 import rehypeHighlight from "rehype-highlight";
 import { getPlaiceholder } from "plaiceholder";
 import Image from "next/image";
-import RippleDemo from "../../components/pages/blog/posts/creating-the-material-design-ripple-effect-with-css-and-js/RippleDemo";
+import { bundleMDX } from "mdx-bundler";
+import { getMDXComponent } from "mdx-bundler/client";
+import { useMemo } from "react";
 
 import author from "../../public/images/personal_images/ich_2.jpeg";
 
@@ -39,30 +39,60 @@ export async function getStaticProps({ params }) {
         process.cwd(),
         `/components/pages/blog/posts/${slug}/${slug}.mdx`
       );
-  console.log(postPath);
   const postSource = fs.readFileSync(postPath);
   const { content, data } = matter(postSource);
+  console.log(data);
 
   const thumbnailPath = "/images/blog/posts/" + slug + "/" + data.thumbnail;
   const thumbnailBlurDataURL = await (
     await getPlaiceholder(thumbnailPath)
   ).base64;
 
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      rehypePlugins: [rehypeHighlight],
+  const dependencies = {};
+
+  for (let i in data.components) {
+    const component = data.components[i];
+    dependencies[`./${component}.tsx`] = fs
+      .readFileSync(
+        path.join(
+          process.cwd(),
+          `/components/pages/blog/posts/${slug}/${component}.tsx`
+        )
+      )
+      .toString();
+  }
+
+  const result = await bundleMDX({
+    source: content,
+    files: dependencies,
+    mdxOptions: (options) => {
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        rehypeHighlight,
+      ];
+
+      return options;
     },
   });
 
+  const { code } = result;
+
   return {
     props: {
-      post: { source: mdxSource, data, thumbnailPath, thumbnailBlurDataURL },
+      post: {
+        code,
+        data,
+        thumbnailPath,
+        thumbnailBlurDataURL,
+      },
     },
   };
 }
 
 const Post = ({ post }) => {
-  const { source, data, thumbnailPath, thumbnailBlurDataURL } = post;
+  const { code, data, thumbnailPath, thumbnailBlurDataURL } = post;
+
+  const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
 
   return (
     <>
@@ -126,7 +156,20 @@ const Post = ({ post }) => {
           {data.description}
         </p>
         <div id="blog-post-content">
-          <MDXRemote {...source} components={{ RippleDemo }} />
+          <MDXComponent
+            components={{
+              a: ({ ...props }) => (
+                <a
+                  className="my-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  {...props}
+                >
+                  {props.children}
+                </a>
+              ),
+            }}
+          />
         </div>
       </Container>
     </>

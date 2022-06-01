@@ -15,7 +15,11 @@ export async function getStaticProps() {
 
   const promises = postsFiles.map(async (post) => {
     const source = fs.readFileSync(
-      path.join(process.cwd(), "/components/pages/blog/posts", post)
+      path.join(
+        process.cwd(),
+        "/components/pages/blog/posts",
+        post.endsWith(".mdx") ? post : `${post}/${post}.mdx`
+      )
     );
 
     const { data } = matter(source);
