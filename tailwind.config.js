@@ -16,6 +16,7 @@ module.exports = {
       fontFamily: {
         SfPixelate: "SfPixelate",
         PressStart2P: "Press\\ Start\\ 2P",
+        FiraCode: "Fira\\ Code",
       },
       screens: {
         ltmd: { max: "767px" },

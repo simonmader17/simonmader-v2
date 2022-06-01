@@ -25,6 +25,12 @@ function MyApp({ Component, pageProps }) {
             as="font"
             crossOrigin=""
           />
+          <link
+            rel="preload"
+            href="/fonts/VT323-Regular.ttf"
+            as="font"
+            crossOrigin=""
+          />
         </Head>
 
         <div className="font-SfPixelate relative z-0 flex min-h-screen flex-col overflow-hidden text-center text-white">

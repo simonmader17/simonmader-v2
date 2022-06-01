@@ -29,6 +29,11 @@
   src: url("/fonts/PressStart2P-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Fira Code";
+  src: url("/fonts/FiraCode-Regular.ttf");
+}
+
 ::-webkit-scrollbar {
   @apply w-auto;
 
@@ -134,11 +139,32 @@ span.ripple-fade-out {
   line-height: 1;
 }
 
-.hljs {
-  @apply font-SfPixelate clip-rounded-pixel my-4 bg-black bg-opacity-50;
-}
-
 #blog-post-content {
+  .hljs {
+    @apply font-FiraCode clip-rounded-pixel my-4 bg-black bg-opacity-50;
+  }
+
+  ul {
+    @apply ml-6 list-disc;
+
+    li {
+      @apply mb-4;
+    }
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li {
+    code {
+      @apply font-FiraCode rounded-lg bg-black bg-opacity-50 px-2 py-1;
+    }
+  }
+
   p {
     @apply mb-4 text-lg;
   }
