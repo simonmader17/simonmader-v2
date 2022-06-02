@@ -28,7 +28,7 @@ export async function getStaticProps() {
 
     const thumbnailPath = "/images/blog/posts/" + slug + "/" + data.thumbnail;
     const thumbnailBlurDataURL = await (
-      await getPlaiceholder(thumbnailPath)
+      await getPlaiceholder(thumbnailPath, { size: 64 })
     ).base64;
 
     return { data, slug, thumbnailPath, thumbnailBlurDataURL };
