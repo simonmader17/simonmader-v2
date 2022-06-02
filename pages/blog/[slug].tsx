@@ -41,7 +41,6 @@ export async function getStaticProps({ params }) {
       );
   const postSource = fs.readFileSync(postPath);
   const { content, data } = matter(postSource);
-  console.log(data);
 
   const thumbnailPath = "/images/blog/posts/" + slug + "/" + data.thumbnail;
   const thumbnailBlurDataURL = await (

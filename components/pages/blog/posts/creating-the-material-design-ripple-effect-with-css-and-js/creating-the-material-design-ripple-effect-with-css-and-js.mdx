@@ -95,7 +95,12 @@ As you can see, the ripples don't disappear and stack upon each other.
 Let's solve this by adding a `fadeOutRipple()` function:
 
 ```js
-const fadeOutRipple = (ripple: HTMLSpanElement, animationStart) => {
+const fadeOutRipple = (
+  button: HTMLElement,
+  handleFadeOutRipple: () => void,
+  ripple: HTMLSpanElement,
+  animationStart: number
+) => {
   const animationInterrupt = Date.now();
   let remainingTime = 600 - (animationInterrupt - animationStart);
   if (remainingTime < 200) remainingTime = 200;
@@ -106,29 +111,36 @@ const fadeOutRipple = (ripple: HTMLSpanElement, animationStart) => {
     if (ripple) ripple.remove();
   };
   removeRipple();
+  button.removeEventListener("pointerup", handleFadeOutRipple);
+  button.removeEventListener("pointercancel", handleFadeOutRipple);
+  button.removeEventListener("pointerleave", handleFadeOutRipple);
 };
 ```
 
 This function gets the ripple that it should remove and the time the ripple was created as parameters. Based on the animation start, it will calculate the remaining time for the fade out animation.
 
-Now, at the end of the `createRipple(e)` function, we add the `fadeOutRipple()` function to the following event listeners:
+We also pass the `button` element and the `handleFadeOutRipple()` function as parameters to the `fadeOutRipple()` function, so we can remove the event listeners at the end of the process, that we will add in the next step.
+
+Now, at the end of the `createRipple(e)` function, we create a `handleFadeOutRipple()` function that calls the `fadeOutRipple()`. Then we add the `handleFadeOutRipple()` function to the following event listeners:
 
 - `pointerup`: The `pointerup` event is fired when a pointer is no longer active.
 - `pointercancel`: The `pointercancel` event is fired when the browser determines that there are unlikely to be any more pointer events, or if after the `pointerdown` event is fired, the pointer is then used to manipulate the viewport by panning, zooming, or scrolling.
 - `pointerleave`: The `pointerleave` event is fired when a pointing device is moved out of the hit test boundaries of an element.
 
 ```js
+const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
+
   ...
+
   // Add listeners to make the ripple effect fade out
   const animationStart = Date.now();
-  button.addEventListener("pointerup", () =>
-    fadeOutRipple(ripple, animationStart)
-  );
-  button.addEventListener("pointercancel", () =>
-    fadeOutRipple(ripple, animationStart)
-  );
-  button.addEventListener("pointerleave", () =>
-    fadeOutRipple(ripple, animationStart)
-  );
+
+  const handleFadeOutRipple = () => {
+    fadeOutRipple(button, handleFadeOutRipple, ripple, animationStart);
+  };
+
+  button.addEventListener("pointerup", handleFadeOutRipple);
+  button.addEventListener("pointercancel", handleFadeOutRipple);
+  button.addEventListener("pointerleave", handleFadeOutRipple);
 };
 ```

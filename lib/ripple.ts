@@ -16,18 +16,28 @@ const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
     event.clientY - button.getBoundingClientRect().top - radius
   }px`;
   ripple.classList.add("ripple");
-  const animationStart = Date.now();
 
   // Add ripple
   button.insertBefore(ripple, button.firstChild);
 
   // Add listeners to make the ripple effect fade out
-  button.addEventListener("pointerup", async () => fadeOutRipple(ripple, animationStart));
-  button.addEventListener("pointercancel", async () => fadeOutRipple(ripple, animationStart));
-  button.addEventListener("pointerleave", async () => fadeOutRipple(ripple, animationStart));
+  const animationStart = Date.now();
+
+  const handleFadeOutRipple = () => {
+    fadeOutRipple(button, handleFadeOutRipple, ripple, animationStart);
+  };
+
+  button.addEventListener("pointerup", handleFadeOutRipple);
+  button.addEventListener("pointercancel", handleFadeOutRipple);
+  button.addEventListener("pointerleave", handleFadeOutRipple);
 };
 
-const fadeOutRipple = async (ripple: HTMLSpanElement, animationStart) => {
+const fadeOutRipple = (
+  button: HTMLElement,
+  handleFadeOutRipple: () => void,
+  ripple: HTMLSpanElement,
+  animationStart: number
+) => {
   const animationInterrupt = Date.now();
   let remainingTime = 600 - (animationInterrupt - animationStart);
   if (remainingTime < 200) remainingTime = 200;
@@ -38,6 +48,9 @@ const fadeOutRipple = async (ripple: HTMLSpanElement, animationStart) => {
     if (ripple) ripple.remove();
   };
   removeRipple();
+  button.removeEventListener("pointerup", handleFadeOutRipple);
+  button.removeEventListener("pointercancel", handleFadeOutRipple);
+  button.removeEventListener("pointerleave", handleFadeOutRipple);
 };
 
 export { createRipple, fadeOutRipple };

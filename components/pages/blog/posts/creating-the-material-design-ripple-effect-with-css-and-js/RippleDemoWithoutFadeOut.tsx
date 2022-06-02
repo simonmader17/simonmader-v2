@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
   // Create ripple
@@ -16,20 +16,48 @@ const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
     event.clientY - button.getBoundingClientRect().top - radius
   }px`;
   ripple.classList.add("ripple");
-  const animationStart = Date.now();
 
   // Add ripple
   button.insertBefore(ripple, button.firstChild);
 };
 
+const removeRipples = (button: HTMLDivElement) => {
+  const ripples = button.querySelectorAll(".ripple");
+  ripples.forEach((ripple) => ripple.remove());
+};
+
 const RippleDemoWithoutFadeOut = () => {
+  const button = useRef(null);
+
   return (
     <div className="my-5 grid grid-cols-1 place-items-center">
-      <div
-        className="clip-rounded-pixel relative m-6 cursor-pointer bg-black bg-opacity-50 p-10 text-2xl"
-        onPointerDown={(e) => createRipple(e)}
-      >
-        Click me!
+      <div className="flex items-center">
+        <div
+          className="clip-rounded-pixel relative m-6 cursor-pointer bg-black bg-opacity-50 p-10 text-2xl"
+          onPointerDown={(e) => createRipple(e)}
+          ref={button}
+        >
+          Click me!
+        </div>
+        <div
+          className="clip-rounded-pixel cursor-pointer bg-black bg-opacity-50"
+          onClick={() => removeRipples(button.current as HTMLDivElement)}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="m-4 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   );
