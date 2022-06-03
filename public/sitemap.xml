@@ -16,9 +16,13 @@
   <url>
     <loc>https://simonmader.at/blog</loc>
     <lastmod>2022-05-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://simonmader.at/en/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://simonmader.at/blog" />
   </url>
   <url>
     <loc>https://simonmader.at/blog/creating-the-material-design-ripple-effect-with-css-and-js</loc>
-    <lastmod>2022-05-28</lastmod>
+    <lastmod>2022-06-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://simonmader.at/en/blog/creating-the-material-design-ripple-effect-with-css-and-js" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://simonmader.at/blog/creating-the-material-design-ripple-effect-with-css-and-js" />
   </url>
 </urlset>

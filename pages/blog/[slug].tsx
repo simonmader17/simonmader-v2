@@ -12,16 +12,27 @@ import { useMemo } from "react";
 
 import author from "../../public/images/personal_images/ich_2.jpeg";
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
+  console.log(locales);
+
   const posts = fs.readdirSync(
     path.join(process.cwd(), "/components/pages/blog/posts")
   );
 
-  const paths = posts.map((post) => ({
-    params: {
-      slug: post.replace(".mdx", ""),
-    },
-  }));
+  const paths = [];
+
+  locales.forEach((locale) => {
+    posts.forEach((post) => {
+      paths.push({
+        params: {
+          slug: post.replace(".mdx", ""),
+        },
+        locale,
+      });
+    });
+  });
+
+  console.log(paths);
 
   return {
     paths,
@@ -46,8 +57,6 @@ export async function getStaticProps({ params }) {
   const thumbnailBlurDataURL = await (
     await getPlaiceholder(thumbnailPath, { size: 64 })
   ).base64;
-
-  console.log(thumbnailBlurDataURL);
 
   const dependencies = {};
 
