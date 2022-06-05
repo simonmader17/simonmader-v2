@@ -12,33 +12,31 @@ const ChromeNotification = () => {
     setIsFirefox(typeof InstallTrigger !== "undefined");
   }, []);
 
-  const ref = useRef();
+  const [closed, setClosed] = useState(false);
+
+  if (!isFirefox || closed) return null;
 
   return (
-    <>
-      {isFirefox && (
-        <div ref={ref} className="md:drop-shadow-3xl fixed top-4 left-4 z-50">
-          <div className="clip-rounded-pixel flex w-80 items-center rounded-xl bg-black bg-opacity-50 p-2">
-            <div className="relative m-4 h-12 w-12 flex-shrink-0">
-              <Image
-                src={chrome_icon}
-                alt="Chrome Icon"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
-              />
-            </div>
-            <p className="text-left">For a better experience use Chrome :)</p>
-            <button
-              className="self-start rounded-full p-2 transition-colors hover:bg-white hover:bg-opacity-10"
-              onClick={() => (ref.current as HTMLDivElement).remove()}
-            >
-              <PixelatedX className="h-6" />
-            </button>
-          </div>
+    <div className="md:drop-shadow-3xl fixed top-4 left-4 z-50">
+      <div className="clip-rounded-pixel flex w-80 items-center rounded-xl bg-black bg-opacity-50 p-2">
+        <div className="relative m-4 h-12 w-12 flex-shrink-0">
+          <Image
+            src={chrome_icon}
+            alt="Chrome Icon"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+          />
         </div>
-      )}
-    </>
+        <p className="text-left">For a better experience use Chrome :)</p>
+        <button
+          className="self-start rounded-full p-2 transition-colors hover:bg-white hover:bg-opacity-10"
+          onClick={() => setClosed(true)}
+        >
+          <PixelatedX className="h-6" />
+        </button>
+      </div>
+    </div>
   );
 };
 
