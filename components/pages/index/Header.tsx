@@ -6,7 +6,7 @@ import { PixelatedDownChevron } from "../../PixelatedIcons";
 
 import ich from "../../../public/images/personal_images/ich.png";
 
-function Header() {
+const Header = () => {
   const [chevronDownIconOpacity, setChevronDownIconOpacity] = useState(1);
   const [windowWidth, setWindowWidth] = useState(0);
   const [headerMinHeight, setHeaderMinHeight] = useState("100vh");
@@ -16,15 +16,19 @@ function Header() {
       setChevronDownIconOpacity((100 - window.scrollY) / 100);
     };
 
-    window.addEventListener("scroll", onScroll);
-
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
+    window.addEventListener("scroll", onScroll);
     window.addEventListener("resize", handleResize);
 
     handleResize();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -104,6 +108,6 @@ function Header() {
       />
     </div>
   );
-}
+};
 
 export default Header;

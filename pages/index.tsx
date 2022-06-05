@@ -11,7 +11,7 @@ import Others from "../components/pages/index/Others";
 import Projects from "../components/pages/index/Projects";
 import Qualifications from "../components/pages/index/Qualifications";
 
-export default function Home() {
+const IndexPage = () => {
   const { t } = useTranslation("meta");
 
   return (
@@ -42,4 +42,6 @@ export default function Home() {
       </Container>
     </>
   );
-}
+};
+
+export default IndexPage;

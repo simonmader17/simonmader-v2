@@ -6,7 +6,7 @@ import chrome_icon from "../../../public/images/Google_Chrome_icon_(September_20
 
 declare const InstallTrigger: any;
 
-function ChromeNotification() {
+const ChromeNotification = () => {
   const [isFirefox, setIsFirefox] = useState(false);
   useEffect(() => {
     setIsFirefox(typeof InstallTrigger !== "undefined");
@@ -40,6 +40,6 @@ function ChromeNotification() {
       )}
     </>
   );
-}
+};
 
 export default ChromeNotification;

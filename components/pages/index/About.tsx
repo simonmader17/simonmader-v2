@@ -4,7 +4,7 @@ import useTranslation from "next-translate/useTranslation";
 
 import about_bg from "../../../public/images/personal_images/ich.png";
 
-function About() {
+const About = () => {
   const calculateAge = (): number => {
     return moment().diff("2002-02-17", "years");
   };
@@ -42,6 +42,6 @@ function About() {
       </div>
     </>
   );
-}
+};
 
 export default About;

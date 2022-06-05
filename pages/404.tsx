@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import pogo from "../public/images/PogO.png";
 
-function Custom404() {
+const Custom404Page = () => {
   return (
     <div className="flex h-screen flex-col items-center justify-center md:flex-row">
       <h1 className="font-Graph35 text-center text-2xl text-white">
@@ -13,6 +13,6 @@ function Custom404() {
       </div>
     </div>
   );
-}
+};
 
-export default Custom404;
+export default Custom404Page;

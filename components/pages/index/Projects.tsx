@@ -14,7 +14,14 @@ interface ProjectInterface {
   links?: { text: string; link: string }[];
 }
 
-function Project({ title, zeitraum, bg, text, tags, links }: ProjectInterface) {
+const Project = ({
+  title,
+  zeitraum,
+  bg,
+  text,
+  tags,
+  links,
+}: ProjectInterface) => {
   return (
     <div className="drop-shadow-pixel relative z-10 m-4">
       <div className="clip-rounded-pixel h-full">
@@ -55,9 +62,9 @@ function Project({ title, zeitraum, bg, text, tags, links }: ProjectInterface) {
       </div>
     </div>
   );
-}
+};
 
-function Projects() {
+const Projects = () => {
   const { t } = useTranslation("projects");
 
   return (
@@ -97,6 +104,6 @@ function Projects() {
       </div>
     </>
   );
-}
+};
 
 export default Projects;

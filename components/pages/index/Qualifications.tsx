@@ -8,13 +8,13 @@ interface QualificationInterface {
   text?: JSX.Element;
 }
 
-function Qualification({
+const Qualification = ({
   name,
   logo,
   link,
   title,
   text,
-}: QualificationInterface) {
+}: QualificationInterface) => {
   return (
     <div className="md:drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6">
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-black bg-opacity-50" />
@@ -33,7 +33,7 @@ function Qualification({
       </div>
     </div>
   );
-}
+};
 
 interface OtherQualificationInterface {
   logo: string;
@@ -45,7 +45,7 @@ interface OthersInterface {
   qualifications: OtherQualificationInterface[];
 }
 
-function Others({ qualifications }: OthersInterface) {
+const Others = ({ qualifications }: OthersInterface) => {
   const items = [];
 
   for (const qual of qualifications) {
@@ -67,9 +67,9 @@ function Others({ qualifications }: OthersInterface) {
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-black bg-opacity-50" />
     </div>
   );
-}
+};
 
-function Qualifications() {
+const Qualifications = () => {
   const { t } = useTranslation("qualifications");
 
   return (
@@ -187,6 +187,6 @@ function Qualifications() {
       />
     </>
   );
-}
+};
 
 export default Qualifications;

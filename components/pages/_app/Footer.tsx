@@ -9,7 +9,7 @@ interface ContactInterface {
   logo: string;
 }
 
-function Contact({ title, name, link, logo }: ContactInterface) {
+const Contact = ({ title, name, link, logo }: ContactInterface) => {
   return (
     <p>
       <a href={link} title={title} target="_blank" rel="noreferrer">
@@ -18,9 +18,9 @@ function Contact({ title, name, link, logo }: ContactInterface) {
       </a>
     </p>
   );
-}
+};
 
-function Footer() {
+const Footer = () => {
   return (
     <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex items-center justify-center p-8 text-white">
       <div className="drop-shadow-pixel flex-shrink-0">
@@ -58,6 +58,6 @@ function Footer() {
       </div>
     </div>
   );
-}
+};
 
 export default Footer;

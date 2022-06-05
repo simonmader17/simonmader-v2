@@ -15,7 +15,7 @@ interface SchoolInterface {
   info?: JSX.Element;
 }
 
-function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
+const School = ({ name, zweig, zeitraum, bg, info }: SchoolInterface) => {
   const [showInfo, setShowInfo] = useState(false);
 
   return (
@@ -42,9 +42,9 @@ function School({ name, zweig, zeitraum, bg, info }: SchoolInterface) {
       </div>
     </div>
   );
-}
+};
 
-function Education() {
+const Education = () => {
   const { t } = useTranslation("education");
 
   return (
@@ -92,6 +92,6 @@ function Education() {
       </div>
     </>
   );
-}
+};
 
 export default Education;

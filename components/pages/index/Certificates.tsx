@@ -19,7 +19,7 @@ interface CertificateInterface {
   url?: string;
 }
 
-function Certificate({
+const Certificate = ({
   name,
   company,
   companyUrl,
@@ -28,7 +28,7 @@ function Certificate({
   to,
   id,
   url,
-}: CertificateInterface) {
+}: CertificateInterface) => {
   const { t } = useTranslation("certificates");
 
   moment.locale(useRouter().locale);
@@ -76,9 +76,9 @@ function Certificate({
       </div>
     </div>
   );
-}
+};
 
-function Certificates() {
+const Certificates = () => {
   const { t } = useTranslation("certificates");
 
   return (
@@ -112,6 +112,6 @@ function Certificates() {
       </div>
     </>
   );
-}
+};
 
 export default Certificates;

@@ -21,7 +21,7 @@ interface JobInterface {
   info?: JSX.Element;
 }
 
-function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
+const Job = ({ position, firma, from, to, ort, bg, info }: JobInterface) => {
   const [showInfo, setShowInfo] = useState(false);
 
   moment.locale(useRouter().locale);
@@ -62,9 +62,9 @@ function Job({ position, firma, from, to, ort, bg, info }: JobInterface) {
       </div>
     </div>
   );
-}
+};
 
-function Career() {
+const Career = () => {
   const { t } = useTranslation("career");
 
   return (
@@ -172,6 +172,6 @@ function Career() {
       </div>
     </>
   );
-}
+};
 
 export default Career;
