@@ -17,7 +17,7 @@ const ChromeNotification = () => {
   return (
     <>
       {isFirefox && (
-        <div ref={ref} className="md:drop-shadow-3xl fixed top-4 right-4 z-50">
+        <div ref={ref} className="md:drop-shadow-3xl fixed top-4 left-4 z-50">
           <div className="clip-rounded-pixel flex w-80 items-center rounded-xl bg-black bg-opacity-50 p-2">
             <div className="relative m-4 h-12 w-12 flex-shrink-0">
               <Image

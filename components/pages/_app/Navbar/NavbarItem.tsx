@@ -27,7 +27,7 @@ const NavbarItem = ({ title, link, subRefs }: INavbarItem) => {
   return (
     <div className="relative h-full">
       {router.pathname === link ? (
-        <>
+        <div className="h-full">
           <span
             className="flex h-full cursor-pointer items-center justify-center px-5 hover:bg-white hover:bg-opacity-20"
             onClick={() => setOpen((open) => !open)}
@@ -93,7 +93,7 @@ const NavbarItem = ({ title, link, subRefs }: INavbarItem) => {
               ))}
             </motion.div>
           )}
-        </>
+        </div>
       ) : (
         <Link href={link} passHref>
           <a className="flex h-full cursor-pointer items-center justify-center px-5 hover:bg-white hover:bg-opacity-20">
