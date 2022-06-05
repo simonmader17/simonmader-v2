@@ -8,13 +8,11 @@ import { getPlaiceholder } from "plaiceholder";
 import Image from "next/image";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXComponent } from "mdx-bundler/client";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import author from "../../public/images/personal_images/ich_2.jpeg";
 
 export async function getStaticPaths({ locales }) {
-  console.log(locales);
-
   const posts = fs.readdirSync(
     path.join(process.cwd(), "/components/pages/blog/posts")
   );
@@ -31,8 +29,6 @@ export async function getStaticPaths({ locales }) {
       });
     });
   });
-
-  console.log(paths);
 
   return {
     paths,
@@ -90,6 +86,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       post: {
+        slug,
         code,
         data,
         thumbnailPath,
@@ -100,9 +97,17 @@ export async function getStaticProps({ params }) {
 }
 
 const Post = ({ post }) => {
-  const { code, data, thumbnailPath, thumbnailBlurDataURL } = post;
+  const { slug, code, data, thumbnailPath, thumbnailBlurDataURL } = post;
 
   const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
+
+  const [views, setViews] = useState(null);
+
+  useEffect(() => {
+    fetch(`/api/views/${slug}`, { method: "POST" })
+      .then((res) => res.json())
+      .then((res) => setViews(res.total));
+  }, [slug]);
 
   return (
     <>
@@ -149,7 +154,7 @@ const Post = ({ post }) => {
             </div>
           </div>
           <p>📅 Published on: {data.publishedOn}</p>
-          <p>👀 Views: --</p>
+          <p>👀 Views: {views || "--"}</p>
         </div>
 
         <div className="drop-shadow-pixel relative mx-auto mb-5 aspect-video w-full py-4 md:mb-10">

@@ -16,8 +16,6 @@ interface INavbarItem {
 const NavbarItem = ({ title, link, subRefs }: INavbarItem) => {
   const router = useRouter();
 
-  console.log(title, link, subRefs);
-
   return (
     <div className="relative h-full">
       {router.pathname === link ? (
