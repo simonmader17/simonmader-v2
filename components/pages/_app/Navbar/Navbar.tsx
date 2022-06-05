@@ -36,6 +36,7 @@ const Navbar = () => {
         className="bg-body bg-hero-brick-wall-purple drop-shadow-pixel-sm flex h-12 origin-right items-center justify-center border-2 border-black"
         animate={open ? "open" : "closed"}
         variants={variants}
+        initial={false}
       >
         {refTree.map((ref) => (
           <NavbarItem

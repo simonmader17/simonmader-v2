@@ -72,6 +72,7 @@ const NavbarItem = ({ title, link, subRefs }: INavbarItem) => {
               className="bg-body bg-hero-brick-wall-purple drop-shadow-pixel-sm absolute top-16 left-0 -z-10 flex flex-col border-2 border-black"
               animate={open ? "open" : "closed"}
               variants={variants}
+              initial={false}
             >
               {subRefs.map((subRef) => (
                 <span
