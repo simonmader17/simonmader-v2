@@ -6,6 +6,7 @@ import Head from "next/head";
 import { ParallaxProvider } from "react-scroll-parallax";
 import ParallaxBackground from "../components/pages/_app/ParallaxBackground";
 import BackButton from "../components/pages/_app/BackButton";
+import Navbar from "../components/pages/_app/Navbar/Navbar";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -27,13 +28,15 @@ function MyApp({ Component, pageProps }) {
           />
           <link
             rel="preload"
-            href="/fonts/VT323-Regular.ttf"
+            href="/fonts/FiraCode-Regular.ttf"
             as="font"
             crossOrigin=""
           />
         </Head>
 
         <div className="font-SfPixelate relative z-0 flex min-h-screen flex-col overflow-hidden text-center text-white">
+          <Navbar />
+
           <ParallaxBackground className="ltmd:hidden" />
 
           <BackButton />
