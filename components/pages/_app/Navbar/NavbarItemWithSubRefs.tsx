@@ -1,13 +1,21 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-
-const variants = {
-  open: { opacity: 1, scaleY: 1, y: 0 },
-  closed: { opacity: 0, scaleY: 0, y: "-100%" },
-};
+import useMediaQuery from "../../../../hooks/useMediaQuery";
 
 const NavbarItemWithSubRefs = ({ title, subRefs }) => {
   const [open, setOpen] = useState(false);
+
+  const md = useMediaQuery("(min-width: 768px)");
+
+  const variants = md
+    ? {
+        open: { opacity: 1, scaleY: 1, y: 0 },
+        closed: { opacity: 0, scaleY: 0, y: "-100%" },
+      }
+    : {
+        open: { opacity: 1, scaleY: 1, y: 0 },
+        closed: { opacity: 0, scaleY: 0, y: "100%" },
+      };
 
   return (
     <>
@@ -18,10 +26,17 @@ const NavbarItemWithSubRefs = ({ title, subRefs }) => {
         {subRefs && (
           <motion.svg
             animate={open ? "open" : "closed"}
-            variants={{
-              open: { rotate: 90 },
-              closed: { rotate: 0 },
-            }}
+            variants={
+              md
+                ? {
+                    open: { rotate: 90 },
+                    closed: { rotate: 0 },
+                  }
+                : {
+                    open: { rotate: -90 },
+                    closed: { rotate: 0 },
+                  }
+            }
             style={{ originX: "50%", originY: "50%" }}
             xmlns="http://www.w3.org/2000/svg"
             className="mr-1 h-4 w-4"
@@ -42,7 +57,7 @@ const NavbarItemWithSubRefs = ({ title, subRefs }) => {
 
       {subRefs && (
         <motion.div
-          className="bg-body bg-hero-brick-wall-purple absolute top-16 left-0 -z-10 flex flex-col border-2 border-black"
+          className="bg-body bg-hero-brick-wall-purple ltmd:bottom-16 ltmd:origin-bottom absolute left-0 -z-10 flex flex-col border-2 border-black md:top-16"
           animate={open ? "open" : "closed"}
           variants={variants}
           initial={false}

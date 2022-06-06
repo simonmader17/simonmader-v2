@@ -34,7 +34,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="fixed top-5 right-8 z-40 flex select-none items-center gap-5 text-lg">
+    <div className="ltmd:bottom-5 fixed right-8 z-40 flex select-none items-center gap-5 text-lg md:top-5">
       <motion.div
         className="bg-body bg-hero-brick-wall-purple drop-shadow-pixel-sm flex h-12 origin-right items-center justify-center border-2 border-black"
         animate={open ? "open" : "closed"}
@@ -52,7 +52,7 @@ const Navbar = () => {
       </motion.div>
 
       <div
-        className="bg-body bg-hero-brick-wall-purple drop-shadow-pixel-sm relative z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-black"
+        className="bg-body bg-hero-brick-wall-purple drop-shadow-pixel-sm relative z-50 flex h-12 w-12 cursor-pointer items-center justify-center border-2 border-black"
         onClick={() => setOpen((open) => !open)}
       >
         <AnimatePresence initial={false}>
