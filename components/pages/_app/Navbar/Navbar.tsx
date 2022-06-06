@@ -1,26 +1,7 @@
 import { motion } from "framer-motion";
+import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
 import NavbarItem from "./NavbarItem";
-
-const refTree = [
-  {
-    title: "Home",
-    link: "/",
-    subRefs: [
-      { title: "About", link: "#about" },
-      { title: "Projects", link: "#projects" },
-      { title: "Qualifications", link: "#qualifications" },
-      { title: "Certificates", link: "#certificates" },
-      { title: "Career", link: "#career" },
-      { title: "Education", link: "#education" },
-      { title: "Others", link: "#others" },
-    ],
-  },
-  {
-    title: "Blog",
-    link: "/blog",
-  },
-];
 
 const variants = {
   open: { opacity: 1, scaleX: 1, x: 0 },
@@ -29,6 +10,28 @@ const variants = {
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const { t } = useTranslation("meta");
+
+  const refTree = [
+    {
+      title: "Portfolio",
+      link: "/",
+      subRefs: [
+        { title: t("navbar.about"), link: "#about" },
+        { title: t("navbar.projects"), link: "#projects" },
+        { title: t("navbar.qualifications"), link: "#qualifications" },
+        { title: t("navbar.certificates"), link: "#certificates" },
+        { title: t("navbar.career"), link: "#career" },
+        { title: t("navbar.education"), link: "#education" },
+        { title: t("navbar.others"), link: "#others" },
+      ],
+    },
+    {
+      title: "Blog",
+      link: "/blog",
+    },
+  ];
 
   return (
     <div className="fixed top-5 right-8 z-40 flex select-none items-center gap-5 text-lg">

@@ -1,4 +1,13 @@
 {
   "index_title": "This is the personal webpage of Simon Mader.",
-  "diploma_thesis_title": "AI Interpretation of Stock Market News."
+  "diploma_thesis_title": "AI Interpretation of Stock Market News.",
+  "navbar": {
+    "about": "About",
+    "projects": "Projects",
+    "qualifications": "Qualifications",
+    "certificates": "Certificates",
+    "career": "Career",
+    "education": "Education",
+    "others": "Others"
+  }
 }
