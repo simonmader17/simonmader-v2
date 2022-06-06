@@ -17,7 +17,7 @@ const NavbarItemWithSubRefs = ({ title, subRefs }) => {
       >
         {subRefs && (
           <div className="relative mr-1 flex h-4 w-4 items-center justify-center">
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
               {open ? (
                 <motion.svg
                   key="down"
