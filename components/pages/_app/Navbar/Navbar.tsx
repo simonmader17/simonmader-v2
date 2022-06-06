@@ -49,7 +49,7 @@ const Navbar = () => {
       </motion.div>
 
       <div
-        className="bg-body bg-hero-brick-wall-purple drop-shadow-pixel-sm relative z-50 flex h-12 w-12 cursor-pointer items-center justify-center border-2 border-black"
+        className="bg-body bg-hero-brick-wall-purple drop-shadow-pixel-sm relative z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-black"
         onClick={() => setOpen((open) => !open)}
       >
         {open ? (
