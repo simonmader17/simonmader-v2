@@ -18,7 +18,7 @@ const BlogListItem = ({ post }) => {
     <div className="drop-shadow-pixel">
       <div
         onClick={() => router.push(router.pathname + "/" + post.slug)}
-        className="clip-rounded-pixel relative m-4 cursor-pointer select-none bg-black bg-opacity-50 md:flex md:justify-between"
+        className="clip-rounded-pixel relative mx-4 my-8 cursor-pointer select-none bg-black bg-opacity-50 md:flex md:justify-between"
         onPointerDown={(e) => createRipple(e)}
       >
         <div className="p-6">
