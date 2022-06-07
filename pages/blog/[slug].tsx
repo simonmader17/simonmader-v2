@@ -9,6 +9,7 @@ import Image from "next/image";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 
 import author from "../../public/images/personal_images/ich_2.jpeg";
 
@@ -65,6 +66,7 @@ export async function getStaticProps({ params }) {
 
       return options;
     },
+    globals: { "motion": "motion" },
   });
 
   const { code } = result;
@@ -85,7 +87,10 @@ export async function getStaticProps({ params }) {
 const Post = ({ post }) => {
   const { slug, code, data, thumbnailPath, thumbnailBlurDataURL } = post;
 
-  const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
+  const MDXComponent = useMemo(
+    () => getMDXComponent(code, { "motion": motion }),
+    [code]
+  );
 
   const [views, setViews] = useState(null);
 

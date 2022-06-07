@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+// @ts-ignore
+import motion from "motion";
 
 const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
   // Create ripple
@@ -29,6 +31,8 @@ const removeRipples = (button: HTMLDivElement) => {
 const RippleDemoWithoutFadeOut = () => {
   const button = useRef(null);
 
+  const [rotate, setRotate] = useState(0);
+
   return (
     <div className="my-5 grid grid-cols-1 place-items-center">
       <div className="flex items-center">
@@ -41,9 +45,13 @@ const RippleDemoWithoutFadeOut = () => {
         </div>
         <div
           className="clip-rounded-pixel cursor-pointer bg-black bg-opacity-50"
-          onClick={() => removeRipples(button.current as HTMLDivElement)}
+          onClick={() => {
+            setRotate((rotate) => rotate - 180);
+            removeRipples(button.current as HTMLDivElement);
+          }}
         >
-          <svg
+          <motion.svg
+            animate={{ rotate: rotate }}
             xmlns="http://www.w3.org/2000/svg"
             className="m-4 h-6 w-6"
             fill="none"
@@ -56,7 +64,7 @@ const RippleDemoWithoutFadeOut = () => {
               strokeLinejoin="round"
               d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
             />
-          </svg>
+          </motion.svg>
         </div>
       </div>
     </div>
