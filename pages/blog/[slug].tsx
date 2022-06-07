@@ -54,23 +54,9 @@ export async function getStaticProps({ params }) {
     await getPlaiceholder(thumbnailPath, { size: 64 })
   ).base64;
 
-  const dependencies = {};
-
-  for (let i in data.components) {
-    const component = data.components[i];
-    dependencies[`./${component}.tsx`] = fs
-      .readFileSync(
-        path.join(
-          process.cwd(),
-          `/components/pages/blog/posts/${slug}/${component}.tsx`
-        )
-      )
-      .toString();
-  }
-
   const result = await bundleMDX({
     source: content,
-    files: dependencies,
+    cwd: path.dirname(postPath),
     mdxOptions: (options) => {
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
