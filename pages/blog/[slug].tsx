@@ -66,7 +66,7 @@ export async function getStaticProps({ params }) {
 
       return options;
     },
-    globals: { "motion": "motion" },
+    globals: { motion: "motion" },
   });
 
   const { code } = result;
@@ -88,7 +88,7 @@ const Post = ({ post }) => {
   const { slug, code, data, thumbnailPath, thumbnailBlurDataURL } = post;
 
   const MDXComponent = useMemo(
-    () => getMDXComponent(code, { "motion": motion }),
+    () => getMDXComponent(code, { motion: motion }),
     [code]
   );
 
@@ -105,10 +105,6 @@ const Post = ({ post }) => {
       <Head>
         <title>{data.title}</title>
         <meta name="description" content={data.description} />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"
-        />
       </Head>
 
       <Container className="ltmd:mt-20">
@@ -148,34 +144,36 @@ const Post = ({ post }) => {
           <p>👀 Views: {views || "--"}</p>
         </div>
 
-        <div className="drop-shadow-pixel relative mx-auto mb-5 aspect-video w-full py-4 md:mb-10">
-          <Image
-            src={thumbnailPath}
-            alt={data.title}
-            layout="fill"
-            placeholder="blur"
-            blurDataURL={thumbnailBlurDataURL}
-            className="clip-rounded-pixel"
-          />
-        </div>
-        <p className="mb-5 text-center text-gray-400 md:mb-10">
-          {data.description}
-        </p>
-        <div id="blog-post-content">
-          <MDXComponent
-            components={{
-              a: ({ ...props }) => (
-                <a
-                  className="my-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  {...props}
-                >
-                  {props.children}
-                </a>
-              ),
-            }}
-          />
+        <div className="mx-auto xl:max-w-[1024px]">
+          <div className="drop-shadow-pixel relative mx-auto mb-5 aspect-video w-full py-4 md:mb-10">
+            <Image
+              src={thumbnailPath}
+              alt={data.title}
+              layout="fill"
+              placeholder="blur"
+              blurDataURL={thumbnailBlurDataURL}
+              className="clip-rounded-pixel"
+            />
+          </div>
+          <p className="mb-5 text-center text-gray-400 md:mb-10">
+            {data.description}
+          </p>
+          <div id="blog-post-content">
+            <MDXComponent
+              components={{
+                a: ({ ...props }) => (
+                  <a
+                    className="my-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    {...props}
+                  >
+                    {props.children}
+                  </a>
+                ),
+              }}
+            />
+          </div>
         </div>
       </Container>
     </>
