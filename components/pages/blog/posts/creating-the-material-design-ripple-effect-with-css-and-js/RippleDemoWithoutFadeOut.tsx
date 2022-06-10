@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-// @ts-ignore
-import motion from "motion";
+import { motion } from "motion";
 
 const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
   // Create ripple
