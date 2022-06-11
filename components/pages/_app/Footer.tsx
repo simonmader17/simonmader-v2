@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import contact_img from "../../../public/images/personal_images/ich_2.jpeg";
+import LocalesSwitcher from "./LocalesSwitcher";
 
 interface ContactInterface {
   title: string;
@@ -55,6 +56,7 @@ const Footer = () => {
           link="https://github.com/simonmader17"
           logo="github"
         />
+        <LocalesSwitcher />
       </div>
     </div>
   );
