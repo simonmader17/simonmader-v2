@@ -97,8 +97,6 @@ const EnFlag = () => (
 const LocalesSwitcher = () => {
   const router = useRouter();
 
-  console.log(router.locale);
-
   return (
     <div className="relative mt-2 w-6">
       <AnimatePresence initial={false}>
