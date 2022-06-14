@@ -45,9 +45,8 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
       <p className="select-text text-lg text-red-400 md:text-xl">{t("toc")}</p>
       <div className="max-h-full overflow-scroll" {...props}>
         {outline.map((pair) => (
-          <>
+          <div key={pair.title + pair.pageNumber}>
             <TableOfContentsItem
-              key={pair.title}
               onClick={() => {
                 onItemClick(pair.pageNumber);
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -62,8 +61,8 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
             <Expand open={pair.active}>
               {pair.items.map((item) => (
                 <TableOfContentsItem
+                  key={item.title + item.pageNumber}
                   sub
-                  key={item.title}
                   onClick={() => {
                     onItemClick(item.pageNumber);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -77,7 +76,7 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
                 </TableOfContentsItem>
               ))}
             </Expand>
-          </>
+          </div>
         ))}
       </div>
     </>
