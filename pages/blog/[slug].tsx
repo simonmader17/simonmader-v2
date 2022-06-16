@@ -140,7 +140,7 @@ const Post = ({ post }) => {
               </p>
             </div>
           </div>
-          <p>📅 Published on: {data.publishedOn}</p>
+          <p className="md:text-center">📅 Published on: {data.publishedOn}</p>
           <p>👀 Views: {views || "--"}</p>
         </div>
 
