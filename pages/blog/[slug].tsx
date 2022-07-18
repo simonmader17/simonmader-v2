@@ -22,9 +22,24 @@ export async function getStaticPaths({ locales }) {
 
   locales.forEach((locale) => {
     posts.forEach((post) => {
+      const slug = post.replace(".mdx", "");
+      const postPath = fs.existsSync(
+        path.join(process.cwd(), `/components/pages/blog/posts/${slug}.mdx`)
+      )
+        ? path.join(process.cwd(), `/components/pages/blog/posts/${slug}.mdx`)
+        : path.join(
+            process.cwd(),
+            `/components/pages/blog/posts/${slug}/${slug}.mdx`
+          );
+      const postSource = fs.readFileSync(postPath);
+      const { data } = matter(postSource);
+
+      if (data.publishedOn == null && process.env.NODE_ENV === "production")
+        return;
+
       paths.push({
         params: {
-          slug: post.replace(".mdx", ""),
+          slug: slug,
         },
         locale,
       });
@@ -55,6 +70,19 @@ export async function getStaticProps({ params }) {
     await getPlaiceholder(thumbnailPath, { size: 64 })
   ).base64;
 
+  const otherImages = fs
+    .readdirSync(path.join(process.cwd(), "/public/images/blog/posts/" + slug))
+    .filter((image) => image.toString() != data.thumbnail)
+    .map((image) => "/images/blog/posts/" + slug + "/" + image);
+  const otherBlurDataURLs = {};
+  otherImages.forEach(async (image) => {
+    otherBlurDataURLs[image] = await (
+      await getPlaiceholder(image, {
+        size: 64,
+      })
+    ).base64;
+  });
+
   const result = await bundleMDX({
     source: content,
     cwd: path.dirname(postPath),
@@ -79,13 +107,21 @@ export async function getStaticProps({ params }) {
         data,
         thumbnailPath,
         thumbnailBlurDataURL,
+        otherBlurDataURLs,
       },
     },
   };
 }
 
 const Post = ({ post }) => {
-  const { slug, code, data, thumbnailPath, thumbnailBlurDataURL } = post;
+  const {
+    slug,
+    code,
+    data,
+    thumbnailPath,
+    thumbnailBlurDataURL,
+    otherBlurDataURLs,
+  } = post;
 
   const MDXComponent = useMemo(
     () => getMDXComponent(code, { motion: motion }),
@@ -119,9 +155,9 @@ const Post = ({ post }) => {
                 src={author}
                 alt="Simon Mader"
                 layout="fill"
-                placeholder="blur"
                 objectFit="cover"
                 objectPosition="center"
+                placeholder="blur"
                 className="clip-rounded-pixel"
               />
             </div>
@@ -140,7 +176,9 @@ const Post = ({ post }) => {
               </p>
             </div>
           </div>
-          <p className="md:text-center">📅 Published on: {data.publishedOn}</p>
+          <p className="md:text-center">
+            📅 Published on: {data.publishedOn || "--"}
+          </p>
           <p>👀 Views: {views || "--"}</p>
         </div>
 
@@ -150,6 +188,8 @@ const Post = ({ post }) => {
               src={thumbnailPath}
               alt={data.title}
               layout="fill"
+              objectFit="cover"
+              objectPosition="center"
               placeholder="blur"
               blurDataURL={thumbnailBlurDataURL}
               className="clip-rounded-pixel"
@@ -171,6 +211,23 @@ const Post = ({ post }) => {
                     {props.children}
                   </a>
                 ),
+                img: ({ ...props }) => {
+                  const { src, alt } = props;
+                  return (
+                    <div className="drop-shadow-pixel relative mx-auto mb-5 aspect-video w-full py-4 md:mb-10">
+                      <Image
+                        src={src}
+                        alt={alt}
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="center"
+                        placeholder="blur"
+                        blurDataURL={otherBlurDataURLs[src]}
+                        className="clip-rounded-pixel"
+                      />
+                    </div>
+                  );
+                },
               }}
             />
           </div>

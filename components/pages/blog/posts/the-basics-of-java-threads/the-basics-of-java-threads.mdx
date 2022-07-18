@@ -1,0 +1,88 @@
+---
+title: Die Grundlagen von Java Threads
+description: In Vorbereitung auf die Aufnahmeprüfung für das Informatik Studium, habe ich diesen Blog Post geschrieben, in dem die Grundlagen von Java Threads erklärt werden.
+thumbnail: thumbnail.jpg
+publishedOn: null
+---
+
+# Threaderzeugung
+
+Es gibt zwei Möglichkeiten einen Thread zu erzeugen:
+
+- Implementieren des Interfaces `java.lang.Runnable`
+- Ableiten der Klasse `java.lang.Thread`
+
+## Implementieren von `Runnable`
+
+Das Interface `java.lang.Runnable` hat folgenden Aufbau:
+
+```java
+public interface Runnable {
+  void run();
+}
+```
+
+Zum Erzeugen eines Threads, der auf dem Interface `Runnable` basiert sind folgende Schritte nötig:
+
+1. Eine Klasse implementiert das Interface `Runnable` und konkretisiert die Methode `run()`. Diese Methode wird abgearbeitet, wenn der Thread gestartet wird.
+2. Ein Objekt der Klasse `java.lang.Thread` wird instanziiert. Dem Konstruktor wird eine Instanz jener Klasse übergeben, die das Interface `Runnable` implementiert.
+3. Die Methode `start()` der Klasse `java.lang.Thread` wird für das eben erzeugte Threadobjekt aufgerufen. Diese Methode versetzt den Thread in einen Zustand, der es ihm ermöglicht, seine Methode `run()` auszuführen. Dies muss nicht sofort erfolgen, da unter Umständen andere Threads zuerst ausgeführt werden.
+
+## Ableiten der Klasse `Thread`
+
+Auch hier erfolgt die Threaderzeugung in 3 Schritten:
+
+1. Eine Klasse wird von Thread abgeleitet und die Methode `run()` wird überschrieben.
+2. Ein Objekt dieser neuen Klasse wird angelegt.
+3. Die von Thread geerbte Methode `start()` wird für das eben erzeugte Threadobjekt aufgerufen. Diese Methode versetzt den Thread in einen Zustand, der es ihm ermöglicht, seine Methode `run()` in einem eigenen Thread auszuführen.
+
+# Threadzustände
+
+Die folgende Abbildung gibt einen Überblick über die Zustände die ein Thread durchlebt:
+
+![Threadzustände](/images/blog/posts/the-basics-of-java-threads/Threadzustaende.png)
+
+## Die Zustände _ready_ und _running_
+
+Nach dem Start wird der Thread in den Zustand _ready_ versetzt. In diesem Zustand wartet er darauf, dass ihm der Threadscheduler die CPU zuteilt. Geschieht dies, so geht er in den Zustand _running_ über. Diese beiden Zustände heißen auch aktive Threadzustände (_active_). Während ein Thread die Methode `run()` abarbeitet, wird er in der Regel mehrmals voom Threadscheduler zwischen den Zuständen _running_ und _ready_ hin- und hergeschaltet. Er kann auch mithilfe der statischen Methode `Thread.yield()` von selbst anbieten, vom _running_-Status in den _ready_-Status zu wechseln. Ob dies tatsächlich geschieht, ist betriebssystemabhänging.
+
+## Der Zustand _dead_
+
+Wenn der Thread seine Methode `run()` abgearbeitet hat, so kommt er in den Zustand _dead_. Diesen Zustand kann er nicht mehr verlassen, d. h. der Thread kann kein zweites Mal gestartet werden.
+
+## Der Zustand _sleeping_
+
+Der Zustand _sleeping_ kann z. B. durch die statische Methode `sleep(long millis)` erreicht werden. Diese Methode versetzt den laufenden Thread für die angegebene Zeit in diesen Zustand. Danach geht er wieder in den Zustand _ready_ über. Wird für einen schlafenden Thread die Methode `interrupt()` aufgerufen, so geht er vor Ablauf der angegebenen Zeit wieder in den Zustand _ready_ über. Die Methode `sleep()` wirft in diesem Fall eine `InterruptedException`.
+
+## Der Zustand _blocked_
+
+Ein Thread, der mit Dateiein-/ausgabe beschäftigt ist, muss in der Regell auf nicht bereite I/O-Geräte warten. In diesem Fall wird er automatisch in den Zustand _blocked_ versetzt. Er kommt erst dann wieder in den Zustand _ready_, wenn die I/O-Operation beendet ist.
+
+Außerdem kann sich ein Thread mithilfe der Instanzmethode `join()` auch selbst in den Zustand _blocked_ versetzen. Er wartet dann, bis jener Thread, für den er die Methode `join()` aufgerufen hat, den Zustand _dead_ erreicht hat. Mithilfe dieser Technik kann der aktuelle Thread also warten, bis ein anderer Thread fertig gearbeitet hat.
+
+# Die Klasse `java.lang.Thread`
+
+## Konstruktoren
+
+```java
+public Thread()
+public Thread(Runnable target)
+public Thread(String name)
+public Thread(Runnable target, String name)
+```
+
+## Wichtige Methoden
+
+```java
+public static Thread currentThread()
+```
+
+Liefert eine Referenz auf den CurrentThread, das ist jener Thread, der diesen Befehlt gerade abarbeitet.
+
+```java
+public static void sleep(long millis) throws InterruptedException
+```
+
+Versetzt den CurrentThread für `millis` Millisekunden in den Zustand _sleeping_. Es ist auch die überladene Methode `sleep(long millis, int nanos)` verfügbar. Mithilfe von `interrupt()` kann der schlafende Thread vorzeitig in den Zustand active versetzt werden.
+
+# Threadsynchronisation

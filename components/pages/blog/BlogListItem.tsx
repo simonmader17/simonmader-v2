@@ -38,6 +38,7 @@ const BlogListItem = ({ post }) => {
             alt={post.title}
             layout="fill"
             objectFit="cover"
+            objectPosition="center"
             placeholder="blur"
             blurDataURL={post.thumbnailBlurDataURL}
           />

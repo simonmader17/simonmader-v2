@@ -134,6 +134,14 @@ span.ripple-fade-out {
     }
   }
 
+  ol {
+    @apply ml-6 list-decimal;
+
+    li {
+      @apply mb-4;
+    }
+  }
+
   p,
   h1,
   h2,
