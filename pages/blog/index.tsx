@@ -34,10 +34,15 @@ export async function getStaticProps() {
 
     return { data, slug, thumbnailPath, thumbnailBlurDataURL };
   });
-  const posts = (await Promise.all(promises)).sort((a, b) => {
-    if (a.data.publishedOn < b.data.publishedOn) return 1;
-    return -1;
-  });
+  const posts = (await Promise.all(promises))
+    .sort((a, b) => {
+      if (a.data.publishedOn < b.data.publishedOn) return 1;
+      return -1;
+    })
+    .filter(
+      (post) =>
+        post.data.publishedOn != null || process.env.NODE_ENV != "production"
+    );
 
   return { props: { posts } };
 }
