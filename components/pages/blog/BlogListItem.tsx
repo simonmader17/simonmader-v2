@@ -23,7 +23,7 @@ const BlogListItem = ({ post }) => {
       >
         <div className="p-6">
           <p className="mb-2 flex justify-between text-sm text-gray-400">
-            <span>📅 {post.data.publishedOn}</span>
+            <span>📅 {post.data.publishedOn || "unpublished"}</span>
             <span>👀 Views: {views || "--"}</span>
           </p>
           <p className="text-red-400 md:text-lg">{post.data.title}</p>

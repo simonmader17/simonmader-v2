@@ -86,3 +86,66 @@ public static void sleep(long millis) throws InterruptedException
 Versetzt den CurrentThread für `millis` Millisekunden in den Zustand _sleeping_. Es ist auch die überladene Methode `sleep(long millis, int nanos)` verfügbar. Mithilfe von `interrupt()` kann der schlafende Thread vorzeitig in den Zustand active versetzt werden.
 
 # Threadsynchronisation
+
+## Problemstellung
+
+Haben mehrere Threads konkurrierenden Zugriff auf ein und dasselbe Objekt, so ist sicherzustellen, dass sie sich nicht gegenseitig Variablen überschreiben. Sehr oft ist es notwendig, dass ein Thread einen bestimmten Codeabschnitt fertig abarbeitet, bevor ein anderer Thread Zugriff auf diesen Codeabschnitt bekommt (man spricht auch von atomaren Operationen). Dabei ist zu beachten:
+
+- Alle Threads haben gemeinsamen (konkurrierenden) Zugriff auf den Heap, d. h. Objekte und Arrays sind nicht threadsicher und man hat sich als Entwickler selbst um die Threadsicherheit (Synchronisation) zu kümmern.
+- Jeder Thread betreibt seinen eigenen Stack, d. h. lokale Variablen sind im Wesentlichen threadsicher.
+
+## Mutex
+
+### Charakteristika
+
+- Ein Mutex Lock (**mut**ual **ex**clusion lock, auch einfach Mutex oder Lock genannt), sorgt dafür, dass zu einem bestimmten Zeitpunkt nur ein Thread einen definierten Codeabschnitt (kritischer Bereich) abarbeiten kann.
+- Ein Thread kann sich nicht selbst mit einem Mutex blockieren (d. h. er kann ohne Probleme die Sperre ein zweites mal bekommen, auch wenn er die Sperre noch hält).<br />Will ein Thread einen Mutex erwerben und ist er bereits Besitzer des Mutex, wird ein interner Zähler erhöht, der Thread jedoch nicht blockiert. Der Zähler dient dazu, den Mutex nur dann freizugeben, wenn der besitzende Thread für jede erhaltene Sperre auch eine Freigabe durchführt.
+
+- Ein Mutex kann nur von dem Thread freigegeben werden, der den Mutex erworben hat.
+
+## Object Locking
+
+Das Mutexkonzept ist in Java mithilfe des Schlüsselwortes `synchronized` über das Prinzip des Object-Locking umgesetzt. Jedem Mutex kann dabei ein beliebiges Javaobjekt zugeordnet werden, das die Sperre repräsentiert (diese Eigenschaft ist bereits in `java.lang.Object` implementiert). Es gibt drei Möglichkeiten, um Javacode für ein bestimmtes Objekt zu einem Mutex zu machen:
+
+1.  Synchronisation einer Instanzmethode. Die Methode erhält den Modifier `synchronized` und als Sperrobjekt wird das `this`-Objekt verwendet:
+
+    ```java
+    public synchronized boolean test(int j) {
+      this.i = j;
+      return this.i == j;
+    }
+    ```
+
+2.  Synchronisieren einer Klassenmethode (statischen Methode). Die Methode erhält den Modifier `synchronized`. Dabei wird das Klassenobjekt gesperrt. Der angeforderte Monitor ist dabei also ein klassenbezogener Monitor, der den Zugriff auf alle synchronisierten `static`-Methoden dieser Klasse regelt. Zu jedem Zeitpunkt kann also maximal ein Thread die synchronisierten `static`-Methoden einer Klasse abarbeiten.
+
+3.  Synchronisieren eines Blocks. Mithilfe synchronisierter Blöcke kann beliebiger Javacode für ein bestimmtes Objekt als Monitor definiert werden. Dabei sollte die Referenz `<object reference>` final sein, damit sichergestellt ist, dass die Referenz während der Abarbeitung des Mutex nicht verbogen werden kann.
+
+    Syntax:
+
+    ```java
+    synchronized (<object reference>) {<code block>}
+    ```
+
+    Arrays können nur mithilfe dieser Technik synchronisiert werden, da sie als klassenlose Objekte keine Instanzmethoden besitzen:
+
+    ```java
+    final byte[] a;
+
+    synchronized (a) {
+      java.util.Arrays.sort(a);
+    }
+    ```
+
+## Synchronisation und Kommunikation
+
+Das Problem der Synchronisation ist eng mit dem Problem der Kommunikation von Threads verbunden. Der folgende Ablauf zeigt eine typische Situation:
+
+|     | Thread A                                                        | Thread B                        |
+| --- | --------------------------------------------------------------- | ------------------------------- |
+| 1   | Initialisierung, Problem wird in Teilprobleme aufgeteilt        | Initialisierung                 |
+| 2   | Setzt Anfangsparameter für B                                    |                                 |
+| 3   | Sendet Startsignal an B                                         | Empfängt Startsignal von A      |
+| 4   | Rechnet                                                         | Rechnet                         |
+| 5   | Wartet auf Ergebnis von B                                       | Rechnet                         |
+| 6   | Empfängt Signal "Fertig" von B                                  | Sendet Signal "Fertig" an A     |
+| 7   | Liest Ergebnis von B aus und kombiniert es mit eigenem Ergebnis | Wartet auf nächstes Startsignal |

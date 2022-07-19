@@ -15,4 +15,8 @@
       margin-right: 0.5em;
     }
   }
+
+  h3 {
+    @apply drop-shadow-pixel-sm m-2 font-bold md:text-lg;
+  }
 }

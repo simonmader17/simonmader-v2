@@ -4,12 +4,14 @@ import matter from "gray-matter";
 import Head from "next/head";
 import Container from "../../components/Container";
 import rehypeHighlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
 import { getPlaiceholder } from "plaiceholder";
 import Image from "next/image";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXComponent } from "mdx-bundler/client";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import sizeOf from "image-size";
 
 import author from "../../public/images/personal_images/ich_2.jpeg";
 
@@ -74,13 +76,16 @@ export async function getStaticProps({ params }) {
     .readdirSync(path.join(process.cwd(), "/public/images/blog/posts/" + slug))
     .filter((image) => image.toString() != data.thumbnail)
     .map((image) => "/images/blog/posts/" + slug + "/" + image);
-  const otherBlurDataURLs = {};
+  const otherImagesData = {};
   otherImages.forEach(async (image) => {
-    otherBlurDataURLs[image] = await (
+    otherImagesData[image] = {};
+    otherImagesData[image].blurDataURL = await (
       await getPlaiceholder(image, {
         size: 64,
       })
     ).base64;
+    const dimensions = sizeOf(path.join(process.cwd(), "public", image));
+    otherImagesData[image].dimensions = dimensions;
   });
 
   const result = await bundleMDX({
@@ -90,6 +95,7 @@ export async function getStaticProps({ params }) {
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeHighlight,
+        remarkGfm,
       ];
 
       return options;
@@ -107,7 +113,7 @@ export async function getStaticProps({ params }) {
         data,
         thumbnailPath,
         thumbnailBlurDataURL,
-        otherBlurDataURLs,
+        otherImagesData,
       },
     },
   };
@@ -120,7 +126,7 @@ const Post = ({ post }) => {
     data,
     thumbnailPath,
     thumbnailBlurDataURL,
-    otherBlurDataURLs,
+    otherImagesData,
   } = post;
 
   const MDXComponent = useMemo(
@@ -177,7 +183,7 @@ const Post = ({ post }) => {
             </div>
           </div>
           <p className="md:text-center">
-            📅 Published on: {data.publishedOn || "--"}
+            📅 Published on: {data.publishedOn || "unpublished"}
           </p>
           <p>👀 Views: {views || "--"}</p>
         </div>
@@ -214,17 +220,24 @@ const Post = ({ post }) => {
                 img: ({ ...props }) => {
                   const { src, alt } = props;
                   return (
-                    <div className="drop-shadow-pixel relative mx-auto mb-5 aspect-video w-full py-4 md:mb-10">
-                      <Image
-                        src={src}
-                        alt={alt}
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center"
-                        placeholder="blur"
-                        blurDataURL={otherBlurDataURLs[src]}
-                        className="clip-rounded-pixel"
-                      />
+                    <div className="drop-shadow-pixel mx-auto mb-5 flex aspect-video w-full justify-center py-4 md:mb-10">
+                      <div
+                        className="relative h-full"
+                        style={{
+                          aspectRatio: `${otherImagesData[src].dimensions.width}/${otherImagesData[src].dimensions.height}`,
+                        }}
+                      >
+                        <Image
+                          src={src}
+                          alt={alt}
+                          layout="fill"
+                          objectFit="cover"
+                          objectPosition="center"
+                          placeholder="blur"
+                          blurDataURL={otherImagesData[src].blurDataURL}
+                          className="clip-rounded-pixel"
+                        />
+                      </div>
                     </div>
                   );
                 },
