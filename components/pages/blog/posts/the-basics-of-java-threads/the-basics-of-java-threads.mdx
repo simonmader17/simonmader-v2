@@ -149,3 +149,100 @@ Das Problem der Synchronisation ist eng mit dem Problem der Kommunikation von Th
 | 5   | Wartet auf Ergebnis von B                                       | Rechnet                         |
 | 6   | Empfängt Signal "Fertig" von B                                  | Sendet Signal "Fertig" an A     |
 | 7   | Liest Ergebnis von B aus und kombiniert es mit eigenem Ergebnis | Wartet auf nächstes Startsignal |
+
+Im obigen Ablauf gibt es zwei Synchronisationspunkte. In Punkt 3 muss Thread B warten, bis Thread A alle Anfangsparameter gesetzt hat und das Startsignal gegeben hat. In Punkt 6 darf Thread A das Ergebnis von Thread B erst auslesen, wenn Thread B das Signal gegeben hat, dass er sein Ergebnis fertig berechnet hat.
+
+# Future und Threadpool
+
+## Das Interface `Callable`
+
+Das Interface `java.util.concurrent.Callable` ist vergleichbar mit dem Interface `Runnable`. Es enthält aber statt `run()` eine Methode `call()`, die ein Ergebnis liefert. Der Rückgabetyp von `call()` wird dabei über einen Typstellvertreter definiert:
+
+```java
+@FuntionalInterface
+public interface Callable<V> {
+  V call() throws Exception;
+}
+```
+
+## Future
+
+- Ein Future oder Promise bezeichnet in der Programmierung einen Platzhalter für ein Ergebnis, das noch nicht bekannt ist, in der Regel weil seine Berechnung noch nicht abgeschlossen ist.
+- Ein Future repräsentiert meist das Ergebnis eines asynchronen Aufrufs einer Methode und kann verwendet werden, um auf das Ergebnis zuzugreifen, sobald es verfügbar ist.
+
+## Thread-Pools
+
+### Charakteristika
+
+- Eine Gruppe von Threads, denen Aufgaben zugeteilt werden können.
+- Jeder Thread wartet so lange, bis ihm eine Aufgabe zugeteilt wird. Nach Beendigung der Aufgabe kehrt er in den Pool zurück.
+- Sind alle Threads beschäftigt, so wandern weitere Aufgaben in eine Warteschlange und werden abgearbeitet, sobald wieder Threads frei sind.
+
+### Implementierung in Java
+
+Thread-Pools werden in Java durch die Klasse `java.util.concurrent.Executors` und das Interface `java.util.concurrent.ExecutorService` realisiert.
+
+Das Interface `ExecutorService` stellt dabei Methoden zur Übergabe von Aufgaben an den Threadpool und seiner Verwaltung zur Verfügung. Die wichtigsten sind:
+
+```java
+void execute(Runnable command)
+```
+
+Der Threadpool erhält eine neue Aufgabe, in der die Methode `run()` von `command` abgearbeitet wird.
+
+```java
+Future<?> submit(Runnable task)
+```
+
+Der Threadpool erhält eine neue Aufgabe, in der die Methode `run()` von `task` abgeabreitet wird. Die `get()`-Methode des retournierten Futures blockt, bis die Aufgabe abgearbeitet wurde und liefert dann `null` zurück.
+
+```java
+<T> Future<T> submit(Callable<T> task)
+```
+
+Der Threadpool erhält eine neue Aufgabe, in der die Methode `call()` von `task` abgeabreitet wird. Die `get()`-Methode des retournierten Futures blockt, bis die Aufgabe abgearbeitet wurde und liefert dann das Ergebnis der Methode `call()` zurück.
+
+```java
+void shutdown()
+```
+
+Initialisiert einen Shutdown des Threadpools, wobei übergebene Aufgaben noch abgearbeitet, aber keine neuen Aufgaben angenommen werden.
+
+Der folgende Codeabschnitt demonstriert die prinzipielle Arbeitsweise:
+
+```java
+// Pool mit 5 Threads
+ExecutorService pool = Executors.newFixedThreadPool(5);
+// Aufgabe ist vom Typ Runnable
+Runnable aufgabe = new Aufgabe();
+// Ein Thread des Pools arbeitet parallel die
+// run()-Methode von Aufgabe ab
+pool.execute(aufgabe);
+pool.shutdown();
+```
+
+### Arten von Thread-Pools
+
+- **SingeThreadExecutor**
+
+  Dieser "Pool" besteht nur aus einem Thread, dem beliebig viele Aufgaben übergeben werden können, die mithilfe einer Warteschlange abgearbeitet werden. Erzeugermethode:
+
+  ```java
+  public static ExecutorService newSingleThreadExecutor()
+  ```
+
+- **FixedSize-Threadpool**
+
+  Dieser Pool besteht aus einer fixen Threadanzahl. Es können beliebig viele Aufgaben übergeben werden, die mithilfe einer Warteschlange abgearbeitet werden. Erzeugermethode:
+
+  ```java
+  public static ExecutorService newFixedThreadPool(int nThreads)
+  ```
+
+- **CachedSize-Threadpool**
+
+  Dieser Pool erzeugt dynamisch neue Threads, falls erforderlich. Threads, die länger als 60 Sekunden on Idle (untätig) sind, werden wieder aus dem Threadpool entfernt. Erzeugermethode:
+
+  ```java
+  public static ExecutorService newCachedThreadPool()
+  ```
