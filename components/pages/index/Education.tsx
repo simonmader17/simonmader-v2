@@ -4,6 +4,7 @@ import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
 import BlurredBgImage from "../../BlurredBgImage";
 
+import tu_bg from "../../../public/images/background_images/tu.jpg";
 import htl_bg from "../../../public/images/background_images/htl.jpeg";
 import borg_bg from "../../../public/images/background_images/borg.jpg";
 
@@ -51,6 +52,26 @@ const Education = () => {
     <>
       <h2 id="education">{t("heading")}</h2>
       <div className="grid grid-cols-1 xl:grid-cols-2">
+        <School
+          name="Technische Universität Wien"
+          zweig="Software & Information Engineering"
+          zeitraum="ab Oktober 2022"
+          bg={tu_bg}
+          info={
+            <ul className="ml-4 list-disc">
+              <li className="text-gray-400">
+                Entwicklung, Analyse und Design von Software
+              </li>
+              <li className="text-gray-400">
+                Qualitätssicherung und Wartung von Anwendungen
+              </li>
+              <li className="text-gray-400">
+                Erzeugung, Sammlung, Verarbeitung, Verteilung und Präsentation
+                von Information
+              </li>
+            </ul>
+          }
+        />
         <School
           name="HTL St. Pölten"
           zweig={t("htl.zweig")}
