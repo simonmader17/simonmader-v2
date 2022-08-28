@@ -5,7 +5,7 @@ import Trans from "next-translate/Trans";
 import BlurredBgImage from "../../BlurredBgImage";
 
 import tu_bg from "../../../public/images/background_images/tu.jpg";
-import htl_bg from "../../../public/images/background_images/htl.jpeg";
+import htl_bg from "../../../public/images/background_images/htl.jpg";
 import borg_bg from "../../../public/images/background_images/borg.jpg";
 
 interface SchoolInterface {

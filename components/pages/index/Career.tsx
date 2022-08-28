@@ -9,7 +9,7 @@ import BlurredBgImage from "../../BlurredBgImage";
 import asboe_bg from "../../../public/images/background_images/asboe.jpg";
 import bso_bg from "../../../public/images/background_images/bso.png";
 import geberit_bg from "../../../public/images/background_images/geberit.jpg";
-import gemeinde_bg from "../../../public/images/background_images/gemeinde.jpeg";
+import gemeinde_bg from "../../../public/images/background_images/gemeinde.jpg";
 
 interface JobInterface {
   position: string | JSX.Element;
