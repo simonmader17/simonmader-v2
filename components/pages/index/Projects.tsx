@@ -28,7 +28,7 @@ const Project = ({
         <BlurredBgImage src={bg} alt={title} objectPosition="center" />
         <div className="h-full bg-black bg-opacity-70 p-6">
           <p className="ltmd:text-sm text-gray-400">{zeitraum}</p>
-          <p className="text-lg text-red-400 md:text-xl">{title}</p>
+          <p className="my-1 text-lg text-red-400 md:text-xl">{title}</p>
           {text.map((s) => (
             <p key={s} className="ltmd:text-sm">
               {s}

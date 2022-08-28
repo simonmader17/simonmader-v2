@@ -1,5 +1,15 @@
 {
   "heading": "Education",
+  "tu": {
+    "name": "Vienna University of Technology",
+    "zweig": "Software & Information Engineering",
+    "zeitraum": "from October 2022",
+    "info": {
+      "li1": "Software development, analysis and design",
+      "li2": "Quality assurance and maintenance of applications",
+      "li3": "Generation, collection, processing, distribution and presentation of information"
+    }
+  },
   "htl": {
     "zweig": "Computer science department",
     "info": {

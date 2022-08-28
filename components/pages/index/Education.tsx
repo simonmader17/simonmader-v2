@@ -53,22 +53,15 @@ const Education = () => {
       <h2 id="education">{t("heading")}</h2>
       <div className="grid grid-cols-1 xl:grid-cols-2">
         <School
-          name="Technische Universität Wien"
-          zweig="Software & Information Engineering"
-          zeitraum="ab Oktober 2022"
+          name={t("tu.name")}
+          zweig={t("tu.zweig")}
+          zeitraum={t("tu.zeitraum")}
           bg={tu_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">
-                Entwicklung, Analyse und Design von Software
-              </li>
-              <li className="text-gray-400">
-                Qualitätssicherung und Wartung von Anwendungen
-              </li>
-              <li className="text-gray-400">
-                Erzeugung, Sammlung, Verarbeitung, Verteilung und Präsentation
-                von Information
-              </li>
+              <li className="text-gray-400">{t("tu.info.li1")}</li>
+              <li className="text-gray-400">{t("tu.info.li2")}</li>
+              <li className="text-gray-400">{t("tu.info.li3")}</li>
             </ul>
           }
         />

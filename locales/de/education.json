@@ -1,5 +1,15 @@
 {
   "heading": "Schullaufbahn",
+  "tu": {
+    "name": "Technische Universität Wien",
+    "zweig": "Software & Information Engineering",
+    "zeitraum": "ab Oktober 2022",
+    "info": {
+      "li1": "Entwicklung, Analyse und Design von Software",
+      "li2": "Qualitätssicherung und Wartung von Anwendungen",
+      "li3": "Erzeugung, Sammlung, Verarbeitung, Verteilung und Präsentation von Information"
+    }
+  },
   "htl": {
     "zweig": "Abteilung Informatik",
     "info": {
