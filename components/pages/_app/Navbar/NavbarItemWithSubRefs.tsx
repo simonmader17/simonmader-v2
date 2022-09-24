@@ -20,7 +20,7 @@ const NavbarItemWithSubRefs = ({ title, subRefs }) => {
   return (
     <>
       <span
-        className="flex h-full cursor-pointer items-center justify-center px-5 hover:bg-white hover:bg-opacity-20"
+        className="flex h-full cursor-pointer items-center justify-center px-5 font-bold hover:bg-white hover:bg-opacity-20"
         onClick={() => setOpen((open) => !open)}
       >
         {subRefs && (
@@ -57,7 +57,7 @@ const NavbarItemWithSubRefs = ({ title, subRefs }) => {
 
       {subRefs && (
         <motion.div
-          className="bg-body bg-hero-brick-wall-purple ltmd:bottom-16 ltmd:origin-bottom absolute left-0 -z-10 flex flex-col border-2 border-black md:top-16"
+          className="absolute left-0 -z-10 flex flex-col border-2 border-black bg-body bg-hero-brick-wall-purple md:top-16 ltmd:bottom-16 ltmd:origin-bottom"
           animate={open ? "open" : "closed"}
           variants={variants}
           initial={false}

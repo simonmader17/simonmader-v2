@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import NavbarItemWithoutSubRefs from "./NavbarItemsWithoutSubRefs";
+import NavbarItemWithoutSubRefs from "./NavbarItemWithoutSubRefs";
 import NavbarItemWithSubRefs from "./NavbarItemWithSubRefs";
 
 interface Ref {
