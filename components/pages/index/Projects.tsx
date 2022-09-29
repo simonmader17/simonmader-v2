@@ -1,10 +1,9 @@
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
-import BlurredBgImage from "../../BlurredBgImage";
+import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
 import personal_website_bg from "../../../public/images/personal_images/ich_2.jpeg";
 import diploma_thesis_bg from "../../../public/images/background_images/diploma_thesis.jpg";
-import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
 interface ProjectInterface {
   title: string;

@@ -2,12 +2,11 @@ import { useState } from "react";
 import Expand from "react-expand-animated";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
-import BlurredBgImage from "../../BlurredBgImage";
+import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
 import tu_bg from "../../../public/images/background_images/tu.jpg";
 import htl_bg from "../../../public/images/background_images/htl.jpg";
 import borg_bg from "../../../public/images/background_images/borg.jpg";
-import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
 interface SchoolInterface {
   name: string;
