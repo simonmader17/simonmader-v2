@@ -7,6 +7,7 @@ import BlurredBgImage from "../../BlurredBgImage";
 import tu_bg from "../../../public/images/background_images/tu.jpg";
 import htl_bg from "../../../public/images/background_images/htl.jpg";
 import borg_bg from "../../../public/images/background_images/borg.jpg";
+import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
 interface SchoolInterface {
   name: string;
@@ -20,28 +21,24 @@ const School = ({ name, zweig, zeitraum, bg, info }: SchoolInterface) => {
   const [showInfo, setShowInfo] = useState(false);
 
   return (
-    <div
-      className="drop-shadow-pixel relative z-10 m-4"
+    <BlurredBgImageContainer
+      bgSrc={bg}
+      bgAlt={name}
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <div className="clip-rounded-pixel h-full">
-        <BlurredBgImage src={bg} alt={name} />
-        <div className="h-full bg-black bg-opacity-70 p-6">
-          <p className="text-lg text-red-400 md:text-xl">{name}</p>
-          <p className="ltmd:text-sm">{zweig}</p>
-          <p className="ltmd:text-sm">{zeitraum}</p>
-          {info && (
-            <>
-              <div className="ltmd:text-sm xl:hidden">
-                <Expand open={showInfo}>{info}</Expand>
-              </div>
-              <div className="ltxl:hidden">{info}</div>
-            </>
-          )}
-        </div>
-      </div>
-    </div>
+      <p className="text-lg text-red-400 md:text-xl">{name}</p>
+      <p className="ltmd:text-sm">{zweig}</p>
+      <p className="ltmd:text-sm">{zeitraum}</p>
+      {info && (
+        <>
+          <div className="ltmd:text-sm xl:hidden">
+            <Expand open={showInfo}>{info}</Expand>
+          </div>
+          <div className="ltxl:hidden">{info}</div>
+        </>
+      )}
+    </BlurredBgImageContainer>
   );
 };
 

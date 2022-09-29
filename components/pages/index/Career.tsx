@@ -4,7 +4,7 @@ import Trans from "next-translate/Trans";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Expand from "react-expand-animated";
-import BlurredBgImage from "../../BlurredBgImage";
+import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
 import asboe_bg from "../../../public/images/background_images/asboe.jpg";
 import bso_bg from "../../../public/images/background_images/bso.png";
@@ -32,35 +32,31 @@ const Job = ({ position, firma, from, to, ort, bg, info }: JobInterface) => {
     to?.date() == 1 ? to?.format("MMMM YYYY") : to?.format("Do MMM YYYY");
 
   return (
-    <div
-      className="drop-shadow-pixel relative z-10 m-4"
+    <BlurredBgImageContainer
+      bgSrc={bg}
+      bgAlt={firma}
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <div className="clip-rounded-pixel h-full">
-        <BlurredBgImage src={bg} alt={firma} />
-        <div className="h-full rounded-xl bg-black bg-opacity-70 p-6">
-          <p className="ltmd:text-sm text-gray-400">{position}</p>
-          <p className="text-lg text-red-400 md:text-xl">{firma}</p>
-          {to ? (
-            <p className="ltmd:text-sm">
-              {fromFormat} &ndash; {toFormat}
-            </p>
-          ) : (
-            <p className="ltmd:text-sm">{fromFormat}</p>
-          )}
-          <p className="ltmd:text-sm">{ort}</p>
-          {info && (
-            <>
-              <div className="ltmd:text-sm xl:hidden">
-                <Expand open={showInfo}>{info}</Expand>
-              </div>
-              <div className="ltxl:hidden">{info}</div>
-            </>
-          )}
-        </div>
-      </div>
-    </div>
+      <p className="ltmd:text-sm text-gray-400">{position}</p>
+      <p className="text-lg text-red-400 md:text-xl">{firma}</p>
+      {to ? (
+        <p className="ltmd:text-sm">
+          {fromFormat} &ndash; {toFormat}
+        </p>
+      ) : (
+        <p className="ltmd:text-sm">{fromFormat}</p>
+      )}
+      <p className="ltmd:text-sm">{ort}</p>
+      {info && (
+        <>
+          <div className="ltmd:text-sm xl:hidden">
+            <Expand open={showInfo}>{info}</Expand>
+          </div>
+          <div className="ltxl:hidden">{info}</div>
+        </>
+      )}
+    </BlurredBgImageContainer>
   );
 };
 

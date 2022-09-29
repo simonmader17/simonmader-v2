@@ -4,6 +4,7 @@ import BlurredBgImage from "../../BlurredBgImage";
 
 import personal_website_bg from "../../../public/images/personal_images/ich_2.jpeg";
 import diploma_thesis_bg from "../../../public/images/background_images/diploma_thesis.jpg";
+import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
 interface ProjectInterface {
   title: string;
@@ -23,44 +24,39 @@ const Project = ({
   links,
 }: ProjectInterface) => {
   return (
-    <div className="drop-shadow-pixel relative z-10 m-4">
-      <div className="clip-rounded-pixel h-full">
-        <BlurredBgImage src={bg} alt={title} objectPosition="center" />
-        <div className="h-full bg-black bg-opacity-70 p-6">
-          <p className="ltmd:text-sm text-gray-400">{zeitraum}</p>
-          <p className="my-1 text-lg text-red-400 md:text-xl">{title}</p>
-          {text.map((s) => (
-            <p key={s} className="ltmd:text-sm">
-              {s}
-            </p>
-          ))}
-          <p className="ltmd:text-sm mt-2 uppercase italic tracking-wider">
-            {tags.map((t) => "#" + t.replace(" ", "")).join(" ")}
-          </p>
-          {links && (
-            <p className="ltmd:text-sm mt-1 font-bold italic tracking-wider text-gray-400">
-              {links
-                .map((l) => (
-                  <Link key={l.link} href={l.link} passHref>
-                    {l.link.startsWith("/") ? (
-                      <a className="my-link">{l.text}</a>
-                    ) : (
-                      <a className="my-link" target="_blank" rel="noreferrer">
-                        {l.text}
-                      </a>
-                    )}
-                  </Link>
-                ))
-                .reduce((prev, curr) => (
-                  <>
-                    {prev} {curr}
-                  </>
-                ))}
-            </p>
-          )}
-        </div>
-      </div>
-    </div>
+    <BlurredBgImageContainer bgSrc={bg} bgAlt={title} bgPosition="center">
+      <p className="ltmd:text-sm text-gray-400">{zeitraum}</p>
+      <p className="my-1 text-lg text-red-400 md:text-xl">{title}</p>
+      {text.map((s) => (
+        <p key={s} className="ltmd:text-sm">
+          {s}
+        </p>
+      ))}
+      <p className="ltmd:text-sm mt-2 uppercase italic tracking-wider">
+        {tags.map((t) => "#" + t.replace(" ", "")).join(" ")}
+      </p>
+      {links && (
+        <p className="ltmd:text-sm mt-1 font-bold italic tracking-wider text-gray-400">
+          {links
+            .map((l) => (
+              <Link key={l.link} href={l.link} passHref>
+                {l.link.startsWith("/") ? (
+                  <a className="my-link">{l.text}</a>
+                ) : (
+                  <a className="my-link" target="_blank" rel="noreferrer">
+                    {l.text}
+                  </a>
+                )}
+              </Link>
+            ))
+            .reduce((prev, curr) => (
+              <>
+                {prev} {curr}
+              </>
+            ))}
+        </p>
+      )}
+    </BlurredBgImageContainer>
   );
 };
 
