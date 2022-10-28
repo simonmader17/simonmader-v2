@@ -41,6 +41,10 @@ body {
   overflow: overlay;
 }
 
+a {
+  cursor: url("/images/pointer-hand.svg") 10 5, auto;
+}
+
 .my-link {
   @apply relative;
 
