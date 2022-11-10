@@ -42,7 +42,7 @@ module.exports = {
         "fade-in": "fade-in 1s linear",
       },
       cursor: {
-        pointer: "url(/images/pointer-hand.svg) 10 5, auto",
+        pointer: "url(/images/pointer-hand.svg) 10 0, auto",
       },
     },
   },

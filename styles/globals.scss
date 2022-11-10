@@ -42,7 +42,7 @@ body {
 }
 
 a {
-  cursor: url("/images/pointer-hand.svg") 10 5, auto;
+  @apply cursor-pointer;
 }
 
 .my-link {
