@@ -4,7 +4,7 @@ import { createRipple } from "../../../lib/ripple";
 import { Parallax } from "react-scroll-parallax";
 import { PixelatedDownChevron } from "../../PixelatedIcons";
 
-import ich from "../../../public/images/personal_images/ich.png";
+import ich from "../../../public/images/personal_images/ich_3.jpg";
 
 const Header = () => {
   const [chevronDownIconOpacity, setChevronDownIconOpacity] = useState(1);

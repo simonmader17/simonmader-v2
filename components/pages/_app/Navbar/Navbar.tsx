@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { createRipple } from "../../../../lib/ripple";
 import NavbarItem from "./NavbarItem";
 
 const variants = {
@@ -58,7 +59,8 @@ const Navbar = () => {
       </motion.div>
 
       <div
-        className="bg-body bg-hero-brick-wall-purple drop-shadow-pixel-sm pointer-events-auto relative z-50 flex h-12 w-12 cursor-pointer items-center justify-center border-2 border-black"
+        className="bg-body bg-hero-brick-wall-purple drop-shadow-pixel-sm pointer-events-auto relative z-50 flex h-12 w-12 cursor-pointer items-center justify-center overflow-hidden border-2 border-black"
+        onPointerDown={(e) => createRipple(e)}
         onClick={() => setOpen((open) => !open)}
       >
         <AnimatePresence initial={false}>

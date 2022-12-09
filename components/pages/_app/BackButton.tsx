@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { createRipple } from "../../../lib/ripple";
 
 const BackButton = () => {
   const router = useRouter();
@@ -7,7 +8,8 @@ const BackButton = () => {
 
   return (
     <button
-      className="drop-shadow-pixel-sm bg-body bg-hero-brick-wall-purple fixed top-5 left-5 z-50 flex h-12 w-12 items-center justify-center border-2 border-black"
+      className="drop-shadow-pixel-sm bg-body bg-hero-brick-wall-purple fixed top-5 left-5 z-50 flex h-12 w-12 items-center justify-center overflow-hidden border-2 border-black"
+      onPointerDown={(e) => createRipple(e)}
       onClick={() =>
         router.push(
           router.pathname.substring(0, router.pathname.lastIndexOf("/") + 1)
