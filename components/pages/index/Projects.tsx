@@ -2,8 +2,7 @@ import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
 import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
-import personal_website_bg from "../../../public/images/personal_images/ich_2.jpeg";
-import diploma_thesis_bg from "../../../public/images/background_images/diploma_thesis.jpg";
+import { myProjects } from "../../../pages/projects";
 
 interface ProjectInterface {
   title: string;
@@ -32,7 +31,7 @@ const Project = ({
         </p>
       ))}
       <p className="ltmd:text-sm mt-2 uppercase italic tracking-wider">
-        {tags.map((t) => "#" + t.replace(" ", "")).join(" ")}
+        {tags?.map((t) => "#" + t.replace(" ", "")).join(" ")}
       </p>
       {links && (
         <p className="ltmd:text-sm mt-1 font-bold italic tracking-wider text-gray-400">
@@ -64,38 +63,27 @@ const Projects = () => {
 
   return (
     <>
-      <h2 id="projects">{t("heading")}</h2>
+      <h2 id="projects" className="inline-block">{t("heading")}</h2>
+      <Link href="/projects" passHref>
+        <a className="my-link text-gray-400">Detaillansicht</a>
+      </Link>
       <div className="grid grid-cols-1 xl:grid-cols-2">
-        <Project
-          title={t("personal-website.title")}
-          zeitraum="2021 &ndash; 2022"
-          bg={personal_website_bg}
-          text={[
-            t("personal-website.text.p1"),
-            t("personal-website.text.p2"),
-            t("personal-website.text.p3"),
-          ]}
-          tags={["Next.js", "Tailwind CSS"]}
-          links={[
-            {
-              text: "Source Code",
-              link: "https://github.com/simonmader17/simonmader-v2",
-            },
-          ]}
-        />
-        <Project
-          title={t("diploma-thesis.title")}
-          zeitraum="2020 &ndash; 2021"
-          bg={diploma_thesis_bg}
-          text={[t("diploma-thesis.text.p1"), t("diploma-thesis.text.p2")]}
-          tags={["NLP", "Python", "LaTeX"]}
-          links={[
-            {
-              text: t("diploma-thesis.links.link1"),
-              link: "/diploma-thesis",
-            },
-          ]}
-        />
+        {myProjects.map((p) => (
+          <Project
+            key={p.title}
+            title={t(p.title)}
+            zeitraum={p.zeitraum}
+            bg={p.bg}
+            text={p.text.map((txt) => t(txt))}
+            tags={p.tags}
+            links={p.links.map((l) => {
+              return {
+                ...l,
+                text: t(l.text),
+              };
+            })}
+          />
+        ))}
       </div>
     </>
   );

@@ -1,15 +1,28 @@
 {
   "heading": "Projects",
+  "blur-fit": {
+    "title": "Blur Fit - Mobile App 📱",
+    "text": {
+      "p1": "Blur Fit ist eine simple Mobile App, die ich entwickelt habe, da ich nach einer App gesucht habe, mit der man ein Bild in ein gewisses Seitenverhältnis bringen kann, wobei die übrige Fläche mit einer verschwommenen Version des Bildes gefüllt wird, und ich keine App dieser Art gefunden habe.",
+      "p2": "Für das grundlegende Design der App habe ich Figma verwendet und für die Umsetzung Flutter."
+    },
+    "links": {
+      "link1": "Play Store"
+    }
+  },
   "personal-website": {
     "title": "Personal Website",
     "text": {
       "p1": "My personal website is my first attempt to create a website using a JavaScript framework. 👀",
       "p2": "The framework I chose is Next.js, because it offers some advantages over regular React, e.g. SSR (Server-Side Rendering).",
       "p3": "I also used Tailwind CSS. 🖌️"
+    },
+    "links": {
+      "link1": "Source Code"
     }
   },
   "diploma-thesis": {
-    "title": "Diploma Thesis: AI Interpretation of Stock Market News ✍️",
+    "title": "AI Interpretation of Stock Market News - Diploma Thesis ✍️",
     "text": {
       "p1": "My diploma thesis deals with the topics of artificial intelligence and Natural Language Processing. The goal of the thesis was to develop an application that uses Natural Language Processing to anylize stock market news about the DAX and to provide an estimate, based on previous forecasts, which stock market news site best predicts the development of the DAX.",
       "p2": "This project was realized in a team of 4. My task was to train a Natural Language Processing model that was able to evaluate stock market news about the DAX."
