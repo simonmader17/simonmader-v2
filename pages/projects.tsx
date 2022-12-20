@@ -2,6 +2,10 @@ import Head from "next/head";
 import Container from "../components/Container";
 import { Parallax } from "react-scroll-parallax";
 import Image from "next/image";
+import { Project } from "../components/pages/index/Projects";
+import useTranslation from "next-translate/useTranslation";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import blur_fit_bg from "../public/images/background_images/blur-fit.png";
 import personal_website_bg from "../public/images/personal_images/ich_2.jpeg";
@@ -14,6 +18,7 @@ import blur_fit_smartphone_2 from "../public/images/projects/blur-fit/blur-fit-s
 import personal_website_laptop_1 from "../public/images/projects/personal-website/personal-website-laptop-1.png";
 import personal_website_laptop_2 from "../public/images/projects/personal-website/personal-website-laptop-2.png";
 import personal_website_smartphone_1 from "../public/images/projects/personal-website/personal-website-smartphone-1.png";
+import { PixelatedDownChevron } from "../components/PixelatedIcons";
 
 const myProjects = [
   {
@@ -71,6 +76,30 @@ const myProjects = [
 export { myProjects };
 
 const ProjectsPage = () => {
+  const { t } = useTranslation("projects");
+
+  const [show, setShow] = useState(-1);
+
+  useEffect(() => {
+    const firstImages = document.querySelectorAll("#first-image");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(show);
+        var idx = [...firstImages].indexOf(entry.target);
+        if (entry.isIntersecting) {
+          setShow(idx);
+        }
+      });
+    });
+
+    firstImages.forEach((el) => observer.observe(el));
+
+    return () => {
+      firstImages.forEach((el) => observer.unobserve(el));
+    };
+  }, [show]);
+
   return (
     <>
       <Head>
@@ -78,10 +107,47 @@ const ProjectsPage = () => {
         <meta name="description" content="Projects" />
       </Head>
 
-      <Container className="ltmd:mt-20">
-        <h1 className="text-center">Simon Mader&apos;s Projects</h1>
+      <div className="bg-hero-brick-wall bg-headerFooter relative z-20 flex h-screen flex-col items-center justify-center">
+        <h1>Simon Mader&apos;s Projects</h1>
+        <div className="relative h-64 w-96">
+          <Image
+            src={blur_fit_laptop_1}
+            alt=""
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
+        <PixelatedDownChevron className="drop-shadow-pixel-sm absolute bottom-0 mb-4 w-12 animate-bounce text-red-400 md:w-14" />
+      </div>
 
-        <div className="fixed left-4 top-1/2 z-10 -translate-y-1/2">test</div>
+      <Container className="ltmd:mt-20">
+        {myProjects.map((p) => {
+          const idx = myProjects.indexOf(p);
+
+          return (
+            <motion.div
+              key={p.title}
+              className="fixed top-1/2 z-10 md:w-[36rem]"
+              animate={{
+                y: idx == show ? "-50%" : idx > show ? "100vh" : "-100vh",
+              }}
+            >
+              <Project
+                title={t(p.title)}
+                zeitraum={p.zeitraum}
+                bg={null}
+                text={p.text.map((txt) => t(txt))}
+                tags={p.tags}
+                links={p.links.map((l) => {
+                  return {
+                    ...l,
+                    text: t(l.text),
+                  };
+                })}
+              />
+            </motion.div>
+          );
+        })}
 
         <div className="-mb-[30vh]">
           {myProjects.map((p) => (
@@ -96,7 +162,7 @@ const ProjectsPage = () => {
                   />
                 </div>
               </Parallax>
-              <Parallax speed={30}>
+              <Parallax speed={30} id={"first-image"}>
                 <div className="ltmd:-my-32 h-[55vh] -translate-x-32">
                   <Image
                     src={p.images[1]}

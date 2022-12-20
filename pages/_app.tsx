@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
 
           <Component {...pageProps} />
 
-          <div className="mt-auto">
+          <div className="mt-auto relative z-20">
             <Footer />
           </div>
         </div>

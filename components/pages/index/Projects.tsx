@@ -63,7 +63,9 @@ const Projects = () => {
 
   return (
     <>
-      <h2 id="projects" className="inline-block">{t("heading")}</h2>
+      <h2 id="projects" className="inline-block">
+        {t("heading")}
+      </h2>
       <Link href="/projects" passHref>
         <a className="my-link text-gray-400">Detaillansicht</a>
       </Link>
@@ -90,3 +92,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
+export { Project };
