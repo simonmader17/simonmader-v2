@@ -60,6 +60,7 @@ const Project = ({
 
 const Projects = () => {
   const { t } = useTranslation("projects");
+  const { t: meta } = useTranslation("meta");
 
   return (
     <>
@@ -67,7 +68,7 @@ const Projects = () => {
         {t("heading")}
       </h2>
       <Link href="/projects" passHref>
-        <a className="my-link text-gray-400">Detaillansicht</a>
+        <a className="my-link text-gray-400">{meta("detailed_view")}</a>
       </Link>
       <div className="grid grid-cols-1 xl:grid-cols-2">
         {myProjects.map((p) => (
