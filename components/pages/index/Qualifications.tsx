@@ -1,6 +1,7 @@
 import useTranslation from "next-translate/useTranslation";
 
 interface QualificationInterface {
+  className?: string;
   name: string;
   logo: string;
   link: string;
@@ -9,6 +10,7 @@ interface QualificationInterface {
 }
 
 const Qualification = ({
+  className,
   name,
   logo,
   link,
@@ -16,7 +18,9 @@ const Qualification = ({
   text,
 }: QualificationInterface) => {
   return (
-    <div className="md:drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6">
+    <div
+      className={`md:drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6 ${className}`}
+    >
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-black bg-opacity-50" />
       <div className="flex-shrink-0">
         <a
@@ -77,16 +81,16 @@ const Qualifications = () => {
       <h2 id="qualifications">{t("heading")}</h2>
       <div className="grid sm:grid-cols-1 lg:grid-cols-3">
         <Qualification
+          name="Next.js"
+          logo="next-dot-js"
+          link="https://nextjs.org/"
+          title="Next.js"
+        />
+        <Qualification
           name="TypeScript"
           logo="typescript"
           link="https://www.typescriptlang.org/"
           title="TypeScript"
-        />
-        <Qualification
-          name="Java"
-          logo="java"
-          link="https://www.java.com/de/"
-          title="Java"
         />
         <Qualification
           name="Python"
@@ -101,18 +105,21 @@ const Qualifications = () => {
           title="React"
         /> */}
         <Qualification
-          name="Next.js"
-          logo="next-dot-js"
-          link="https://nextjs.org/"
-          title="Next.js"
-        />
-        <Qualification
+          className="ltlg:row-start-3"
           name="Spring Framework"
           logo="spring"
           link="https://spring.io/"
           title="Spring"
         />
         <Qualification
+          className="ltlg:row-start-4"
+          name="Java"
+          logo="java"
+          link="https://www.java.com/de/"
+          title="Java"
+        />
+        <Qualification
+          className="lg:row-span-2"
           name={t("databases")}
           logo="database"
           link="https://de.wikipedia.org/wiki/Relationale_Datenbank"
@@ -124,6 +131,20 @@ const Qualifications = () => {
               <li key="OracleDB">Oracle Database</li>
             </ul>
           }
+        />
+        <Qualification
+          className="ltlg:row-start-5"
+          name="Flutter"
+          logo="flutter"
+          link="https://flutter.dev/"
+          title="Flutter"
+        />
+        <Qualification
+          className="ltlg:row-start-6"
+          name="Dart"
+          logo="dart"
+          link="https://dart.dev/"
+          title="Dart"
         />
       </div>
       <Others

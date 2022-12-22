@@ -12,6 +12,7 @@
       "education",
       "others"
     ],
-    "/diploma-thesis": ["diploma-thesis"]
+    "/diploma-thesis": ["diploma-thesis"],
+    "/projects": ["projects"]
   }
 }

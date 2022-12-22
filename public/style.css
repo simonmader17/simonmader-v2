@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ier6uw');
-  src:  url('fonts/icomoon.eot?ier6uw#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?ier6uw') format('truetype'),
-    url('fonts/icomoon.woff?ier6uw') format('woff'),
-    url('fonts/icomoon.svg?ier6uw#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?f1yail');
+  src:  url('fonts/icomoon.eot?f1yail#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?f1yail') format('truetype'),
+    url('fonts/icomoon.woff?f1yail') format('woff'),
+    url('fonts/icomoon.svg?f1yail#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -101,6 +101,14 @@
 .icon-php:before {
   content: "\e911";
   color: #777bb4;
+}
+.icon-dart:before {
+  content: "\e914";
+  color: #0175c2;
+}
+.icon-flutter:before {
+  content: "\e915";
+  color: #02569b;
 }
 .icon-database:before {
   content: "\e964";
