@@ -2,7 +2,7 @@ import moment from "moment";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 
-import about_bg from "../../../public/images/personal_images/ich.png";
+import about_bg from "../../../public/images/personal_images/ich_4.jpg";
 
 const About = () => {
   const calculateAge = (): number => {
