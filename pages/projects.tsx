@@ -23,6 +23,7 @@ import personal_website_smartphone_1 from "../public/images/projects/personal-we
 import diploma_thesis_laptop_1 from "../public/images/projects/diploma-thesis/diploma-thesis-laptop-1.png";
 import diploma_thesis_tablet_1 from "../public/images/projects/diploma-thesis/diploma-thesis-tablet-1.png";
 import diploma_thesis_tablet_2 from "../public/images/projects/diploma-thesis/diploma-thesis-tablet-2.png";
+import Header from "../components/pages/_app/Header";
 
 const myProjects = [
   {
@@ -129,20 +130,21 @@ const ProjectsPage = () => {
         <meta name="description" content={meta("projects_title")} />
       </Head>
 
-      <div className="bg-hero-brick-wall bg-headerFooter relative z-20 flex h-screen flex-col items-center justify-center">
-        <h1>{meta("projects_title")}</h1>
-        <div className="relative h-64 w-96" id="observable">
-          <Image
-            src={blur_fit_laptop_1}
-            alt=""
-            layout="fill"
-            objectFit="contain"
-            placeholder="blur"
-            className="drop-shadow-2xl"
-          />
+      <Header>
+        <div className="flex flex-col items-center">
+          <h1>{meta("projects_title")}</h1>
+          <div className="relative h-64 w-96" id="observable">
+            <Image
+              src={blur_fit_laptop_1}
+              alt=""
+              layout="fill"
+              objectFit="contain"
+              placeholder="blur"
+              className="drop-shadow-2xl"
+            />
+          </div>
         </div>
-        <PixelatedDownChevron className="drop-shadow-pixel-sm absolute bottom-0 mb-4 w-12 animate-bounce text-red-400 md:w-14" />
-      </div>
+      </Header>
 
       <Container className="ltmd:mt-20">
         {myProjects.map((p) => {
@@ -163,6 +165,7 @@ const ProjectsPage = () => {
               transition={{
                 duration: 0.5,
               }}
+              initial={false}
             >
               <Project
                 title={t(p.title)}

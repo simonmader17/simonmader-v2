@@ -6,10 +6,11 @@ import Certificates from "../components/pages/index/Certificates";
 import ChromeNotification from "../components/pages/index/ChromeNotification";
 import Container from "../components/Container";
 import Education from "../components/pages/index/Education";
-import Header from "../components/pages/index/Header";
+import Header from "../components/pages/_app/Header";
 import Others from "../components/pages/index/Others";
 import Projects from "../components/pages/index/Projects";
 import Qualifications from "../components/pages/index/Qualifications";
+import IndexHeader from "../components/pages/index/IndexHeader";
 
 const IndexPage = () => {
   const { t } = useTranslation("meta");
@@ -23,7 +24,7 @@ const IndexPage = () => {
 
       <ChromeNotification />
 
-      <Header />
+      <IndexHeader />
 
       <Container>
         <About />
