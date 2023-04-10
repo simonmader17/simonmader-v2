@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import contact_img from "../../../public/images/personal_images/ich_2.jpeg";
+// import contact_img from "../../../public/images/personal_images/ich_5.jpg";
 import LocalesSwitcher from "./LocalesSwitcher";
 
 interface ContactInterface {
@@ -27,12 +27,13 @@ const Footer = () => {
       <div className="drop-shadow-pixel flex-shrink-0">
         <div className="clip-rounded-pixel-24 lg:clip-rounded-pixel-48 relative m-4 h-24 w-24 lg:h-48 lg:w-48">
           <Image
-            src={contact_img}
+            // src={contact_img}
+            src="https://github.com/simonmader17.png"
             alt="Simon Mader"
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            placeholder="blur"
+            // placeholder="blur"
           />
         </div>
       </div>

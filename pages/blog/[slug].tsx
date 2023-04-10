@@ -13,8 +13,6 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import sizeOf from "image-size";
 
-import author from "../../public/images/personal_images/ich_2.jpeg";
-
 export async function getStaticPaths({ locales }) {
   const posts = fs.readdirSync(
     path.join(process.cwd(), "/components/pages/blog/posts")
@@ -158,12 +156,12 @@ const Post = ({ post }) => {
           <div className="drop-shadow-pixel-sm my-2 flex items-center gap-2">
             <div className="relative m-2 h-16 w-16">
               <Image
-                src={author}
+                src="https://github.com/simonmader17.png"
                 alt="Simon Mader"
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"
-                placeholder="blur"
+                // placeholder="blur"
                 className="clip-rounded-pixel"
               />
             </div>

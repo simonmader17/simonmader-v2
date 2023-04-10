@@ -7,8 +7,9 @@ import Image from "next/image";
 import ich from "../../../public/images/personal_images/ich_3.jpg";
 import ich3 from "../../../public/images/personal_images/ich.png";
 import ich4 from "../../../public/images/personal_images/ich_4.jpg";
+import ich5 from "../../../public/images/personal_images/ich_5.jpg";
 
-const images = [ich, ich3, ich4];
+const images = [ich, ich3, ich5, ich4];
 
 const IndexHeader = () => {
   const [showIdx, setShowIdx] = useState(0);
