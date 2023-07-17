@@ -1,5 +1,12 @@
 {
   "heading": "Projekte",
+  "fuelprices": {
+    "text": {
+      "p1": "Meine Fuelprices Applikation besteht aus einem Python Webscraper, der stündlich die aktuellen Benzinpreise der Avanti und Jet Tankstellen in St. Pölten liest und in eine PostgreSQL Datenbank speichert.",
+      "p2": "Als Backend dient ein Java Spring RESTful Webservice und das Frontend habe ich mit Svelte umgesetzt.",
+      "p3": "Zusätzlich habe ich einen Telegram Bot geschrieben, den man nach den neuesten Preisen fragen kann und der einen über neue wöchentliche/monatliche Tiefpreise benachrichtigt."
+    }
+  },
   "blur-fit": {
     "title": "Blur Fit - Mobile App 📱",
     "text": {
@@ -7,7 +14,7 @@
       "p2": "Für das grundlegende Design der App habe ich Figma verwendet und für die Umsetzung Flutter."
     },
     "links": {
-      "link1": "Play Store"
+      "link1": "Play Store (Coming soon)"
     }
   },
   "personal-website": {

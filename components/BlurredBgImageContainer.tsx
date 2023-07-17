@@ -9,7 +9,9 @@ const BlurredBgImageContainer = ({
 }) => {
   return (
     <div
-      className={`relative z-10 m-4 ${bgSrc ? "drop-shadow-pixel" : ""}`}
+      className={`relative z-10 m-4 ${
+        bgSrc ? "drop-shadow-pixel" : "backdrop-blur"
+      }`}
       {...props}
     >
       <div className="clip-rounded-pixel absolute inset-0 h-full">

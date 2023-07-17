@@ -8,9 +8,14 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PixelatedDownChevron } from "../components/PixelatedIcons";
 
+import fuelprices_bg from "../public/images/projects/fuelprices/logo.png";
 import blur_fit_bg from "../public/images/background_images/blur-fit.png";
 import personal_website_bg from "../public/images/personal_images/ich_2.jpeg";
 import diploma_thesis_bg from "../public/images/background_images/diploma_thesis.jpg";
+
+import fuelprices_laptop from "../public/images/projects/fuelprices/fuelprices-laptop.png";
+import fuelprices_smartphone_1 from "../public/images/projects/fuelprices/fuelprices-smartphone-1.png";
+import fuelprices_smartphone_2 from "../public/images/projects/fuelprices/fuelprices-smartphone-2.png";
 
 import blur_fit_laptop_1 from "../public/images/projects/blur-fit/blur-fit-laptop.png";
 import blur_fit_smartphone_1 from "../public/images/projects/blur-fit/blur-fit-smartphone-1.png";
@@ -24,8 +29,37 @@ import diploma_thesis_laptop_1 from "../public/images/projects/diploma-thesis/di
 import diploma_thesis_tablet_1 from "../public/images/projects/diploma-thesis/diploma-thesis-tablet-1.png";
 import diploma_thesis_tablet_2 from "../public/images/projects/diploma-thesis/diploma-thesis-tablet-2.png";
 import Header from "../components/pages/_app/Header";
+import ProjectsSlider from "../components/pages/index/ProjectsSlider";
 
 const myProjects = [
+  {
+    title: "Fuelprices ⛽",
+    zeitraum: "Jul. 2023",
+    bg: fuelprices_bg,
+    text: ["fuelprices.text.p1", "fuelprices.text.p2", "fuelprices.text.p3"],
+    tags: [
+      "Svelte",
+      "Java",
+      "Spring Boot",
+      "python-telegram-bot",
+      "PostgreSQL",
+    ],
+    links: [
+      {
+        text: "Website",
+        link: "https://fuelprices.simonmader.at",
+      },
+      {
+        text: "Telegram Bot",
+        link: "https://t.me/simonmader_fuelprices_bot",
+      },
+    ],
+    images: [
+      fuelprices_smartphone_2,
+      fuelprices_laptop,
+      fuelprices_smartphone_1,
+    ],
+  },
   {
     title: "blur-fit.title",
     zeitraum: "Nov. 2022",
@@ -131,18 +165,12 @@ const ProjectsPage = () => {
       </Head>
 
       <Header>
-        <div className="flex flex-col items-center">
+        <div
+          className="flex max-w-[100vw] flex-col items-center gap-8"
+          id="observable"
+        >
           <h1>{meta("projects_title")}</h1>
-          <div className="relative h-64 w-96" id="observable">
-            <Image
-              src={blur_fit_laptop_1}
-              alt=""
-              layout="fill"
-              objectFit="contain"
-              placeholder="blur"
-              className="drop-shadow-2xl"
-            />
-          </div>
+          <ProjectsSlider />
         </div>
       </Header>
 

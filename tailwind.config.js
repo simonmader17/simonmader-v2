@@ -37,9 +37,18 @@ module.exports = {
             opacity: 0,
           },
         },
+        slide: {
+          "0%": {
+            transform: "translate3d(0, 0, 0)",
+          },
+          "100%": {
+            transform: "translate3d(-3840px, 0, 0)",
+          },
+        },
       },
       animation: {
         "fade-in": "fade-in 1s linear",
+        slide: "slide 60s linear infinite",
       },
       cursor: {
         pointer: "url(/images/pointer-hand.svg) 10 0, auto",
