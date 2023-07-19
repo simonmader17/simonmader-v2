@@ -7,6 +7,8 @@ import useTranslation from "next-translate/useTranslation";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PixelatedDownChevron } from "../components/PixelatedIcons";
+import Header from "../components/pages/_app/Header";
+import ProjectsSlider from "../components/pages/index/ProjectsSlider";
 
 import fuelprices_bg from "../public/images/projects/fuelprices/logo.png";
 import blur_fit_bg from "../public/images/background_images/blur-fit.png";
@@ -14,22 +16,20 @@ import personal_website_bg from "../public/images/personal_images/ich_2.jpeg";
 import diploma_thesis_bg from "../public/images/background_images/diploma_thesis.jpg";
 
 import fuelprices_laptop from "../public/images/projects/fuelprices/fuelprices-laptop.png";
-import fuelprices_smartphone_1 from "../public/images/projects/fuelprices/fuelprices-smartphone-1.png";
-import fuelprices_smartphone_2 from "../public/images/projects/fuelprices/fuelprices-smartphone-2.png";
+import fuelprices_smartphone_1 from "../public/images/projects/fuelprices/fuelprices-smartphone-2.png";
+import fuelprices_smartphone_2 from "../public/images/projects/fuelprices/fuelprices-smartphone-1.png";
 
-import blur_fit_laptop_1 from "../public/images/projects/blur-fit/blur-fit-laptop.png";
+import blur_fit_monitor from "../public/images/projects/blur-fit/blur-fit-monitor.png";
 import blur_fit_smartphone_1 from "../public/images/projects/blur-fit/blur-fit-smartphone-1.png";
 import blur_fit_smartphone_2 from "../public/images/projects/blur-fit/blur-fit-smartphone-2.png";
 
-import personal_website_laptop_1 from "../public/images/projects/personal-website/personal-website-laptop-1.png";
-import personal_website_laptop_2 from "../public/images/projects/personal-website/personal-website-laptop-2.png";
-import personal_website_smartphone_1 from "../public/images/projects/personal-website/personal-website-smartphone-1.png";
+import personal_website_laptop from "../public/images/projects/personal-website/personal-website-laptop.png";
+import personal_website_monitor from "../public/images/projects/personal-website/personal-website-monitor.png";
+import personal_website_smartphone from "../public/images/projects/personal-website/personal-website-smartphone-2.png";
 
-import diploma_thesis_laptop_1 from "../public/images/projects/diploma-thesis/diploma-thesis-laptop-1.png";
-import diploma_thesis_tablet_1 from "../public/images/projects/diploma-thesis/diploma-thesis-tablet-1.png";
-import diploma_thesis_tablet_2 from "../public/images/projects/diploma-thesis/diploma-thesis-tablet-2.png";
-import Header from "../components/pages/_app/Header";
-import ProjectsSlider from "../components/pages/index/ProjectsSlider";
+import diploma_thesis_laptop from "../public/images/projects/diploma-thesis/diploma-thesis-laptop.png";
+import diploma_thesis_tablet from "../public/images/projects/diploma-thesis/diploma-thesis-tablet.png";
+import diploma_thesis_monitor from "../public/images/projects/diploma-thesis/diploma-thesis-monitor.png";
 
 const myProjects = [
   {
@@ -41,6 +41,8 @@ const myProjects = [
       "Svelte",
       "Java",
       "Spring Boot",
+      "Beautiful Soup",
+      "Web Scraping",
       "python-telegram-bot",
       "PostgreSQL",
     ],
@@ -72,7 +74,7 @@ const myProjects = [
         link: "https://play.google.com/store/apps/details?id=at.simonmader.blur_fit",
       },
     ],
-    images: [blur_fit_smartphone_1, blur_fit_laptop_1, blur_fit_smartphone_2],
+    images: [blur_fit_smartphone_1, blur_fit_monitor, blur_fit_smartphone_2],
   },
   {
     title: "personal-website.title",
@@ -91,9 +93,9 @@ const myProjects = [
       },
     ],
     images: [
-      personal_website_laptop_1,
-      personal_website_laptop_2,
-      personal_website_smartphone_1,
+      personal_website_laptop,
+      personal_website_monitor,
+      personal_website_smartphone,
     ],
   },
   {
@@ -109,9 +111,9 @@ const myProjects = [
       },
     ],
     images: [
-      diploma_thesis_tablet_1,
-      diploma_thesis_laptop_1,
-      diploma_thesis_tablet_2,
+      diploma_thesis_tablet,
+      diploma_thesis_laptop,
+      diploma_thesis_monitor,
     ],
   },
 ];
@@ -252,7 +254,7 @@ const ProjectsPage = () => {
           ))}
         </div>
 
-        <details className="text-sm text-gray-400">
+        {/* <details className="text-sm text-gray-400">
           <summary className="cursor-pointer font-bold">
             Device Mockups Sources
           </summary>
@@ -293,7 +295,7 @@ const ProjectsPage = () => {
             </a>{" "}
             on Freepik
           </p>
-        </details>
+        </details> */}
 
         <div className="absolute bottom-0 h-10" id="observable"></div>
       </Container>
