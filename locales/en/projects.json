@@ -12,9 +12,6 @@
     "text": {
       "p1": "Blur Fit is a simple mobile app that I developed because I was looking for an app that could fit an image into a certain aspect ratio while filling the remaining area with a blurred version of the image, and I couldn't find an app with the exact functionality i wanted.",
       "p2": "For the basic design of the app, I used Figma and for the implementation, I used Flutter."
-    },
-    "links": {
-      "link1": "Play Store (Coming soon)"
     }
   },
   "personal-website": {

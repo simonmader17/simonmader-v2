@@ -12,9 +12,6 @@
     "text": {
       "p1": "Blur Fit ist eine simple Mobile App, die ich entwickelt habe, da ich nach einer App gesucht habe, mit der man ein Bild in ein gewisses Seitenverhältnis bringen kann, wobei die übrige Fläche mit einer verschwommenen Version des Bildes gefüllt wird, und ich keine App dieser Art gefunden habe.",
       "p2": "Für das grundlegende Design der App habe ich Figma verwendet und für die Umsetzung Flutter."
-    },
-    "links": {
-      "link1": "Play Store (Coming soon)"
     }
   },
   "personal-website": {

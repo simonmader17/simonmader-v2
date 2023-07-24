@@ -70,8 +70,12 @@ const myProjects = [
     tags: ["Flutter", "Dart", "Figma"],
     links: [
       {
-        text: "blur-fit.links.link1",
+        text: "Play Store",
         link: "https://play.google.com/store/apps/details?id=at.simonmader.blur_fit",
+      },
+      {
+        text: "Source Code",
+        link: "https://github.com/simonmader17/blur-fit",
       },
     ],
     images: [blur_fit_smartphone_1, blur_fit_monitor, blur_fit_smartphone_2],
