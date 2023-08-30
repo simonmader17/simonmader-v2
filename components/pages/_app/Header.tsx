@@ -35,7 +35,7 @@ const Header = ({ children, ...props }) => {
     <div
       className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex flex-col items-center justify-center overflow-hidden"
       style={{
-        minHeight: `${headerMinHeight}px`,
+        minHeight: headerMinHeight == 0 ? "100vh" : `${headerMinHeight}px`,
       }}
       {...props}
     >
