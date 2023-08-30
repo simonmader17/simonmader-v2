@@ -7,8 +7,14 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import ParallaxBackground from "../components/pages/_app/ParallaxBackground";
 import BackButton from "../components/pages/_app/BackButton";
 import Navbar from "../components/pages/_app/Navbar/Navbar";
+import { useEffect } from "react";
+import twemoji from "twemoji";
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    twemoji.parse(document.body);
+  });
+
   return (
     <ParallaxProvider>
       <SkeletonTheme baseColor="#0c0c0c" highlightColor="#000">
@@ -43,7 +49,7 @@ function MyApp({ Component, pageProps }) {
 
           <Component {...pageProps} />
 
-          <div className="mt-auto relative z-20">
+          <div className="relative z-20 mt-auto">
             <Footer />
           </div>
         </div>
