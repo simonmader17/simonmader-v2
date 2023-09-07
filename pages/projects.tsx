@@ -40,6 +40,7 @@ const myProjects = [
     text: [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ipsum iusto itaque facilis, laboriosam ex, ratione eaque eum vel fugiat officiis ea sed libero obcaecati labore, eos tempore voluptatibus consequatur!",
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ipsum iusto itaque facilis, laboriosam ex, ratione eaque eum vel fugiat officiis ea sed libero obcaecati labore, eos tempore voluptatibus consequatur!",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ipsum iusto itaque facilis, laboriosam ex, ratione eaque eum vel fugiat officiis ea sed libero obcaecati labore, eos tempore voluptatibus consequatur!",
     ],
     tags: ["Astro", "Tailwind CSS"],
     links: [{ text: "Website", link: "https://frisierstube-mader.at" }],
