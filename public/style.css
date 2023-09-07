@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?f1yail');
-  src:  url('fonts/icomoon.eot?f1yail#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?f1yail') format('truetype'),
-    url('fonts/icomoon.woff?f1yail') format('woff'),
-    url('fonts/icomoon.svg?f1yail#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?ao565c');
+  src:  url('fonts/icomoon.eot?ao565c#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?ao565c') format('truetype'),
+    url('fonts/icomoon.woff?ao565c') format('woff'),
+    url('fonts/icomoon.svg?ao565c#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,53 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-gnubash:before {
+  content: "\e916";
+  color: #4eaa25;
+}
+.icon-pocketbase:before {
+  content: "\e917";
+  color: #b8dbe4;
+}
+.icon-caddy:before {
+  content: "\e918";
+  color: #1f88c0;
+}
+.icon-astro:before {
+  content: "\e919";
+  color: #bc52ee;
+}
+.icon-angular:before {
+  content: "\e91a";
+  color: #dd0031;
+}
+.icon-blender:before {
+  content: "\e91b";
+  color: #f5792a;
+}
+.icon-docker:before {
+  content: "\e91c";
+  color: #1488c6;
+}
+.icon-markdown:before {
+  content: "\e91d";
+}
+.icon-nextcloud:before {
+  content: "\e91e";
+  color: #0082c9;
+}
+.icon-raspberrypi:before {
+  content: "\e91f";
+  color: #c51a4a;
+}
+.icon-sass:before {
+  content: "\e920";
+  color: #c69;
+}
+.icon-svelte:before {
+  content: "\e921";
+  color: #ff3e00;
+}
 .icon-next-dot-js:before {
   content: "\e913";
 }

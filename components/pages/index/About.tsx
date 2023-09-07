@@ -20,11 +20,9 @@ const About = () => {
             <p className="text-xl font-bold text-red-400 md:text-2xl">
               {t("p1")}
             </p>
-            <p className="ltmd:text-sm md:text-justify">
-              {t("p2", { age: calculateAge() })}
-            </p>
-            <p className="ltmd:text-sm md:text-justify">{t("p3")}</p>
-            <p className="ltmd:text-sm md:text-justify">{t("p4")}</p>
+            <p className="ltmd:text-sm">{t("p2", { age: calculateAge() })}</p>
+            <p className="ltmd:text-sm">{t("p3")}</p>
+            <p className="ltmd:text-sm">{t("p4")}</p>
           </div>
           <div className="clip-rounded-pixel ltmd:absolute ltmd:inset-0 ltmd:-z-10 ltmd:blur-sm ltmd:w-[calc(100%+16px)] ltmd:h-[calc(100%+16px)] ltmd:-m-[8px] relative md:min-h-[25rem]">
             <div className="relative h-full">

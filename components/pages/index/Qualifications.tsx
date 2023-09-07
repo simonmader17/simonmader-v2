@@ -55,7 +55,7 @@ const Others = ({ qualifications }: OthersInterface) => {
   for (const qual of qualifications) {
     items.push(
       <a
-        className={`my-qualification m-4 text-6xl icon-${qual.logo}`}
+        className={`my-qualification text-6xl icon-${qual.logo}`}
         href={qual.link}
         target="_blank"
         rel="noreferrer"
@@ -66,7 +66,7 @@ const Others = ({ qualifications }: OthersInterface) => {
   }
 
   return (
-    <div className="md:drop-shadow-3xl relative m-4 flex max-w-full flex-wrap items-center justify-around p-6 lg:justify-between">
+    <div className="md:drop-shadow-3xl relative m-4 flex max-w-full flex-wrap items-center justify-around gap-8 p-10 xl:gap-16">
       {items}
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-black bg-opacity-50" />
     </div>
@@ -98,12 +98,6 @@ const Qualifications = () => {
           link="https://www.python.org/"
           title="Python"
         />
-        {/* <Qualification
-          name="React"
-          logo="react"
-          link="https://reactjs.org/"
-          title="React"
-        /> */}
         <Qualification
           className="ltlg:row-start-3"
           name="Spring Framework"
@@ -165,9 +159,34 @@ const Qualifications = () => {
             title: "Linux",
           },
           {
+            logo: "gnubash",
+            link: "https://wiki.ubuntuusers.de/Bash/",
+            title: "Bash Scripting",
+          },
+          {
+            logo: "docker",
+            link: "https://www.docker.com/",
+            title: "Docker",
+          },
+          {
+            logo: "raspberrypi",
+            link: "https://www.raspberrypi.com/",
+            title: "Raspberry Pi",
+          },
+          {
+            logo: "nextcloud",
+            link: "https://nextcloud.com/",
+            title: "Nextcloud",
+          },
+          {
             logo: "apache",
             link: "https://httpd.apache.org/",
             title: "Apache HTTP Server",
+          },
+          {
+            logo: "caddy",
+            link: "https://caddyserver.com/",
+            title: "Caddy",
           },
           // {
           //   logo: "php",
@@ -179,10 +198,35 @@ const Qualifications = () => {
             link: "https://www.latex-project.org/",
             title: "LaTeX",
           },
+          // {
+          //   logo: "markdown",
+          //   link: "https://daringfireball.net/projects/markdown/",
+          //   title: "Markdown",
+          // },
+          // {
+          //   logo: "react",
+          //   link: "https://reactjs.org/",
+          //   title: "React",
+          // },
           {
-            logo: "react",
-            link: "https://reactjs.org/",
-            title: "React",
+            logo: "svelte",
+            link: "https://svelte.dev/",
+            title: "Svelte",
+          },
+          {
+            logo: "astro",
+            link: "https://astro.build/",
+            title: "Astro",
+          },
+          {
+            logo: "angular",
+            link: "https://angular.io/",
+            title: "Angular",
+          },
+          {
+            logo: "javascript",
+            link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+            title: "JavaScript",
           },
           {
             logo: "html5",
@@ -195,14 +239,19 @@ const Qualifications = () => {
             title: "CSS",
           },
           {
-            logo: "javascript",
-            link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-            title: "JavaScript",
+            logo: "sass",
+            link: "https://sass-lang.com/",
+            title: "Sass",
           },
+          // {
+          //   logo: "microsoftoffice",
+          //   link: "https://www.office.com/",
+          //   title: "Microsoft Office",
+          // },
           {
-            logo: "microsoftoffice",
-            link: "https://www.office.com/",
-            title: "Microsoft Office",
+            logo: "blender",
+            link: "https://www.blender.org/",
+            title: "Blender",
           },
         ]}
       />

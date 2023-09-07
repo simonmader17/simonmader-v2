@@ -10,6 +10,7 @@ import { PixelatedDownChevron } from "../components/PixelatedIcons";
 import Header from "../components/pages/_app/Header";
 import ProjectsSlider from "../components/pages/index/ProjectsSlider";
 
+import frisierstube_bg from "../public/images/projects/frisierstube-mader/bg.png";
 import fuelprices_bg from "../public/images/projects/fuelprices/logo.png";
 import blur_fit_bg from "../public/images/background_images/blur-fit.png";
 import personal_website_bg from "../public/images/personal_images/ich_2.jpeg";
@@ -32,6 +33,18 @@ import diploma_thesis_tablet from "../public/images/projects/diploma-thesis/dipl
 import diploma_thesis_monitor from "../public/images/projects/diploma-thesis/diploma-thesis-monitor.png";
 
 const myProjects = [
+  {
+    title: "Frisierstube Ursula Mader ✂️ - Website",
+    zeitraum: "Aug. 2023",
+    bg: frisierstube_bg,
+    text: [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ipsum iusto itaque facilis, laboriosam ex, ratione eaque eum vel fugiat officiis ea sed libero obcaecati labore, eos tempore voluptatibus consequatur!",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ipsum iusto itaque facilis, laboriosam ex, ratione eaque eum vel fugiat officiis ea sed libero obcaecati labore, eos tempore voluptatibus consequatur!",
+    ],
+    tags: ["Astro", "Tailwind CSS"],
+    links: [{ text: "Website", link: "https://frisierstube-mader.at" }],
+    images: [],
+  },
   {
     title: "Fuelprices ⛽",
     zeitraum: "Jul. 2023",
