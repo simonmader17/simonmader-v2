@@ -3,24 +3,6 @@ import Image from "next/image";
 // import contact_img from "../../../public/images/personal_images/ich_5.jpg";
 import LocalesSwitcher from "./LocalesSwitcher";
 
-interface ContactInterface {
-  title: string;
-  name: string;
-  link: string;
-  logo: string;
-}
-
-const Contact = ({ title, name, link, logo }: ContactInterface) => {
-  return (
-    <p>
-      <a href={link} title={title} target="_blank" rel="noreferrer">
-        <span className={`m-1 icon-${logo}-white`} />
-        {name}
-      </a>
-    </p>
-  );
-};
-
 const Footer = () => {
   return (
     <div className="bg-hero-brick-wall bg-headerFooter drop-shadow-3xl flex items-center justify-center p-8 text-white">
@@ -38,25 +20,45 @@ const Footer = () => {
         </div>
       </div>
       <div className="drop-shadow-pixel-sm text-left text-xs lg:text-base">
-        <p>Simon Mader</p>
-        <Contact
-          title="E-Mail"
-          name="mail@simonmader.at"
-          link="mailto:mail@simonmader.at"
-          logo="gmail"
-        />
-        <Contact
-          title="LinkedIn"
-          name="simonmader"
-          link="https://www.linkedin.com/in/simonmader/"
-          logo="linkedin"
-        />
-        <Contact
-          title="GitHub"
-          name="simonmader17"
-          link="https://github.com/simonmader17"
-          logo="github"
-        />
+        <p className="font-PressStart2P font-bold uppercase mb-1">
+          Simon Mader
+        </p>
+        <span className="flex">
+          <a
+            href="mailto:mail@simonmader.at"
+            title="E-Mail"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-gmail hover:font-bold"
+          >
+            <span className={`icon-gmail-white m-1`} />
+            mail@simonmader.at
+          </a>
+        </span>
+        <span className="flex">
+          <a
+            href="https://www.linkedin.com/in/simonmader/"
+            title="Linkedin"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-linkedin hover:font-bold"
+          >
+            <span className={`icon-linkedin-white m-1`} />
+            simonmader
+          </a>
+        </span>
+        <span className="flex">
+          <a
+            href="https://github.com/simonmader17"
+            title="GitHub"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-github hover:font-bold"
+          >
+            <span className={`icon-github-white m-1`} />
+            simonmader17
+          </a>
+        </span>
         <LocalesSwitcher />
       </div>
     </div>

@@ -56,14 +56,14 @@ const IndexHeader = () => {
         <h1 className="drop-shadow-pixel-sm md:drop-shadow-pixel font-PressStart2P mb-2 mt-0 pl-1 text-2xl md:mb-4 md:text-4xl">
           Simon Mader
         </h1>
-        <div className="flex space-x-4">
+        <div className="flex">
           <a
             href="mailto:mail@simonmader.at"
             title="E-Mail"
             target="_blank"
             rel="noreferrer"
           >
-            <span className="icon-gmail-white drop-shadow-pixel-sm md:text-lg" />
+            <span className="icon-gmail-white drop-shadow-pixel-sm hover:text-gmail md:text-lg transition-all p-2" />
           </a>
           <a
             href="https://www.linkedin.com/in/simonmader/"
@@ -71,7 +71,7 @@ const IndexHeader = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <span className="icon-linkedin-white drop-shadow-pixel-sm md:text-lg" />
+            <span className="icon-linkedin-white drop-shadow-pixel-sm hover:text-linkedin md:text-lg transition-all p-2" />
           </a>
           <a
             href="https://github.com/simonmader17"
@@ -79,7 +79,7 @@ const IndexHeader = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <span className="icon-github-white drop-shadow-pixel-sm md:text-lg" />
+            <span className="icon-github-white drop-shadow-pixel-sm hover:text-github md:text-lg transition-all p-2" />
           </a>
         </div>
       </div>
