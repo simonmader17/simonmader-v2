@@ -12,9 +12,10 @@ module.exports = {
         purple: "#3D2B7A",
         blended: "#221B54",
         darkblue: "#070b2e",
+        brave: "#FE3516",
         gmail: "#DC4234",
         linkedin: "#0274B3",
-        github: "#000000",
+        github: "#525252",
       },
       fontFamily: {
         SfPixelate: "SfPixelate",
