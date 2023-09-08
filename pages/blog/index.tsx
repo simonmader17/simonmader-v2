@@ -3,9 +3,6 @@ import fs from "fs";
 import matter from "gray-matter";
 import Head from "next/head";
 import Container from "../../components/Container";
-import { useRouter } from "next/router";
-import { createRipple } from "../../lib/ripple";
-import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
 import BlogListItem from "../../components/pages/blog/BlogListItem";
 
@@ -47,9 +44,7 @@ export async function getStaticProps() {
   return { props: { posts } };
 }
 
-const Blog = ({ posts }) => {
-  const router = useRouter();
-
+const BlogPage = ({ posts }) => {
   return (
     <>
       <Head>
@@ -70,4 +65,4 @@ const Blog = ({ posts }) => {
   );
 };
 
-export default Blog;
+export default BlogPage;
