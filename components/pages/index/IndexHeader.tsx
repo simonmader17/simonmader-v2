@@ -62,25 +62,22 @@ const IndexHeader = () => {
             title="E-Mail"
             target="_blank"
             rel="noreferrer"
-          >
-            <span className="icon-gmail-white drop-shadow-pixel-sm hover:text-gmail md:text-lg transition-all p-2" />
-          </a>
+            className="icon-gmail-white drop-shadow-pixel-sm hover:text-gmail focus:text-gmail p-2 leading-none transition-all md:text-lg md:leading-none"
+          ></a>
           <a
             href="https://www.linkedin.com/in/simonmader/"
             title="LinkedIn"
             target="_blank"
             rel="noreferrer"
-          >
-            <span className="icon-linkedin-white drop-shadow-pixel-sm hover:text-linkedin md:text-lg transition-all p-2" />
-          </a>
+            className="icon-linkedin-white drop-shadow-pixel-sm hover:text-linkedin focus:text-linkedin p-2 leading-none transition-all md:text-lg md:leading-none"
+          ></a>
           <a
             href="https://github.com/simonmader17"
             title="GitHub"
             target="_blank"
             rel="noreferrer"
-          >
-            <span className="icon-github-white drop-shadow-pixel-sm hover:text-github md:text-lg transition-all p-2" />
-          </a>
+            className="icon-github-white drop-shadow-pixel-sm hover:text-github focus:text-github p-2 leading-none transition-all md:text-lg md:leading-none"
+          ></a>
         </div>
       </div>
     </Header>

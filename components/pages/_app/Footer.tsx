@@ -20,7 +20,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="drop-shadow-pixel-sm text-left text-xs lg:text-base">
-        <p className="font-PressStart2P font-bold uppercase mb-1">
+        <p className="font-PressStart2P mb-1 font-bold uppercase">
           Simon Mader
         </p>
         <span className="flex">
@@ -29,7 +29,7 @@ const Footer = () => {
             title="E-Mail"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-gmail hover:font-bold"
+            className="hover:text-gmail focus:text-gmail hover:font-bold"
           >
             <span className={`icon-gmail-white m-1`} />
             mail@simonmader.at
@@ -41,7 +41,7 @@ const Footer = () => {
             title="Linkedin"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-linkedin hover:font-bold"
+            className="hover:text-linkedin focus:text-linkedin hover:font-bold"
           >
             <span className={`icon-linkedin-white m-1`} />
             simonmader
@@ -53,7 +53,7 @@ const Footer = () => {
             title="GitHub"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-github hover:font-bold"
+            className="hover:text-github focus:text-github hover:font-bold"
           >
             <span className={`icon-github-white m-1`} />
             simonmader17
