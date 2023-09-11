@@ -7,9 +7,9 @@ import { getPlaiceholder } from "plaiceholder";
 import BlogListItem from "../../components/pages/blog/BlogListItem";
 import useTranslation from "next-translate/useTranslation";
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   const postsFiles = fs.readdirSync(
-    path.join(process.cwd(), "/components/pages/blog/posts")
+    path.join(process.cwd(), "/components/pages/blog/posts", locale)
   );
 
   const promises = postsFiles.map(async (post) => {
@@ -17,6 +17,7 @@ export async function getStaticProps() {
       path.join(
         process.cwd(),
         "/components/pages/blog/posts",
+        locale,
         post.endsWith(".mdx") ? post : `${post}/${post}.mdx`
       )
     );
@@ -25,7 +26,7 @@ export async function getStaticProps() {
 
     const slug = post.replace(".mdx", "");
 
-    const thumbnailPath = "/images/blog/posts/" + slug + "/" + data.thumbnail;
+    const thumbnailPath = `/images/blog/posts/${slug}/${data.thumbnail}`;
     const thumbnailBlurDataURL = await (
       await getPlaiceholder(thumbnailPath, { size: 64 })
     ).base64;

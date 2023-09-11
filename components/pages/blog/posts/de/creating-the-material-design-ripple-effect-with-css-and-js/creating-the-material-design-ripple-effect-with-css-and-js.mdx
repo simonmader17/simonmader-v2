@@ -1,0 +1,149 @@
+---
+title: Material Design Ripple-Effekt mit CSS und JavaScript implementieren
+description: Wie man den Material Design Ripple-Effekt mit CSS und JavaScript für jedes beliebige Element implementieren kann.
+thumbnail: thumbnail.png
+publishedOn: "2022-05-25"
+---
+
+import RippleDemo from "../../components/creating-the-material-design-ripple-effect-with-css-and-js/RippleDemo";
+import RippleDemoWithoutFadeOut from "../../components/creating-the-material-design-ripple-effect-with-css-and-js/RippleDemoWithoutFadeOut";
+
+In diesem Blogpost geht es darum, den Ripple-Effekt den man von Google's Material Design kennt zu implementieren. Ich habe mich von [diesem Tutorial auf css-tricks.com](https://css-tricks.com/how-to-recreate-the-ripple-effect-of-material-design-buttons/) von **Bret Cameron** inspirieren lassen, aber habe dabei selbst ein paar Verbesserungen vorgenommen.
+
+Nachdem du diesen Blogpost gelesen hast, wirst du in der Lage sein den Ripple-Effekt auf so ziemlich jedes Element anzuwenden. So sieht das dann aus:
+
+```html
+<div
+  class="element"
+  onPointerDown={(e) => createRipple(e)}
+>
+  Klick mich!
+</div>
+```
+
+<RippleDemo text="Klick mich!" />
+
+Die Funktion `createRipple(e)` fügt dabei ein Element mit der Klasse `ripple` in das Element ein und entfernt es nach einer bestimmten Aktion wieder. Während das Ripple-Effekt Element vorhanden ist, sieht der HTML-Code folgendermaßen aus:
+
+```html
+<div
+  class="element"
+  onPointerDown={(e) => createRipple(e)}
+>
+  <span class="ripple" />
+  Klick mich!
+</div>
+```
+
+Und der CSS-Code sieht so aus:
+
+```css
+.element {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  transform: scale(0);
+  animation: ripple 600ms linear forwards;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(3);
+  }
+}
+```
+
+Alles was man machen muss, ist dem Element eine Position von `relative` zu geben, den Overflow auf `hidden` zu setzen und, damit es sich mehr wie ein Button verhält, den Cursor auf `pointer` zu setzen. Dann muss man nur noch die `createRipple(e)` Funktion aufrufen, wenn auf das Element geklickt wird. Die Funktion sieht folgendermaßen aus:
+
+```js
+const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
+  // Ripple-Element erstellen
+  const button = event.currentTarget as HTMLElement;
+  const ripple = document.createElement("span");
+
+  const diameter = Math.max(button.clientWidth, button.clientHeight);
+  const radius = diameter / 2;
+
+  ripple.style.width = ripple.style.height = `${diameter}px`;
+  ripple.style.left = `${
+    event.clientX - button.getBoundingClientRect().left - radius
+  }px`;
+  ripple.style.top = `${
+    event.clientY - button.getBoundingClientRect().top - radius
+  }px`;
+  ripple.classList.add("ripple");
+
+  // Ripple-Element einfügen
+  button.insertBefore(ripple, button.firstChild);
+}
+```
+
+Zurzeit sieht der Ripple-Effekt so aus:
+
+<RippleDemoWithoutFadeOut text="Klick mich!" />
+
+Wie man sehen kann, verschwinden die einzelnen Ripple-Elemente nicht sondern stapeln sich übereinander.
+
+Um dieses Problem zu lösen, implementieren wir eine `fadeOutRipple()` Funktion:
+
+```js
+const fadeOutRipple = (
+  button: HTMLElement,
+  handleFadeOutRipple: () => void,
+  ripple: HTMLSpanElement,
+  animationStart: number
+) => {
+  const animationInterrupt = Date.now();
+  let remainingTime = 600 - (animationInterrupt - animationStart);
+  if (remainingTime < 200) remainingTime = 200;
+  ripple.style.transition = `opacity ${remainingTime}ms linear`;
+  if (ripple) ripple.classList.add("ripple-fade-out");
+  const removeRipple = async () => {
+    await new Promise((res) => setTimeout(res, remainingTime));
+    if (ripple) ripple.remove();
+  };
+  removeRipple();
+  button.removeEventListener("pointerup", handleFadeOutRipple);
+  button.removeEventListener("pointercancel", handleFadeOutRipple);
+  button.removeEventListener("pointerleave", handleFadeOutRipple);
+};
+```
+
+Die Funktion bekommt das Ripple-Element das sie entfernen soll und die Zeit zu der das Ripple-Element erstellt wurde als Parameter übergeben. Anhand dieses Zeitwertes berechnet die Funktion die verbleibende Animationszeit für die Ausblendungsanimation.
+
+Außerdem bekommt die Funktion das `button` Element und die `handleFadeOutRipple()` Funktion übergeben, damit die Event-Listener, die wir im nächsten Schritt dem Button hinzufügen, am Ende des Prozesses wieder entfernt werden können.
+
+Nun müssen wir nur noch am Ende der `createRipple(e)` Funktion eine `handleFadeOutRipple()` Funktion erstellen, die die `fadeOutRipple()` Funktion aufruft, und diese zu den folgenden Event-Listenern hinzufügen:
+
+- `pointerup`: Der `pointerup`-Event-Handler wird ausgelöst, wenn der Zeiger (Maus, Tastaur oder Touch) nicht länger aktiv ist.
+- `pointercancel`: Der `pointercancel`-Event-Handler wird ausgelöst, wenn der Browser erwartet, dass keine Zeigereignisse mehr ausgelöst werden, z.B. wenn das Gerät deaktiviert wurde.
+- `pointerleave`: Der `pointerleave`-Event-Handler wird ausgelöst, wenn ein Zeiger (Maus, Tastatur oder Touch) die aktive Fläche wieder verlässt.
+
+```js
+const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
+
+  ...
+
+  // Event-Listener hinzufügen die die Ripple-Elemente wieder entfernen
+  const animationStart = Date.now();
+
+  const handleFadeOutRipple = () => {
+    fadeOutRipple(button, handleFadeOutRipple, ripple, animationStart);
+  };
+
+  button.addEventListener("pointerup", handleFadeOutRipple);
+  button.addEventListener("pointercancel", handleFadeOutRipple);
+  button.addEventListener("pointerleave", handleFadeOutRipple);
+};
+```
+
+So sieht der fertige Ripple-Effekt aus:
+
+<RippleDemo text="Danke fürs Lesen! ✌️" />

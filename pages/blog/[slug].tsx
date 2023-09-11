@@ -12,25 +12,31 @@ import { getMDXComponent } from "mdx-bundler/client";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import sizeOf from "image-size";
-import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
 
 export async function getStaticPaths({ locales }) {
-  const posts = fs.readdirSync(
-    path.join(process.cwd(), "/components/pages/blog/posts")
-  );
-
   const paths = [];
 
   locales.forEach((locale) => {
+    const posts = fs.readdirSync(
+      path.join(process.cwd(), "/components/pages/blog/posts", locale)
+    );
+
     posts.forEach((post) => {
       const slug = post.replace(".mdx", "");
       const postPath = fs.existsSync(
-        path.join(process.cwd(), `/components/pages/blog/posts/${slug}.mdx`)
+        path.join(
+          process.cwd(),
+          `/components/pages/blog/posts/${locale}/${slug}.mdx`
+        )
       )
-        ? path.join(process.cwd(), `/components/pages/blog/posts/${slug}.mdx`)
+        ? path.join(
+            process.cwd(),
+            `/components/pages/blog/posts/${locale}/${slug}.mdx`
+          )
         : path.join(
             process.cwd(),
-            `/components/pages/blog/posts/${slug}/${slug}.mdx`
+            `/components/pages/blog/posts/${locale}/${slug}/${slug}.mdx`
           );
       const postSource = fs.readFileSync(postPath);
       const { data } = matter(postSource);
@@ -53,15 +59,21 @@ export async function getStaticPaths({ locales }) {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const { slug } = params;
   const postPath = fs.existsSync(
-    path.join(process.cwd(), `/components/pages/blog/posts/${slug}.mdx`)
+    path.join(
+      process.cwd(),
+      `/components/pages/blog/posts/${locale}/${slug}.mdx`
+    )
   )
-    ? path.join(process.cwd(), `/components/pages/blog/posts/${slug}.mdx`)
+    ? path.join(
+        process.cwd(),
+        `/components/pages/blog/posts/${locale}/${slug}.mdx`
+      )
     : path.join(
         process.cwd(),
-        `/components/pages/blog/posts/${slug}/${slug}.mdx`
+        `/components/pages/blog/posts/${locale}/${slug}/${slug}.mdx`
       );
   const postSource = fs.readFileSync(postPath);
   const { content, data } = matter(postSource);
@@ -141,6 +153,8 @@ const Post = ({ post }) => {
       .then((res) => setViews(res.total));
   }, [slug]);
 
+  const { t } = useTranslation("blog");
+
   return (
     <>
       <Head>
@@ -179,23 +193,37 @@ const Post = ({ post }) => {
             </div>
             <div>
               <p className="font-bold">Simon Mader</p>
-              <p>
+              <span className="flex">
                 <a
                   href="https://github.com/simonmader17"
                   title="GitHub"
                   target="_blank"
                   rel="noreferrer"
+                  className="hover:text-github focus:text-github hover:font-bold"
                 >
-                  <span className="icon-github-white m-1" />
+                  <span className={`icon-github-white m-1`} />
                   simonmader17
                 </a>
-              </p>
+              </span>
             </div>
           </div>
           <p className="md:text-center">
-            📅 Published on: {data.publishedOn || "unpublished"}
+            📅 {t("published_on")}: {data.publishedOn || "unpublished"}
           </p>
-          <p>👀 Views: {views || "--"}</p>
+          <p>
+            👀 {t("views")}:{" "}
+            {views || (
+              <>
+                <span className="inline-block animate-bounce">-</span>
+                <span className="animation-delay-300 inline-block animate-bounce">
+                  -
+                </span>
+                <span className="animation-delay-600 inline-block animate-bounce">
+                  -
+                </span>
+              </>
+            )}
+          </p>
         </div>
 
         <div className="mx-auto xl:max-w-[1024px]">

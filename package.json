@@ -34,6 +34,7 @@
     "sass": "^1.49.7",
     "sharp": "^0.30.5",
     "tailwind-heropatterns": "^0.0.8",
+    "tailwindcss-animation-delay": "^1.0.7",
     "twemoji": "^14.0.2"
   },
   "devDependencies": {

@@ -5,8 +5,8 @@ thumbnail: thumbnail.png
 publishedOn: "2022-05-25"
 ---
 
-import RippleDemo from "./RippleDemo";
-import RippleDemoWithoutFadeOut from "./RippleDemoWithoutFadeOut";
+import RippleDemo from "../../components/creating-the-material-design-ripple-effect-with-css-and-js/RippleDemo";
+import RippleDemoWithoutFadeOut from "../../components/creating-the-material-design-ripple-effect-with-css-and-js/RippleDemoWithoutFadeOut";
 
 This blog post is about creating the ripple effect found in Google's Material Design. I got my inspiration from [this tutorial on css-tricks.com](https://css-tricks.com/how-to-recreate-the-ripple-effect-of-material-design-buttons/) by **Bret Cameron**, but I made some improvements to it myself.
 
@@ -14,23 +14,23 @@ After reading this blog post, you'll be able to apply the ripple effect to prett
 
 ```html
 <div
-  className="element"
+  class="element"
   onPointerDown={(e) => createRipple(e)}
 >
   Click me!
 </div>
 ```
 
-<RippleDemo />
+<RippleDemo text="Click me!" />
 
 The `createRipple(e)` function will basically add a child element with a class of `ripple` to the element and remove it after a certain action. While the ripple effect exists, the HTML looks like this:
 
 ```html
 <div
-  className="element"
+  class="element"
   onPointerDown={(e) => createRipple(e)}
 >
-  <span className="ripple" />
+  <span class="ripple" />
   Click me!
 </div>
 ```
@@ -87,7 +87,7 @@ const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
 
 Right now the ripple effect looks like this:
 
-<RippleDemoWithoutFadeOut />
+<RippleDemoWithoutFadeOut text="Click me!" />
 
 As you can see, the ripples don't disappear and stack upon each other.
 
@@ -143,3 +143,7 @@ const createRipple = (event: React.MouseEvent<Element, MouseEvent>) => {
   button.addEventListener("pointerleave", handleFadeOutRipple);
 };
 ```
+
+That's what the finished ripple effect looks like:
+
+<RippleDemo text="Thanks for reading! ✌️" />

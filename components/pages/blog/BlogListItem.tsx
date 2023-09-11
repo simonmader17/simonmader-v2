@@ -1,3 +1,4 @@
+import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -12,6 +13,8 @@ const BlogListItem = ({ post }) => {
       .then((res) => setViews(res.total));
   }, [post.slug]);
 
+  const { t } = useTranslation("blog");
+
   return (
     <div className="drop-shadow-pixel">
       <Link href={`/blog/${post.slug}`} passHref>
@@ -22,12 +25,25 @@ const BlogListItem = ({ post }) => {
           <div className="p-6">
             <p className="mb-2 flex justify-between text-sm text-gray-400">
               <span>📅 {post.data.publishedOn || "unpublished"}</span>
-              <span>👀 Views: {views || "--"}</span>
+              <span>
+                👀 {t("views")}:{" "}
+                {views || (
+                  <>
+                    <span className="inline-block animate-bounce">-</span>
+                    <span className="animation-delay-300 inline-block animate-bounce">
+                      -
+                    </span>
+                    <span className="animation-delay-600 inline-block animate-bounce">
+                      -
+                    </span>
+                  </>
+                )}
+              </span>
             </p>
             <p className="text-red-400 md:text-lg">{post.data.title}</p>
             <p className="text-sm">{post.data.description}</p>
             <span className="my-link mt-2 inline-block text-gray-400">
-              Read more
+              {t("read_more")}
             </span>
           </div>
           <div className="clip-rounded-pixel ltmd:w-full relative -z-10 aspect-video md:min-h-[12rem]">

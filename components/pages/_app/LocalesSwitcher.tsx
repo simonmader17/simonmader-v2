@@ -107,10 +107,14 @@ const LocalesSwitcher = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() =>
-              router.push(router.pathname, undefined, {
-                locale: "en",
-                scroll: false,
-              })
+              router.push(
+                { pathname: router.pathname, query: router.query },
+                undefined,
+                {
+                  locale: "en",
+                  scroll: false,
+                }
+              )
             }
             className="absolute w-6 cursor-pointer"
           >
@@ -123,10 +127,14 @@ const LocalesSwitcher = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() =>
-              router.push(router.pathname, undefined, {
-                locale: "de",
-                scroll: false,
-              })
+              router.push(
+                { pathname: router.pathname, query: router.query },
+                undefined,
+                {
+                  locale: "de",
+                  scroll: false,
+                }
+              )
             }
             className="absolute w-6 cursor-pointer"
           >

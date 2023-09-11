@@ -27,7 +27,7 @@ const removeRipples = (button: HTMLDivElement) => {
   ripples.forEach((ripple) => ripple.remove());
 };
 
-const RippleDemoWithoutFadeOut = () => {
+const RippleDemoWithoutFadeOut = ({ text }) => {
   const button = useRef(null);
 
   const [rotate, setRotate] = useState(0);
@@ -40,7 +40,7 @@ const RippleDemoWithoutFadeOut = () => {
           onPointerDown={(e) => createRipple(e)}
           ref={button}
         >
-          Click me!
+          {text}
         </div>
         <div
           className="clip-rounded-pixel cursor-pointer bg-black bg-opacity-50"

@@ -1,3 +1,6 @@
 {
-  "description": "This could be a real blog... 🫠"
+  "description": "This could be a real blog... 🫠",
+  "views": "Views",
+  "read_more": "Read more",
+  "published_on": "Published on"
 }

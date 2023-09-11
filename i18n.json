@@ -14,6 +14,6 @@
     ],
     "/diploma-thesis": ["diploma-thesis"],
     "/projects": ["projects"],
-    "/blog": ["blog"]
+    "rgx:/blog*": ["blog"]
   }
 }

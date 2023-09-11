@@ -71,5 +71,6 @@ module.exports = {
         default: 0.4,
       },
     }),
+    require("tailwindcss-animation-delay"),
   ],
 };
