@@ -13,6 +13,7 @@
       "others"
     ],
     "/diploma-thesis": ["diploma-thesis"],
-    "/projects": ["projects"]
+    "/projects": ["projects"],
+    "/blog": ["blog"]
   }
 }

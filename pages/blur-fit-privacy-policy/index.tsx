@@ -13,6 +13,20 @@ const BlurFitPrivacyPolicyPage = () => {
           name="description"
           content="Privacy policy of the app i created, called Blur Fit"
         />
+        <meta property="og:title" content="Blur Fit Privacy Policy" />
+        <meta
+          property="og:description"
+          content="Privacy policy of the app i created, called Blur Fit"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://simonmader.at/images/blur-fit-privacy-policy/icon.png"
+        />
+        <meta
+          property="og:url"
+          content="https://simonmader.at/blur-fit-privacy-policy"
+        />
       </Head>
 
       <Container className="ltmd:mt-20">

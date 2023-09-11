@@ -12,6 +12,7 @@ import { getMDXComponent } from "mdx-bundler/client";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import sizeOf from "image-size";
+import { useRouter } from "next/router";
 
 export async function getStaticPaths({ locales }) {
   const posts = fs.readdirSync(
@@ -145,6 +146,17 @@ const Post = ({ post }) => {
       <Head>
         <title>{data.title}</title>
         <meta name="description" content={data.description} />
+        <meta property="og:title" content={data.title} />
+        <meta property="og:description" content={data.description} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content={`https://simonmader.at${thumbnailPath}`}
+        />
+        <meta
+          property="og:url"
+          content={`https://simonmader.at/blog/${slug}`}
+        />
       </Head>
 
       <Container className="ltmd:mt-20">

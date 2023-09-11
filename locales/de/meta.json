@@ -1,7 +1,8 @@
 {
-  "index_title": "Persönliche Website von Simon Mader.",
+  "index_description": "Persönliche Website von Simon Mader.",
   "projects_title": "Simon Mader's Projekte",
-  "diploma_thesis_title": "AI Interpretation von Börsennews.",
+  "diploma_thesis_title": "Simon Mader's Diplomarbeit",
+  "diploma_thesis_description": "AI Interpretation von Börsennews.",
   "navbar": {
     "about": "Über mich",
     "projects": "Projekte",

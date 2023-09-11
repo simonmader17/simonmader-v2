@@ -5,6 +5,7 @@ import Head from "next/head";
 import Container from "../../components/Container";
 import { getPlaiceholder } from "plaiceholder";
 import BlogListItem from "../../components/pages/blog/BlogListItem";
+import useTranslation from "next-translate/useTranslation";
 
 export async function getStaticProps() {
   const postsFiles = fs.readdirSync(
@@ -45,17 +46,27 @@ export async function getStaticProps() {
 }
 
 const BlogPage = ({ posts }) => {
+  const { t } = useTranslation("blog");
+
   return (
     <>
       <Head>
         <title>Simon Mader&apos;s Blog</title>
-        <meta name="description" content="Simon Mader's not too busy blog..." />
+        <meta name="description" content={t("description")} />
+        <meta property="og:title" content="Simon Mader's Blog" />
+        <meta property="og:description" content={t("description")} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://github.com/simonmader17.png"
+        />
+        <meta property="og:url" content="https://simonmader.at/blog" />
       </Head>
 
       <Container className="ltmd:mt-20">
         <h1>Simon Mader&apos;s Blog ✍️</h1>
 
-        <p>Don&apos;t expect regular content here...</p>
+        <p>{t("description")}</p>
 
         {posts.map((post) => (
           <BlogListItem key={post.slug} post={post} />

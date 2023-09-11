@@ -1,7 +1,8 @@
 {
-  "index_title": "This is the personal webpage of Simon Mader.",
+  "index_description": "This is the personal webpage of Simon Mader.",
   "projects_title": "Simon Mader's Projects",
-  "diploma_thesis_title": "AI Interpretation of Stock Market News.",
+  "diploma_thesis_title": "Simon Mader's Diploma Thesis",
+  "diploma_thesis_description": "AI Interpretation of Stock Market News.",
   "navbar": {
     "about": "About",
     "projects": "Projects",

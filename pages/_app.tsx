@@ -9,11 +9,14 @@ import BackButton from "../components/pages/_app/BackButton";
 import Navbar from "../components/pages/_app/Navbar/Navbar";
 import { useEffect } from "react";
 import twemoji from "twemoji";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     twemoji.parse(document.body);
   });
+
+  const router = useRouter();
 
   return (
     <ParallaxProvider>
@@ -38,6 +41,13 @@ function MyApp({ Component, pageProps }) {
             as="font"
             crossOrigin=""
           />
+          <meta
+            property="og:locale"
+            content={router.locale === "de" ? "de_DE" : "en_US"}
+          />
+          <meta property="og:locale:alternate" content="de_DE" />
+          <meta property="og:locale:alternate" content="en_US" />
+          <meta property="og:site_name" content="simonmader.at" />
         </Head>
 
         <div className="font-SfPixelate relative z-0 flex min-h-screen flex-col overflow-hidden text-center text-white">

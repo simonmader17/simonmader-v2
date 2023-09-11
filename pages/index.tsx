@@ -6,7 +6,6 @@ import Certificates from "../components/pages/index/Certificates";
 import ChromeNotification from "../components/pages/index/ChromeNotification";
 import Container from "../components/Container";
 import Education from "../components/pages/index/Education";
-import Header from "../components/pages/_app/Header";
 import Others from "../components/pages/index/Others";
 import Projects from "../components/pages/index/Projects";
 import Qualifications from "../components/pages/index/Qualifications";
@@ -19,7 +18,15 @@ const IndexPage = () => {
     <>
       <Head>
         <title>Simon Mader&apos;s Webpage</title>
-        <meta name="description" content={t("index_title")} />
+        <meta name="description" content={t("index_description")} />
+        <meta property="og:title" content="Simon Mader's Webpage" />
+        <meta property="og:description" content={t("index_description")} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://github.com/simonmader17.png"
+        />
+        <meta property="og:url" content="https://simonmader.at" />
       </Head>
 
       <ChromeNotification />

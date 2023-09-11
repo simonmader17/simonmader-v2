@@ -13,10 +13,10 @@ const BlogListItem = ({ post }) => {
   }, [post.slug]);
 
   return (
-    <Link href={`/blog/${post.slug}`} passHref>
-      <a className="drop-shadow-pixel group">
-        <div
-          className="clip-rounded-pixel relative mx-4 my-8 cursor-pointer select-none bg-black bg-opacity-50 md:flex md:justify-between"
+    <div className="drop-shadow-pixel">
+      <Link href={`/blog/${post.slug}`} passHref>
+        <a
+          className="clip-rounded-pixel group relative mx-4 my-8 cursor-pointer select-none bg-black bg-opacity-50 md:flex md:justify-between"
           onPointerDown={(e) => createRipple(e)}
         >
           <div className="p-6">
@@ -41,9 +41,9 @@ const BlogListItem = ({ post }) => {
               blurDataURL={post.thumbnailBlurDataURL}
             />
           </div>
-        </div>
-      </a>
-    </Link>
+        </a>
+      </Link>
+    </div>
   );
 };
 
