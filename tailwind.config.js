@@ -23,6 +23,9 @@ module.exports = {
         FiraCode: "Fira\\ Code",
       },
       screens: {
+        xs: "400px",
+        ltxs: { max: "399px" },
+        ltsm: { max: "639px" },
         ltmd: { max: "767px" },
         ltlg: { max: "1023px" },
         ltxl: { max: "1279px" },
