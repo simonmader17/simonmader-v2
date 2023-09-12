@@ -6,15 +6,18 @@ import { Project } from "../../components/pages/index/Projects";
 import useTranslation from "next-translate/useTranslation";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { PixelatedDownChevron } from "../../components/PixelatedIcons";
 import Header from "../../components/pages/_app/Header";
 import ProjectsSlider from "../../components/pages/index/ProjectsSlider";
 
-import frisierstube_bg from "../../public/images/projects/frisierstube-mader/bg.png";
+import frisierstube_mader_bg from "../../public/images/projects/frisierstube-mader/bg.jpg";
 import fuelprices_bg from "../../public/images/projects/fuelprices/logo.png";
 import blur_fit_bg from "../../public/images/background_images/blur-fit.png";
 import personal_website_bg from "../../public/images/personal_images/ich_2.jpeg";
 import diploma_thesis_bg from "../../public/images/background_images/diploma_thesis.jpg";
+
+import frisierstube_mader_laptop from "../../public/images/projects/frisierstube-mader/frisierstube-mader-laptop.png";
+import frisierstube_mader_smartphone_1 from "../../public/images/projects/frisierstube-mader/frisierstube-mader-smartphone-1.png";
+import frisierstube_mader_smartphone_2 from "../../public/images/projects/frisierstube-mader/frisierstube-mader-smartphone-2.png";
 
 import fuelprices_laptop from "../../public/images/projects/fuelprices/fuelprices-laptop.png";
 import fuelprices_smartphone_1 from "../../public/images/projects/fuelprices/fuelprices-smartphone-2.png";
@@ -36,7 +39,7 @@ const myProjects = [
   {
     title: "Frisierstube Ursula Mader ✂️ - Website",
     zeitraum: "Aug. 2023",
-    bg: frisierstube_bg,
+    bg: frisierstube_mader_bg,
     text: [
       "frisierstube-mader.text.p1",
       "frisierstube-mader.text.p2",
@@ -50,7 +53,11 @@ const myProjects = [
         link: "https://github.com/simonmader17/frisierstube-mader-v4",
       },
     ],
-    images: [],
+    images: [
+      frisierstube_mader_smartphone_1,
+      frisierstube_mader_laptop,
+      frisierstube_mader_smartphone_2,
+    ],
   },
   {
     title: "Fuelprices ⛽",

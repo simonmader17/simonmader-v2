@@ -1,3 +1,4 @@
+import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import Image from "next/image";
 import Container from "../../components/Container";
@@ -5,19 +6,15 @@ import Container from "../../components/Container";
 import icon from "../../public/images/blur-fit-privacy-policy/icon.png";
 
 const BlurFitPrivacyPolicyPage = () => {
+  const { t } = useTranslation("blur-fit-privacy-policy");
+
   return (
     <>
       <Head>
-        <title>Blur Fit Privacy Policy</title>
-        <meta
-          name="description"
-          content="Privacy policy of the app i created, called Blur Fit"
-        />
-        <meta property="og:title" content="Blur Fit Privacy Policy" />
-        <meta
-          property="og:description"
-          content="Privacy policy of the app i created, called Blur Fit"
-        />
+        <title>{t("title")}</title>
+        <meta name="description" content={t("description")} />
+        <meta property="og:title" content={t("title")} />
+        <meta property="og:description" content={t("description")} />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
@@ -43,11 +40,11 @@ const BlurFitPrivacyPolicyPage = () => {
         </div>
 
         <h1 className="drop-shadow-pixel-sm mt-5 mb-5 text-center md:mt-10">
-          Blur Fit Privacy Policy
+          {t("title")}
         </h1>
 
         <div className="text-center text-lg">
-          <p>{"Blur Fit doesn't collect data in any way."}</p>
+          <p>{t("description")}</p>
         </div>
       </Container>
     </>

@@ -14,6 +14,7 @@
     ],
     "/diploma-thesis": ["diploma-thesis"],
     "/projects": ["projects"],
-    "rgx:/blog*": ["blog"]
+    "rgx:/blog*": ["blog"],
+    "/blur-fit-privacy-policy": ["blur-fit-privacy-policy"]
   }
 }
