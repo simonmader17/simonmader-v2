@@ -22,7 +22,7 @@ const BlogListItem = ({ post }) => {
     <div className="drop-shadow-pixel">
       <Link href={`/blog/${post.slug}`} passHref>
         <a
-          className="clip-rounded-pixel group relative my-8 block cursor-pointer  select-none bg-black bg-opacity-50 md:flex md:justify-between"
+          className="clip-rounded-pixel group relative mx-4 my-8 block cursor-pointer  select-none bg-black bg-opacity-50 md:flex md:justify-between"
           onPointerDown={(e) => createRipple(e)}
         >
           <div className="p-6">
