@@ -12,7 +12,7 @@ const BackButton = () => {
       onPointerDown={(e) => createRipple(e)}
       onClick={() =>
         router.push(
-          router.pathname.substring(0, router.pathname.lastIndexOf("/") + 1)
+          router.pathname.substring(0, router.pathname.lastIndexOf("/")) || "/"
         )
       }
     >

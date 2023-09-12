@@ -13,6 +13,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import sizeOf from "image-size";
 import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 export async function getStaticPaths({ locales }) {
   const paths = [];
@@ -155,6 +156,8 @@ const Post = ({ post }) => {
 
   const { t } = useTranslation("blog");
 
+  const locale = useRouter().locale;
+
   return (
     <>
       <Head>
@@ -208,7 +211,14 @@ const Post = ({ post }) => {
             </div>
           </div>
           <p className="md:text-center">
-            📅 {t("published_on")}: {data.publishedOn || "unpublished"}
+            📅 {t("published_on")}:{" "}
+            {data.publishedOn
+              ? new Date(data.publishedOn).toLocaleString(locale, {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })
+              : "unpublished"}
           </p>
           <p>
             👀 {t("views")}:{" "}
