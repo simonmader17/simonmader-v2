@@ -61,7 +61,7 @@ const BlogListItem = ({ post }) => {
           <div className="clip-rounded-pixel ltmd:w-full relative -z-10 aspect-video md:min-h-[12rem]">
             <Image
               src={post.thumbnailPath}
-              alt={post.title}
+              alt={post.data.title}
               layout="fill"
               objectFit="cover"
               objectPosition="center"
