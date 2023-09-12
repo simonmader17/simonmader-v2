@@ -1,5 +1,3 @@
-import moment from "moment";
-import "moment/locale/de";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
@@ -31,7 +29,7 @@ const Certificate = ({
 }: CertificateInterface) => {
   const { t } = useTranslation("certificates");
 
-  moment.locale(useRouter().locale);
+  const locale = useRouter().locale;
 
   return (
     <div className="md:drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6">
@@ -54,11 +52,17 @@ const Certificate = ({
         <p className={"text-gray-400"}>{company}</p>
         <p className={"text-gray-400"}>
           {from
-            ? t("from") + ": " + moment(from).format("MMMM YYYY")
+            ? t("from") +
+              ": " +
+              from.toLocaleString(locale, { month: "long", year: "numeric" })
             : t("no_from")}
         </p>
         <p className={"text-gray-400"}>
-          {to ? t("to") + ": " + moment(to).format("MMMM YYYY") : t("no_to")}
+          {to
+            ? t("to") +
+              ": " +
+              to.toLocaleString(locale, { month: "long", year: "numeric" })
+            : t("no_to")}
         </p>
         {id && <p className={"text-gray-400"}>{t("id") + ": " + id}</p>}
         {url && (

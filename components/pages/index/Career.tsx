@@ -1,4 +1,3 @@
-import moment from "moment";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
 import { useRouter } from "next/router";
@@ -14,8 +13,8 @@ import gemeinde_bg from "../../../public/images/background_images/gemeinde.jpg";
 interface JobInterface {
   position: string | JSX.Element;
   firma: string;
-  from: moment.Moment;
-  to?: moment.Moment;
+  from: Date | string;
+  to?: Date | string;
   ort: string;
   bg: StaticImageData;
   info?: JSX.Element;
@@ -24,12 +23,28 @@ interface JobInterface {
 const Job = ({ position, firma, from, to, ort, bg, info }: JobInterface) => {
   const [showInfo, setShowInfo] = useState(false);
 
-  moment.locale(useRouter().locale);
+  const locale = useRouter().locale;
 
   const fromFormat =
-    from.date() == 1 ? from.format("MMMM YYYY") : from.format("Do MMM YYYY");
+    typeof from === "string"
+      ? from
+      : from.getDate() == 1
+      ? from.toLocaleString(locale, { month: "long", year: "numeric" })
+      : from.toLocaleString(locale, {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
   const toFormat =
-    to?.date() == 1 ? to?.format("MMMM YYYY") : to?.format("Do MMM YYYY");
+    typeof to === "string"
+      ? to
+      : to?.getDate() == 1
+      ? to?.toLocaleString(locale, { month: "long", year: "numeric" })
+      : to?.toLocaleString(locale, {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
 
   return (
     <BlurredBgImageContainer
@@ -83,8 +98,8 @@ const Career = () => {
             />
           }
           firma={t("asboe.firma")}
-          from={moment("2021-09")}
-          to={moment("2022-05")}
+          from={new Date("2021-09")}
+          to={new Date("2022-05")}
           ort={t("asboe.ort")}
           bg={asboe_bg}
           info={
@@ -99,7 +114,7 @@ const Career = () => {
         <Job
           position={t("bso.position")}
           firma={t("bso.firma")}
-          from={moment("2020-07")}
+          from={new Date("2020-07")}
           ort={t("bso.ort")}
           bg={bso_bg}
           info={
@@ -128,7 +143,7 @@ const Career = () => {
         <Job
           position={t("geberit.position")}
           firma={t("geberit.firma")}
-          from={moment("2018-07")}
+          from={new Date("2018-07")}
           ort={t("geberit.ort")}
           bg={geberit_bg}
           info={
@@ -155,8 +170,8 @@ const Career = () => {
         <Job
           position={t("gemeinde.position")}
           firma={t("gemeinde.firma")}
-          from={moment("2017-07-17")}
-          to={moment("2017-08-13")}
+          from={new Date("2017-07-17")}
+          to={new Date("2017-08-13")}
           ort={t("gemeinde.ort")}
           bg={gemeinde_bg}
           info={

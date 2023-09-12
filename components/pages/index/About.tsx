@@ -1,12 +1,13 @@
-import moment from "moment";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 
 import about_bg from "../../../public/images/personal_images/ich_5.jpg";
 
 const About = () => {
-  const calculateAge = (): number => {
-    return moment().diff("2002-02-17", "years");
+  const calculateAge = (birthday: Date): number => {
+    return (
+      new Date(new Date().getTime() - birthday.getTime()).getFullYear() - 1970
+    );
   };
 
   const { t } = useTranslation("about");
@@ -20,7 +21,9 @@ const About = () => {
             <p className="text-xl font-bold text-red-400 md:text-2xl">
               {t("p1")}
             </p>
-            <p className="ltmd:text-sm">{t("p2", { age: calculateAge() })}</p>
+            <p className="ltmd:text-sm">
+              {t("p2", { age: calculateAge(new Date("2002-02-17")) })}
+            </p>
             <p className="ltmd:text-sm">{t("p3")}</p>
             <p className="ltmd:text-sm">{t("p4")}</p>
           </div>

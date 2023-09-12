@@ -7,17 +7,42 @@ import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 import tu_bg from "../../../public/images/background_images/tu.jpg";
 import htl_bg from "../../../public/images/background_images/htl.jpg";
 import borg_bg from "../../../public/images/background_images/borg.jpg";
+import { useRouter } from "next/router";
 
 interface SchoolInterface {
   name: string;
   zweig: string;
-  zeitraum: string;
+  from: Date | string;
+  to?: Date | string;
   bg: StaticImageData;
   info?: JSX.Element;
 }
 
-const School = ({ name, zweig, zeitraum, bg, info }: SchoolInterface) => {
+const School = ({ name, zweig, from, to, bg, info }: SchoolInterface) => {
   const [showInfo, setShowInfo] = useState(false);
+
+  const locale = useRouter().locale;
+
+  const fromFormat =
+    typeof from === "string"
+      ? from
+      : from.getDate() == 1
+      ? from.toLocaleString(locale, { month: "long", year: "numeric" })
+      : from.toLocaleString(locale, {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
+  const toFormat =
+    typeof to === "string"
+      ? to
+      : to?.getDate() == 1
+      ? to?.toLocaleString(locale, { month: "long", year: "numeric" })
+      : to?.toLocaleString(locale, {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
 
   return (
     <BlurredBgImageContainer
@@ -28,7 +53,9 @@ const School = ({ name, zweig, zeitraum, bg, info }: SchoolInterface) => {
     >
       <p className="text-lg text-red-400 md:text-xl">{name}</p>
       <p className="ltmd:text-sm">{zweig}</p>
-      <p className="ltmd:text-sm">{zeitraum}</p>
+      <p className="ltmd:text-sm">
+        {fromFormat} {to && <>&ndash; {toFormat}</>}
+      </p>
       {info && (
         <>
           <div className="ltmd:text-sm xl:hidden">
@@ -43,6 +70,7 @@ const School = ({ name, zweig, zeitraum, bg, info }: SchoolInterface) => {
 
 const Education = () => {
   const { t } = useTranslation("education");
+  const { t: meta } = useTranslation("meta");
 
   return (
     <>
@@ -51,7 +79,8 @@ const Education = () => {
         <School
           name={t("tu.name")}
           zweig={t("tu.zweig")}
-          zeitraum={t("tu.zeitraum")}
+          from={new Date("2022-10")}
+          to={meta("now")}
           bg={tu_bg}
           info={
             <ul className="ml-4 list-disc">
@@ -64,7 +93,8 @@ const Education = () => {
         <School
           name="HTL St. Pölten"
           zweig={t("htl.zweig")}
-          zeitraum="2016 &ndash; 2021"
+          from={"2016"}
+          to={"2021"}
           bg={htl_bg}
           info={
             <ul className="ml-4 list-disc">
@@ -91,7 +121,8 @@ const Education = () => {
         <School
           name="BRG St. Pölten"
           zweig={t("borg.zweig")}
-          zeitraum="2012 &ndash; 2016"
+          from={"2012"}
+          to={"2016"}
           bg={borg_bg}
           info={
             <ul className="ml-4 list-disc">
