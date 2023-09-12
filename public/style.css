@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?g74ker');
-  src:  url('fonts/icomoon.eot?g74ker#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?g74ker') format('truetype'),
-    url('fonts/icomoon.woff?g74ker') format('woff'),
-    url('fonts/icomoon.svg?g74ker#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?krh9m0');
+  src:  url('fonts/icomoon.eot?krh9m0#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?krh9m0') format('truetype'),
+    url('fonts/icomoon.woff?krh9m0') format('woff'),
+    url('fonts/icomoon.svg?krh9m0#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -163,6 +163,10 @@
 }
 .icon-brave-white:before {
   content: "\e923";
+}
+.icon-tailwindcss:before {
+  content: "\e924";
+  color: #38b2ac;
 }
 .icon-database:before {
   content: "\e964";

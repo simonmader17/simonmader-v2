@@ -239,6 +239,11 @@ const Qualifications = () => {
             title: "CSS",
           },
           {
+            logo: "tailwindcss",
+            link: "https://tailwindcss.com/",
+            title: "Tailwind CSS",
+          },
+          {
             logo: "sass",
             link: "https://sass-lang.com/",
             title: "Sass",

@@ -38,12 +38,18 @@ const myProjects = [
     zeitraum: "Aug. 2023",
     bg: frisierstube_bg,
     text: [
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ipsum iusto itaque facilis, laboriosam ex, ratione eaque eum vel fugiat officiis ea sed libero obcaecati labore, eos tempore voluptatibus consequatur!",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ipsum iusto itaque facilis, laboriosam ex, ratione eaque eum vel fugiat officiis ea sed libero obcaecati labore, eos tempore voluptatibus consequatur!",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ipsum iusto itaque facilis, laboriosam ex, ratione eaque eum vel fugiat officiis ea sed libero obcaecati labore, eos tempore voluptatibus consequatur!",
+      "frisierstube-mader.text.p1",
+      "frisierstube-mader.text.p2",
+      "frisierstube-mader.text.p3",
     ],
     tags: ["Astro", "Tailwind CSS"],
-    links: [{ text: "Website", link: "https://frisierstube-mader.at" }],
+    links: [
+      { text: "Website", link: "https://frisierstube-mader.simonmader.at" },
+      {
+        text: "Source Code",
+        link: "https://github.com/simonmader17/frisierstube-mader-v4",
+      },
+    ],
     images: [],
   },
   {

@@ -1,5 +1,12 @@
 {
   "heading": "Projekte",
+  "frisierstube-mader": {
+    "text": {
+      "p1": "Bei diesem Projekt handelt es sich um eine Website für den Friseursalon meiner Mutter.",
+      "p2": "Ich habe mich bei der Umsetzung für das Astro Framework entschieden, da mich die Performance überzeugt hat und ich sehr an der experimentellen View Transitions API Implementierung interessiert war.",
+      "p3": "Für die Gestaltung der Website habe ich Tailwind CSS verwendet. 🎨"
+    }
+  },
   "fuelprices": {
     "text": {
       "p1": "Meine Fuelprices Applikation besteht aus einem Python Webscraper, der stündlich die aktuellen Benzinpreise der Avanti und Jet Tankstellen in St. Pölten liest und in eine PostgreSQL Datenbank speichert.",
