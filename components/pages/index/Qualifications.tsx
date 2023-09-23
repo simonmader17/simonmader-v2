@@ -66,7 +66,7 @@ const Others = ({ qualifications }: OthersInterface) => {
   }
 
   return (
-    <div className="md:drop-shadow-3xl relative m-4 flex max-w-full flex-wrap items-center justify-around gap-8 p-10 xl:gap-16">
+    <div className="md:drop-shadow-3xl relative m-4 flex max-w-full flex-wrap items-center justify-around gap-8 p-10 xl:gap-14">
       {items}
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-black bg-opacity-50" />
     </div>
