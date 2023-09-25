@@ -16,6 +16,10 @@ module.exports = {
         gmail: "#DC4234",
         linkedin: "#0274B3",
         github: "#525252",
+        red: {
+          450: "#f45b5b",
+          550: "#e63535",
+        },
       },
       fontFamily: {
         SfPixelate: "SfPixelate",

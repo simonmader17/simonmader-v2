@@ -158,6 +158,22 @@ const Post = ({ post }) => {
 
   const locale = useRouter().locale;
 
+  const animateProgressBar = () => {
+    const bodyRect = document.body.getBoundingClientRect();
+    const scrollDistance = -bodyRect.top;
+    const fullDistance = bodyRect.height - window.innerHeight;
+    const progressBar = document.querySelector(
+      "#progress-bar"
+    ) as HTMLDivElement;
+    const progressWidth = (scrollDistance / fullDistance) * 100;
+    progressBar.style.width = `${progressWidth}%`;
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", animateProgressBar);
+    return () => window.removeEventListener("scroll", animateProgressBar);
+  }, []);
+
   return (
     <>
       <Head>
@@ -175,6 +191,14 @@ const Post = ({ post }) => {
           content={`https://simonmader.at/blog/${slug}`}
         />
       </Head>
+
+      <div
+        id="progress-bar"
+        className="from-red-450 to-red-550 fixed top-0 left-0 z-50 h-1 bg-gradient-to-br drop-shadow md:h-2"
+        style={{
+          width: "0%",
+        }}
+      ></div>
 
       <Container className="ltmd:mt-20">
         <h1 className="drop-shadow-pixel-sm mt-5 text-center md:mt-10">
