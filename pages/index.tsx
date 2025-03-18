@@ -3,7 +3,6 @@ import Head from "next/head";
 import About from "../components/pages/index/About";
 import Career from "../components/pages/index/Career";
 import Certificates from "../components/pages/index/Certificates";
-import ChromeNotification from "../components/pages/index/ChromeNotification";
 import Container from "../components/Container";
 import Education from "../components/pages/index/Education";
 import Others from "../components/pages/index/Others";
@@ -28,8 +27,6 @@ const IndexPage = () => {
         />
         <meta property="og:url" content="https://simonmader.at" />
       </Head>
-
-      <ChromeNotification />
 
       <IndexHeader />
 
