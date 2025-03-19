@@ -19,7 +19,7 @@ const DiplomaThesisPage = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://simonmader.at/images/projects/diploma-thesis/diploma-thesis-laptop.png"
+          content="https://simonmader.at/images/projects/diploma-thesis/diploma-thesis-laptop.webp"
         />
         <meta
           property="og:url"

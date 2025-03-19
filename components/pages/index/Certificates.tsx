@@ -2,9 +2,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
 
-import oracle_logo from "../../../public/images/logos/oracle.png";
-import cambridge_logo from "../../../public/images/logos/cambridge_assessment_english.png";
-import lpi_logo from "../../../public/images/logos/linux_professional_institute.png";
+import oracle_logo from "../../../public/images/logos/oracle.webp";
+import cambridge_logo from "../../../public/images/logos/cambridge_assessment_english.webp";
+import lpi_logo from "../../../public/images/logos/linux_professional_institute.webp";
 
 interface CertificateInterface {
   name: string;
@@ -33,7 +33,7 @@ const Certificate = ({
 
   return (
     <div className="md:drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6">
-      <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-black bg-opacity-50" />
+      <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-secondary bg-opacity-50" />
       <div className="flex-shrink-0">
         <a href={companyUrl} target="_blank" rel="noreferrer" title={company}>
           <div className="relative h-12 w-12">
@@ -49,24 +49,24 @@ const Certificate = ({
       </div>
       <div>
         <div className={"text-xl"}>{name}</div>
-        <p className={"text-gray-400"}>{company}</p>
-        <p className={"text-gray-400"}>
+        <p className={"text-gray"}>{company}</p>
+        <p className={"text-gray"}>
           {from
             ? t("from") +
               ": " +
               from.toLocaleString(locale, { month: "long", year: "numeric" })
             : t("no_from")}
         </p>
-        <p className={"text-gray-400"}>
+        <p className={"text-gray"}>
           {to
             ? t("to") +
               ": " +
               to.toLocaleString(locale, { month: "long", year: "numeric" })
             : t("no_to")}
         </p>
-        {id && <p className={"text-gray-400"}>{t("id") + ": " + id}</p>}
+        {id && <p className={"text-gray"}>{t("id") + ": " + id}</p>}
         {url && (
-          <p className={"text-gray-400"}>
+          <p className={"text-gray"}>
             <a
               className={"my-link"}
               href={url}

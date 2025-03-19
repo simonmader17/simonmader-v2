@@ -21,7 +21,7 @@ const NavbarItemWithSubRefs = ({ title, subRefs }) => {
   return (
     <>
       <span
-        className="relative flex h-full cursor-pointer items-center justify-center overflow-hidden px-5 font-bold hover:bg-white hover:bg-opacity-20"
+        className="relative flex h-full cursor-pointer items-center justify-center overflow-hidden px-5 font-bold hover:bg-fg hover:bg-opacity-20"
         onPointerDown={(e) => createRipple(e)}
         onClick={() => setOpen((open) => !open)}
       >
@@ -59,7 +59,7 @@ const NavbarItemWithSubRefs = ({ title, subRefs }) => {
 
       {subRefs && (
         <motion.div
-          className="bg-body bg-hero-brick-wall-purple ltmd:bottom-16 ltmd:origin-bottom absolute left-0 -z-10 flex flex-col border-2 border-black md:top-16"
+          className="bg-primary bg-hero-brick-wall-primary ltmd:bottom-16 ltmd:origin-bottom absolute left-0 -z-10 flex flex-col border-2 border-secondary md:top-16"
           animate={open ? "open" : "closed"}
           variants={variants}
           initial={false}
@@ -67,7 +67,7 @@ const NavbarItemWithSubRefs = ({ title, subRefs }) => {
           {subRefs.map((subRef) => (
             <span
               key={subRef.title}
-              className="relative w-full cursor-pointer overflow-hidden px-5 py-1 text-left hover:bg-white hover:bg-opacity-20"
+              className="relative w-full cursor-pointer overflow-hidden px-5 py-1 text-left hover:bg-fg hover:bg-opacity-20"
               onPointerDown={(e) => createRipple(e)}
               onClick={() =>
                 window.scrollTo({

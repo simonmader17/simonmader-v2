@@ -6,20 +6,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        headerFooter: "#282c34",
-        body: "#070b2e",
-        bodyBright: "#3d2b7a",
-        purple: "#3D2B7A",
-        blended: "#221B54",
-        darkblue: "#070b2e",
+				// Theme colors
+				fg: "#fbf1c7",
+				gray: "#a89984",
+        primary: "#282828",
+				secondary: "#3c3836",
+        accent: "#fb4934",
+				// active: "#83a598",
+				active: "#b8bb26",
+				// Icon colors
         brave: "#FE3516",
         gmail: "#DC4234",
         linkedin: "#0274B3",
         github: "#525252",
-        red: {
-          450: "#f45b5b",
-          550: "#e63535",
-        },
       },
       fontFamily: {
         SfPixelate: "SfPixelate",
@@ -38,8 +37,8 @@ module.exports = {
       dropShadow: {
         "3xl": "0 0 5rem rgba(0, 0, 0, .3)",
         "4xl": "0 0 6rem rgba(0, 0, 0, .5)",
-        pixel: ".5rem .5rem 0 rgba(0, 0, 0, .5)",
-        "pixel-sm": ".25rem .25rem 0 rgba(0, 0, 0, .5)",
+        pixel: ".5rem .5rem 0 rgb(from #221811 r g b / 50%)",
+        "pixel-sm": ".25rem .25rem 0 rgb(from #221811 r g b / 50%)",
       },
       keyframes: {
         "fade-in": {
@@ -71,8 +70,10 @@ module.exports = {
       variants: [],
       patterns: [],
       colors: {
-        default: "#9C92AC",
-        purple: "#3D2B7A",
+				primary: "#3c3836",
+				secondary: "#504945",
+        default: "#5f4330",
+        purple: "#9d6e4e",
       },
       opacity: {
         default: 0.4,

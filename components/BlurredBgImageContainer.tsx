@@ -28,7 +28,7 @@ const BlurredBgImageContainer = ({
           </div>
         ) : null}
         <div
-          className={`absolute inset-0 z-0 bg-black ${
+          className={`clip-rounded-pixel absolute inset-0 z-0 bg-secondary ${
             bgSrc ? "bg-opacity-70" : "bg-opacity-50 backdrop-blur"
           }`}
         ></div>

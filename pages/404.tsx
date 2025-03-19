@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-import pogo from "../public/images/PogO.png";
+import pogo from "../public/images/PogO.webp";
 
 const Custom404Page = () => {
   return (
     <div className="flex h-screen flex-col items-center justify-center md:flex-row">
-      <h1 className="font-Graph35 text-center text-2xl text-white">
+      <h1 className="font-Graph35 text-center text-2xl text-fg">
         404 &mdash; That page doesn&apos;t exist
       </h1>
       <div className="relative m-8 h-16 w-16">

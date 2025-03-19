@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Container from "../../components/Container";
 
-import icon from "../../public/images/blur-fit-privacy-policy/icon.png";
+import icon from "../../public/images/blur-fit-privacy-policy/icon.webp";
 
 const BlurFitPrivacyPolicyPage = () => {
   const { t } = useTranslation("blur-fit-privacy-policy");
@@ -18,7 +18,7 @@ const BlurFitPrivacyPolicyPage = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://simonmader.at/images/blur-fit-privacy-policy/icon.png"
+          content="https://simonmader.at/images/blur-fit-privacy-policy/icon.webp"
         />
         <meta
           property="og:url"
@@ -27,7 +27,7 @@ const BlurFitPrivacyPolicyPage = () => {
       </Head>
 
       <Container className="ltmd:mt-20">
-        <div className="drop-shadow-pixel relative mx-auto mt-10 h-36 w-36">
+        <div className="relative mx-auto mt-10 h-36 w-36 drop-shadow-pixel">
           <Image
             src={icon}
             alt="App icon"
@@ -39,7 +39,7 @@ const BlurFitPrivacyPolicyPage = () => {
           />
         </div>
 
-        <h1 className="drop-shadow-pixel-sm mt-5 mb-5 text-center md:mt-10">
+        <h1 className="mt-5 mb-5 text-center drop-shadow-pixel-sm md:mt-10">
           {t("title")}
         </h1>
 

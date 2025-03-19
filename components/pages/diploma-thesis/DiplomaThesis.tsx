@@ -243,7 +243,7 @@ const DiplomaThesis = () => {
           // Controls for the pdf
           <>
             <button
-              className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm absolute top-10 right-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-black transition-opacity"
+              className="bg-hero-brick-wall-primary bg-primary drop-shadow-pixel-sm absolute top-10 right-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary transition-opacity"
               style={{ opacity: showToolbar ? "1" : "0" }}
               onClick={() => router.push("/diploma-thesis.pdf")}
               title="Open in native viewer"
@@ -257,7 +257,7 @@ const DiplomaThesis = () => {
               }}
             >
               <button
-                className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
+                className="bg-hero-brick-wall-primary bg-primary drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-secondary text-xl md:text-3xl"
                 onClick={() => {
                   if (pageNumber == 0) {
                     setPageNumber(pages[0]);
@@ -277,7 +277,7 @@ const DiplomaThesis = () => {
                 {"<"}
               </button>
               <span
-                className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-2 border-black px-4"
+                className="bg-hero-brick-wall-primary bg-primary drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-2 border-secondary px-4"
                 onClick={() => gotoPageInputEl.current.focus()}
               >
                 <input
@@ -332,7 +332,7 @@ const DiplomaThesis = () => {
                 </label>
               </span>
               <button
-                className="bg-hero-brick-wall-purple bg-body drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-black text-xl md:text-3xl"
+                className="bg-hero-brick-wall-primary bg-primary drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-secondary text-xl md:text-3xl"
                 onClick={() => {
                   if (pageNumber == 0) {
                     setPageNumber(pages[0]);

@@ -5,7 +5,7 @@ const NavbarItemWithoutSubRefs = ({ title, link }) => {
   return (
     <Link href={link} passHref>
       <a
-        className="relative flex h-full cursor-pointer items-center justify-center overflow-hidden px-5 hover:bg-white hover:bg-opacity-20"
+        className="relative flex h-full cursor-pointer items-center justify-center overflow-hidden px-5 hover:bg-fg hover:bg-opacity-20"
         onPointerDown={(e) => createRipple(e)}
       >
         {title}

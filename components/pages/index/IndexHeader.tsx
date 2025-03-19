@@ -4,10 +4,10 @@ import Header from "../_app/Header";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
-import ich from "../../../public/images/personal_images/ich_3.jpg";
-import ich3 from "../../../public/images/personal_images/ich.png";
-import ich4 from "../../../public/images/personal_images/ich_4.jpg";
-import ich5 from "../../../public/images/personal_images/ich_5.jpg";
+import ich from "../../../public/images/personal_images/ich_3.webp";
+import ich3 from "../../../public/images/personal_images/ich.webp";
+import ich4 from "../../../public/images/personal_images/ich_4.webp";
+import ich5 from "../../../public/images/personal_images/ich_5.webp";
 
 const images = [ich, ich3, ich5, ich4];
 

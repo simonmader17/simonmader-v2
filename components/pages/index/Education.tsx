@@ -4,9 +4,9 @@ import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
 import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
-import tu_bg from "../../../public/images/background_images/tu.jpg";
-import htl_bg from "../../../public/images/background_images/htl.jpg";
-import borg_bg from "../../../public/images/background_images/borg.jpg";
+import tu_bg from "../../../public/images/background_images/tu.webp";
+import htl_bg from "../../../public/images/background_images/htl.webp";
+import borg_bg from "../../../public/images/background_images/borg.webp";
 import { useRouter } from "next/router";
 
 interface SchoolInterface {
@@ -51,7 +51,7 @@ const School = ({ name, zweig, from, to, bg, info }: SchoolInterface) => {
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <p className="text-lg text-red-400 md:text-xl">{name}</p>
+      <p className="text-lg text-accent md:text-xl">{name}</p>
       <p className="ltmd:text-sm">{zweig}</p>
       <p className="ltmd:text-sm">
         {fromFormat} {to && <>&ndash; {toFormat}</>}
@@ -84,9 +84,9 @@ const Education = () => {
           bg={tu_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">{t("tu.info.li1")}</li>
-              <li className="text-gray-400">{t("tu.info.li2")}</li>
-              <li className="text-gray-400">{t("tu.info.li3")}</li>
+              <li className="text-gray">{t("tu.info.li1")}</li>
+              <li className="text-gray">{t("tu.info.li2")}</li>
+              <li className="text-gray">{t("tu.info.li3")}</li>
             </ul>
           }
         />
@@ -98,9 +98,9 @@ const Education = () => {
           bg={htl_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">{t("htl.info.li1")}</li>
-              <li className="text-gray-400">{t("htl.info.li2")}</li>
-              <li className="text-gray-400">
+              <li className="text-gray">{t("htl.info.li1")}</li>
+              <li className="text-gray">{t("htl.info.li2")}</li>
+              <li className="text-gray">
                 <Trans
                   i18nKey="education:htl.info.li3"
                   components={[
@@ -126,7 +126,7 @@ const Education = () => {
           bg={borg_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">{t("borg.info.li1")}</li>
+              <li className="text-gray">{t("borg.info.li1")}</li>
             </ul>
           }
         />

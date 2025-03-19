@@ -194,7 +194,7 @@ const Post = ({ post }) => {
 
       <div
         id="progress-bar"
-        className="from-red-450 to-red-550 fixed top-0 left-0 z-50 h-1 bg-gradient-to-br drop-shadow md:h-2"
+        className="bg-accent fixed top-0 left-0 z-50 h-1 bg-gradient-to-br drop-shadow md:h-2"
         style={{
           width: "0%",
         }}
@@ -273,7 +273,7 @@ const Post = ({ post }) => {
               className="clip-rounded-pixel"
             />
           </div>
-          <p className="mb-5 text-center text-gray-400 md:mb-10">
+          <p className="mb-5 text-center text-gray md:mb-10">
             {data.description}
           </p>
           <div id="blog-post-content">

@@ -9,7 +9,7 @@ const BackButton = () => {
   return (
     <button
       aria-label="Back button"
-      className="drop-shadow-pixel-sm bg-body bg-hero-brick-wall-purple fixed top-5 left-5 z-50 flex h-12 w-12 items-center justify-center overflow-hidden border-2 border-black"
+      className="drop-shadow-pixel-sm bg-primary bg-hero-brick-wall-primary fixed top-5 left-5 z-50 flex h-12 w-12 items-center justify-center overflow-hidden border-2 border-secondary"
       onPointerDown={(e) => createRipple(e)}
       onClick={() =>
         router.push(

@@ -23,8 +23,8 @@ const Project = ({
 }: ProjectInterface) => {
   return (
     <BlurredBgImageContainer bgSrc={bg} bgAlt={title} bgPosition="center">
-      <p className="ltmd:text-sm text-gray-400">{zeitraum}</p>
-      <p className="my-1 text-lg text-red-400 md:text-xl">{title}</p>
+      <p className="ltmd:text-sm text-gray">{zeitraum}</p>
+      <p className="my-1 text-lg text-accent md:text-xl">{title}</p>
       {text.map((s) => (
         <p key={s} className="ltmd:text-sm">
           {s}
@@ -34,7 +34,7 @@ const Project = ({
         {tags?.map((t) => "#" + t.replace(" ", "")).join(" ")}
       </p>
       {links && (
-        <p className="ltmd:text-sm mt-1 font-bold italic tracking-wider text-gray-400">
+        <p className="ltmd:text-sm mt-1 font-bold italic tracking-wider text-gray">
           {links
             .map((l) => (
               <Link key={l.link} href={l.link} passHref>
@@ -68,7 +68,7 @@ const Projects = () => {
         {t("heading")}
       </h2>
       <Link href="/projects" passHref>
-        <a className="my-link text-gray-400">{meta("detailed_view")}</a>
+        <a className="my-link text-gray">{meta("detailed_view")}</a>
       </Link>
       <div className="grid grid-cols-1 xl:grid-cols-2">
         {myProjects.map((p) => (

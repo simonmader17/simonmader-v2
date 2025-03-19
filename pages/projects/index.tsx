@@ -9,31 +9,31 @@ import { motion } from "framer-motion";
 import Header from "../../components/pages/_app/Header";
 import ProjectsSlider from "../../components/pages/index/ProjectsSlider";
 
-import frisierstube_mader_bg from "../../public/images/projects/frisierstube-mader/bg.jpg";
-import fuelprices_bg from "../../public/images/projects/fuelprices/logo.png";
-import blur_fit_bg from "../../public/images/background_images/blur-fit.png";
+import frisierstube_mader_bg from "../../public/images/projects/frisierstube-mader/bg.webp";
+import fuelprices_bg from "../../public/images/projects/fuelprices/logo.webp";
+import blur_fit_bg from "../../public/images/background_images/blur-fit.webp";
 import personal_website_bg from "../../public/images/personal_images/ich_2.jpeg";
-import diploma_thesis_bg from "../../public/images/background_images/diploma_thesis.jpg";
+import diploma_thesis_bg from "../../public/images/background_images/diploma_thesis.webp";
 
-import frisierstube_mader_laptop from "../../public/images/projects/frisierstube-mader/frisierstube-mader-laptop.png";
-import frisierstube_mader_smartphone_1 from "../../public/images/projects/frisierstube-mader/frisierstube-mader-smartphone-1.png";
-import frisierstube_mader_smartphone_2 from "../../public/images/projects/frisierstube-mader/frisierstube-mader-smartphone-2.png";
+import frisierstube_mader_laptop from "../../public/images/projects/frisierstube-mader/frisierstube-mader-laptop.webp";
+import frisierstube_mader_smartphone_1 from "../../public/images/projects/frisierstube-mader/frisierstube-mader-smartphone-1.webp";
+import frisierstube_mader_smartphone_2 from "../../public/images/projects/frisierstube-mader/frisierstube-mader-smartphone-2.webp";
 
-import fuelprices_laptop from "../../public/images/projects/fuelprices/fuelprices-laptop.png";
-import fuelprices_smartphone_1 from "../../public/images/projects/fuelprices/fuelprices-smartphone-2.png";
-import fuelprices_smartphone_2 from "../../public/images/projects/fuelprices/fuelprices-smartphone-1.png";
+import fuelprices_laptop from "../../public/images/projects/fuelprices/fuelprices-laptop.webp";
+import fuelprices_smartphone_1 from "../../public/images/projects/fuelprices/fuelprices-smartphone-2.webp";
+import fuelprices_smartphone_2 from "../../public/images/projects/fuelprices/fuelprices-smartphone-1.webp";
 
-import blur_fit_monitor from "../../public/images/projects/blur-fit/blur-fit-monitor.png";
-import blur_fit_smartphone_1 from "../../public/images/projects/blur-fit/blur-fit-smartphone-1.png";
-import blur_fit_smartphone_2 from "../../public/images/projects/blur-fit/blur-fit-smartphone-2.png";
+import blur_fit_monitor from "../../public/images/projects/blur-fit/blur-fit-monitor.webp";
+import blur_fit_smartphone_1 from "../../public/images/projects/blur-fit/blur-fit-smartphone-1.webp";
+import blur_fit_smartphone_2 from "../../public/images/projects/blur-fit/blur-fit-smartphone-2.webp";
 
-import personal_website_laptop from "../../public/images/projects/personal-website/personal-website-laptop.png";
-import personal_website_monitor from "../../public/images/projects/personal-website/personal-website-monitor.png";
-import personal_website_smartphone from "../../public/images/projects/personal-website/personal-website-smartphone-2.png";
+import personal_website_laptop from "../../public/images/projects/personal-website/personal-website-laptop.webp";
+import personal_website_monitor from "../../public/images/projects/personal-website/personal-website-monitor.webp";
+import personal_website_smartphone from "../../public/images/projects/personal-website/personal-website-smartphone-2.webp";
 
-import diploma_thesis_laptop from "../../public/images/projects/diploma-thesis/diploma-thesis-laptop.png";
-import diploma_thesis_tablet from "../../public/images/projects/diploma-thesis/diploma-thesis-tablet.png";
-import diploma_thesis_monitor from "../../public/images/projects/diploma-thesis/diploma-thesis-monitor.png";
+import diploma_thesis_laptop from "../../public/images/projects/diploma-thesis/diploma-thesis-laptop.webp";
+import diploma_thesis_tablet from "../../public/images/projects/diploma-thesis/diploma-thesis-tablet.webp";
+import diploma_thesis_monitor from "../../public/images/projects/diploma-thesis/diploma-thesis-monitor.webp";
 
 const myProjects = [
   {
@@ -200,7 +200,7 @@ const ProjectsPage = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://github.com/simonmader17.png"
+          content="https://github.com/simonmader17.webp"
         />
         <meta property="og:url" content="https://simonmader.at/projects" />
       </Head>
@@ -222,7 +222,7 @@ const ProjectsPage = () => {
           return (
             <motion.div
               key={p.title}
-              className="ltmd:left-0 fixed top-1/2 z-10 md:w-[36rem]"
+              className="fixed top-1/2 z-10 md:w-[36rem] ltmd:left-0"
               animate={{
                 y:
                   idx == show
@@ -293,7 +293,7 @@ const ProjectsPage = () => {
           ))}
         </div>
 
-        {/* <details className="text-sm text-gray-400">
+        {/* <details className="text-sm text-gray">
           <summary className="cursor-pointer font-bold">
             Device Mockups Sources
           </summary>

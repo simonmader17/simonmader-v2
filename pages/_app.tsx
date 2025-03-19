@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ParallaxProvider>
-      <SkeletonTheme baseColor="#0c0c0c" highlightColor="#000">
+      <SkeletonTheme baseColor="#221811" highlightColor="#5f4330">
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link
@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
           <meta property="og:site_name" content="simonmader.at" />
         </Head>
 
-        <div className="font-SfPixelate relative z-0 flex min-h-screen flex-col overflow-hidden text-center text-white">
+        <div className="font-SfPixelate relative z-0 flex min-h-screen flex-col overflow-hidden text-center text-fg">
           <Navbar />
 
           <ParallaxBackground className="ltmd:hidden" />

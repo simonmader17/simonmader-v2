@@ -5,10 +5,10 @@ import { useState } from "react";
 import Expand from "react-expand-animated";
 import BlurredBgImageContainer from "../../BlurredBgImageContainer";
 
-import asboe_bg from "../../../public/images/background_images/asboe.jpg";
-import bso_bg from "../../../public/images/background_images/bso.png";
-import geberit_bg from "../../../public/images/background_images/geberit.jpg";
-import gemeinde_bg from "../../../public/images/background_images/gemeinde.jpg";
+import asboe_bg from "../../../public/images/background_images/asboe.webp";
+import bso_bg from "../../../public/images/background_images/bso.webp";
+import geberit_bg from "../../../public/images/background_images/geberit.webp";
+import gemeinde_bg from "../../../public/images/background_images/gemeinde.webp";
 
 interface JobInterface {
   position: string | JSX.Element;
@@ -53,8 +53,8 @@ const Job = ({ position, firma, from, to, ort, bg, info }: JobInterface) => {
       onMouseEnter={() => setShowInfo(true)}
       onMouseLeave={() => setShowInfo(false)}
     >
-      <p className="ltmd:text-sm text-gray-400">{position}</p>
-      <p className="text-lg text-red-400 md:text-xl">{firma}</p>
+      <p className="text-gray ltmd:text-sm">{position}</p>
+      <p className="text-lg text-accent md:text-xl">{firma}</p>
       {to ? (
         <p className="ltmd:text-sm">
           {fromFormat} &ndash; {toFormat}
@@ -65,7 +65,7 @@ const Job = ({ position, firma, from, to, ort, bg, info }: JobInterface) => {
       <p className="ltmd:text-sm">{ort}</p>
       {info && (
         <>
-          <div className="ltmd:text-sm xl:hidden">
+          <div className="xl:hidden ltmd:text-sm">
             <Expand open={showInfo}>{info}</Expand>
           </div>
           <div className="ltxl:hidden">{info}</div>
@@ -104,10 +104,10 @@ const Career = () => {
           bg={asboe_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">{t("asboe.info.li1")}</li>
-              <li className="text-gray-400">{t("asboe.info.li2")}</li>
-              <li className="text-gray-400">{t("asboe.info.li3")}</li>
-              <li className="text-gray-400">{t("asboe.info.li4")}</li>
+              <li className="text-gray">{t("asboe.info.li1")}</li>
+              <li className="text-gray">{t("asboe.info.li2")}</li>
+              <li className="text-gray">{t("asboe.info.li3")}</li>
+              <li className="text-gray">{t("asboe.info.li4")}</li>
             </ul>
           }
         />
@@ -119,8 +119,8 @@ const Career = () => {
           bg={bso_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">{t("bso.info.li1")}</li>
-              <li className="text-gray-400">
+              <li className="text-gray">{t("bso.info.li1")}</li>
+              <li className="text-gray">
                 <Trans
                   i18nKey="career:bso.info.li2"
                   components={[
@@ -135,8 +135,8 @@ const Career = () => {
                   ]}
                 />
               </li>
-              <li className="text-gray-400">{t("bso.info.li3")}</li>
-              <li className="text-gray-400">{t("bso.info.li4")}</li>
+              <li className="text-gray">{t("bso.info.li3")}</li>
+              <li className="text-gray">{t("bso.info.li4")}</li>
             </ul>
           }
         />
@@ -148,8 +148,8 @@ const Career = () => {
           bg={geberit_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">{t("geberit.info.li1")}</li>
-              <li className="text-gray-400">
+              <li className="text-gray">{t("geberit.info.li1")}</li>
+              <li className="text-gray">
                 <Trans
                   i18nKey="career:geberit.info.li2"
                   components={[
@@ -176,7 +176,7 @@ const Career = () => {
           bg={gemeinde_bg}
           info={
             <ul className="ml-4 list-disc">
-              <li className="text-gray-400">{t("gemeinde.info.li1")}</li>
+              <li className="text-gray">{t("gemeinde.info.li1")}</li>
             </ul>
           }
         />

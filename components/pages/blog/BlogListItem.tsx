@@ -19,14 +19,14 @@ const BlogListItem = ({ post }) => {
   const locale = useRouter().locale;
 
   return (
-    <div className="drop-shadow-pixel">
+    <div>
       <Link href={`/blog/${post.slug}`} passHref>
         <a
           className="clip-rounded-pixel group relative mx-4 my-8 block cursor-pointer  select-none bg-black bg-opacity-50 md:flex md:justify-between"
           onPointerDown={(e) => createRipple(e)}
         >
           <div className="p-6">
-            <p className="mb-2 flex justify-between text-sm text-gray-400">
+            <p className="mb-2 flex justify-between text-sm text-gray">
               <span>
                 📅{" "}
                 {post.data.publishedOn
@@ -52,9 +52,9 @@ const BlogListItem = ({ post }) => {
                 )}
               </span>
             </p>
-            <p className="text-red-400 md:text-lg">{post.data.title}</p>
+            <p className="text-accent md:text-lg">{post.data.title}</p>
             <p className="text-sm">{post.data.description}</p>
-            <span className="my-link mt-2 inline-block text-gray-400">
+            <span className="my-link mt-2 inline-block text-gray">
               {t("read_more")}
             </span>
           </div>

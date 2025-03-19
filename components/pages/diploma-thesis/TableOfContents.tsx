@@ -13,8 +13,8 @@ const TableOfContentsItem = ({ sub = false, children, ...props }) => {
       ref={pRef}
       className={
         sub
-          ? "ltmd:text-xs relative ml-6 flex cursor-pointer justify-between gap-8 overflow-hidden rounded-xl p-2 text-sm transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
-          : "ltmd:text-sm relative flex cursor-pointer justify-between gap-8 overflow-hidden rounded-xl p-2 transition-colors ease-out hover:bg-gray-400 hover:bg-opacity-20"
+          ? "ltmd:text-xs relative ml-6 flex cursor-pointer justify-between gap-8 overflow-hidden rounded-xl p-2 text-sm transition-colors ease-out hover:bg-gray hover:bg-opacity-20"
+          : "ltmd:text-sm relative flex cursor-pointer justify-between gap-8 overflow-hidden rounded-xl p-2 transition-colors ease-out hover:bg-gray hover:bg-opacity-20"
       }
       {...props}
       onPointerDown={(e) => {
@@ -42,7 +42,7 @@ const TableOfContents = ({ outline, pages, onItemClick, ...props }) => {
 
   return (
     <>
-      <p className="select-text text-lg text-red-400 md:text-xl">{t("toc")}</p>
+      <p className="select-text text-lg text-accent md:text-xl">{t("toc")}</p>
       <div className="max-h-full overflow-scroll" {...props}>
         {outline.map((pair) => (
           <div key={pair.title + pair.pageNumber}>
