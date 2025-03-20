@@ -12,7 +12,7 @@ import ProjectsSlider from "../../components/pages/index/ProjectsSlider";
 import frisierstube_mader_bg from "../../public/images/projects/frisierstube-mader/bg.webp";
 import fuelprices_bg from "../../public/images/projects/fuelprices/logo.webp";
 import blur_fit_bg from "../../public/images/background_images/blur-fit.webp";
-import personal_website_bg from "../../public/images/personal_images/ich_2.jpeg";
+import personal_website_bg from "../../public/images/personal_images/ich_2.webp";
 import diploma_thesis_bg from "../../public/images/background_images/diploma_thesis.webp";
 
 import frisierstube_mader_laptop from "../../public/images/projects/frisierstube-mader/frisierstube-mader-laptop.webp";
