@@ -23,7 +23,7 @@ module.exports = {
       fontFamily: {
         SfPixelate: "SfPixelate",
         PressStart2P: "Press\\ Start\\ 2P",
-        FiraCode: "Fira\\ Code",
+        DepartureMono: "Departure\\ Mono",
       },
       screens: {
         xs: "400px",

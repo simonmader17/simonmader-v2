@@ -9,8 +9,8 @@
 }
 
 @font-face {
-  font-family: "Fira Code";
-  src: url("/fonts/FiraCode-Regular.ttf");
+  font-family: "Departure Mono";
+  src: url("/fonts/DepartureMono-Regular.otf");
 }
 
 /* ::-webkit-scrollbar { */
@@ -127,7 +127,7 @@ span.ripple-fade-out {
 
 #blog-post-content {
   .hljs {
-    @apply clip-rounded-pixel my-4 bg-secondary bg-opacity-50 p-4 font-FiraCode;
+    @apply clip-rounded-pixel my-4 bg-secondary bg-opacity-50 p-4 font-DepartureMono;
   }
 
   ul {
@@ -155,7 +155,7 @@ span.ripple-fade-out {
   h6,
   li {
     code {
-      @apply rounded-lg bg-secondary bg-opacity-50 px-2 py-1 font-FiraCode;
+      @apply rounded-lg bg-secondary bg-opacity-50 px-2 py-1 font-DepartureMono;
     }
   }
 

@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
           />
           <link
             rel="preload"
-            href="/fonts/FiraCode-Regular.ttf"
+            href="/fonts/DepartureMonoNerdFont-Regular.otf"
             as="font"
             crossOrigin=""
           />
