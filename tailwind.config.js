@@ -35,10 +35,9 @@ module.exports = {
         lt2xl: { max: "1535px" },
       },
       dropShadow: {
-        "3xl": "0 0 5rem rgba(0, 0, 0, .3)",
-        "4xl": "0 0 6rem rgba(0, 0, 0, .5)",
-        pixel: ".5rem .5rem 0 rgb(from #221811 r g b / 50%)",
-        "pixel-sm": ".25rem .25rem 0 rgb(from #221811 r g b / 50%)",
+        "3xl": "0 0 5rem rgb(from #1d2021 r g b / 80%)",
+        pixel: ".5rem .5rem 0 rgb(from #1d2021 r g b / 60%)",
+        "pixel-sm": ".25rem .25rem 0 rgb(from #1d2021 r g b / 60%)",
       },
       keyframes: {
         "fade-in": {

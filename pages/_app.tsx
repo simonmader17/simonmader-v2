@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ParallaxProvider>
-      <SkeletonTheme baseColor="#221811" highlightColor="#5f4330">
+      <SkeletonTheme baseColor="#1d2021" highlightColor="#3c3836">
         <Head>
           <link
             rel="apple-touch-icon"

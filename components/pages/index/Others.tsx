@@ -9,7 +9,7 @@ interface OtherInterface {
 
 const Other = ({ untertitel, titel, content }: OtherInterface) => {
   return (
-    <div className="relative m-4 p-6 md:drop-shadow-3xl">
+    <div className="relative m-4 p-6">
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-secondary bg-opacity-50" />
       {untertitel && <p className="text-gray ltmd:text-sm">{untertitel}</p>}
       <p className="text-lg text-accent md:text-xl">{titel}</p>
