@@ -12,7 +12,7 @@ const DiplomaThesisViewer = ({
 }) => {
   return (
     <Document
-      className="drop-shadow-pixel select-text"
+      className="select-text drop-shadow-pixel"
       file="diploma-thesis.pdf"
       loading={null}
       onLoadSuccess={onDocumentLoadSuccess}

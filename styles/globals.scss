@@ -34,7 +34,7 @@
 }
 
 :root {
-  @apply bg-hero-brick-wall-primary bg-primary;
+  @apply bg-primary bg-hero-brick-wall-primary;
 }
 
 body {
@@ -84,7 +84,7 @@ a {
   @apply relative;
 
   &[hover-info]::after {
-    @apply font-SfPixelate absolute block whitespace-nowrap rounded-xl bg-secondary bg-opacity-50 p-[1em] text-center text-[.8rem] text-fg;
+    @apply absolute block whitespace-nowrap rounded-xl bg-secondary bg-opacity-50 p-[1em] text-center font-SfPixelate text-[.8rem] text-fg;
     content: attr(hover-info);
 
     bottom: 0;
@@ -127,7 +127,7 @@ span.ripple-fade-out {
 
 #blog-post-content {
   .hljs {
-    @apply font-FiraCode clip-rounded-pixel my-4 bg-secondary bg-opacity-50 p-4;
+    @apply clip-rounded-pixel my-4 bg-secondary bg-opacity-50 p-4 font-FiraCode;
   }
 
   ul {
@@ -155,7 +155,7 @@ span.ripple-fade-out {
   h6,
   li {
     code {
-      @apply font-FiraCode rounded-lg bg-secondary bg-opacity-50 px-2 py-1;
+      @apply rounded-lg bg-secondary bg-opacity-50 px-2 py-1 font-FiraCode;
     }
   }
 

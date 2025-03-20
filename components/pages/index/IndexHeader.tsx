@@ -53,7 +53,7 @@ const IndexHeader = () => {
             </AnimatePresence>
           </div>
         </div>
-        <h1 className="drop-shadow-pixel-sm md:drop-shadow-pixel font-PressStart2P mb-2 mt-0 pl-1 text-2xl md:mb-4 md:text-4xl">
+        <h1 className="mb-2 mt-0 pl-1 font-PressStart2P text-2xl drop-shadow-pixel-sm md:mb-4 md:text-4xl md:drop-shadow-pixel">
           Simon Mader
         </h1>
         <div className="flex">
@@ -62,21 +62,21 @@ const IndexHeader = () => {
             title="E-Mail"
             target="_blank"
             rel="noreferrer"
-            className="icon-gmail-white drop-shadow-pixel-sm hover:text-gmail focus:text-gmail p-2 leading-none transition-all md:text-lg md:leading-none"
+            className="icon-gmail-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-gmail focus:text-gmail md:text-lg md:leading-none"
           ></a>
           <a
             href="https://www.linkedin.com/in/simonmader/"
             title="LinkedIn"
             target="_blank"
             rel="noreferrer"
-            className="icon-linkedin-white drop-shadow-pixel-sm hover:text-linkedin focus:text-linkedin p-2 leading-none transition-all md:text-lg md:leading-none"
+            className="icon-linkedin-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-linkedin focus:text-linkedin md:text-lg md:leading-none"
           ></a>
           <a
             href="https://github.com/simonmader17"
             title="GitHub"
             target="_blank"
             rel="noreferrer"
-            className="icon-github-white drop-shadow-pixel-sm hover:text-github focus:text-github p-2 leading-none transition-all md:text-lg md:leading-none"
+            className="icon-github-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-github focus:text-github md:text-lg md:leading-none"
           ></a>
         </div>
       </div>

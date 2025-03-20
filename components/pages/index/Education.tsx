@@ -58,7 +58,7 @@ const School = ({ name, zweig, from, to, bg, info }: SchoolInterface) => {
       </p>
       {info && (
         <>
-          <div className="ltmd:text-sm xl:hidden">
+          <div className="xl:hidden ltmd:text-sm">
             <Expand open={showInfo}>{info}</Expand>
           </div>
           <div className="ltxl:hidden">{info}</div>

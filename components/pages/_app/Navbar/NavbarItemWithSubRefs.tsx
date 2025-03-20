@@ -59,7 +59,7 @@ const NavbarItemWithSubRefs = ({ title, subRefs }) => {
 
       {subRefs && (
         <motion.div
-          className="bg-primary bg-hero-brick-wall-primary ltmd:bottom-16 ltmd:origin-bottom absolute left-0 -z-10 flex flex-col border-2 border-secondary md:top-16"
+          className="absolute left-0 -z-10 flex flex-col border-2 border-secondary bg-primary bg-hero-brick-wall-primary md:top-16 ltmd:bottom-16 ltmd:origin-bottom"
           animate={open ? "open" : "closed"}
           variants={variants}
           initial={false}

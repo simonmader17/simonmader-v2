@@ -194,19 +194,19 @@ const Post = ({ post }) => {
 
       <div
         id="progress-bar"
-        className="bg-accent fixed top-0 left-0 z-50 h-1 bg-gradient-to-br drop-shadow md:h-2"
+        className="fixed top-0 left-0 z-50 h-1 bg-accent bg-gradient-to-br drop-shadow md:h-2"
         style={{
           width: "0%",
         }}
       ></div>
 
       <Container className="ltmd:mt-20">
-        <h1 className="drop-shadow-pixel-sm mt-5 text-center md:mt-10">
+        <h1 className="mt-5 text-center drop-shadow-pixel-sm md:mt-10">
           {data.title}
         </h1>
 
         <div className="my-5 grid grid-cols-1 gap-2 md:my-10 md:grid-cols-3 md:place-items-center">
-          <div className="drop-shadow-pixel-sm my-2 flex items-center gap-2">
+          <div className="my-2 flex items-center gap-2 drop-shadow-pixel-sm">
             <div className="relative m-2 h-16 w-16">
               <Image
                 src="https://github.com/simonmader17.png"
@@ -226,7 +226,7 @@ const Post = ({ post }) => {
                   title="GitHub"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-github focus:text-github hover:font-bold"
+                  className="hover:font-bold hover:text-github focus:text-github"
                 >
                   <span className={`icon-github-white m-1`} />
                   simonmader17
@@ -249,10 +249,10 @@ const Post = ({ post }) => {
             {views || (
               <>
                 <span className="inline-block animate-bounce">-</span>
-                <span className="animation-delay-300 inline-block animate-bounce">
+                <span className="inline-block animate-bounce animation-delay-300">
                   -
                 </span>
-                <span className="animation-delay-600 inline-block animate-bounce">
+                <span className="inline-block animate-bounce animation-delay-600">
                   -
                 </span>
               </>
@@ -261,7 +261,7 @@ const Post = ({ post }) => {
         </div>
 
         <div className="mx-auto xl:max-w-[1024px]">
-          <div className="drop-shadow-pixel relative mx-auto mb-5 aspect-video w-full py-4 md:mb-10">
+          <div className="relative mx-auto mb-5 aspect-video w-full py-4 drop-shadow-pixel md:mb-10">
             <Image
               src={thumbnailPath}
               alt={data.title}
@@ -292,7 +292,7 @@ const Post = ({ post }) => {
                 img: ({ ...props }) => {
                   const { src, alt } = props;
                   return (
-                    <div className="drop-shadow-pixel mx-auto mb-5 flex aspect-video w-full justify-center py-4 md:mb-10">
+                    <div className="mx-auto mb-5 flex aspect-video w-full justify-center py-4 drop-shadow-pixel md:mb-10">
                       <div
                         className="relative h-full"
                         style={{

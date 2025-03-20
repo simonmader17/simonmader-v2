@@ -38,14 +38,14 @@ const BlogListItem = ({ post }) => {
                   : "unpublished"}
               </span>
               <span>
-                👀 <span className="xs:inline hidden">{t("views")}:</span>{" "}
+                👀 <span className="hidden xs:inline">{t("views")}:</span>{" "}
                 {views || (
                   <>
                     <span className="inline-block animate-bounce">-</span>
-                    <span className="animation-delay-300 inline-block animate-bounce">
+                    <span className="inline-block animate-bounce animation-delay-300">
                       -
                     </span>
-                    <span className="animation-delay-600 inline-block animate-bounce">
+                    <span className="inline-block animate-bounce animation-delay-600">
                       -
                     </span>
                   </>
@@ -58,7 +58,7 @@ const BlogListItem = ({ post }) => {
               {t("read_more")}
             </span>
           </div>
-          <div className="clip-rounded-pixel ltmd:w-full relative -z-10 aspect-video md:min-h-[12rem]">
+          <div className="clip-rounded-pixel relative -z-10 aspect-video md:min-h-[12rem] ltmd:w-full">
             <Image
               src={post.thumbnailPath}
               alt={post.data.title}

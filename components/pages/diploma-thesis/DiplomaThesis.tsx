@@ -191,7 +191,7 @@ const DiplomaThesis = () => {
   const { t } = useTranslation("diploma-thesis");
 
   return (
-    <div className="ltmd:flex-col ltmd:mt-20 ltmd:items-center relative flex select-none gap-8 md:my-[5vh] md:h-[90vh] md:justify-center">
+    <div className="relative flex select-none gap-8 md:my-[5vh] md:h-[90vh] md:justify-center ltmd:mt-20 ltmd:flex-col ltmd:items-center">
       <div
         className="relative z-10"
         style={{
@@ -243,7 +243,7 @@ const DiplomaThesis = () => {
           // Controls for the pdf
           <>
             <button
-              className="bg-hero-brick-wall-primary bg-primary drop-shadow-pixel-sm absolute top-10 right-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary transition-opacity"
+              className="absolute top-10 right-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-primary drop-shadow-pixel-sm transition-opacity bg-hero-brick-wall-primary"
               style={{ opacity: showToolbar ? "1" : "0" }}
               onClick={() => router.push("/diploma-thesis.pdf")}
               title="Open in native viewer"
@@ -257,7 +257,7 @@ const DiplomaThesis = () => {
               }}
             >
               <button
-                className="bg-hero-brick-wall-primary bg-primary drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-secondary text-xl md:text-3xl"
+                className="h-12 w-12 rounded-full border-2 border-secondary bg-primary text-xl drop-shadow-pixel-sm bg-hero-brick-wall-primary md:text-3xl"
                 onClick={() => {
                   if (pageNumber == 0) {
                     setPageNumber(pages[0]);
@@ -277,7 +277,7 @@ const DiplomaThesis = () => {
                 {"<"}
               </button>
               <span
-                className="bg-hero-brick-wall-primary bg-primary drop-shadow-pixel-sm ltmd:text-xs flex min-h-[3rem] cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-2 border-secondary px-4"
+                className="flex min-h-[3rem] cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-2 border-secondary bg-primary px-4 drop-shadow-pixel-sm bg-hero-brick-wall-primary ltmd:text-xs"
                 onClick={() => gotoPageInputEl.current.focus()}
               >
                 <input
@@ -332,7 +332,7 @@ const DiplomaThesis = () => {
                 </label>
               </span>
               <button
-                className="bg-hero-brick-wall-primary bg-primary drop-shadow-pixel-sm h-12 w-12 rounded-full border-2 border-secondary text-xl md:text-3xl"
+                className="h-12 w-12 rounded-full border-2 border-secondary bg-primary text-xl drop-shadow-pixel-sm bg-hero-brick-wall-primary md:text-3xl"
                 onClick={() => {
                   if (pageNumber == 0) {
                     setPageNumber(pages[0]);
@@ -355,9 +355,9 @@ const DiplomaThesis = () => {
           </>
         )}
       </div>
-      <div className="ltmd:w-full flex h-full flex-col gap-2 md:w-[30rem]">
+      <div className="flex h-full flex-col gap-2 md:w-[30rem] ltmd:w-full">
         <Checkbox
-          className="ltmd:mx-auto mb-6"
+          className="mb-6 ltmd:mx-auto"
           id="my-chapters"
           label={t("my_chapters")}
           onChange={(e) => handleMyChaptersCheckBox(e)}
@@ -383,7 +383,7 @@ const DiplomaThesis = () => {
             <Skeleton
               count={14}
               height={"2em"}
-              className="ltmd:text-sm my-2 opacity-70"
+              className="my-2 opacity-70 ltmd:text-sm"
             />
           </>
         )}

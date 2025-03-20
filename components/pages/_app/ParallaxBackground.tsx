@@ -9,7 +9,7 @@ const ParallaxBackground = ({ className }: IParallaxBackground) => {
     <Parallax
       speed={-100}
       className={[
-        "bg-hero-brick-wall-primary bg-primary absolute inset-0 -z-10",
+        "absolute inset-0 -z-10 bg-primary bg-hero-brick-wall-primary",
         className,
       ].join(" ")}
     />

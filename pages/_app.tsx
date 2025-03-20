@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
           <meta property="og:site_name" content="simonmader.at" />
         </Head>
 
-        <div className="font-SfPixelate relative z-0 flex min-h-screen flex-col overflow-hidden text-center text-fg">
+        <div className="relative z-0 flex min-h-screen flex-col overflow-hidden text-center font-SfPixelate text-fg">
           <Navbar />
 
           <ParallaxBackground className="ltmd:hidden" />

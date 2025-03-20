@@ -19,7 +19,7 @@ const Qualification = ({
 }: QualificationInterface) => {
   return (
     <div
-      className={`md:drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6 ${className}`}
+      className={`relative m-4 flex max-w-full items-center gap-4 p-6 md:drop-shadow-3xl ${className}`}
     >
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-secondary bg-opacity-50" />
       <div className="flex-shrink-0">
@@ -66,7 +66,7 @@ const Others = ({ qualifications }: OthersInterface) => {
   }
 
   return (
-    <div className="md:drop-shadow-3xl relative m-4 flex max-w-full flex-wrap items-center justify-around gap-8 p-10 xl:gap-14">
+    <div className="relative m-4 flex max-w-full flex-wrap items-center justify-around gap-8 p-10 md:drop-shadow-3xl xl:gap-14">
       {items}
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-secondary bg-opacity-50" />
     </div>

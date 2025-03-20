@@ -23,18 +23,18 @@ const Project = ({
 }: ProjectInterface) => {
   return (
     <BlurredBgImageContainer bgSrc={bg} bgAlt={title} bgPosition="center">
-      <p className="ltmd:text-sm text-gray">{zeitraum}</p>
+      <p className="text-gray ltmd:text-sm">{zeitraum}</p>
       <p className="my-1 text-lg text-accent md:text-xl">{title}</p>
       {text.map((s) => (
         <p key={s} className="ltmd:text-sm">
           {s}
         </p>
       ))}
-      <p className="ltmd:text-sm mt-2 uppercase italic tracking-wider">
+      <p className="mt-2 uppercase italic tracking-wider ltmd:text-sm">
         {tags?.map((t) => "#" + t.replace(" ", "")).join(" ")}
       </p>
       {links && (
-        <p className="ltmd:text-sm mt-1 font-bold italic tracking-wider text-gray">
+        <p className="mt-1 font-bold italic tracking-wider text-gray ltmd:text-sm">
           {links
             .map((l) => (
               <Link key={l.link} href={l.link} passHref>

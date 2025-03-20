@@ -32,7 +32,7 @@ const Certificate = ({
   const locale = useRouter().locale;
 
   return (
-    <div className="md:drop-shadow-3xl relative m-4 flex max-w-full items-center gap-4 p-6">
+    <div className="relative m-4 flex max-w-full items-center gap-4 p-6 md:drop-shadow-3xl">
       <div className="clip-rounded-pixel absolute inset-0 -z-10 bg-secondary bg-opacity-50" />
       <div className="flex-shrink-0">
         <a href={companyUrl} target="_blank" rel="noreferrer" title={company}>

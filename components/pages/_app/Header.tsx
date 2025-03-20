@@ -33,7 +33,7 @@ const Header = ({ children, ...props }) => {
 
   return (
     <div
-      className="bg-hero-brick-wall-secondary bg-secondary drop-shadow-3xl flex flex-col items-center justify-center overflow-hidden"
+      className="flex flex-col items-center justify-center overflow-hidden bg-secondary drop-shadow-3xl bg-hero-brick-wall-secondary"
       style={{
         minHeight: headerMinHeight == 0 ? "100vh" : `${headerMinHeight}px`,
       }}
@@ -41,7 +41,7 @@ const Header = ({ children, ...props }) => {
     >
       <Parallax speed={windowWidth >= 768 ? -20 : 0}>{children}</Parallax>
       <PixelatedDownChevron
-        className="drop-shadow-pixel-sm fixed bottom-0 mb-4 w-12 animate-bounce cursor-pointer text-accent transition-opacity duration-500 ease-out md:w-14"
+        className="fixed bottom-0 mb-4 w-12 animate-bounce cursor-pointer text-accent drop-shadow-pixel-sm transition-opacity duration-500 ease-out md:w-14"
         style={{
           opacity: chevronDownIconOpacity,
           pointerEvents: chevronDownIconOpacity > 0 ? "auto" : "none",
