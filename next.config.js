@@ -9,7 +9,7 @@ module.exports = nextTranslate({
       {
         source: "/.well-known/openpgpkey/:path*",
         headers: [
-          { key: "Content-Type", value: "application/pgp-keys" },
+          { key: "Content-Type", value: "application/octet-stream" },
           { key: "Access-Control-Allow-Origin", value: "*" },
         ],
       },
