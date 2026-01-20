@@ -1,19 +1,18 @@
 @font-face {
-  font-family: "icomoon";
-  src: url("fonts/icomoon.eot?krh9m0");
-  src: url("fonts/icomoon.eot?krh9m0#iefix") format("embedded-opentype"),
-    url("fonts/icomoon.ttf?krh9m0") format("truetype"),
-    url("fonts/icomoon.woff?krh9m0") format("woff"),
-    url("fonts/icomoon.svg?krh9m0#icomoon") format("svg");
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?a1huz6');
+  src:  url('fonts/icomoon.eot?a1huz6#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?a1huz6') format('truetype'),
+    url('fonts/icomoon.woff?a1huz6') format('woff'),
+    url('fonts/icomoon.svg?a1huz6#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
+  font-family: 'icomoon' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -26,6 +25,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-gnuprivacyguard:before {
+  content: "\e925";
+  color: #0093dd;
+}
+.icon-gnuprivacyguard-white:before {
+  content: "\e926";
+}
 .icon-gnubash:before {
   content: "\e916";
   color: #4eaa25;
@@ -174,4 +180,7 @@
 }
 .icon-github-white:before {
   content: "\eab0";
+}
+.icon-key:before {
+  content: "\e98d";
 }

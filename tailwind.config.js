@@ -19,6 +19,7 @@ module.exports = {
         gmail: "#DC4234",
         linkedin: "#0274B3",
         github: "#525252",
+        gnuprivacyguard: "#0093DD",
       },
       fontFamily: {
         SfPixelate: "SfPixelate",

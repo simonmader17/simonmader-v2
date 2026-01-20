@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import About from "../components/pages/index/About";
@@ -10,7 +12,22 @@ import Projects from "../components/pages/index/Projects";
 import Qualifications from "../components/pages/index/Qualifications";
 import IndexHeader from "../components/pages/index/IndexHeader";
 
-const IndexPage = () => {
+export async function getStaticProps() {
+  const pubkeyPath = path.join("public", "pubkey.asc");
+  const pubkey = fs.readFileSync(pubkeyPath, "utf8");
+
+  return {
+    props: {
+      pubkey,
+    },
+  };
+}
+
+interface IndexPageProps {
+  pubkey: string;
+}
+
+const IndexPage = ({ pubkey }: IndexPageProps) => {
   const { t } = useTranslation("meta");
 
   return (
@@ -28,7 +45,7 @@ const IndexPage = () => {
         <meta property="og:url" content="https://simonmader.at" />
       </Head>
 
-      <IndexHeader />
+      <IndexHeader pubkey={pubkey} />
 
       <Container>
         <About />

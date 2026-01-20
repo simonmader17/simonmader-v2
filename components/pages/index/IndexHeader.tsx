@@ -1,4 +1,6 @@
-import { useState } from "react";
+import fs from "fs";
+import path from "path";
+import { useRef, useState } from "react";
 import { createRipple } from "../../../lib/ripple";
 import Header from "../_app/Header";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,11 +13,28 @@ import ich5 from "../../../public/images/personal_images/ich_5.webp";
 
 const images = [ich, ich3, ich5, ich4];
 
-const IndexHeader = () => {
+interface IndexHeaderProps {
+  pubkey: string;
+}
+
+const IndexHeader = ({ pubkey }: IndexHeaderProps) => {
   const [showIdx, setShowIdx] = useState(0);
+  const pgpDialogRef = useRef<HTMLDialogElement>(null);
 
   const showNextImage = () => {
     setShowIdx((prev) => (prev + 1) % images.length);
+  };
+
+  const openModal = () => pgpDialogRef.current?.showModal();
+  const closeModal = () => pgpDialogRef.current?.close();
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(pubkey);
+      alert("PGP Key copied to clipboard!");
+    } catch (err) {
+      alert("Failed to copy PGP Key: " + err);
+    }
   };
 
   return (
@@ -48,7 +67,7 @@ const IndexHeader = () => {
                       className="relative -z-10"
                     />
                   </motion.div>
-                ) : null
+                ) : null,
               )}
             </AnimatePresence>
           </div>
@@ -64,13 +83,63 @@ const IndexHeader = () => {
             rel="noreferrer"
             className="icon-gmail-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-gmail focus:text-gmail md:text-lg md:leading-none"
           ></a>
-          <a
+          <button
+            title="Public PGP Key"
+            className="icon-gnuprivacyguard-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-gnuprivacyguard focus:text-gnuprivacyguard md:text-lg md:leading-none"
+            onClick={openModal}
+          ></button>
+          <dialog
+            ref={pgpDialogRef}
+            className="overflow-hidden bg-transparent drop-shadow-pixel"
+            onClick={(e) => {
+              if (e.target === pgpDialogRef.current) {
+                closeModal();
+              }
+            }}
+          >
+            <div className="clip-rounded-pixel flex max-h-[90dvh] flex-col bg-fg p-4">
+              <h1 className="flex-none drop-shadow-none">Public PGP Key</h1>
+              <pre className="min-h-0 flex-1 overflow-auto border-4 border-secondary border-t-white border-l-white p-2 text-left font-DepartureMono text-sm">
+                {pubkey}
+              </pre>
+              <div className="mt-2">
+                <p>PGP Fingerprint:</p>
+                <pre className="white-space-pre-wrap font-DepartureMono">
+                  0C91 2397 109B 5D1F 5D58
+                  <br />
+                  FAB5 A19A CD01 D8CA E998
+                </pre>
+              </div>
+              <div className="mt-4 flex flex-none justify-center gap-2">
+                <button
+                  className="border-2 border-gray bg-fg p-2"
+                  onClick={handleCopy}
+                >
+                  Copy
+                </button>
+                <a
+                  className="border-2 border-gray bg-fg p-2"
+                  href="/pubkey.asc"
+                  download
+                >
+                  Download
+                </a>
+                <button
+                  className="border-2 border-gray bg-fg p-2"
+                  onClick={closeModal}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </dialog>
+          {/* <a
             href="https://www.linkedin.com/in/simonmader/"
             title="LinkedIn"
             target="_blank"
             rel="noreferrer"
             className="icon-linkedin-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-linkedin focus:text-linkedin md:text-lg md:leading-none"
-          ></a>
+          ></a> */}
           <a
             href="https://github.com/simonmader17"
             title="GitHub"

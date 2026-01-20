@@ -41,7 +41,8 @@ body {
   overflow: overlay;
 }
 
-a {
+a,
+button {
   @apply cursor-pointer;
 }
 
