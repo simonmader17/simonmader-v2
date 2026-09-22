@@ -7,19 +7,24 @@ module.exports = {
     extend: {
       colors: {
         // Theme colors
-        fg: "#fbf1c7",
-        gray: "#a89984",
+        fg: "#FBF1C7",
+        fg1: "#EBDBB2",
+        fg2: "#D5C4A1",
+        fg3: "#BDAE93",
+        gray: "#A89984",
         primary: "#282828",
-        secondary: "#3c3836",
-        accent: "#fb4934",
-        // active: "#83a598",
-        active: "#b8bb26",
+        secondary: "#3C3836",
+        accent: "#FB4934",
+        red2: "#CC241D",
+        // active: "#83A598",
+        active: "#B8BB26",
         // Icon colors
         brave: "#FE3516",
         gmail: "#DC4234",
         linkedin: "#0274B3",
         github: "#525252",
         gnuprivacyguard: "#0093DD",
+        signal: "#2592E9",
       },
       fontFamily: {
         SfPixelate: "SfPixelate",
@@ -70,10 +75,10 @@ module.exports = {
       variants: [],
       patterns: [],
       colors: {
-        primary: "#3c3836",
+        primary: "#3C3836",
         secondary: "#504945",
-        default: "#5f4330",
-        purple: "#9d6e4e",
+        default: "#5F4330",
+        purple: "#9D6E4E",
       },
       opacity: {
         default: 0.4,

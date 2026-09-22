@@ -1,13 +1,13 @@
-import fs from "fs";
-import path from "path";
-import { useRef, useState } from "react";
-import { createRipple } from "../../../lib/ripple";
-import Header from "../_app/Header";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { MutableRefObject, useRef, useState } from "react";
+import { createRipple } from "../../../lib/ripple";
+import Header from "../_app/Header";
 
-import ich from "../../../public/images/personal_images/ich_3.webp";
+import signalCode from "../../../public/images/signal-username-qr-code.png";
+
 import ich3 from "../../../public/images/personal_images/ich.webp";
+import ich from "../../../public/images/personal_images/ich_3.webp";
 import ich4 from "../../../public/images/personal_images/ich_4.webp";
 import ich5 from "../../../public/images/personal_images/ich_5.webp";
 
@@ -20,20 +20,23 @@ interface IndexHeaderProps {
 const IndexHeader = ({ pubkey }: IndexHeaderProps) => {
   const [showIdx, setShowIdx] = useState(0);
   const pgpDialogRef = useRef<HTMLDialogElement>(null);
+  const signalDialogRef = useRef<HTMLDialogElement>(null);
 
   const showNextImage = () => {
     setShowIdx((prev) => (prev + 1) % images.length);
   };
 
-  const openModal = () => pgpDialogRef.current?.showModal();
-  const closeModal = () => pgpDialogRef.current?.close();
+  const openModal = (dialogRef: MutableRefObject<HTMLDialogElement>) =>
+    dialogRef.current?.showModal();
+  const closeModal = (dialogRef: MutableRefObject<HTMLDialogElement>) =>
+    dialogRef.current?.close();
 
-  const handleCopy = async () => {
+  const handleCopy = async (text: string, success: string, failure: string) => {
     try {
-      await navigator.clipboard.writeText(pubkey);
-      alert("PGP Key copied to clipboard!");
+      await navigator.clipboard.writeText(text);
+      alert(success);
     } catch (err) {
-      alert("Failed to copy PGP Key: " + err);
+      alert(failure + ": " + err);
     }
   };
 
@@ -67,7 +70,7 @@ const IndexHeader = ({ pubkey }: IndexHeaderProps) => {
                       className="relative -z-10"
                     />
                   </motion.div>
-                ) : null,
+                ) : null
               )}
             </AnimatePresence>
           </div>
@@ -81,25 +84,28 @@ const IndexHeader = ({ pubkey }: IndexHeaderProps) => {
             title="E-Mail"
             target="_blank"
             rel="noreferrer"
-            className="icon-gmail-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-gmail focus:text-gmail md:text-lg md:leading-none"
+            className="icon-gmail-white p-2 text-xl leading-none drop-shadow-pixel-sm transition-all hover:text-gmail focus:text-gmail md:text-3xl md:leading-none"
           ></a>
           <button
             title="Public PGP Key"
-            className="icon-gnuprivacyguard-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-gnuprivacyguard focus:text-gnuprivacyguard md:text-lg md:leading-none"
-            onClick={openModal}
+            className="icon-gnuprivacyguard-white p-2 text-xl leading-none drop-shadow-pixel-sm transition-all hover:text-gnuprivacyguard focus:text-gnuprivacyguard md:text-3xl md:leading-none"
+            onClick={() => openModal(pgpDialogRef)}
           ></button>
           <dialog
             ref={pgpDialogRef}
             className="overflow-hidden bg-transparent drop-shadow-pixel"
             onClick={(e) => {
               if (e.target === pgpDialogRef.current) {
-                closeModal();
+                closeModal(pgpDialogRef);
               }
             }}
           >
             <div className="clip-rounded-pixel flex max-h-[90dvh] flex-col bg-fg p-4">
               <h1 className="flex-none drop-shadow-none">Public PGP Key</h1>
-              <pre className="min-h-0 flex-1 overflow-auto border-4 border-secondary border-t-white border-l-white p-2 text-left font-DepartureMono text-sm">
+              <pre
+                className="min-h-0 flex-1 overflow-auto border-8 border-fg1 p-2 text-left font-DepartureMono text-sm"
+                style={{ borderStyle: "ridge" }}
+              >
                 {pubkey}
               </pre>
               <div className="mt-2">
@@ -112,40 +118,88 @@ const IndexHeader = ({ pubkey }: IndexHeaderProps) => {
               </div>
               <div className="mt-4 flex flex-none justify-center gap-2">
                 <button
-                  className="border-2 border-gray bg-fg p-2"
-                  onClick={handleCopy}
+                  className="border-4 border-fg3 bg-fg1 p-2"
+                  style={{ borderStyle: "ridge" }}
+                  onClick={() =>
+                    handleCopy(
+                      pubkey,
+                      "PGP Key copied to clipboard!",
+                      "Failed to copy PGP Key"
+                    )
+                  }
                 >
                   Copy
                 </button>
                 <a
-                  className="border-2 border-gray bg-fg p-2"
+                  className="border-4 border-fg3 bg-fg1 p-2"
+                  style={{ borderStyle: "ridge" }}
                   href="/pubkey.asc"
                   download
                 >
                   Download
                 </a>
                 <button
-                  className="border-2 border-gray bg-fg p-2"
-                  onClick={closeModal}
+                  className="border-4 border-red2 bg-red2 p-2 font-bold text-fg"
+                  style={{ borderStyle: "ridge" }}
+                  onClick={() => closeModal(pgpDialogRef)}
                 >
                   Close
                 </button>
               </div>
             </div>
           </dialog>
-          {/* <a
-            href="https://www.linkedin.com/in/simonmader/"
-            title="LinkedIn"
-            target="_blank"
-            rel="noreferrer"
-            className="icon-linkedin-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-linkedin focus:text-linkedin md:text-lg md:leading-none"
-          ></a> */}
+          <button
+            title="Signal"
+            className="icon-signal-white p-2 text-xl leading-none drop-shadow-pixel-sm transition-all hover:text-signal focus:text-signal md:text-3xl md:leading-none"
+            onClick={() => openModal(signalDialogRef)}
+          ></button>
+          <dialog
+            ref={signalDialogRef}
+            className="overflow-hidden bg-transparent drop-shadow-pixel"
+            onClick={(e) => {
+              if (e.target === signalDialogRef.current) {
+                closeModal(signalDialogRef);
+              }
+            }}
+          >
+            <div className="clip-rounded-pixel flex max-h-[90dvh] flex-col bg-fg p-4">
+              <div className="clip-rounded-pixel w-64 drop-shadow-pixel md:w-96">
+                <Image
+                  src={signalCode}
+                  alt="Signal QR Code"
+                  className="clip-rounded-pixel scale-110"
+                />
+              </div>
+              <div className="mt-4 flex flex-none justify-center gap-2">
+                <button
+                  className="border-4 border-fg3 bg-fg1 p-2"
+                  style={{ borderStyle: "ridge" }}
+                  onClick={() =>
+                    handleCopy(
+                      "https://signal.me/#eu/FdIJ6nHg7_nBrql3zlphZAd0-7XzeJBh1StLJSHVHyLLSBmdURpO8qEn0bw2M0CB",
+                      "Signal link copied to clipboard!",
+                      "Failed to copy Signal link"
+                    )
+                  }
+                >
+                  Copy link
+                </button>
+                <button
+                  className="border-4 border-red2 bg-red2 p-2 font-bold text-fg"
+                  style={{ borderStyle: "ridge" }}
+                  onClick={() => closeModal(signalDialogRef)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </dialog>
           <a
             href="https://github.com/simonmader17"
             title="GitHub"
             target="_blank"
             rel="noreferrer"
-            className="icon-github-white p-2 leading-none drop-shadow-pixel-sm transition-all hover:text-github focus:text-github md:text-lg md:leading-none"
+            className="icon-github-white p-2 text-xl leading-none drop-shadow-pixel-sm transition-all hover:text-github focus:text-github md:text-3xl md:leading-none"
           ></a>
         </div>
       </div>
