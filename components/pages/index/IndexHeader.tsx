@@ -167,6 +167,7 @@ const IndexHeader = ({ pubkey }: IndexHeaderProps) => {
                 <Image
                   src={signalCode}
                   alt="Signal QR Code"
+                  placeholder="blur"
                   className="clip-rounded-pixel scale-110"
                 />
               </div>
