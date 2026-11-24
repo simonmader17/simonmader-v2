@@ -1,9 +1,13 @@
+import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
+import Link from "next/link";
 
 // import contact_img from "../../../public/images/personal_images/ich_5.webp";
 import LocalesSwitcher from "./LocalesSwitcher";
 
 const Footer = () => {
+  const { t } = useTranslation("meta");
+
   return (
     <div className="flex items-center justify-center bg-secondary p-8 text-fg drop-shadow-3xl bg-hero-brick-wall-secondary">
       <div className="flex-shrink-0 drop-shadow-pixel">
@@ -58,6 +62,11 @@ const Footer = () => {
             <span className={`icon-github-white m-1`} />
             simonmader17
           </a>
+        </span>
+        <span className="flex">
+          <Link href="/imprint">
+            <a className="m-1 underline hover:font-bold">{t("imprint")}</a>
+          </Link>
         </span>
         <LocalesSwitcher />
       </div>
