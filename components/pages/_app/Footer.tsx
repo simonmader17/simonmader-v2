@@ -41,14 +41,25 @@ const Footer = () => {
         </span>
         <span className="flex">
           <a
-            href="https://www.linkedin.com/in/simonmader/"
-            title="Linkedin"
+            href="/pubkey.asc"
+            title="Public PGP Key"
+            download
+            className="hover:font-bold hover:text-gnuprivacyguard focus:text-gnuprivacyguard"
+          >
+            <span className={`icon-gnuprivacyguard-white m-1`} />
+            PGP Key
+          </a>
+        </span>
+        <span className="flex">
+          <a
+            href="https://signal.me/#eu/FdIJ6nHg7_nBrql3zlphZAd0-7XzeJBh1StLJSHVHyLLSBmdURpO8qEn0bw2M0CB"
+            title="Signal"
             target="_blank"
             rel="noreferrer"
-            className="hover:font-bold hover:text-linkedin focus:text-linkedin"
+            className="hover:font-bold hover:text-signal focus:text-signal"
           >
-            <span className={`icon-linkedin-white m-1`} />
-            simonmader
+            <span className={`icon-signal-white m-1`} />
+            Signal
           </a>
         </span>
         <span className="flex">
