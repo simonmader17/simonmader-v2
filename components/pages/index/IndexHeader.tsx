@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { MutableRefObject, useRef, useState } from "react";
+import { SIGNAL_LINK } from "../../../lib/constants";
 import { createRipple } from "../../../lib/ripple";
 import Header from "../_app/Header";
 
@@ -177,7 +178,7 @@ const IndexHeader = ({ pubkey }: IndexHeaderProps) => {
                   style={{ borderStyle: "ridge" }}
                   onClick={() =>
                     handleCopy(
-                      "https://signal.me/#eu/FdIJ6nHg7_nBrql3zlphZAd0-7XzeJBh1StLJSHVHyLLSBmdURpO8qEn0bw2M0CB",
+                      SIGNAL_LINK,
                       "Signal link copied to clipboard!",
                       "Failed to copy Signal link"
                     )

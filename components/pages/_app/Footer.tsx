@@ -1,6 +1,7 @@
 import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
 import Link from "next/link";
+import { SIGNAL_LINK } from "../../../lib/constants";
 
 // import contact_img from "../../../public/images/personal_images/ich_5.webp";
 import LocalesSwitcher from "./LocalesSwitcher";
@@ -52,7 +53,7 @@ const Footer = () => {
         </span>
         <span className="flex">
           <a
-            href="https://signal.me/#eu/FdIJ6nHg7_nBrql3zlphZAd0-7XzeJBh1StLJSHVHyLLSBmdURpO8qEn0bw2M0CB"
+            href={SIGNAL_LINK}
             title="Signal"
             target="_blank"
             rel="noreferrer"
